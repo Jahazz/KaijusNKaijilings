@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e6cb42187fa214a9153db378d8f8ba, type: 3}
+  m_Name: Fire
+  m_EditorClassIdentifier: 
+  TypeName: Fire
+  AttackerMultiplierCollection:
+  - TypeData: {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}
+    Multiplier: 0
+  - TypeData: {fileID: 11400000}
+    Multiplier: 0
+  - TypeData: {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
+    Multiplier: 0
+  - TypeData: {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
+    Multiplier: 0
+  - TypeData: {fileID: 11400000, guid: f05a79a5ad7bef748941bd40976b53e7, type: 2}
+    Multiplier: 0
