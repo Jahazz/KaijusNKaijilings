@@ -8,4 +8,5 @@ public class TypeDataScriptable : ScriptableObject
 {
     public string TypeName;
     public List<TypeDamagePair> AttackerMultiplierCollection;
+    public Sprite TypeSprite;
 }

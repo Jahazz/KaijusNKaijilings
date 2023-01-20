@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 [System.Serializable]
-public class BaseStatsData<StatsType>
+public class BaseStatsData<Type>
 {
     [field: SerializeField]
-    public StatsType Might { get; set; }
+    public Type Might { get; set; }
     [field: SerializeField]
-    public StatsType Magic { get; set; }
+    public Type Magic { get; set; }
     [field: SerializeField]
-    public StatsType Willpower { get; set; }
+    public Type Willpower { get; set; }
     [field: SerializeField]
-    public StatsType Agility { get; set; }
+    public Type Agility { get; set; }
     [field: SerializeField]
-    public StatsType Initiative { get; set; }
+    public Type Initiative { get; set; }
 }

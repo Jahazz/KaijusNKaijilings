@@ -4,10 +4,11 @@ namespace Utils
 {
     public class ObservableVariable<Type>
     {
-        public delegate void VariableChangedArguments ();
-        public event Action<Type> OnVariableChange = delegate { };
+        public delegate void VariableChangedArguments (Type newValue);
+        public event VariableChangedArguments OnVariableChange;
 
         private Type presentValue;
+
         public Type PresentValue {
             get { return presentValue; }
             set {
@@ -26,10 +27,15 @@ namespace Utils
             PresentValue = initialValue;
         }
 
+        public ObservableVariable ()
+        {
+            PresentValue = default;
+        }
+
         private bool HasValueChanged (Type oldValue, Type newValue)
         {
 
-            return (oldValue == null && newValue != null) || (oldValue != null && newValue == null) || oldValue.Equals(newValue) == false;
+            return (oldValue == null && newValue != null) || (oldValue != null && newValue == null) || (oldValue != null && oldValue.Equals(newValue) == false) || oldValue == null;
         }
     }
 }

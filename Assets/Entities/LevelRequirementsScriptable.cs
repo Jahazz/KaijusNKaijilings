@@ -27,7 +27,7 @@ public class LevelRequirementsScriptable : ScriptableObject
 
     public int GetExpNeededForLevel (int level)
     {
-        return LevelLequirements[level];
+        return LevelLequirements[level-1];
     }
 
     public int GetLevelAtExp (int experience)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 public class EntityManager : MonoBehaviour
 {
@@ -12,14 +13,13 @@ public class EntityManager : MonoBehaviour
     public Entity RequestEntity (StatsScriptable entityType, int level)
     {
         Entity createdEntity = new Entity(entityType);
-        createdEntity.AddExperience(LevelRequirements.GetExpNeededForLevel(level-1));
+        createdEntity.LevelData.AddExperience(LevelRequirements.GetExpNeededForLevel(level));
         return createdEntity;
     }
 
-    public void Start ()
+    public Entity RequestRandomEntity (int level)
     {
-        Entity a = RequestEntity(AllEntitiesTypes[0], 3);
-        Debug.Log(a.Level);
+        return RequestEntity(AllEntitiesTypes.GetRandomElement(), level);
     }
 
 }

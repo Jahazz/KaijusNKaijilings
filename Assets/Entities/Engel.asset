@@ -12,26 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffec2a4a25ffab84bbf43a0597cc2dd9, type: 3}
   m_Name: Engel
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: 
-  <EntityType>k__BackingField: []
+  <Name>k__BackingField: Engel
+  <Description>k__BackingField: To specify the execution order, drag items in the
+    list into the desired position or edit the order numbers of a class in the list.
+    The assigned numbers express the relative order. Unity executes the list from
+    top to bottom (from scripts with more negative order numbers to those with higher
+    positive numbers). Unity executes any scripts not in the list during the Default
+    Time slot, which occurs after any scripts with negative order numbers and before
+    any scripts with positive order numbers.
+  <Image>k__BackingField: {fileID: 21300000, guid: 79940bd64f51b0d4fbb908c2c7ad5457,
+    type: 3}
+  <EntityTypeCollection>k__BackingField:
+  - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
   <BaseStats>k__BackingField:
-    <Might>k__BackingField: 0
-    <Magic>k__BackingField: 0
-    <Willpower>k__BackingField: 0
-    <Agility>k__BackingField: 0
-    <Initiative>k__BackingField: 0
+    <Might>k__BackingField: 4
+    <Magic>k__BackingField: 5
+    <Willpower>k__BackingField: 5
+    <Agility>k__BackingField: 5
+    <Initiative>k__BackingField: 5
   <StatsPerLevel>k__BackingField:
-    <Might>k__BackingField: 0
-    <Magic>k__BackingField: 0
-    <Willpower>k__BackingField: 0
-    <Agility>k__BackingField: 0
-    <Initiative>k__BackingField: 0
+    <Might>k__BackingField: 1
+    <Magic>k__BackingField: 2
+    <Willpower>k__BackingField: 3
+    <Agility>k__BackingField: 4
+    <Initiative>k__BackingField: 5
   <BaseMatRange>k__BackingField:
-    <Might>k__BackingField: {x: 0, y: 0}
-    <Magic>k__BackingField: {x: 0, y: 0}
-    <Willpower>k__BackingField: {x: 0, y: 0}
-    <Agility>k__BackingField: {x: 0, y: 0}
-    <Initiative>k__BackingField: {x: 0, y: 0}
+    <Might>k__BackingField: {x: 2, y: 4}
+    <Magic>k__BackingField: {x: 1, y: 7}
+    <Willpower>k__BackingField: {x: 3, y: 12}
+    <Agility>k__BackingField: {x: 0, y: 5}
+    <Initiative>k__BackingField: {x: 0, y: 10}
   <SkillsWithRequirements>k__BackingField:
   - <RequiredLevel>k__BackingField: 0
     <AssignedSkill>k__BackingField: {fileID: 11400000, guid: 1c94936336415ea4681aa1edc3d297de,

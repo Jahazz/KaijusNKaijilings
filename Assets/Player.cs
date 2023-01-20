@@ -8,5 +8,5 @@ using UnityEngine;
 public class Player
 {
     [field: SerializeField]
-    public ObservableCollection<Entity> EntitiesInEquipment { get; set; }
+    public ObservableCollection<Entity> EntitiesInEquipment { get; set; } = new ObservableCollection<Entity>();
 }

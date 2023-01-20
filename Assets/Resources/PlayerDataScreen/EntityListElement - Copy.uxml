@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="width: 100%; height: 100%; flex-grow: 1;">
+        <ui:VisualElement style="flex-direction: row;">
+            <ui:VisualElement style="width: 30%; height: 100px; background-image: url(&apos;project://database/Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_colorbuhochristmas.png?fileID=2800000&amp;guid=fd098fb4cf57bad419701c802e442b7e&amp;type=3#d_colorbuhochristmas&apos;); -unity-background-scale-mode: scale-to-fit;" />
+            <ui:VisualElement style="flex-grow: 1; justify-content: space-around; align-items: center;">
+                <ui:Label text="Label" display-tooltip-when-elided="true" />
+                <ui:Label text="Label" display-tooltip-when-elided="true" />
+                <ui:Label text="Label" display-tooltip-when-elided="true" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1;" />
+    </ui:VisualElement>
+</ui:UXML>

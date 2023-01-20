@@ -13,14 +13,32 @@ namespace MVC.List
         [field: SerializeField]
         private Transform ElementsContainer { get; set; }
 
-        public List<ElementType> ContainingElements { get; private set; } = new List<ElementType>();
+        public Dictionary<ElementData, ElementType> ContainingElementsCollection { get; private set; } = new Dictionary<ElementData, ElementType>();
 
-        public ElementType AddNewItem (ElementData elementData)
+        public virtual ElementType AddNewItem (ElementData elementData)
         {
             ElementType createdElement = Instantiate(ElementToSpawn, ElementsContainer);
             createdElement.Initialize(elementData);
-            ContainingElements.Add(createdElement);
+            ContainingElementsCollection.Add(elementData, createdElement);
             return createdElement;
+        }
+
+        public virtual void DestroyElement (ElementData elementData)
+        {
+            Destroy(ContainingElementsCollection[elementData]);
+            ContainingElementsCollection.Remove(elementData);
+        }
+
+        public void ClearList ()
+        {
+            Dictionary<ElementData, ElementType> ElementsToRemoveCollection = ContainingElementsCollection;
+
+            foreach (KeyValuePair< ElementData, ElementType> element in ElementsToRemoveCollection)
+            {
+                Destroy(element.Value.gameObject);
+            }
+
+            ContainingElementsCollection.Clear();
         }
     }
 }

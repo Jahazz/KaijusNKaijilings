@@ -8,13 +8,17 @@ public class StatsScriptable : ScriptableObject
     [field: SerializeField]
     public string Name { get; private set; }
     [field: SerializeField]
-    public List<TypeDataScriptable> EntityType { get; private set; }
+    public string Description { get; private set; }
+    [field: SerializeField]
+    public Sprite Image { get; private set; }
+    [field: SerializeField]
+    public List<TypeDataScriptable> EntityTypeCollection { get; private set; }
     [field:SerializeField]
-    public BaseStatsData<int> BaseStats { get; private set; }
+    public BaseStatsData<float> BaseStats { get; private set; }
     [field: SerializeField]
-    public BaseStatsData<int> StatsPerLevel { get; private set; }
+    public BaseStatsData<float> StatsPerLevel { get; private set; }
     [field: SerializeField]
-    public BaseStatsData<Vector2Int> BaseMatRange { get; private set; }
+    public BaseStatsData<Vector2> BaseMatRange { get; private set; }
     [field: SerializeField]
     public List<LevelSkillPair> SkillsWithRequirements { get; private set; }
 }

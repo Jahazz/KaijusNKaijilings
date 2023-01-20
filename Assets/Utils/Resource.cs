@@ -5,6 +5,12 @@ namespace Utils
         public ObservableVariable<VariableType> MaxValue { get; set; }
         public ObservableVariable<VariableType> CurrentValue { get; set; }
 
+        public Resource ()
+        {
+            MaxValue = new ObservableVariable<VariableType>();
+            CurrentValue = new ObservableVariable<VariableType>();
+        }
+
         public Resource (VariableType value)
         {
             MaxValue = new ObservableVariable<VariableType>(value);
