@@ -1,5 +1,5 @@
 using Bindings;
-using MVC.SelectableList;
+using MVC.SingleSelectableList;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Utils;
 
-public class EntityListElement : SelectableListElement<Entity>
+public class EntityListElement : SingleSelectableListElement<Entity>
 {
     [field: SerializeField]
     private TMP_Text CustomNameLabel { get; set; }

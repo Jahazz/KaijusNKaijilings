@@ -9,13 +9,13 @@ namespace MVC.SelectableList
     public class SelectableListView<ElementType, ElementData> : ListView<ElementType, ElementData>
         where ElementType : SelectableListElement<ElementData>
     {
-        internal delegate void ElementSelectedArguments (ElementData selectedElementData);
-        internal event ElementSelectedArguments OnElementSelection;
+        public delegate void ElementSelectedArguments (ElementData selectedElementData);
+        public event ElementSelectedArguments OnElementSelection;
 
         public override ElementType AddNewItem (ElementData elementData)
         {
             ElementType createdElement = base.AddNewItem(elementData);
-            createdElement.InitializeOnSelectionAction(SelectElement);
+            createdElement.InitializeOnSelectionAction(HandleOnElementSelection);
             return createdElement;
         }
 
@@ -27,17 +27,10 @@ namespace MVC.SelectableList
             }
         }
 
-        private void SelectElement (ElementData elementData)
+        protected virtual void HandleOnElementSelection (ElementData elementData)
         {
-            foreach (KeyValuePair<ElementData, ElementType> element in ContainingElementsCollection)
-            {
-                if (EqualityComparer<ElementData>.Default.Equals(element.Key, elementData) == false)
-                {
-                    element.Value.Deselect();
-                }
-            }
-
             OnElementSelection?.Invoke(elementData);
         }
     }
 }
+

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace MVC.SelectableList
 {
-    public abstract class SelectableListElement<ElementData> : ListElement<ElementData>
+    public class SelectableListElement<ElementData> : ListElement<ElementData>
     {
         private Action<ElementData> OnSelectionAction { get; set; }
         private bool IsSelected { get; set; }

@@ -1,8 +1,8 @@
 using MVC.List;
+using MVC.SingleSelectableList;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 namespace MVC.SelectableList
 {
     public class SelectableListController<ElementType, ElementData, ListView, ListModel> : ListController<ElementType, ElementData, ListView, ListModel>
@@ -10,6 +10,6 @@ namespace MVC.SelectableList
         where ListView : SelectableListView<ElementType, ElementData>
          where ListModel : SelectableListModel<ElementType, ElementData, ListView>
     {
-        
+
     }
 }

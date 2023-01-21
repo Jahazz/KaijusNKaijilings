@@ -1,11 +1,11 @@
 using MVC.List;
-using MVC.SelectableList;
+using MVC.SingleSelectableList;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
 
-public class EntityListModel : SelectableListModel<EntityListElement, Entity, EntityListView>
+public class EntityListModel : SingleSelectableListModel<EntityListElement, Entity, EntityListView>
 {
     // Start is called before the first frame update
     protected virtual void OnEnable ()

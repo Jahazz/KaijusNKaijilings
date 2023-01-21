@@ -23,6 +23,7 @@ public class Entity
     public EntityLevelData LevelData { get; private set; }
     [field: SerializeField]
     public ObservableCollection<TypeDataScriptable> TypeScriptableCollection { get; set; } = new ObservableCollection<TypeDataScriptable>();
+    public ObservableCollection<StatModifier> SelectedSkillsCollection { get; set; } = new ObservableCollection<StatModifier>();
 
     private ObservableCollection<StatModifier> StatModifiers { get; set; } = new ObservableCollection<StatModifier>();
 
