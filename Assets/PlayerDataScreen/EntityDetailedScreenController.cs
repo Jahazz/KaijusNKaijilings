@@ -7,10 +7,17 @@ public class EntityDetailedScreenController : BaseController<EntityDetailedScree
 {
     [field: SerializeField]
     private EntityListModel EntityListModel { get; set; }
+    [field: SerializeField]
+    private SkillListController SkillListController { get; set; }
 
     public void ChangeEntityCustomName (string newName)
     {
         CurrentModel.ChangeEntityCustomName(newName);
+    }
+
+    public void ShowSpellbook ()
+    {
+        SkillListController.Show(CurrentModel.CurrentEntity);
     }
 
     protected override void AttachToEvents ()

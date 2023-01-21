@@ -8,11 +8,11 @@ namespace MVC.SelectableList
 {
     public class SelectableListElement<ElementData> : ListElement<ElementData>
     {
-        private Action<ElementData> OnSelectionAction { get; set; }
+        private Action<ElementData, bool> OnSelectionAction { get; set; }
         private bool IsSelected { get; set; }
         protected ElementData CurrentElementData { get; set; }
 
-        public virtual void InitializeOnSelectionAction (Action<ElementData> onSelectionAction)
+        public virtual void InitializeOnSelectionAction (Action<ElementData, bool> onSelectionAction)
         {
             OnSelectionAction = onSelectionAction;
         }
@@ -24,7 +24,11 @@ namespace MVC.SelectableList
 
         public virtual void Deselect ()
         {
-            IsSelected = false;
+            if(IsSelected == true)
+            {
+                IsSelected = false;
+                OnSelectionAction?.Invoke(CurrentElementData, IsSelected);
+            }
         }
 
         public virtual void Select ()
@@ -32,7 +36,7 @@ namespace MVC.SelectableList
             if (IsSelected == false)
             {
                 IsSelected = true;
-                OnSelectionAction?.Invoke(CurrentElementData);
+                OnSelectionAction?.Invoke(CurrentElementData, IsSelected);
             }
         }
     }

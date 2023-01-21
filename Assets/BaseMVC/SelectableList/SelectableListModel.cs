@@ -19,9 +19,12 @@ namespace MVC.SelectableList
             CurrentView.OnElementSelection += HandleViewElementSelection;
         }
 
-        private void HandleViewElementSelection (ElementData selectedElementData)
+        private void HandleViewElementSelection (ElementData selectedElementData, bool isSelected)
         {
-            OnElementSelection?.Invoke(selectedElementData);
+            if (isSelected == true)
+            {
+                OnElementSelection?.Invoke(selectedElementData);
+            }
         }
     }
 }

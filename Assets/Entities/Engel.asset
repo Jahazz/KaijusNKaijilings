@@ -46,3 +46,9 @@ MonoBehaviour:
   - <RequiredLevel>k__BackingField: 0
     <AssignedSkill>k__BackingField: {fileID: 11400000, guid: 1c94936336415ea4681aa1edc3d297de,
       type: 2}
+  - <RequiredLevel>k__BackingField: 1
+    <AssignedSkill>k__BackingField: {fileID: 11400000, guid: 44e71ffd88aefc7448be5b4375180553,
+      type: 2}
+  - <RequiredLevel>k__BackingField: 7
+    <AssignedSkill>k__BackingField: {fileID: 11400000, guid: 12fc1bb39fd07f3448b60b8cb22f10b3,
+      type: 2}

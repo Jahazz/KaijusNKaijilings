@@ -12,5 +12,7 @@ public class SkillScriptableObject : ScriptableObject
     [field: SerializeField]
     public string Description { get; private set; }
     [field: SerializeField]
+    public Sprite Image { get; private set; }
+    [field: SerializeField]
     public List<TypeDataScriptable> SkilType { get; private set; }
 }

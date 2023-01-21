@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EntityDetailedScreenModel : BaseModel<EntityDetailedScreenView>
 {
-    private Entity CurrentEntity { get; set; }
+    public Entity CurrentEntity { get; private set; }
 
     public void ShowDataOfEntity (Entity targetEntity)
     {

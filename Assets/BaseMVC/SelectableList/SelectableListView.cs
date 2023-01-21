@@ -9,7 +9,7 @@ namespace MVC.SelectableList
     public class SelectableListView<ElementType, ElementData> : ListView<ElementType, ElementData>
         where ElementType : SelectableListElement<ElementData>
     {
-        public delegate void ElementSelectedArguments (ElementData selectedElementData);
+        public delegate void ElementSelectedArguments (ElementData selectedElementData, bool isSelected);
         public event ElementSelectedArguments OnElementSelection;
 
         public override ElementType AddNewItem (ElementData elementData)
@@ -27,9 +27,9 @@ namespace MVC.SelectableList
             }
         }
 
-        protected virtual void HandleOnElementSelection (ElementData elementData)
+        protected virtual void HandleOnElementSelection (ElementData elementData, bool isSelected)
         {
-            OnElementSelection?.Invoke(elementData);
+            OnElementSelection?.Invoke(elementData, isSelected);
         }
     }
 }

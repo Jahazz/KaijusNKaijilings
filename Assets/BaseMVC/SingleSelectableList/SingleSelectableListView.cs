@@ -10,7 +10,7 @@ namespace MVC.SingleSelectableList
     public class SingleSelectableListView<ElementType, ElementData> : SelectableListView<ElementType, ElementData>
         where ElementType : SingleSelectableListElement<ElementData>
     {
-        protected override void HandleOnElementSelection (ElementData elementData)
+        protected override void HandleOnElementSelection (ElementData elementData, bool isSelected)
         {
             foreach (KeyValuePair<ElementData, ElementType> element in ContainingElementsCollection)
             {
@@ -20,7 +20,7 @@ namespace MVC.SingleSelectableList
                 }
             }
 
-            base.HandleOnElementSelection(elementData);
+            base.HandleOnElementSelection(elementData, isSelected);
         }
     }
 }
