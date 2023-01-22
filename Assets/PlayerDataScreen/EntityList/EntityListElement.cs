@@ -78,13 +78,21 @@ public class EntityListElement : SingleSelectableListElement<Entity>
 
     public override void Select ()
     {
-        SelectionBorder.SetActive(true);
         base.Select();
+
+        if (IsSelected == true)
+        {
+            SelectionBorder.SetActive(true);
+        }
     }
 
     public override void Deselect ()
     {
-        SelectionBorder.SetActive(false);
         base.Deselect();
+
+        if (IsSelected == false)
+        {
+            SelectionBorder.SetActive(false);
+        }
     }
 }

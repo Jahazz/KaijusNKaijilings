@@ -12,15 +12,20 @@ namespace MVC.SingleSelectableList
     {
         protected override void HandleOnElementSelection (ElementData elementData, bool isSelected)
         {
-            foreach (KeyValuePair<ElementData, ElementType> element in ContainingElementsCollection)
+            base.HandleOnElementSelection(elementData, isSelected);
+
+            if (isSelected == true)
             {
-                if (EqualityComparer<ElementData>.Default.Equals(element.Key, elementData) == false)
+                foreach (KeyValuePair<ElementData, ElementType> element in ContainingElementsCollection)
                 {
-                    element.Value.Deselect();
+                    if (EqualityComparer<ElementData>.Default.Equals(element.Key, elementData) == false)
+                    {
+                        element.Value.Deselect();
+                    }
                 }
             }
+            
 
-            base.HandleOnElementSelection(elementData, isSelected);
         }
     }
 }
