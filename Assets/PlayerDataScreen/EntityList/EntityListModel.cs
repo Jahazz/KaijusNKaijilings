@@ -22,15 +22,15 @@ public class EntityListModel : SingleSelectableListModel<EntityListElement, Enti
 
     private void AttachEvents ()
     {
-        SingletonContainer.Instance.PlayerManager.CurrentPlayer.EntitiesInEquipment.CollectionChanged += EntitiesInEquipment_CollectionChanged;
+        SingletonContainer.Instance.PlayerManager.CurrentPlayer.EntitiesInEquipment.CollectionChanged += HandleOnEntitiesInEquipmentCollectionChanged;
     }
 
     private void DetachEvents ()
     {
-        SingletonContainer.Instance.PlayerManager.CurrentPlayer.EntitiesInEquipment.CollectionChanged -= EntitiesInEquipment_CollectionChanged;
+        SingletonContainer.Instance.PlayerManager.CurrentPlayer.EntitiesInEquipment.CollectionChanged -= HandleOnEntitiesInEquipmentCollectionChanged;
     }
 
-    private void EntitiesInEquipment_CollectionChanged (object sender, NotifyCollectionChangedEventArgs e)
+    private void HandleOnEntitiesInEquipmentCollectionChanged (object sender, NotifyCollectionChangedEventArgs e)
     {
         ClearEntities();
         PopulateEntities();

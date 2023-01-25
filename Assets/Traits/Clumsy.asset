@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7853e4dbd19984f9ae911cfb779d48, type: 3}
+  m_Name: Clumsy
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Clumsy
+  <Description>k__BackingField: clumsy
+  <Image>k__BackingField: {fileID: 0}
+  <ModifiedStatCollection>k__BackingField:
+  - <ModifierType>k__BackingField: 4
+    <ModifiedStat>k__BackingField: 8
+    <Value>k__BackingField: 1.1
+  <ExcludesTraits>k__BackingField:
+  - {fileID: 11400000, guid: b7f5bd855b2d78a4a9566a6c3086b9d9, type: 2}

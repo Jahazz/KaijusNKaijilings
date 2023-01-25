@@ -1,5 +1,6 @@
 public enum StatModifierType
 {
+    NONE,
     ADD,
     REMOVE,
     MULTIPLY,

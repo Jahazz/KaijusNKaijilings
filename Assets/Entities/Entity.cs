@@ -26,6 +26,7 @@ public class Entity
     public ObservableCollection<SkillScriptableObject> SelectedSkillsCollection { get; set; } = new ObservableCollection<SkillScriptableObject>();
 
     private ObservableCollection<StatModifier> StatModifiers { get; set; } = new ObservableCollection<StatModifier>();
+    public ObservableCollection<TraitBaseScriptableObject> TraitsCollection { get; set; } = new ObservableCollection<TraitBaseScriptableObject>();
 
     public Entity (StatsScriptable baseEntity)
     {
@@ -59,6 +60,7 @@ public class Entity
     private void AttachEvents ()
     {
         StatModifiers.CollectionChanged += HandleStatModifierCollectionChanged;
+        TraitsCollection.CollectionChanged += HandleStatModifierCollectionChanged;
     }
 
     private void HandleStatModifierCollectionChanged (object sender, NotifyCollectionChangedEventArgs e)
@@ -75,7 +77,16 @@ public class Entity
         {
             output.Add(statType, new Dictionary<StatModifierType, float>());
 
-            foreach (StatModifier singleModifier in StatModifiers)
+            List<StatModifier> AllStatsCollection = new List<StatModifier>();
+            AllStatsCollection.AddRange(StatModifiers);
+
+            foreach (TraitBaseScriptableObject item in TraitsCollection)
+            {
+                AllStatsCollection.AddRange(item.ModifiedStatCollection);
+            }
+
+
+            foreach (StatModifier singleModifier in AllStatsCollection)
             {
                 if (singleModifier.ModifiedStat == statType)
                 {
@@ -104,7 +115,7 @@ public class Entity
     {
         Dictionary<StatType, Dictionary<StatModifierType, float>> sortedModifiers = SortModifiedStats();
 
-        ApplyModifierForSortedModifiers(sortedModifiers, null);
+        ApplyModifierForSortedModifiers(sortedModifiers, new List<StatType> { StatType.NONE});
     }
 
     private void ApplyModifierForSortedModifiers (Dictionary<StatType, Dictionary<StatModifierType, float>> sortedModifiers, List<StatType> excludedModifiers)

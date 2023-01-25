@@ -29,6 +29,8 @@ public class EntityDetailedScreenView : BaseView
     private CustomProgressBar ExperienceBar { get; set; }
     [field: SerializeField]
     private TypeListController TypeListColtroler { get; set; }
+    [field: SerializeField]
+    private TraitListController TraitListController { get; set; }
 
     private List<Binding> BindingsCollection { get; set; } = new List<Binding>();
     private Entity CurrentEntityData { get; set; }
@@ -40,6 +42,7 @@ public class EntityDetailedScreenView : BaseView
         SetPersistentData();
         SetupChangableData();
         TypeListColtroler.Initialize(entity.TypeScriptableCollection);
+        TraitListController.InitializeTraits(entity.TraitsCollection);
     }
 
     public void SetPersistentData ()
