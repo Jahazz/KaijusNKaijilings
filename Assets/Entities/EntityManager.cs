@@ -14,9 +14,9 @@ public class EntityManager : MonoBehaviour
     [field: SerializeField]
     public LevelRequirementsScriptable LevelRequirements { get; private set; }
 
-    public Entity RequestEntity (StatsScriptable entityType, int level)
+    public Entity RequestEntity (StatsScriptable entityType, int level, BaseStatsData<Vector2> matStatsRange = null)
     {
-        Entity createdEntity = new Entity(entityType);
+        Entity createdEntity = new Entity(entityType, matStatsRange);
         createdEntity.LevelData.AddExperience(LevelRequirements.GetExpNeededForLevel(level));
         AddRandomTraitsToEntity(createdEntity);
         return createdEntity;
@@ -42,7 +42,7 @@ public class EntityManager : MonoBehaviour
                 break;
             }
         }
-        Debug.Log("next character");
+
         List<TraitBaseScriptableObject> availableTraits = new List<TraitBaseScriptableObject>(AvailableTraits);
 
         for (int i = 0; i < numberOfTraits; i++)

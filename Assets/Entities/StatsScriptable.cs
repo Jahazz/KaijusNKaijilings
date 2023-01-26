@@ -21,4 +21,6 @@ public class StatsScriptable : ScriptableObject
     public BaseStatsData<Vector2> BaseMatRange { get; private set; }
     [field: SerializeField]
     public List<LevelSkillPair> SkillsWithRequirements { get; private set; }
+    [field: SerializeField]
+    public int GroupCountRequiredToBreed { get; private set; }
 }

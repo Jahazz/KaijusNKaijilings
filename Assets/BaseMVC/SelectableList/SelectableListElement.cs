@@ -9,7 +9,7 @@ namespace MVC.SelectableList
     public class SelectableListElement<ElementData> : ListElement<ElementData>
     {
         private Action<ElementData, bool> OnSelectionAction { get; set; }
-        protected bool IsSelected { get; private set; }
+        public bool IsSelected { get; private set; }
         protected ElementData CurrentElementData { get; set; }
 
         public virtual void InitializeOnSelectionAction (Action<ElementData, bool> onSelectionAction)

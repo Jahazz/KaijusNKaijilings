@@ -32,8 +32,11 @@ public class EntityDetailedScreenController : BaseController<EntityDetailedScree
         EntityListModel.OnElementSelection -= HandleOnElementSelection;
     }
 
-    private void HandleOnElementSelection (Entity selectedElementData)
+    private void HandleOnElementSelection (Entity selectedElementData, bool isSelected)
     {
-        CurrentModel.ShowDataOfEntity(selectedElementData);
+        if (isSelected == true)
+        {
+            CurrentModel.ShowDataOfEntity(selectedElementData);
+        }
     }
 }

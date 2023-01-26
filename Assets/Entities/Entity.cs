@@ -28,7 +28,7 @@ public class Entity
     private ObservableCollection<StatModifier> StatModifiers { get; set; } = new ObservableCollection<StatModifier>();
     public ObservableCollection<TraitBaseScriptableObject> TraitsCollection { get; set; } = new ObservableCollection<TraitBaseScriptableObject>();
 
-    public Entity (StatsScriptable baseEntity)
+    public Entity (StatsScriptable baseEntity, BaseStatsData<Vector2> matStatsRange = null)
     {
         AttachEvents();
         BaseEntityType = baseEntity;
@@ -37,7 +37,7 @@ public class Entity
         LevelData = new EntityLevelData();
         LevelData.OnLevelUp += HandleOnLevelUp;
 
-        GenerateMatStats();
+        GenerateMatStats(matStatsRange);
         InitializeStatsGainedThroughLeveling();
         RecalculateModifiedStats();
         InitializeTypesColection();
@@ -104,7 +104,7 @@ public class Entity
 
             if (output[statType].Count == 0)
             {
-                output[statType][StatModifierType.ADD] = 0; 
+                output[statType][StatModifierType.ADD] = 0;
             }
         }
 
@@ -115,7 +115,7 @@ public class Entity
     {
         Dictionary<StatType, Dictionary<StatModifierType, float>> sortedModifiers = SortModifiedStats();
 
-        ApplyModifierForSortedModifiers(sortedModifiers, new List<StatType> { StatType.NONE});
+        ApplyModifierForSortedModifiers(sortedModifiers, new List<StatType> { StatType.NONE });
     }
 
     private void ApplyModifierForSortedModifiers (Dictionary<StatType, Dictionary<StatModifierType, float>> sortedModifiers, List<StatType> excludedModifiers)
@@ -162,15 +162,16 @@ public class Entity
         return output;
     }
 
-    private void GenerateMatStats ()
+    private void GenerateMatStats (BaseStatsData<Vector2> preparedMatStatsRange)
     {
-        MatStats = new BaseStatsData<float>();
+        BaseStatsData<Vector2> statsRange = preparedMatStatsRange == null ? BaseEntityType.BaseMatRange : preparedMatStatsRange;
 
-        MatStats.Might = GenerateRandomStat(BaseEntityType.BaseMatRange.Might);
-        MatStats.Magic = GenerateRandomStat(BaseEntityType.BaseMatRange.Magic);
-        MatStats.Willpower = GenerateRandomStat(BaseEntityType.BaseMatRange.Willpower);
-        MatStats.Agility = GenerateRandomStat(BaseEntityType.BaseMatRange.Agility);
-        MatStats.Initiative = GenerateRandomStat(BaseEntityType.BaseMatRange.Initiative);
+        MatStats = new BaseStatsData<float>();
+        MatStats.Might = GenerateRandomStat(statsRange.Might);
+        MatStats.Magic = GenerateRandomStat(statsRange.Magic);
+        MatStats.Willpower = GenerateRandomStat(statsRange.Willpower);
+        MatStats.Agility = GenerateRandomStat(statsRange.Agility);
+        MatStats.Initiative = GenerateRandomStat(statsRange.Initiative);
     }
 
     private float GenerateRandomStat (Vector2 range)

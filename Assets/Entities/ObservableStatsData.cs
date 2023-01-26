@@ -20,7 +20,7 @@ public class ObservableStatsData : BaseStatsData<ObservableVariable<float>>
         Magic.OnVariableChange += HandleOnMagicValueChange;
     }
 
-    public ObservableVariable<float> GetStatOfType (StatType statType)
+    public override ObservableVariable<float> GetStatOfType (StatType statType)
     {
         ObservableVariable<float> output = default;
 

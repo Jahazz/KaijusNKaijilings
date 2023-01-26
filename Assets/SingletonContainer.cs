@@ -8,4 +8,6 @@ public class SingletonContainer : SingletonMonobehaviour<SingletonContainer>
     public EntityManager EntityManager { get; private set; }
     [field: SerializeField]
     public PlayerManager PlayerManager { get; private set; }
+    [field: SerializeField]
+    public BreedingManager BreedingManager { get; private set; }
 }

@@ -9,22 +9,18 @@ namespace MVC.SelectableList
         where ElementType : SelectableListElement<ElementData>
         where ListView : SelectableListView<ElementType, ElementData>
     {
-        public delegate void ElementSelectedArguments (ElementData selectedElementData);
+        public delegate void ElementSelectedArguments (ElementData selectedElementData, bool isSelected);
         public event ElementSelectedArguments OnElementSelection;
 
         public override void Initialize (ListView currentView)
         {
             base.Initialize(currentView);
-
             CurrentView.OnElementSelection += HandleViewElementSelection;
         }
 
         private void HandleViewElementSelection (ElementData selectedElementData, bool isSelected)
         {
-            if (isSelected == true)
-            {
-                OnElementSelection?.Invoke(selectedElementData);
-            }
+            OnElementSelection?.Invoke(selectedElementData, isSelected);
         }
     }
 }
