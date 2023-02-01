@@ -1,6 +1,7 @@
 using MVC.SelectableList;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,8 @@ public class RitualEntityListView : SelectableListView<RitualEntityListElement, 
     private List<RangeSliderStatPair> RangeSliderStatPairCollection { get; set; }
     [field: SerializeField]
     private RitualResultScreen ResultScreen { get; set; }
+    [field: SerializeField]
+    private TraitListController ExpectedTraitList { get; set; }
 
     public void UpdateResultStats (BaseStatsData<Vector2> expectedResultStatRange, BaseStatsData<Vector2> defaultStatRange)
     {
@@ -25,6 +28,11 @@ public class RitualEntityListView : SelectableListView<RitualEntityListElement, 
 
             pair.RangeSlider.SetValue(currentDefaultStatRange.x, currentDefaultStatRange.y, currentExpectedStatRange.x, currentExpectedStatRange.y);
         }
+    }
+
+    public void GenerateExpectedTraitList (ObservableCollection<TraitBaseScriptableObject> availableTraits)
+    {
+        ExpectedTraitList.InitializeTraits(availableTraits);
     }
 
     public void SetAcceptButtonText (string text)

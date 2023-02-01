@@ -15,6 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Stron willed
   <Description>k__BackingField: Very strong will
   <Image>k__BackingField: {fileID: 0}
+  <TraitType>k__BackingField: 1
   <ModifiedStatCollection>k__BackingField:
   - <ModifierType>k__BackingField: 3
     <ModifiedStat>k__BackingField: 7

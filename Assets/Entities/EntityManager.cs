@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,15 +11,20 @@ public class EntityManager : MonoBehaviour
     [field: SerializeField]
     public List<TraitBaseScriptableObject> AvailableTraits { get; private set; } = new List<TraitBaseScriptableObject>();
     [field: SerializeField]
-    public List<float> TraitCountChancesCollection { get; private set; } = new List<float>();
-    [field: SerializeField]
     public LevelRequirementsScriptable LevelRequirements { get; private set; }
 
-    public Entity RequestEntity (StatsScriptable entityType, int level, BaseStatsData<Vector2> matStatsRange = null)
+    public Entity RequestEntity (StatsScriptable entityType, int level, List<TraitBaseScriptableObject> availableTraits = null, BaseStatsData<Vector2> matStatsRange = null)
     {
         Entity createdEntity = new Entity(entityType, matStatsRange);
         createdEntity.LevelData.AddExperience(LevelRequirements.GetExpNeededForLevel(level));
-        AddRandomTraitsToEntity(createdEntity);
+
+        if (availableTraits == null)
+        {
+            availableTraits = AvailableTraits;
+        }
+
+        AddRandomTraitsToEntity(createdEntity, availableTraits);
+
         return createdEntity;
     }
 
@@ -27,39 +33,53 @@ public class EntityManager : MonoBehaviour
         return RequestEntity(AllEntitiesTypes.GetRandomElement(), level);
     }
 
-    private void AddRandomTraitsToEntity (Entity entityToAddTraits)
+    public List<TraitBaseScriptableObject> GetTraitsFromList (List<TraitBaseScriptableObject> sourceList)
     {
-        float numberOfTraitsChance = Random.Range(0.0f, 1.0f);
-        int numberOfTraits = 0;
+        List<TraitBaseScriptableObject> excludedTraits = new List<TraitBaseScriptableObject>();
+        List<TraitBaseScriptableObject> output = new List<TraitBaseScriptableObject>();
 
-        for (int i = TraitCountChancesCollection.Count - 1; i >= 0; i--)
+        foreach (TraitType item in Enum.GetValues(typeof(TraitType)))
         {
-            float currentChance = TraitCountChancesCollection[i];
+            output.Add(GetTraitOfType(item, sourceList, excludedTraits));
+        }
 
-            if (numberOfTraitsChance <= currentChance)
+        return output;
+    }
+
+    private void AddRandomTraitsToEntity (Entity entityToAddTraits, List<TraitBaseScriptableObject> availableTraits)
+    {
+        foreach (var item in GetTraitsFromList(availableTraits))
+        {
+            entityToAddTraits.TraitsCollection.Add(item);
+        }
+    }
+
+    private TraitBaseScriptableObject GetTraitOfType (TraitType traitType, List<TraitBaseScriptableObject> sourceList, List<TraitBaseScriptableObject> excludedTraits)
+    {
+        List<TraitBaseScriptableObject> availableTraits = new List<TraitBaseScriptableObject>(sourceList);
+        TraitBaseScriptableObject output;
+
+        foreach (TraitBaseScriptableObject trait in AvailableTraits)
+        {
+            if (trait.TraitType != traitType)
             {
-                numberOfTraits = i + 1;
-                break;
+                availableTraits.Remove(trait);
             }
         }
 
-        List<TraitBaseScriptableObject> availableTraits = new List<TraitBaseScriptableObject>(AvailableTraits);
-
-        for (int i = 0; i < numberOfTraits; i++)
+        foreach (TraitBaseScriptableObject trait in excludedTraits)
         {
-            TraitBaseScriptableObject chosenTrait = availableTraits.GetRandomElement();
-
-            Debug.Log("Chosen"+ chosenTrait);
-            availableTraits.Remove(chosenTrait);
-
-            foreach (var item in chosenTrait.ExcludesTraits)
-            {
-                availableTraits.Remove(item);
-                Debug.Log("RemovedTrait"+item.Name);
-            }
-
-            entityToAddTraits.TraitsCollection.Add(chosenTrait);
+            availableTraits.Remove(trait);
         }
+
+        output = availableTraits.GetRandomElement();
+
+        foreach (var item in output.ExcludesTraits)
+        {
+            excludedTraits.Add(item);
+        }
+
+        return output;
     }
 
 }

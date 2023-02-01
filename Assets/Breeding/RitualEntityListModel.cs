@@ -1,6 +1,7 @@
 using MVC.SelectableList;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 
 public class RitualEntityListModel : SelectableListModel<RitualEntityListElement, Entity, RitualEntityListView>
@@ -26,6 +27,7 @@ public class RitualEntityListModel : SelectableListModel<RitualEntityListElement
     {
         base.Start();
         PopulateParentsTable();
+        SetupTraitCollection();
 
     }
 
@@ -55,6 +57,11 @@ public class RitualEntityListModel : SelectableListModel<RitualEntityListElement
         }
     }
 
+    private void SetupTraitCollection ()
+    {
+        CurrentView.GenerateExpectedTraitList(AvaiableTraits);
+    }
+
     private void HandleEntitiesInEquipmentCHanged (object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
     {
         PopulateParentsTable();
@@ -73,6 +80,7 @@ public class RitualEntityListModel : SelectableListModel<RitualEntityListElement
         }
 
         CurrentView.UpdateResultStats(SingletonContainer.Instance.BreedingManager.GetStatRangesForSelectedParents(RitualParentsColection), selectedElementData.BaseEntityType.BaseMatRange);
+        UpdateAvailableTraits();
 
         int requiredEntities = selectedElementData.BaseEntityType.GroupCountRequiredToBreed;
         bool isEntityCountMax = requiredEntities == RitualParentsColection.Count;
@@ -90,5 +98,23 @@ public class RitualEntityListModel : SelectableListModel<RitualEntityListElement
 
         CurrentView.SetAcceptButtonInteractable(isEntityCountMax == true);
         CurrentView.SetAcceptButtonText(isEntityCountMax == true? BREED_LABEL_TEXT : string.Format(REQUIRED_ENTITIES_BUTTON_LABEL_FORMAT, RitualParentsColection.Count, requiredEntities));
+    }
+
+    ObservableCollection<TraitBaseScriptableObject> AvaiableTraits = new ObservableCollection<TraitBaseScriptableObject>();
+
+    private void UpdateAvailableTraits ()
+    {
+        AvaiableTraits.Clear();
+
+        foreach (Entity entity in RitualParentsColection)
+        {
+            foreach (TraitBaseScriptableObject trait in entity.TraitsCollection)
+            {
+                if (AvaiableTraits.Contains(trait) == false)
+                {
+                    AvaiableTraits.Add(trait);
+                }
+            }
+        }
     }
 }

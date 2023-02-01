@@ -15,6 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Weak
   <Description>k__BackingField: weak
   <Image>k__BackingField: {fileID: 0}
+  <TraitType>k__BackingField: 2
   <ModifiedStatCollection>k__BackingField:
   - <ModifierType>k__BackingField: 4
     <ModifiedStat>k__BackingField: 5

@@ -14,6 +14,8 @@ public class RitualResultScreen : MonoBehaviour
     private TMP_Text EntityDefaultNameLabel { get; set; }
     [field: SerializeField]
     private List<SliderStatPair> SliderStatPairCollection { get; set; }
+    [field : SerializeField]
+    private TraitListController TraitList { get; set; }
 
     public void Show (Entity createdEntity)
     {
@@ -28,6 +30,8 @@ public class RitualResultScreen : MonoBehaviour
         }
 
         gameObject.SetActive(true);
+
+        TraitList.InitializeTraits(createdEntity.TraitsCollection);
     }
 
     public void Hide ()

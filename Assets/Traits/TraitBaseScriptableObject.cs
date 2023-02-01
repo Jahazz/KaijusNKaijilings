@@ -11,6 +11,8 @@ public class TraitBaseScriptableObject : ScriptableObject
     [field: SerializeField]
     public Sprite Image { get; private set; }
     [field: SerializeField]
+    public TraitType TraitType { get; private set; }
+    [field: SerializeField]
     public List<StatModifier> ModifiedStatCollection { get; set; } = new List<StatModifier>();
     [field: SerializeField]
     public List<TraitBaseScriptableObject> ExcludesTraits { get; set; }

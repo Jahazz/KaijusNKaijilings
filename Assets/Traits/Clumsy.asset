@@ -15,6 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Clumsy
   <Description>k__BackingField: clumsy
   <Image>k__BackingField: {fileID: 0}
+  <TraitType>k__BackingField: 1
   <ModifiedStatCollection>k__BackingField:
   - <ModifierType>k__BackingField: 4
     <ModifiedStat>k__BackingField: 8

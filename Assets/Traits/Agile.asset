@@ -15,6 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Agile
   <Description>k__BackingField: Very agile
   <Image>k__BackingField: {fileID: 0}
+  <TraitType>k__BackingField: 2
   <ModifiedStatCollection>k__BackingField:
   - <ModifierType>k__BackingField: 3
     <ModifiedStat>k__BackingField: 8

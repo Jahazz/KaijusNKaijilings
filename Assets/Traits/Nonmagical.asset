@@ -15,6 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Nonmagical
   <Description>k__BackingField: Magic weak
   <Image>k__BackingField: {fileID: 0}
+  <TraitType>k__BackingField: 0
   <ModifiedStatCollection>k__BackingField:
   - <ModifierType>k__BackingField: 4
     <ModifiedStat>k__BackingField: 6

@@ -15,6 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Slow
   <Description>k__BackingField: slow
   <Image>k__BackingField: {fileID: 0}
+  <TraitType>k__BackingField: 1
   <ModifiedStatCollection>k__BackingField:
   - <ModifierType>k__BackingField: 4
     <ModifiedStat>k__BackingField: 9

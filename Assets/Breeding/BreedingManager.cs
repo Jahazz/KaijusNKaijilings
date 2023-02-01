@@ -13,7 +13,7 @@ public class BreedingManager : MonoBehaviour
             breeder.EntitiesInEquipment.Remove(parent);
         }
 
-        output = SingletonContainer.Instance.EntityManager.RequestEntity(entitiesToBreedCollection[0].BaseEntityType, 1, GetStatRangesForSelectedParents(entitiesToBreedCollection));
+        output = SingletonContainer.Instance.EntityManager.RequestEntity(entitiesToBreedCollection[0].BaseEntityType, 1, GenerateTraitsForEntity(entitiesToBreedCollection), GetStatRangesForSelectedParents(entitiesToBreedCollection));
         breeder.EntitiesInEquipment.Add(output);
 
         return output;
@@ -47,6 +47,18 @@ public class BreedingManager : MonoBehaviour
         else
         {
              output = new Vector2(Mathf.Min(statRange.x, parentStatValue), Mathf.Max(statRange.y, parentStatValue));
+        }
+
+        return output;
+    }
+
+    private List<TraitBaseScriptableObject> GenerateTraitsForEntity ( List<Entity> entitiesToBreedCollection)
+    {
+        List<TraitBaseScriptableObject> output = new List<TraitBaseScriptableObject>();
+
+        foreach (Entity entity in entitiesToBreedCollection)
+        {
+            output.AddRange(entity.TraitsCollection);
         }
 
         return output;
