@@ -57,6 +57,11 @@ namespace Utils
             HashSet<ListType> firstHashset = new HashSet<ListType>(first);
             return firstHashset.SetEquals(second);
         }
+
+        public void LookAtCameraBillboard (Transform targetTransform, Transform cameraTransform)
+        {
+            targetTransform.LookAt(targetTransform.position + cameraTransform.rotation * Vector3.back, cameraTransform.rotation * Vector3.up);
+        }
     }
 }
 

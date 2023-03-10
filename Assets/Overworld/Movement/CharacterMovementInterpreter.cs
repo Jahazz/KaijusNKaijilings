@@ -45,7 +45,7 @@ public class CharacterMovementInterpreter : MonoBehaviour
 
     private void UpdateSpeed ()
     {
-        float normalizedVelocity = ConnectedRigidbody.velocity.magnitude / 13; //remove this magic as max velocity
+        float normalizedVelocity = ConnectedRigidbody.velocity.magnitude / 6; //remove this magic as max velocity
         ConnectedAnimator.SetFloat(ANIMATOR_SPEED_PARAMETER_NAME, normalizedVelocity);
     }
 }
