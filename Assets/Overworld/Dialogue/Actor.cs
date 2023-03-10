@@ -14,16 +14,15 @@ public class Actor
     protected int InitialLayer { get; private set; }
 
     private const string TALK_ANIMATOR_PARAMETER = "IsTalking";
-    private const string DIALOGUE_LAYER = "Dialogue";
 
-    public Actor (Animator animator)
+    public Actor (Animator animator, string targetLayer)
     {
         Animator = animator;
         Model = Animator.gameObject;
         InitialPosition = Model.transform.position;
         InitialRotation = Model.transform.rotation;
         InitialLayer = Model.layer;
-        SetLayerRecursively(Model.transform, LayerMask.NameToLayer(DIALOGUE_LAYER));
+        SetLayerRecursively(Model.transform, LayerMask.NameToLayer(targetLayer));
     }
 
     public void ResetLayer ()
@@ -35,6 +34,7 @@ public class Actor
     {
         Animator.SetBool(TALK_ANIMATOR_PARAMETER, state);
     }
+
     private void SetLayerRecursively (Transform target, int layerID)
     {
         target.gameObject.layer = layerID;
