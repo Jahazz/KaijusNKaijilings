@@ -19,6 +19,8 @@ public class OverworldPlayerMovement : MonobehaviourWithEvents
     private InputAction MovementActions { get; set; }
     private Vector3 CachedMovementVector { get; set; } = Vector3.zero;
 
+    private bool IsInAir = false;
+
     private const string MOVEMENT_ACTION_NAME = "Move";
 
     protected override void Start ()
@@ -29,6 +31,7 @@ public class OverworldPlayerMovement : MonobehaviourWithEvents
 
     protected virtual void FixedUpdate ()
     {
+        CheckIfPlayerIsInAir();
         UpdateMovement();
     }
 
@@ -60,9 +63,33 @@ public class OverworldPlayerMovement : MonobehaviourWithEvents
 
     private void UpdateMovement ()
     {
-        Vector3 currentVelocity = CachedMovementVector * MovementSpeedFactor;
-        CharacterRigidbody.AddForce(MovementVector.TransformDirection(currentVelocity) - CharacterRigidbody.velocity,ForceMode.Acceleration);
+        Vector3 velocityOfTransform = MovementVector.TransformDirection(CachedMovementVector * MovementSpeedFactor);
+        Vector3 forceWithoutY = velocityOfTransform - CharacterRigidbody.velocity;
+
+        CharacterRigidbody.AddForce(forceWithoutY, ForceMode.Impulse);
+
+        if (IsInAir == true)
+        {
+            CharacterRigidbody.AddForce(Vector3.down*20, ForceMode.Impulse);
+        }
     }
 
-    
+    private void CheckIfPlayerIsInAir ()
+    {
+        float distanceOffset = 1.0f;
+        if (Physics.Raycast(transform.position+ Vector3.up, Vector3.down, out RaycastHit hit, 5.0f))
+        {
+            IsInAir = hit.distance > 0.5f + distanceOffset;
+            if (hit.distance > 0.5f + distanceOffset)
+            {
+                Debug.Log("ie");
+            }
+            else
+            {
+                Debug.Log("ground");
+            }
+        }
+    }
+
+
 }
