@@ -20,12 +20,12 @@ public abstract class MultiCameraOverworldLayoutSystem : MonoBehaviour
     protected abstract void HandleOnBackgroundEntered ();
     protected abstract void HandleOnCharactersMoved ();
     protected abstract void HandleOnZoomInCompleted ();
-    protected abstract void HandleOnBackgroundExited ();
     protected abstract void HandleOnCharactersMovedBack ();
     protected abstract void HandleOnZoomOutCompleted ();
 
-    public virtual void Initialize ()
+    protected void Initialize ()
     {
+        SingletonContainer.Instance.OverworldPlayerCharacterManager.FreezePlayer();
         CharactersCamera.transform.SetPositionAndRotation(MainCamera.transform.position, MainCamera.transform.rotation);
         CharactersCamera.orthographicSize = MainCamera.orthographicSize;
         CharactersCamera.gameObject.SetActive(true);
@@ -61,6 +61,8 @@ public abstract class MultiCameraOverworldLayoutSystem : MonoBehaviour
     {
         backgroundExit.OnComplete(HandleOnBackgroundExited);
     }
-
-
+    protected virtual void HandleOnBackgroundExited ()
+    {
+        SingletonContainer.Instance.OverworldPlayerCharacterManager.UnfreezePlayer();
+    }
 }

@@ -3,13 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueScreen : MultiCameraOverworldLayoutSystem
+public class DialogueManager : MultiCameraOverworldLayoutSystem
 {
-    [field: SerializeField]
-    private Animator FirstAnimator { get; set; }
-    [field: SerializeField]
-    private Animator SecondAnimator { get; set; }
-
     [field: Space]
     [field: SerializeField]
     private Transform FirstActorTargetTransform { get; set; }
@@ -24,12 +19,12 @@ public class DialogueScreen : MultiCameraOverworldLayoutSystem
     private Actor SecondActor { get; set; }
     private float Duration = 1;
 
-    public override void Initialize ()
+    public void Initialize (Animator firstAnimator, Animator secondAnimator)
     {
-        base.Initialize();
+        Initialize();
         TargetActorLayerName = "Dialogue";
-        FirstActor = new Actor(FirstAnimator, TargetActorLayerName);
-        SecondActor = new Actor(SecondAnimator, TargetActorLayerName);
+        FirstActor = new Actor(firstAnimator, TargetActorLayerName);
+        SecondActor = new Actor(secondAnimator, TargetActorLayerName);
 
         InitializeBackgroundEnter(Background.DOScale(Vector3.one, Duration));
     }
@@ -40,28 +35,6 @@ public class DialogueScreen : MultiCameraOverworldLayoutSystem
             .Join(actorTransform.DOMove(position, Duration))
             .Join(actorTransform.DORotate(rotation.eulerAngles, Duration));
     }
-
-    //private void CloseDialogue ()
-    //{
-    //    DOTween.Sequence()
-    //        .Join(MoveActor(FirstActor.Model.transform, FirstActor.InitialPosition, FirstActor.InitialRotation))
-    //        .Join(MoveActor(SecondActor.Model.transform, SecondActor.InitialPosition, SecondActor.InitialRotation))
-    //        .Join(CharactersCamera.DOOrthoSize(MainCamera.orthographicSize, Duration))
-    //        .OnComplete(HandleOnCharactersBack);
-    //}
-
-    //private void HandleOnCharactersBack ()
-    //{
-    //    Background.DOScale(Vector3.zero, Duration / 2).OnComplete(HandleOnBackgroundExit);
-    //    CharactersCamera.nearClipPlane = MainCamera.nearClipPlane;
-    //    CharactersCamera.farClipPlane = MainCamera.farClipPlane;
-    //}
-
-    //protected void HandleOnBackgroundExit ()
-    //{
-    //    FirstActor.ResetLayer();
-    //    SecondActor.ResetLayer();
-    //}
 
     protected override void HandleOnBackgroundEntered ()
     {
@@ -104,6 +77,8 @@ public class DialogueScreen : MultiCameraOverworldLayoutSystem
 
     protected override void HandleOnBackgroundExited ()
     {
+        base.HandleOnBackgroundExited();
+
         FirstActor.ResetLayer();
         SecondActor.ResetLayer();
     }

@@ -14,6 +14,7 @@ public class OverworldPlayerMovement : MonoBehaviour
     [field: SerializeField]
     private float MovementSpeedFactor { get; set; }
     private Vector3 CachedMovementVector { get; set; } = Vector3.zero;
+    private bool CanMove { get; set; } = true;
 
     public void HandleMovementActionPerformed (CallbackContext callbackContext)
     {
@@ -21,9 +22,17 @@ public class OverworldPlayerMovement : MonoBehaviour
         CachedMovementVector = new Vector3(inputVector.x, 0, inputVector.y);
     }
 
+    public void SetCharacterMovementActive (bool canMove)
+    {
+        CanMove = canMove;
+    }
+
     protected virtual void FixedUpdate ()
     {
-        UpdateMovement();
+        if (CanMove == true)
+        {
+            UpdateMovement();
+        }
     }
 
     private void UpdateMovement ()

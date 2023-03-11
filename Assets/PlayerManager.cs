@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    [field: SerializeField]
+    public Animator PlayerOverworldAnimator { get; set; }
+
     public Player CurrentPlayer { get; private set; } = new Player ();
 
     protected virtual void Start ()
