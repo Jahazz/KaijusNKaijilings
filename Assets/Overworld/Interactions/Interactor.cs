@@ -5,12 +5,10 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-public class Interactor : MonoBehaviour
+public class Interactor : BaseInteractor
 {
     [field: SerializeField]
     private Outline InteractorOutline { get; set; }
-    [field: SerializeField]
-    private InteractionEvent InteractionEvent { get; set; }
 
     public void SetInteractability (bool isInteractive)
     {
@@ -23,6 +21,3 @@ public class Interactor : MonoBehaviour
         InteractorOutline.enabled = false;
     }
 }
-
-[Serializable]
-public class InteractionEvent : UnityEvent { }

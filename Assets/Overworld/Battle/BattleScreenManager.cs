@@ -2,21 +2,24 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class DialogueManager : MultiCameraOverworldLayoutSystem
+public class BattleScreenManager : MultiCameraOverworldLayoutSystem
 {
 
     [field: SerializeField]
     private RectTransform Background { get; set; }
     [field: SerializeField]
     private RectTransform Foreground { get; set; }
+    [field: SerializeField]
+    private Image BackgroundImage { get; set; }
     private float Duration = 1;
 
     public void Initialize (Animator firstAnimator, Animator secondAnimator)
     {
         TargetNearClipPlane = 0.0f;
         TargetFarClipPlane = 30.0f;
-        TargetOrthoSize = 0.8f;
+        TargetOrthoSize = 3f;
 
         Initialize();
 
@@ -24,7 +27,10 @@ public class DialogueManager : MultiCameraOverworldLayoutSystem
         FirstActor = new Actor(firstAnimator, TargetActorLayerName);
         SecondActor = new Actor(secondAnimator, TargetActorLayerName);
 
-        InitializeBackgroundEnter(Background.DOScale(Vector3.one, Duration));
+
+        Material bgm = BackgroundImage.material;
+        bgm.SetFloat("_BlendFactor", 0);
+        InitializeBackgroundEnter(DOTween.To(()=>bgm.GetFloat("_BlendFactor"),(float a)=>bgm.SetFloat("_BlendFactor", a),1,5));
     }
 
     private Sequence MoveActor (Transform actorTransform, Vector3 position, Quaternion rotation)

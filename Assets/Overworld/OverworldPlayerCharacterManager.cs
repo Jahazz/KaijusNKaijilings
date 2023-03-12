@@ -20,6 +20,4 @@ public class OverworldPlayerCharacterManager : MonoBehaviour
         OverworldCharacterMovement.SetCharacterMovementActive(true);
         CharacterMovementInterpreter.UnfreezeCharacterMovement();
     }
-
-
 }

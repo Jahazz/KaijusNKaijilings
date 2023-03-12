@@ -5,6 +5,13 @@ using UnityEngine;
 
 public abstract class MultiCameraOverworldLayoutSystem : MonoBehaviour
 {
+    [field: Space]
+    protected Actor FirstActor { get; set; }
+    protected Actor SecondActor { get; set; }
+    [field: SerializeField]
+    protected Transform FirstActorTargetTransform { get; set; }
+    [field: SerializeField]
+    protected Transform SecondActorTargetTransform { get; set; }
     [field: SerializeField]
     protected Camera CharactersCamera { get; private set; }
     [field: SerializeField]
@@ -13,9 +20,9 @@ public abstract class MultiCameraOverworldLayoutSystem : MonoBehaviour
     protected Camera MainCamera { get; private set; }
     [field: SerializeField]
     protected Camera GUICamera { get; private set; }
-    protected float TargetNearClipPlane { get; private set; } = 0.0f;
-    protected float TargetFarClipPlane { get; private set; } = 30.0f;
-    protected float TargetOrthoSize { get; private set; } = 0.8f;
+    protected float TargetNearClipPlane { get;  set; }
+    protected float TargetFarClipPlane { get;  set; }
+    protected float TargetOrthoSize { get;  set; }
     protected string TargetActorLayerName { get; set; }
     protected abstract void HandleOnBackgroundEntered ();
     protected abstract void HandleOnCharactersMoved ();
