@@ -5,10 +5,10 @@ using UnityEngine;
 public class Interlocutor : MonoBehaviour
 {
     [field: SerializeField]
-    private Animator ActorAnimator { get; set; }
+    private Player ActorAnimator { get; set; }
 
     public void InitializeConversation ()
     {
-        SingletonContainer.Instance.DialogueManager.Initialize(SingletonContainer.Instance.PlayerManager.PlayerOverworldAnimator, ActorAnimator);
+        SingletonContainer.Instance.DialogueManager.Initialize(SingletonContainer.Instance.PlayerManager.CurrentPlayer, ActorAnimator);
     }
 }

@@ -12,10 +12,19 @@ public class BattleScreenManager : MultiCameraOverworldLayoutSystem
     [field: SerializeField]
     private RectTransform Foreground { get; set; }
     [field: SerializeField]
+    protected Transform FirstEntityTargetTransform { get; set; }
+    [field: SerializeField]
+    protected Transform SecondEntityTargetTransform { get; set; }
+    [field: SerializeField]
     private Image BackgroundImage { get; set; }
-    private float Duration = 1;
 
-    public void Initialize (Animator firstAnimator, Animator secondAnimator)
+    private Material BackgroundMaterial { get; set; }
+
+
+    private float Duration { get; set; } = 1;
+    private const string BLAND_FACTOR_VARIABLE_NAME = "_BlendFactor";
+
+    public void Initialize (Player firstPlayer, Player secondPlayer)
     {
         TargetNearClipPlane = 0.0f;
         TargetFarClipPlane = 30.0f;
@@ -24,14 +33,19 @@ public class BattleScreenManager : MultiCameraOverworldLayoutSystem
         Initialize();
 
         TargetActorLayerName = "Dialogue";
-        FirstActor = new Actor(firstAnimator, TargetActorLayerName);
-        SecondActor = new Actor(secondAnimator, TargetActorLayerName);
+        FirstActor = new Actor(firstPlayer, TargetActorLayerName);
+        SecondActor = new Actor(secondPlayer, TargetActorLayerName);
 
 
-        Material bgm = BackgroundImage.material;
-        bgm.SetFloat("_BlendFactor", 0);
-        InitializeBackgroundEnter(DOTween.To(()=>bgm.GetFloat("_BlendFactor"),(float a)=>bgm.SetFloat("_BlendFactor", a),1,5));
+        BackgroundMaterial = BackgroundImage.material;
+        BackgroundMaterial.SetFloat(BLAND_FACTOR_VARIABLE_NAME, 0);
+        InitializeBackgroundEnter(TweenBackgroundBlendFactor(1,2));
     }
+
+    private Tween TweenBackgroundBlendFactor (float targetValue, float time)
+    {
+        return DOTween.To(() => BackgroundMaterial.GetFloat(BLAND_FACTOR_VARIABLE_NAME), (float variable) => BackgroundMaterial.SetFloat(BLAND_FACTOR_VARIABLE_NAME, variable), targetValue, time);
+    } 
 
     private Sequence MoveActor (Transform actorTransform, Vector3 position, Quaternion rotation)
     {
@@ -56,7 +70,18 @@ public class BattleScreenManager : MultiCameraOverworldLayoutSystem
 
     protected override void HandleOnZoomInCompleted ()
     {
-        Close();
+        SpawnEntity(FirstEntityTargetTransform, FirstActor.Player.EntitiesInEquipment[0]);
+        SpawnEntity(SecondEntityTargetTransform, SecondActor.Player.EntitiesInEquipment[0]);
+        //Instantiate(SecondActor.Player.EntitiesInEquipment[0].BaseEntityType.ModelPrefab, SecondActorTargetTransform);
+        //Close();
+    }
+
+    private void SpawnEntity (Transform TargetTransform, Entity entityToSpawn)
+    {
+        GameObject spawnedEntity = Instantiate(entityToSpawn.BaseEntityType.ModelPrefab, TargetTransform);
+        spawnedEntity.transform.localScale = Vector3.zero;
+        FirstActor.SetLayerOfTransform(spawnedEntity.transform);
+        spawnedEntity.transform.DOScale(Vector3.one, 1);
     }
 
     public void Close ()
@@ -76,7 +101,7 @@ public class BattleScreenManager : MultiCameraOverworldLayoutSystem
 
     protected override void HandleOnCharactersMovedBack ()
     {
-        InitializeBackgroundExit(Background.DOScale(Vector3.zero, Duration / 2));
+        InitializeBackgroundExit(TweenBackgroundBlendFactor(0, 2));
     }
 
     protected override void HandleOnBackgroundExited ()

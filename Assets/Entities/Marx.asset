@@ -22,6 +22,8 @@ MonoBehaviour:
     any scripts with positive order numbers.
   <Image>k__BackingField: {fileID: 21300000, guid: 79940bd64f51b0d4fbb908c2c7ad5457,
     type: 3}
+  <ModelPrefab>k__BackingField: {fileID: 9085643889674959485, guid: 333b98c04c99dc9498022525a8f5a4fc,
+    type: 3}
   <EntityTypeCollection>k__BackingField:
   - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
   <BaseStats>k__BackingField:

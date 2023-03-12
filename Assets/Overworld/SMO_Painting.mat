@@ -27,6 +27,6 @@ Material:
     m_Ints: []
     m_Floats:
     - _KernelSize: 7
-    - _Radius: 50
+    - _Radius: 3.8
     m_Colors: []
   m_BuildTextureStacks: []

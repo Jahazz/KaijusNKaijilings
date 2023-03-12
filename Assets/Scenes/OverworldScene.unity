@@ -335,7 +335,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3dc9244ba2dcc488562d5432c9e389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ActorAnimator>k__BackingField: {fileID: 1451384573}
+  <ActorAnimator>k__BackingField:
+    <OverworldAnimator>k__BackingField: {fileID: 1451384573}
 --- !u!224 &18499230 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7010401268575435533, guid: 30cea3028a11e174290cd63e37c2bf0b,
@@ -2915,7 +2916,7 @@ Transform:
   - {fileID: 1239457081}
   - {fileID: 2000360923}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &437674437 stripped
 RectTransform:
@@ -3737,7 +3738,7 @@ Transform:
   m_Children:
   - {fileID: 249906778}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &550966369
 GameObject:
@@ -3944,6 +3945,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &610789432 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5927284486838053968, guid: 3ab721049ec951e418432899fb1b4e51,
+    type: 3}
+  m_PrefabInstance: {fileID: 855236942}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &613593508
 GameObject:
   m_ObjectHideFlags: 0
@@ -3959,7 +3966,7 @@ GameObject:
   - component: {fileID: 613593513}
   - component: {fileID: 613593514}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: BattleArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4039,9 +4046,10 @@ Transform:
   m_LocalPosition: {x: 5.56, y: 0, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 610789432}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &613593513
 MonoBehaviour:
@@ -4055,7 +4063,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082982cbd585a5e448cf923de839d9f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ActorAnimator>k__BackingField: {fileID: 1073284459}
+  <PlayerData>k__BackingField:
+    <OverworldAnimator>k__BackingField: {fileID: 1073284459}
+  <PlayerEntitiesCollection>k__BackingField:
+  - <Entity>k__BackingField: {fileID: 11400000, guid: 4a1aa5d657a11074898cb036877839cc,
+      type: 2}
+    <Level>k__BackingField: 5
+  - <Entity>k__BackingField: {fileID: 11400000, guid: 3c3a73bdceb4b4e489e40347d0b1055a,
+      type: 2}
+    <Level>k__BackingField: 6
 --- !u!114 &613593514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5985,17 +6001,17 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 613593512}
     m_Modifications:
     - target: {fileID: 5927284486838053968, guid: 3ab721049ec951e418432899fb1b4e51,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5927284486838053968, guid: 3ab721049ec951e418432899fb1b4e51,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.23
+      value: -1.3299999
       objectReference: {fileID: 0}
     - target: {fileID: 5927284486838053968, guid: 3ab721049ec951e418432899fb1b4e51,
         type: 3}
@@ -6005,7 +6021,7 @@ PrefabInstance:
     - target: {fileID: 5927284486838053968, guid: 3ab721049ec951e418432899fb1b4e51,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.28
+      value: 0.27999973
       objectReference: {fileID: 0}
     - target: {fileID: 5927284486838053968, guid: 3ab721049ec951e418432899fb1b4e51,
         type: 3}
@@ -6052,7 +6068,9 @@ PrefabInstance:
       propertyPath: precomputeOutline
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5927284486838053970, guid: 3ab721049ec951e418432899fb1b4e51, type: 3}
+    - {fileID: 5927284486838053971, guid: 3ab721049ec951e418432899fb1b4e51, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3ab721049ec951e418432899fb1b4e51, type: 3}
 --- !u!224 &862221267 stripped
 RectTransform:
@@ -12711,7 +12729,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1832043249
 GameObject:
@@ -12742,7 +12760,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0869a1ae7d22cea4eaedca9778c985d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PlayerOverworldAnimator>k__BackingField: {fileID: 407510278}
+  <CurrentPlayer>k__BackingField:
+    <OverworldAnimator>k__BackingField: {fileID: 407510278}
 --- !u!4 &1832043251
 Transform:
   m_ObjectHideFlags: 0
@@ -13499,7 +13518,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1893657524
 MonoBehaviour:
@@ -14475,6 +14494,8 @@ MonoBehaviour:
   <GUICamera>k__BackingField: {fileID: 659933354}
   <Background>k__BackingField: {fileID: 0}
   <Foreground>k__BackingField: {fileID: 0}
+  <FirstEntityTargetTransform>k__BackingField: {fileID: 1754395841}
+  <SecondEntityTargetTransform>k__BackingField: {fileID: 1616744797}
   <BackgroundImage>k__BackingField: {fileID: 383865995}
 --- !u!1 &2026644011
 GameObject:
@@ -16463,7 +16484,7 @@ PrefabInstance:
     - target: {fileID: 5927284486838053968, guid: 3ab721049ec951e418432899fb1b4e51,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5927284486838053968, guid: 3ab721049ec951e418432899fb1b4e51,
         type: 3}

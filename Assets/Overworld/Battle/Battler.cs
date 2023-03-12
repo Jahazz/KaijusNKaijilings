@@ -5,10 +5,17 @@ using UnityEngine;
 public class Battler : MonoBehaviour
 {
     [field: SerializeField]
-    private Animator ActorAnimator { get; set; }
+    private Player PlayerData { get; set; }
+    [field: SerializeField]
+    private List<EntityLevelPair> PlayerEntitiesCollection { get; set; }
 
     public void InitialzieBattle ()
     {
-        SingletonContainer.Instance.BattleScreenManager.Initialize(SingletonContainer.Instance.PlayerManager.PlayerOverworldAnimator, ActorAnimator);
+        foreach (EntityLevelPair pair in PlayerEntitiesCollection)
+        {
+            PlayerData.EntitiesInEquipment.Add(SingletonContainer.Instance.EntityManager.RequestEntity(pair.Entity,pair.Level));
+        }
+
+        SingletonContainer.Instance.BattleScreenManager.Initialize(SingletonContainer.Instance.PlayerManager.CurrentPlayer, PlayerData);
     }
 }

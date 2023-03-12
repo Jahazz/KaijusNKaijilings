@@ -9,20 +9,29 @@ public class Actor
     public Vector3 InitialPosition { get; private set; }
     public Quaternion InitialRotation { get; private set; }
     public GameObject Model { get; private set; }
+    public Player Player { get; private set; }
     protected Animator Animator { get; private set; }
 
     protected int InitialLayer { get; private set; }
+    protected int SceneLayer { get; private set; }
 
     private const string TALK_ANIMATOR_PARAMETER = "IsTalking";
 
-    public Actor (Animator animator, string targetLayer)
+    public Actor (Player player, string targetLayer)
     {
-        Animator = animator;
+        Player = player;
+        Animator = Player.OverworldAnimator;
         Model = Animator.gameObject;
         InitialPosition = Model.transform.position;
         InitialRotation = Model.transform.rotation;
         InitialLayer = Model.layer;
-        SetLayerRecursively(Model.transform, LayerMask.NameToLayer(targetLayer));
+        SceneLayer = LayerMask.NameToLayer(targetLayer);
+        SetLayerRecursively(Model.transform, SceneLayer);
+    }
+
+    public void SetLayerOfTransform (Transform transform) // move to utils pls
+    {
+        SetLayerRecursively(transform, SceneLayer);
     }
 
     public void ResetLayer ()

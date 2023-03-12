@@ -8,5 +8,7 @@ using UnityEngine;
 public class Player
 {
     [field: SerializeField]
+    public Animator OverworldAnimator { get; set; }
+    [field: SerializeField]
     public ObservableCollection<Entity> EntitiesInEquipment { get; set; } = new ObservableCollection<Entity>();
 }

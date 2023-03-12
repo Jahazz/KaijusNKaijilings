@@ -12,7 +12,7 @@ public class DialogueManager : MultiCameraOverworldLayoutSystem
     private RectTransform Foreground { get; set; }
     private float Duration = 1;
 
-    public void Initialize (Animator firstAnimator, Animator secondAnimator)
+    public void Initialize (Player firstAnimator, Player secondAnimator)
     {
         TargetNearClipPlane = 0.0f;
         TargetFarClipPlane = 30.0f;
