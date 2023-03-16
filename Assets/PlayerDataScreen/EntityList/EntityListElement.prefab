@@ -455,7 +455,7 @@ MonoBehaviour:
   <TypeController>k__BackingField: {fileID: 3359300557228777242}
   <HealthBar>k__BackingField: {fileID: 2737378900729954897}
   <ManaBar>k__BackingField: {fileID: 5738511307794850823}
-  <ExperienceBar>k__BackingField: {fileID: 5738511307560939687}
+  <ExperienceBar>k__BackingField: {fileID: 0}
 --- !u!1 &4649657061895600835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,18 +1233,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2737378899518198595}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5738511307560939687 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7664658424077345764, guid: a260f404beafee64d875174944000d93,
-    type: 3}
-  m_PrefabInstance: {fileID: 2737378899518198595}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dc17d5e41202934fa55bfee14ee1639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2737378899820890083
 PrefabInstance:
   m_ObjectHideFlags: 0

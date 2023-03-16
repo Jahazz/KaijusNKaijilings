@@ -1,7 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement style="flex-grow: 1; width: auto; height: 50%; flex-direction: row;">
-        <ui:VisualElement style="width: 100px;" />
-        <UI.ProgressBar minValue="0" maxValue="1" currentValue="1" MinValue="0" MaxValue="5" CurrentValue="5" MaxValue.CurrentValue="1" CurrentValue.CurrentValue="0.3" style="flex-grow: 1; height: 100%; min-height: 100%;" />
-        <ui:Label text="Label" display-tooltip-when-elided="true" />
-    </ui:VisualElement>
-</ui:UXML>

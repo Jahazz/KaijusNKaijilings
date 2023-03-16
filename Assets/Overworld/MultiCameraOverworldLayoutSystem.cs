@@ -13,13 +13,13 @@ public abstract class MultiCameraOverworldLayoutSystem : MonoBehaviour
     [field: SerializeField]
     protected Transform SecondActorTargetTransform { get; set; }
     [field: SerializeField]
-    protected Camera CharactersCamera { get; private set; }
+    public Camera CharactersCamera { get; private set; }
     [field: SerializeField]
-    protected Camera BackgroundCamera { get; private set; }
+    public Camera BackgroundCamera { get; private set; }
     [field: SerializeField]
-    protected Camera MainCamera { get; private set; }
+    public Camera MainCamera { get; private set; }
     [field: SerializeField]
-    protected Camera GUICamera { get; private set; }
+    public Camera GUICamera { get; private set; }
     protected float TargetNearClipPlane { get;  set; }
     protected float TargetFarClipPlane { get;  set; }
     protected float TargetOrthoSize { get;  set; }
@@ -33,11 +33,35 @@ public abstract class MultiCameraOverworldLayoutSystem : MonoBehaviour
     protected void Initialize ()
     {
         SingletonContainer.Instance.OverworldPlayerCharacterManager.FreezePlayer();
-        CharactersCamera.transform.SetPositionAndRotation(MainCamera.transform.position, MainCamera.transform.rotation);
-        CharactersCamera.orthographicSize = MainCamera.orthographicSize;
-        CharactersCamera.gameObject.SetActive(true);
-        BackgroundCamera.gameObject.SetActive(true);
-        GUICamera.gameObject.SetActive(true);
+        SetCamera(CharactersCamera);
+        SetCamera(BackgroundCamera);
+        SetCamera(MainCamera);
+        SetCamera(GUICamera);
+    }
+
+    private void SetCamera (Camera camera)
+    {
+        camera.transform.SetPositionAndRotation(MainCamera.transform.position, MainCamera.transform.rotation);
+        camera.orthographicSize = MainCamera.orthographicSize;
+        camera.gameObject.SetActive(true);
+    }
+
+    protected Tween SetCameraValues ( float duration)
+    {
+        SetCameraFarNearPlanes(CharactersCamera);
+        SetCameraFarNearPlanes(BackgroundCamera);
+        SetCameraFarNearPlanes(GUICamera);
+
+        return DOTween.Sequence()
+            .Join(CharactersCamera.DOOrthoSize(TargetOrthoSize, duration))
+            .Join(BackgroundCamera.DOOrthoSize(TargetOrthoSize, duration))
+            .Join(GUICamera.DOOrthoSize(TargetOrthoSize, duration));
+    }
+
+    private void SetCameraFarNearPlanes (Camera camera)
+    {
+        camera.nearClipPlane = TargetNearClipPlane;
+        camera.farClipPlane = TargetFarClipPlane;
     }
 
     protected void InitializeBackgroundEnter (Tween backgroundEnter)

@@ -43,6 +43,11 @@ public class Entity
         InitializeTypesColection();
     }
 
+    public bool IsAlive ()
+    {
+        return ModifiedStats.Health.CurrentValue.PresentValue > 0;
+    }
+
     private void InitializeTypesColection ()
     {
         foreach (TypeDataScriptable typeScriptable in BaseEntityType.EntityTypeCollection)
@@ -221,5 +226,4 @@ public class Entity
     {
         return MatStats.Initiative;
     }
-
 }

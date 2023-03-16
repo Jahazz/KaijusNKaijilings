@@ -2,21 +2,19 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class BattleScreenManager : MultiCameraOverworldLayoutSystem
 {
-
     [field: SerializeField]
     private RectTransform Background { get; set; }
     [field: SerializeField]
     private RectTransform Foreground { get; set; }
     [field: SerializeField]
-    protected Transform FirstEntityTargetTransform { get; set; }
-    [field: SerializeField]
-    protected Transform SecondEntityTargetTransform { get; set; }
-    [field: SerializeField]
     private Image BackgroundImage { get; set; }
+    [field: SerializeField]
+    private BattlegroundPreparedUnityEvent OnBattlegroundPrepared { get; set; }
 
     private Material BackgroundMaterial { get; set; }
 
@@ -39,13 +37,13 @@ public class BattleScreenManager : MultiCameraOverworldLayoutSystem
 
         BackgroundMaterial = BackgroundImage.material;
         BackgroundMaterial.SetFloat(BLAND_FACTOR_VARIABLE_NAME, 0);
-        InitializeBackgroundEnter(TweenBackgroundBlendFactor(1,2));
+        InitializeBackgroundEnter(TweenBackgroundBlendFactor(1, 2));
     }
 
     private Tween TweenBackgroundBlendFactor (float targetValue, float time)
     {
         return DOTween.To(() => BackgroundMaterial.GetFloat(BLAND_FACTOR_VARIABLE_NAME), (float variable) => BackgroundMaterial.SetFloat(BLAND_FACTOR_VARIABLE_NAME, variable), targetValue, time);
-    } 
+    }
 
     private Sequence MoveActor (Transform actorTransform, Vector3 position, Quaternion rotation)
     {
@@ -63,20 +61,15 @@ public class BattleScreenManager : MultiCameraOverworldLayoutSystem
 
     protected override void HandleOnCharactersMoved ()
     {
-        CharactersCamera.nearClipPlane = TargetNearClipPlane;
-        CharactersCamera.farClipPlane = TargetFarClipPlane;
-        InitializeZoomIn(CharactersCamera.DOOrthoSize(TargetOrthoSize, Duration));
+        InitializeZoomIn(SetCameraValues(Duration));
     }
 
     protected override void HandleOnZoomInCompleted ()
     {
-        SpawnEntity(FirstEntityTargetTransform, FirstActor.Player.EntitiesInEquipment[0]);
-        SpawnEntity(SecondEntityTargetTransform, SecondActor.Player.EntitiesInEquipment[0]);
-        //Instantiate(SecondActor.Player.EntitiesInEquipment[0].BaseEntityType.ModelPrefab, SecondActorTargetTransform);
-        //Close();
+        OnBattlegroundPrepared.Invoke(FirstActor.Player, SecondActor.Player);
     }
 
-    private void SpawnEntity (Transform TargetTransform, Entity entityToSpawn)
+    public void SpawnEntity (Transform TargetTransform, Entity entityToSpawn)
     {
         GameObject spawnedEntity = Instantiate(entityToSpawn.BaseEntityType.ModelPrefab, TargetTransform);
         spawnedEntity.transform.localScale = Vector3.zero;

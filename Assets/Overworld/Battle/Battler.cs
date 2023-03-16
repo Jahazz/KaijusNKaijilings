@@ -11,6 +11,8 @@ public class Battler : MonoBehaviour
 
     public void InitialzieBattle ()
     {
+        PlayerData.EntitiesInEquipment = new System.Collections.ObjectModel.ObservableCollection<Entity>();
+
         foreach (EntityLevelPair pair in PlayerEntitiesCollection)
         {
             PlayerData.EntitiesInEquipment.Add(SingletonContainer.Instance.EntityManager.RequestEntity(pair.Entity,pair.Level));

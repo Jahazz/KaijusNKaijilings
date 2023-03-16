@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [field: SerializeField]
-    public Player CurrentPlayer { get; private set; } = new Player ();
+    public Player CurrentPlayer { get; private set; } = new Player (false);
 
     protected virtual void Start ()
     {

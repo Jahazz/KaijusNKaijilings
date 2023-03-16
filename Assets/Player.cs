@@ -11,4 +11,11 @@ public class Player
     public Animator OverworldAnimator { get; set; }
     [field: SerializeField]
     public ObservableCollection<Entity> EntitiesInEquipment { get; set; } = new ObservableCollection<Entity>();
+    [field: SerializeField]
+    public bool IsNPC { get; private set; } = true;
+
+    public Player(bool isNPC)
+    {
+        IsNPC = isNPC;
+    }
 }
