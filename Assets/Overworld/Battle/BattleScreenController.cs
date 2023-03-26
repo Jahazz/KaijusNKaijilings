@@ -9,4 +9,9 @@ public class BattleScreenController : BaseController<BattleScreenModel, BattleSc
     {
         BattleFactory.StartNewBattle(firstPlayer, secondPlayer);
     }
+
+    public void UseSkill (Entity caster, SkillScriptableObject skill)
+    {
+        CurrentModel.QueuePlayerSkillUsage(caster, skill);
+    }
 }

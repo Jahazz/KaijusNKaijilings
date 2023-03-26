@@ -12,7 +12,7 @@ public class StatsScriptable : ScriptableObject
     [field: SerializeField]
     public Sprite Image { get; private set; }
     [field: SerializeField]
-    public GameObject ModelPrefab { get; private set; }
+    public BattleScreenEntityController ModelPrefab { get; private set; }
     [field: SerializeField]
     public List<TypeDataScriptable> EntityTypeCollection { get; private set; }
     [field:SerializeField]

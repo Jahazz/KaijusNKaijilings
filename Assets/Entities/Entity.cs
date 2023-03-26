@@ -7,7 +7,7 @@ using UnityEngine;
 using Utils;
 
 [Serializable]
-public class Entity
+public partial class Entity
 {
     [field: SerializeField]
     public StatsScriptable BaseEntityType { get; private set; }
@@ -25,8 +25,11 @@ public class Entity
     public ObservableCollection<TypeDataScriptable> TypeScriptableCollection { get; set; } = new ObservableCollection<TypeDataScriptable>();
     public ObservableCollection<SkillScriptableObject> SelectedSkillsCollection { get; set; } = new ObservableCollection<SkillScriptableObject>();
 
-    private ObservableCollection<StatModifier> StatModifiers { get; set; } = new ObservableCollection<StatModifier>();
     public ObservableCollection<TraitBaseScriptableObject> TraitsCollection { get; set; } = new ObservableCollection<TraitBaseScriptableObject>();
+
+    public ObservableVariable<bool> IsAlive { get; set; } = new ObservableVariable<bool>(true);
+
+    private ObservableCollection<StatModifier> StatModifiers { get; set; } = new ObservableCollection<StatModifier>();
 
     public Entity (StatsScriptable baseEntity, BaseStatsData<Vector2> matStatsRange = null)
     {
@@ -41,12 +44,22 @@ public class Entity
         InitializeStatsGainedThroughLeveling();
         RecalculateModifiedStats();
         InitializeTypesColection();
+        ADD_FAKE_SKILLS();
     }
 
-    public bool IsAlive ()
+    private void ClampResource (Resource<float> resourceVariable, float newValue)
     {
-        return ModifiedStats.Health.CurrentValue.PresentValue > 0;
+        resourceVariable.CurrentValue.PresentValue = Mathf.Clamp(newValue, 0, resourceVariable.MaxValue.PresentValue);
     }
+
+    private void ADD_FAKE_SKILLS ()//TODO TEMP METHOD, REMOVE ME LATER
+    {
+        foreach (var item in BaseEntityType.SkillsWithRequirements)
+        {
+            SelectedSkillsCollection.Add(item.AssignedSkill);
+        }
+    }
+
 
     private void InitializeTypesColection ()
     {

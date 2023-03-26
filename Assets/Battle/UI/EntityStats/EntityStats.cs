@@ -19,18 +19,22 @@ public class EntityStats : MonoBehaviour
     private CustomProgressBar ExperienceProgressBar { get; set; }
     [field: SerializeField]
     private RectTransform RectTransform { get; set; }
+    [field: SerializeField]
+    private GameObject ExperienceBar { get; set; }
 
     private Entity EntityToAttach { get; set; }
     private Transform TransfromToAttach { get; set; }
     private List<Binding> BindingsCollection { get; set; } = new List<Binding>();
 
-    public void Initialize (Entity entityToAttach, Transform transfromToAttach)
+    public void Initialize (Entity entityToAttach, Transform transfromToAttach, bool isPlayerOwner)
     {
         EntityToAttach = entityToAttach;
         TransfromToAttach = transfromToAttach;
 
         EntityCustomNameLabel.text = EntityToAttach.Name.PresentValue;
         EntityBaseNameLabel.text = EntityToAttach.BaseEntityType.Name;
+
+        ExperienceBar.SetActive(isPlayerOwner);
 
         GenerateBindings();
     }

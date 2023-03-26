@@ -11,6 +11,7 @@ public class BattleScreenEntityController : MonoBehaviour
     public void PlayAnimation (AnimationType animationToPlay)
     {
         Animator.SetTrigger(Enum.GetName(typeof(AnimationType), animationToPlay));
+        new WaitForSeconds(1.0f);
     }
 }
 

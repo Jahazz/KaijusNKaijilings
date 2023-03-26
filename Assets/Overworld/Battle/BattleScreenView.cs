@@ -13,25 +13,42 @@ public class BattleScreenView : BaseView
     public Transform FirstEntityTargetTransform { get; private set; }
     [field: SerializeField]
     public Transform SecondEntityTargetTransform { get; private set; }
+    [field: SerializeField]
+    private List<SkillUseButton> SkillButtonCollection { get; set; }
 
-    public void SpawnEntityInFirstPosition (Entity entity)
+    private Dictionary<Entity, BattleScreenEntityController> EntityBattleScreenEntityControllerPair { get; set; } = new Dictionary<Entity, BattleScreenEntityController>();
+
+    public void SpawnEntityInPlayerPosition (Entity entity, bool isPlayerOwner)
     {
-        SpawnInPosition(FirstEntityTargetTransform, entity);
+        SpawnInPosition(FirstEntityTargetTransform, entity, isPlayerOwner);
     }
 
-    public void SpawnEntityInSecondPosition (Entity entity)
+    public void SpawnEntityInSecondPosition (Entity entity, bool isPlayerOwner)
     {
-        SpawnInPosition(SecondEntityTargetTransform, entity);
+        SpawnInPosition(SecondEntityTargetTransform, entity, isPlayerOwner);
     }
 
-    private void SpawnInPosition (Transform position, Entity entity)
+    public void BindSkillToButtons (List<SkillScriptableObject> skillCollection, Entity ownerEntity)
     {
-        SingletonContainer.Instance.BattleScreenManager.SpawnEntity(position, entity);
-        SpawnEntityStats(entity, position);
+        for (int i = 0; i < skillCollection.Count; i++)
+        {
+            SkillButtonCollection[i].BindWithSkill(skillCollection[i], ownerEntity);
+        }
     }
 
-    private void SpawnEntityStats (Entity entity, Transform transformPosition)
+    public void PlayAnimationAsEntity (Entity entity, AnimationType animationType)
     {
-        Instantiate(EntityStatsPrefab, BattleScreenCanvas.transform).Initialize(entity, transformPosition);
+        EntityBattleScreenEntityControllerPair[entity].PlayAnimation(animationType);
+    }
+
+    private void SpawnInPosition (Transform position, Entity entity, bool isPlayerOwner)
+    {
+        EntityBattleScreenEntityControllerPair.Add(entity, SingletonContainer.Instance.BattleScreenManager.SpawnEntity(position, entity));
+        SpawnEntityStats(entity, position, isPlayerOwner);
+    }
+
+    private void SpawnEntityStats (Entity entity, Transform transformPosition, bool isPlayerOwner)
+    {
+        Instantiate(EntityStatsPrefab, BattleScreenCanvas.transform).Initialize(entity, transformPosition, isPlayerOwner);
     }
 }

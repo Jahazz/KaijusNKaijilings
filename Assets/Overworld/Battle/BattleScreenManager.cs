@@ -69,12 +69,13 @@ public class BattleScreenManager : MultiCameraOverworldLayoutSystem
         OnBattlegroundPrepared.Invoke(FirstActor.Player, SecondActor.Player);
     }
 
-    public void SpawnEntity (Transform TargetTransform, Entity entityToSpawn)
+    public BattleScreenEntityController SpawnEntity (Transform TargetTransform, Entity entityToSpawn)
     {
-        GameObject spawnedEntity = Instantiate(entityToSpawn.BaseEntityType.ModelPrefab, TargetTransform);
+        BattleScreenEntityController spawnedEntity = Instantiate(entityToSpawn.BaseEntityType.ModelPrefab, TargetTransform);
         spawnedEntity.transform.localScale = Vector3.zero;
         FirstActor.SetLayerOfTransform(spawnedEntity.transform);
         spawnedEntity.transform.DOScale(Vector3.one, 1);
+        return spawnedEntity;
     }
 
     public void Close ()

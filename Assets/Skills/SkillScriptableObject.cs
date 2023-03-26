@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SkillData", menuName = "ScriptableObjects/SkillData", order = 1)]
-public class SkillScriptableObject : ScriptableObject
+public class SkillScriptableObject : SkillBase
 {
     [field: SerializeField]
     public string Name { get; private set; }
