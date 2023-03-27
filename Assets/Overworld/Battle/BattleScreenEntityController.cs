@@ -8,10 +8,49 @@ public class BattleScreenEntityController : MonoBehaviour
     [field: SerializeField]
     private Animator Animator { get; set; }
 
-    public void PlayAnimation (AnimationType animationToPlay)
+    private Entity BoundEntity { get; set; }
+
+    private bool IsAttackAnimationInContact = false;
+    private Canvas DamageIndicatorCanvas { get; set; }
+    private DamageIndicator DamageIndicatorPrefab { get; set; }
+
+    public void Initialize (Entity entity, Canvas damageIndicatorCanvas, DamageIndicator damageIndicatorPrefab)
     {
+        BoundEntity = entity;
+        DamageIndicatorCanvas = damageIndicatorCanvas;
+        DamageIndicatorPrefab = damageIndicatorPrefab;
+        BoundEntity.IsAlive.OnVariableChange += HandleOnAliveStateChange;
+        BoundEntity.OnDamaged += HandleOnEntityDamaged;
+    }
+
+    public void AttackAnimationCallback ()
+    {
+        IsAttackAnimationInContact = false;
+    }
+
+    public IEnumerator PlayAnimation (AnimationType animationToPlay)
+    {
+        IsAttackAnimationInContact = true;
         Animator.SetTrigger(Enum.GetName(typeof(AnimationType), animationToPlay));
-        new WaitForSeconds(1.0f);
+        yield return new WaitUntil(() => IsAttackAnimationInContact == false);
+    }
+
+    public bool IsAnimatorIdle ()
+    {
+        return Animator.GetCurrentAnimatorStateInfo(0).IsName(Enum.GetName(typeof(AnimationType), AnimationType.IDLE));
+    }
+
+    private void HandleOnEntityDamaged (float damage)
+    {
+        StartCoroutine(PlayAnimation(AnimationType.GET_HIT));
+        DamageIndicator spawnedIndicator = Instantiate(DamageIndicatorPrefab, DamageIndicatorCanvas.transform);
+        spawnedIndicator.transform.position = transform.position;
+        spawnedIndicator.Initialize(500);
+    }
+
+    private void HandleOnAliveStateChange (bool newValue)
+    {
+        StartCoroutine(PlayAnimation(AnimationType.DIE));
     }
 }
 
@@ -19,5 +58,6 @@ public enum AnimationType
 {
     ATTACK,
     GET_HIT,
-    DIE
+    DIE,
+    IDLE
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BattleScreenModel : BaseModel<BattleScreenView>
 {
+    private BattleActionResolver BattleActionResolver { get; set; } = new BattleActionResolver();
     private Battle CurrentBattle { get; set; }
 
     public void QueuePlayerSkillUsage (Entity caster, SkillScriptableObject skill)
@@ -21,20 +22,65 @@ public class BattleScreenModel : BaseModel<BattleScreenView>
     {
         CurrentBattle = createdBattle;
 
-        foreach (BattleParticipant battleParticipant in createdBattle.BattleParticipantsCollection)
+        foreach (BattleParticipant battleParticipant in CurrentBattle.BattleParticipantsCollection)
         {
             battleParticipant.CurrentEntity.OnVariableChange += (Entity entity) => OnPlayerEntityChanged(battleParticipant.Player, entity);
             OnPlayerEntityChanged(battleParticipant.Player, battleParticipant.CurrentEntity.PresentValue);
         }
 
-        createdBattle.OnEntityDeath += HandleOnEntityDeath;
-        createdBattle.OnSkillUsage += HandleOnEntitySkillUsage;
+        CurrentBattle.OnEntityDeath += HandleOnEntityDeath;
+        CurrentBattle.CurrentBattleState.OnVariableChange += HandleOnCurrentBattleStateChange;
     }
 
-    private void HandleOnEntitySkillUsage (AttackBattleAction attackAction)
+    private void HandleOnCurrentBattleStateChange (BattleState newValue)
     {
-        CurrentView.PlayAnimationAsEntity(attackAction.Caster, AnimationType.ATTACK);
-        CurrentView.PlayAnimationAsEntity(attackAction.Target, AnimationType.GET_HIT);
+        if (newValue == BattleState.ACTION_RESOLVE)
+        {
+            ResolveAllActions(CurrentBattle.ResolveActionsQueue);
+            //BattleActionResolver.StartResolvingActions(CurrentBattle.ResolveActionsQueue);
+        }
+    }
+    private void ResolveAllActions (Queue<BaseBattleAction> baseBattleActionsCollection)
+    {
+        QueueHandler a = new QueueHandler(() => Debug.Log("NEXT PHASE"));
+        while (baseBattleActionsCollection.Count > 0)
+        {
+            BaseBattleAction attackAction = baseBattleActionsCollection.Dequeue();
+
+            if (attackAction != null)
+            {
+                ExecuteBattleParticipantAction(attackAction,a);
+            }
+        }
+        a.InvokeActions();
+
+    }
+
+    public void ExecuteBattleParticipantAction (BaseBattleAction selectedAction, QueueHandler a)
+    {
+        switch (selectedAction.ActionType)
+        {
+            case BattleActionType.SWAP:
+                break;
+            case BattleActionType.ITEM:
+                break;
+            case BattleActionType.ATTACK:
+                AttackBattleAction attackAction = selectedAction as AttackBattleAction;
+                a.EnqueueFunction(() => CurrentView.PlayAnimationAsEntity(attackAction.Caster, AnimationType.ATTACK));
+                a.EnqueueFunction(()=>ExecuteAttackAction(attackAction));
+                a.EnqueueFunction(() => CurrentView.WaitUntilAnimatorIdle(attackAction.Caster));
+                break;
+            case BattleActionType.DISENGAGE:
+                break;
+            default:
+                break;
+        }
+    }
+
+    private IEnumerator ExecuteAttackAction (AttackBattleAction selectedAction)
+    {
+        CurrentBattle.ExecuteAttackAction(selectedAction);
+        yield return null;
     }
 
     private void HandleOnEntityDeath (Entity entity)

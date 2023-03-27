@@ -15,6 +15,8 @@ public class Battle
 
     public ObservableVariable<BattleState> CurrentBattleState { get; set; } = new ObservableVariable<BattleState>(BattleState.ACTION_CHOOSE);
 
+    public Queue<BaseBattleAction> ResolveActionsQueue { get; private set; }
+
     public Battle (List<Player> participantsCollection)
     {
         foreach (Player playerParticipant in participantsCollection)
@@ -31,11 +33,34 @@ public class Battle
         ChooseActions();
     }
 
+    public void ExecuteAttackAction (AttackBattleAction attackAction)
+    {
+        attackAction.Skill.UseSkill(attackAction.Caster, attackAction.Target);
+        OnSkillUsage?.Invoke(attackAction);
+    }
+
+    //public BaseBattleAction ResolveNextAction ()
+    //{
+    //    BaseBattleAction actionToResolve = null;
+
+    //    if (ResolveActionsQueue.Count>0)
+    //    {
+    //        actionToResolve = ResolveActionsQueue.Dequeue();
+    //        ExecuteBattleParticipantAction(actionToResolve);
+    //    }
+    //    else
+    //    {
+    //        WrapUp();
+    //    }
+
+    //    return actionToResolve;
+    //}
+
     private void HandleSelectedCurrentAction (BaseBattleAction newValue)
     {
         if (CurrentBattleState.PresentValue == BattleState.ACTION_CHOOSE && newValue != null && AreAllActionsSelected() == true)
         {
-            ResolveActions();
+            SortActions();
         }
     }
 
@@ -64,9 +89,9 @@ public class Battle
         enemy.QueueAttackAction(enemy.CurrentEntity.PresentValue, GetPlayerBattleParticipant().CurrentEntity.PresentValue, enemy.CurrentEntity.PresentValue.SelectedSkillsCollection[0]);
     }
 
-    private void ResolveActions ()
+    private void SortActions ()
     {
-        CurrentBattleState.PresentValue = BattleState.ACTION_RESOLVE;
+        ResolveActionsQueue = new Queue<BaseBattleAction>();
         //TODO: resolve dots here
 
         List<BattleParticipant> playersOrderedByBattleActions = BattleParticipantsCollection
@@ -76,42 +101,15 @@ public class Battle
 
         foreach (BattleParticipant participant in playersOrderedByBattleActions)
         {
-            ExecuteBattleParticipantAction(participant);
+            ResolveActionsQueue.Enqueue(participant.SelectedBattleAction.PresentValue);
         }
 
-        WrapUp();
+        CurrentBattleState.PresentValue = BattleState.ACTION_RESOLVE;
     }
 
     private void WrapUp ()
     {
         CurrentBattleState.PresentValue = BattleState.WRAP_UP;
-    }
-
-    private void ExecuteBattleParticipantAction (BattleParticipant participant)
-    {
-        BaseBattleAction selectedAction = participant.SelectedBattleAction.PresentValue;
-
-        switch (selectedAction.ActionType)
-        {
-            case BattleActionType.SWAP:
-                break;
-            case BattleActionType.ITEM:
-                break;
-            case BattleActionType.ATTACK:
-                ExecuteAttackAction(selectedAction);
-                break;
-            case BattleActionType.DISENGAGE:
-                break;
-            default:
-                break;
-        }
-    }
-
-    private void ExecuteAttackAction (BaseBattleAction selectedAction)
-    {
-        AttackBattleAction attackAction = selectedAction as AttackBattleAction;
-        attackAction.Skill.UseSkill(attackAction.Caster, attackAction.Target);
-        OnSkillUsage.Invoke(attackAction);
     }
 
     public BattleParticipant GetPlayerBattleParticipant ()
@@ -137,10 +135,5 @@ public class Battle
     private void HandleCurrentEntityChanged (Entity AddedEntity)
     {
         AddedEntity.IsAlive.OnVariableChange += (_) => OnEntityDeath.Invoke(AddedEntity);
-    }
-
-    public Entity GetTarget (Entity targetFor)
-    {
-        return BattleParticipantsCollection[0].CurrentEntity.PresentValue == targetFor ? BattleParticipantsCollection[1].CurrentEntity.PresentValue : BattleParticipantsCollection[0].CurrentEntity.PresentValue;
     }
 }

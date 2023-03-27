@@ -10,6 +10,10 @@ public class BattleScreenView : BaseView
     [field: SerializeField]
     private Canvas BattleScreenCanvas { get; set; }
     [field: SerializeField]
+    private Canvas DamageIndicatorCanvas { get; set; }
+    [field: SerializeField]
+    private DamageIndicator DamageIndicatorPrefab { get; set; }
+    [field: SerializeField]
     public Transform FirstEntityTargetTransform { get; private set; }
     [field: SerializeField]
     public Transform SecondEntityTargetTransform { get; private set; }
@@ -36,14 +40,21 @@ public class BattleScreenView : BaseView
         }
     }
 
-    public void PlayAnimationAsEntity (Entity entity, AnimationType animationType)
+    public IEnumerator PlayAnimationAsEntity (Entity entity, AnimationType animationType)
     {
-        EntityBattleScreenEntityControllerPair[entity].PlayAnimation(animationType);
+        return EntityBattleScreenEntityControllerPair[entity].PlayAnimation(animationType);
+    }
+
+    public IEnumerator WaitUntilAnimatorIdle (Entity entity)
+    {
+        yield return new WaitUntil(() => EntityBattleScreenEntityControllerPair[entity].IsAnimatorIdle() == true);
     }
 
     private void SpawnInPosition (Transform position, Entity entity, bool isPlayerOwner)
     {
-        EntityBattleScreenEntityControllerPair.Add(entity, SingletonContainer.Instance.BattleScreenManager.SpawnEntity(position, entity));
+        BattleScreenEntityController entityController = SingletonContainer.Instance.BattleScreenManager.SpawnEntity(position, entity);
+        EntityBattleScreenEntityControllerPair.Add(entity, entityController);
+        entityController.Initialize(entity, DamageIndicatorCanvas, DamageIndicatorPrefab);
         SpawnEntityStats(entity, position, isPlayerOwner);
     }
 
