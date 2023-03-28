@@ -2,6 +2,7 @@ using MVC;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class BattleScreenView : BaseView
 {
@@ -19,6 +20,10 @@ public class BattleScreenView : BaseView
     public Transform SecondEntityTargetTransform { get; private set; }
     [field: SerializeField]
     private List<SkillUseButton> SkillButtonCollection { get; set; }
+    [field: SerializeField]
+    private RectTransform BottomBar { get; set; }
+    [field: SerializeField]
+    private GameObject BottomBarBlocker { get; set; }
 
     private Dictionary<Entity, BattleScreenEntityController> EntityBattleScreenEntityControllerPair { get; set; } = new Dictionary<Entity, BattleScreenEntityController>();
 
@@ -48,6 +53,23 @@ public class BattleScreenView : BaseView
     public IEnumerator WaitUntilAnimatorIdle (Entity entity)
     {
         yield return new WaitUntil(() => EntityBattleScreenEntityControllerPair[entity].IsAnimatorIdle() == true);
+    }
+
+    public void SetBottomUIBarInteractible (bool isBottomBarInteractible)
+    {
+        BottomBarBlocker.SetActive(isBottomBarInteractible == false);
+    }
+
+    public void IsBottomBarShown (bool IsBottomBarShown)
+    {
+        if (IsBottomBarShown == true)
+        {
+            BottomBar.DOAnchorPosY(0, 1);
+        }
+        else
+        {
+            BottomBar.DOAnchorPosY(-400, 1);//TODO: Resolve magic values
+        }
     }
 
     private void SpawnInPosition (Transform position, Entity entity, bool isPlayerOwner)

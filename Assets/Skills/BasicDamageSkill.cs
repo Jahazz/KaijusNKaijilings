@@ -22,6 +22,6 @@ public class BasicDamageSkill : SkillScriptableObject
         float totalDamage = BattleUtils.CalculateTotalDamage(attributeDamageMultiplier, typeDamageMultiplier, attackRandomizedValue);
        
         caster.PayForSkill(Cost);
-        target.GetDamaged(totalDamage);
+        target.GetDamaged(new EntityDamageData(attributeDamageMultiplier, typeDamageMultiplier, attackRandomizedValue, totalDamage, GameobjectToSpawnOnHitTarget));
     }
 }

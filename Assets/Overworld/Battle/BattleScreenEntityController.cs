@@ -7,6 +7,10 @@ public class BattleScreenEntityController : MonoBehaviour
 {
     [field: SerializeField]
     private Animator Animator { get; set; }
+    [field: SerializeField]
+    private Transform OnHitEffectTransform { get; set; }
+    [field: SerializeField]
+    private Transform DamageIndicatorTransform { get; set; }
 
     private Entity BoundEntity { get; set; }
 
@@ -40,12 +44,15 @@ public class BattleScreenEntityController : MonoBehaviour
         return Animator.GetCurrentAnimatorStateInfo(0).IsName(Enum.GetName(typeof(AnimationType), AnimationType.IDLE));
     }
 
-    private void HandleOnEntityDamaged (float damage)
+    private void HandleOnEntityDamaged (EntityDamageData damage)
     {
         StartCoroutine(PlayAnimation(AnimationType.GET_HIT));
+
         DamageIndicator spawnedIndicator = Instantiate(DamageIndicatorPrefab, DamageIndicatorCanvas.transform);
-        spawnedIndicator.transform.position = transform.position;
-        spawnedIndicator.Initialize(500);
+        spawnedIndicator.transform.position = DamageIndicatorTransform.position;
+        spawnedIndicator.Initialize(damage.TotalDamage);
+
+        Instantiate(damage.AttackEffect, OnHitEffectTransform);
     }
 
     private void HandleOnAliveStateChange (bool newValue)

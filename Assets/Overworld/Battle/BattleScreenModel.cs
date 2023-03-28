@@ -30,10 +30,14 @@ public class BattleScreenModel : BaseModel<BattleScreenView>
 
         CurrentBattle.OnEntityDeath += HandleOnEntityDeath;
         CurrentBattle.CurrentBattleState.OnVariableChange += HandleOnCurrentBattleStateChange;
+
+        CurrentView.IsBottomBarShown(true);
     }
 
     private void HandleOnCurrentBattleStateChange (BattleState newValue)
     {
+        CurrentView.SetBottomUIBarInteractible(newValue == BattleState.ACTION_CHOOSE);
+
         if (newValue == BattleState.ACTION_RESOLVE)
         {
             ResolveAllActions(CurrentBattle.ResolveActionsQueue);
@@ -42,21 +46,21 @@ public class BattleScreenModel : BaseModel<BattleScreenView>
     }
     private void ResolveAllActions (Queue<BaseBattleAction> baseBattleActionsCollection)
     {
-        QueueHandler a = new QueueHandler(() => Debug.Log("NEXT PHASE"));
+        QueueHandler actionQueue = new QueueHandler(() => Debug.Log("NEXT PHASE"));
         while (baseBattleActionsCollection.Count > 0)
         {
             BaseBattleAction attackAction = baseBattleActionsCollection.Dequeue();
 
             if (attackAction != null)
             {
-                ExecuteBattleParticipantAction(attackAction,a);
+                ExecuteBattleParticipantAction(attackAction,actionQueue);
             }
         }
-        a.InvokeActions();
+        actionQueue.InvokeActions();
 
     }
 
-    public void ExecuteBattleParticipantAction (BaseBattleAction selectedAction, QueueHandler a)
+    public void ExecuteBattleParticipantAction (BaseBattleAction selectedAction, QueueHandler actionQueue)
     {
         switch (selectedAction.ActionType)
         {
@@ -66,9 +70,9 @@ public class BattleScreenModel : BaseModel<BattleScreenView>
                 break;
             case BattleActionType.ATTACK:
                 AttackBattleAction attackAction = selectedAction as AttackBattleAction;
-                a.EnqueueFunction(() => CurrentView.PlayAnimationAsEntity(attackAction.Caster, AnimationType.ATTACK));
-                a.EnqueueFunction(()=>ExecuteAttackAction(attackAction));
-                a.EnqueueFunction(() => CurrentView.WaitUntilAnimatorIdle(attackAction.Caster));
+                actionQueue.EnqueueFunction(() => CurrentView.PlayAnimationAsEntity(attackAction.Caster, AnimationType.ATTACK));
+                actionQueue.EnqueueFunction(()=>ExecuteAttackAction(attackAction));
+                actionQueue.EnqueueFunction(() => CurrentView.WaitUntilAnimatorIdle(attackAction.Caster));
                 break;
             case BattleActionType.DISENGAGE:
                 break;

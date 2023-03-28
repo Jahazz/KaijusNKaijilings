@@ -4,13 +4,14 @@ using UnityEngine;
 
 public partial class Entity
 {
-    public delegate void OnDamagedArguments (float damage);
+    public delegate void OnDamagedArguments (EntityDamageData damage);
     public event OnDamagedArguments OnDamaged;
-    public void GetDamaged (float damage)
+
+    public void GetDamaged (EntityDamageData damageData)
     {
-        float newValue = ModifiedStats.Health.CurrentValue.PresentValue - damage;
+        float newValue = ModifiedStats.Health.CurrentValue.PresentValue - damageData.TotalDamage;
         ClampResource(ModifiedStats.Health, newValue);
-        OnDamaged?.Invoke(damage);
+        OnDamaged?.Invoke(damageData);
         CheckIfIsDead();
     }
 

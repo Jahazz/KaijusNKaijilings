@@ -19,7 +19,7 @@ public class DamageIndicator : MonoBehaviour
     private IEnumerator WaitAndDisappear ()
     {
         yield return new WaitForSeconds(1.0f);
-        DamageLabel.DOFade(0, 1).OnComplete(Dispose);
+        DamageLabel.DOFade(0, 1.0f).OnComplete(Dispose);
     }
 
     private void Dispose ()

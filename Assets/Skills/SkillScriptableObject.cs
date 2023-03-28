@@ -14,4 +14,6 @@ public class SkillScriptableObject : SkillBase
     public Sprite Image { get; private set; }
     [field: SerializeField]
     public List<TypeDataScriptable> SkilType { get; private set; }
+    [field: SerializeField]
+    public GameObject GameobjectToSpawnOnHitTarget { get; private set; }
 }
