@@ -17,9 +17,9 @@ namespace MVC.RuntimeTabbedView
         [field: SerializeField]
         private bool AutoInitialize { get; set; }
 
-        protected override void Start ()
+        protected override void Awake ()
         {
-            base.Start();
+            base.Awake();
 
             if (AutoInitialize == true)
             {

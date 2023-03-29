@@ -18,4 +18,9 @@ public class EntityDetailedScreenModel : BaseModel<EntityDetailedScreenView>
     {
         CurrentEntity.Name.PresentValue = value;
     }
+
+    public void SetCurrentBattleEntityToThisAndCloseWindow ()
+    {
+        BattleFactory.CurrentBattle.GetPlayerBattleParticipant().CurrentEntity.PresentValue = CurrentEntity;
+    }
 }

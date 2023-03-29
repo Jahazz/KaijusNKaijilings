@@ -7,7 +7,12 @@ using UnityEngine;
 
 public class EntityListModel : SingleSelectableListModel<EntityListElement, Entity, EntityListView>
 {
-    // Start is called before the first frame update
+
+    public override void Initialize (EntityListView currentView)
+    {
+        base.Initialize(currentView);
+    }
+
     protected virtual void OnEnable ()
     {
         AttachEvents();

@@ -122,11 +122,6 @@ public class Battle
         return GetBattleParticipant(true);
     }
 
-    public void AreBothPlayersActionsSelected ()
-    {
-
-    }
-
     private BattleParticipant GetBattleParticipant (bool isNPC)
     {
         return BattleParticipantsCollection.Where(n => n.Player.IsNPC == isNPC).FirstOrDefault();

@@ -31,6 +31,8 @@ public class EntityDetailedScreenView : BaseView
     private TypeListController TypeListColtroler { get; set; }
     [field: SerializeField]
     private TraitListController TraitListController { get; set; }
+    [field: SerializeField]
+    private Button SummonEntityButton { get; set; }
 
     private List<Binding> BindingsCollection { get; set; } = new List<Binding>();
     private Entity CurrentEntityData { get; set; }
@@ -63,8 +65,6 @@ public class EntityDetailedScreenView : BaseView
         BindingsCollection.Add(BindingFactory.GenerateCustomProgressBarBinding(ManaBar, new ObservableVariable<float>(0), CurrentEntityData.ModifiedStats.Mana.MaxValue, CurrentEntityData.ModifiedStats.Mana.CurrentValue));
         BindingsCollection.Add(BindingFactory.GenerateCustomProgressBarBinding(ExperienceBar, CurrentEntityData.LevelData.ExperienceNeededForCurrentLevel, CurrentEntityData.LevelData.ExperienceNeededForNextLevel, CurrentEntityData.LevelData.CurrentExperience));
         BindingsCollection.Add(BindingFactory.GenerateInputFieldBinding(CustomNameInputField,"{0}", CurrentEntityData.Name));
-
-
     }
 
     public void UnbindBindings ()
@@ -75,6 +75,11 @@ public class EntityDetailedScreenView : BaseView
         }
 
         BindingsCollection.Clear();
+    }
+
+    public void SetSummonButtonVisibility (bool isVisible)
+    {
+        SummonEntityButton.gameObject.SetActive(isVisible == true);
     }
 
 

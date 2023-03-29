@@ -11,10 +11,10 @@ namespace MVC
         [field: SerializeField]
         public ViewType CurrentView { get; private set; }
 
-        protected virtual void Awake ()
+        protected override void Awake ()
         {
             CurrentModel.Initialize(CurrentView);
-            base.Start();
+            base.Awake();
         }
     }
 }

@@ -7,7 +7,7 @@ using Utils;
 public class BattleParticipant
 {
     public Player Player { get; private set; }
-    public ObservableVariable<Entity> CurrentEntity { get; private set; } = new ObservableVariable<Entity>();
+    public ObservableVariable<Entity> CurrentEntity { get; set; } = new ObservableVariable<Entity>();
     public ObservableVariable<BaseBattleAction> SelectedBattleAction { get; private set; } = new ObservableVariable<BaseBattleAction>();
 
     public BattleParticipant (Player player)

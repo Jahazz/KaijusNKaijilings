@@ -20,6 +20,12 @@ public class EntityDetailedScreenController : BaseController<EntityDetailedScree
         SkillListController.Show(CurrentModel.CurrentEntity);
     }
 
+    public void SummonEntity ()
+    {
+        CurrentModel.SetCurrentBattleEntityToThisAndCloseWindow();
+
+    }
+
     protected override void AttachToEvents ()
     {
         base.AttachToEvents();

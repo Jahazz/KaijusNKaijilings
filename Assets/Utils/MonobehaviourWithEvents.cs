@@ -4,7 +4,7 @@ namespace Utils
 {
     public class MonobehaviourWithEvents : MonoBehaviour
     {
-        protected virtual void Start ()
+        protected virtual void Awake ()
         {
             AttachToEvents();
         }
