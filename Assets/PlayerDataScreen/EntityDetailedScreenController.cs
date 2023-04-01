@@ -23,7 +23,11 @@ public class EntityDetailedScreenController : BaseController<EntityDetailedScree
     public void SummonEntity ()
     {
         CurrentModel.SetCurrentBattleEntityToThisAndCloseWindow();
+    }
 
+    public void SetButtonsVisibility(bool isSpellbookButtonShow, bool isSummonButtonShown)
+    {
+        CurrentView.SetButtonsVIsibility(isSpellbookButtonShow, isSummonButtonShown);
     }
 
     protected override void AttachToEvents ()

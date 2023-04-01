@@ -4,7 +4,7 @@ namespace Utils
 {
     public class ObservableVariable<Type>
     {
-        public delegate void VariableChangedArguments (Type newValue);
+        public delegate void VariableChangedArguments(Type newValue);
         public event VariableChangedArguments OnVariableChange;
 
         private Type presentValue;
@@ -13,6 +13,7 @@ namespace Utils
             get { return presentValue; }
             set {
                 bool hasValueChanged = HasValueChanged(value, presentValue);
+                Type oldValue = value;
                 presentValue = value;
 
                 if (hasValueChanged == true)

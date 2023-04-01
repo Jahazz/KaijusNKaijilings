@@ -35,6 +35,11 @@ public class CharacterMenuModel : SingleSelectableListModel<CharacterMenuElement
         CurrentView.ToggleMenuVisibility(isMenuVisible);
     }
 
+    public void OpenMenuAsEntitySelection()
+    {
+        CurrentView.OpenMenuAsEntitySelection();
+    }
+
     protected override void DetachFromEvents ()
     {
         base.DetachFromEvents();

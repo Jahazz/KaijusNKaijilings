@@ -21,6 +21,7 @@ public class EntityDetailedScreenModel : BaseModel<EntityDetailedScreenView>
 
     public void SetCurrentBattleEntityToThisAndCloseWindow ()
     {
-        BattleFactory.CurrentBattle.GetPlayerBattleParticipant().CurrentEntity.PresentValue = CurrentEntity;
+        SingletonContainer.Instance.BattleScreenManager.BattleScreenController.ChangeCurrentEntity(CurrentEntity);
+        SingletonContainer.Instance.CharacterMenuController.HideCharacterMenu();
     }
 }

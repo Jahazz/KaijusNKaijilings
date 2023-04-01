@@ -10,4 +10,6 @@ public class CharacterMenuElementData
     public CharacterMenuElement CharacterMenuElement { get; private set; }
     [field: SerializeField]
     public GameObject BoundPanel { get; private set; }
+    [field: SerializeField]
+    public CharacterMenuTabType TabType { get; private set; }
 }

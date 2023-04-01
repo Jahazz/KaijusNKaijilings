@@ -17,14 +17,21 @@ public class BattleScreenEntityController : MonoBehaviour
     private bool IsAttackAnimationInContact = false;
     private Canvas DamageIndicatorCanvas { get; set; }
     private DamageIndicator DamageIndicatorPrefab { get; set; }
+    private EntityStats EntityStats { get; set; }
 
-    public void Initialize (Entity entity, Canvas damageIndicatorCanvas, DamageIndicator damageIndicatorPrefab)
+    public void Initialize (Entity entity, Canvas damageIndicatorCanvas, DamageIndicator damageIndicatorPrefab, EntityStats entityStats)
     {
         BoundEntity = entity;
         DamageIndicatorCanvas = damageIndicatorCanvas;
         DamageIndicatorPrefab = damageIndicatorPrefab;
+        EntityStats = entityStats;
         BoundEntity.IsAlive.OnVariableChange += HandleOnAliveStateChange;
         BoundEntity.OnDamaged += HandleOnEntityDamaged;
+    }
+
+    public void DestroyEntityStats()
+    {
+        Destroy(EntityStats.gameObject);
     }
 
     public void AttackAnimationCallback ()

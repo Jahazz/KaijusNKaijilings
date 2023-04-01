@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class BattleScreenManager : MultiCameraOverworldLayoutSystem
 {
     [field: SerializeField]
+    public BattleScreenController BattleScreenController { get; private set; }
+    [field: SerializeField]
     private RectTransform Background { get; set; }
     [field: SerializeField]
     private RectTransform Foreground { get; set; }
@@ -69,13 +71,12 @@ public class BattleScreenManager : MultiCameraOverworldLayoutSystem
         OnBattlegroundPrepared.Invoke(FirstActor.Player, SecondActor.Player);
     }
 
-    public BattleScreenEntityController SpawnEntity (Transform TargetTransform, Entity entityToSpawn)
+    public Tweener SpawnEntity (Transform TargetTransform, Entity entityToSpawn, out BattleScreenEntityController spawnedEntity)
     {
-        BattleScreenEntityController spawnedEntity = Instantiate(entityToSpawn.BaseEntityType.ModelPrefab, TargetTransform);
+        spawnedEntity = Instantiate(entityToSpawn.BaseEntityType.ModelPrefab, TargetTransform);
         spawnedEntity.transform.localScale = Vector3.zero;
         FirstActor.SetLayerOfTransform(spawnedEntity.transform);
-        spawnedEntity.transform.DOScale(Vector3.one, 1);
-        return spawnedEntity;
+        return spawnedEntity.transform.DOScale(Vector3.one, 1);
     }
 
     public void Close ()

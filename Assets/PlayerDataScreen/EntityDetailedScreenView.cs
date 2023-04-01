@@ -34,6 +34,12 @@ public class EntityDetailedScreenView : BaseView
     [field: SerializeField]
     private Button SummonEntityButton { get; set; }
 
+    [field: Space]
+    [field: SerializeField]
+    private Button SpellbookButton { get; set; }
+    [field: SerializeField]
+    private Button SummonButton { get; set; }
+
     private List<Binding> BindingsCollection { get; set; } = new List<Binding>();
     private Entity CurrentEntityData { get; set; }
 
@@ -82,5 +88,9 @@ public class EntityDetailedScreenView : BaseView
         SummonEntityButton.gameObject.SetActive(isVisible == true);
     }
 
-
+    public void SetButtonsVIsibility(bool isSpellbookButtonShow, bool isSummonButtonShown)
+    {
+        SpellbookButton.gameObject.SetActive(isSpellbookButtonShow);
+        SummonButton.gameObject.SetActive(isSummonButtonShown);
+    }
 }

@@ -9,8 +9,27 @@ public class CharacterMenuController : SingleSelectableListController<CharacterM
 
     public void HandleOnMenuButtonClick ()
     {
-        IsMenuVisible = !IsMenuVisible;
+        if (SingletonContainer.Instance.BattleScreenManager.BattleScreenController.IsInBattle() == false)
+        {
+            OpenCharacterMenu();
+        }
+    }
 
+    public void OpenMenuAsEntitySelection()
+    {
+        OpenCharacterMenu();
+        CurrentModel.OpenMenuAsEntitySelection();
+    }
+
+    public void HideCharacterMenu()
+    {
+        IsMenuVisible = false;
+        CurrentModel.ToggleMenuVisibility(false);
+    }
+
+    private void OpenCharacterMenu()
+    {
+        IsMenuVisible = !IsMenuVisible;
         CurrentModel.ToggleMenuVisibility(IsMenuVisible);
     }
 }

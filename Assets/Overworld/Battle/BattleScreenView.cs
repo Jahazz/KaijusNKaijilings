@@ -27,17 +27,27 @@ public class BattleScreenView : BaseView
 
     private Dictionary<Entity, BattleScreenEntityController> EntityBattleScreenEntityControllerPair { get; set; } = new Dictionary<Entity, BattleScreenEntityController>();
 
-    public void SpawnEntityInPlayerPosition (Entity entity, bool isPlayerOwner)
+    public IEnumerator SpawnEntityInPlayerPosition(Entity entity, bool isPlayerOwner)
     {
-        SpawnInPosition(FirstEntityTargetTransform, entity, isPlayerOwner);
+        yield return SpawnInPosition(FirstEntityTargetTransform, entity, isPlayerOwner);
     }
 
-    public void SpawnEntityInSecondPosition (Entity entity, bool isPlayerOwner)
+    public IEnumerator SpawnEntityInSecondPosition(Entity entity, bool isPlayerOwner)
     {
-        SpawnInPosition(SecondEntityTargetTransform, entity, isPlayerOwner);
+        yield return SpawnInPosition(SecondEntityTargetTransform, entity, isPlayerOwner);
     }
 
-    public void BindSkillToButtons (List<SkillScriptableObject> skillCollection, Entity ownerEntity)
+    public IEnumerator TryToDestroyEntityOnScene(Entity entityToDestroy)
+    {
+        //if (entityToDestroy != null && EntityBattleScreenEntityControllerPair.ContainsKey(entityToDestroy) == true)
+        //{
+        EntityBattleScreenEntityControllerPair[entityToDestroy].DestroyEntityStats();
+        Destroy(EntityBattleScreenEntityControllerPair[entityToDestroy].gameObject);
+        yield return null;
+        //}
+    }
+
+    public void BindSkillToButtons(List<SkillScriptableObject> skillCollection, Entity ownerEntity)
     {
         for (int i = 0; i < skillCollection.Count; i++)
         {
@@ -45,22 +55,22 @@ public class BattleScreenView : BaseView
         }
     }
 
-    public IEnumerator PlayAnimationAsEntity (Entity entity, AnimationType animationType)
+    public IEnumerator PlayAnimationAsEntity(Entity entity, AnimationType animationType)
     {
         return EntityBattleScreenEntityControllerPair[entity].PlayAnimation(animationType);
     }
 
-    public IEnumerator WaitUntilAnimatorIdle (Entity entity)
+    public IEnumerator WaitUntilAnimatorIdle(Entity entity)
     {
         yield return new WaitUntil(() => EntityBattleScreenEntityControllerPair[entity].IsAnimatorIdle() == true);
     }
 
-    public void SetBottomUIBarInteractible (bool isBottomBarInteractible)
+    public void SetBottomUIBarInteractible(bool isBottomBarInteractible)
     {
         BottomBarBlocker.SetActive(isBottomBarInteractible == false);
     }
 
-    public void IsBottomBarShown (bool IsBottomBarShown)
+    public void IsBottomBarShown(bool IsBottomBarShown)
     {
         if (IsBottomBarShown == true)
         {
@@ -72,16 +82,19 @@ public class BattleScreenView : BaseView
         }
     }
 
-    private void SpawnInPosition (Transform position, Entity entity, bool isPlayerOwner)
+    private IEnumerator SpawnInPosition(Transform position, Entity entity, bool isPlayerOwner)
     {
-        BattleScreenEntityController entityController = SingletonContainer.Instance.BattleScreenManager.SpawnEntity(position, entity);
+        BattleScreenEntityController entityController;
+        Tweener tweener = SingletonContainer.Instance.BattleScreenManager.SpawnEntity(position, entity, out entityController);
         EntityBattleScreenEntityControllerPair.Add(entity, entityController);
-        entityController.Initialize(entity, DamageIndicatorCanvas, DamageIndicatorPrefab);
-        SpawnEntityStats(entity, position, isPlayerOwner);
+        entityController.Initialize(entity, DamageIndicatorCanvas, DamageIndicatorPrefab, SpawnEntityStats(entity, position, isPlayerOwner));
+        yield return tweener.WaitForCompletion();
     }
 
-    private void SpawnEntityStats (Entity entity, Transform transformPosition, bool isPlayerOwner)
+    private EntityStats SpawnEntityStats(Entity entity, Transform transformPosition, bool isPlayerOwner)
     {
-        Instantiate(EntityStatsPrefab, BattleScreenCanvas.transform).Initialize(entity, transformPosition, isPlayerOwner);
+        EntityStats output = Instantiate(EntityStatsPrefab, BattleScreenCanvas.transform);
+        output.Initialize(entity, transformPosition, isPlayerOwner);
+        return output;
     }
 }

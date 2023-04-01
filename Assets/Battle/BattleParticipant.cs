@@ -20,6 +20,11 @@ public class BattleParticipant
         SelectedBattleAction.PresentValue = new AttackBattleAction(caster, skillTarget, skill);
     }
 
+    public void QueueSwapAction(Entity entityToSwapTo)
+    {
+         SelectedBattleAction.PresentValue = new SwapBattleAction(this, entityToSwapTo);
+    }
+
     public void SelectFirstAliveEntity ()
     {
         CurrentEntity.PresentValue = GetFirstAliveEntity();

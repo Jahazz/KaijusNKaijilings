@@ -14,4 +14,14 @@ public class BattleScreenController : BaseController<BattleScreenModel, BattleSc
     {
         CurrentModel.QueuePlayerSkillUsage(caster, skill);
     }
+
+    public void ChangeCurrentEntity(Entity entity)
+    {
+        CurrentModel.QueuePlayerEntitySwap(entity);
+    }
+
+    public bool IsInBattle()
+    {
+        return CurrentModel.IsInBattle();
+    }
 }
