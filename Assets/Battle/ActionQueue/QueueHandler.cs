@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Linq;
 
 public class QueueHandler
 {
@@ -13,14 +13,19 @@ public class QueueHandler
         FinishCallback = finishCallback;
     }
 
-    public void EnqueueFunction (Func<IEnumerator> functionToExecute)
+    public void EnqueueFunction (BaseBattleAction basedOnAction, Func<IEnumerator> functionToExecute)
     {
-        QueuedActionCollection.Enqueue(new QueuedAction(functionToExecute));
+        QueuedActionCollection.Enqueue(new QueuedAction(functionToExecute, basedOnAction));
     }
 
     public void InvokeActions ()
     {
         ExecuteNext();
+    }
+
+    public void RemoveActionsWithPredicate (Func<QueuedAction, bool> predicate)
+    {
+        QueuedActionCollection = new Queue<QueuedAction>(QueuedActionCollection.Where((n) => predicate(n) == false));
     }
 
     private void ExecuteNext ()

@@ -14,7 +14,7 @@ public class Battle
     public event OnAllActionsSelectedParams OnAllActionsSelected;
 
     public List<BattleParticipant> BattleParticipantsCollection { get; private set; } = new List<BattleParticipant>();
-    public ObservableVariable<BattleState> CurrentBattleState { get; set; } = new ObservableVariable<BattleState>(BattleState.ACTION_CHOOSE);
+    public ObservableVariable<BattleState> CurrentBattleState { get; set; } = new ObservableVariable<BattleState>(BattleState.NONE);
 
     public Battle (List<Player> participantsCollection)
     {
@@ -28,14 +28,20 @@ public class Battle
 
             participant.SelectFirstAliveEntity();
         }
-
-        ChooseActions();
     }
 
     public void ExecuteAttackAction (AttackBattleAction attackAction)
     {
         attackAction.Skill.UseSkill(attackAction.Caster, attackAction.Target.CurrentEntity.PresentValue);
         OnSkillUsage?.Invoke(attackAction);
+    }
+
+    public void ClearChosenBattleActions ()
+    {
+        foreach (BattleParticipant participant in BattleParticipantsCollection)
+        {
+            participant.SelectedBattleAction.PresentValue = null;
+        }
     }
 
     private void HandleSelectedCurrentAction (BaseBattleAction newValue)
@@ -60,20 +66,6 @@ public class Battle
         }
 
         return output;
-    }
-
-    private void ChooseActions ()
-    {
-        CurrentBattleState.PresentValue = BattleState.ACTION_CHOOSE;
-
-        // ENEMY ACTION FAKE CHOOSE
-        BattleParticipant enemy = GetNPCBattleParticipant();
-        enemy.QueueAttackAction(enemy.CurrentEntity.PresentValue, GetPlayerBattleParticipant(), enemy.CurrentEntity.PresentValue.SelectedSkillsCollection[0]);
-    }
-
-    private void WrapUp ()
-    {
-        CurrentBattleState.PresentValue = BattleState.WRAP_UP;
     }
 
     public BattleParticipant GetPlayerBattleParticipant ()

@@ -9,9 +9,12 @@ public class QueuedAction
     public event ActionFinishedParams OnActionFinished;
 
     public Func<IEnumerator> ActionToExecute { get; set; }
-    public QueuedAction (Func<IEnumerator> actionToExecute)
+    public BaseBattleAction ActionIsBasedOn { get; private set; }
+
+    public QueuedAction (Func<IEnumerator> actionToExecute, BaseBattleAction actionIsBasedOn)
     {
         ActionToExecute = actionToExecute;
+        ActionIsBasedOn = actionIsBasedOn;
     }
 
     public void Execute ()

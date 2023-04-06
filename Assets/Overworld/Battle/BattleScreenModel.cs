@@ -38,16 +38,15 @@ public class BattleScreenModel : BaseModel<BattleScreenView>
 
         CurrentBattle.OnEntityDeath += HandleOnEntityDeath;
         CurrentBattle.CurrentBattleState.OnVariableChange += HandleOnCurrentBattleStateChange;
-        CurrentBattle.OnAllActionsSelected += CurrentBattle_OnAllActionsSelected;
+        CurrentBattle.OnAllActionsSelected += HandleOnAllActionsSelected;
+
+        CurrentBattle.CurrentBattleState.PresentValue = BattleState.ACTION_CHOOSE;
 
         CurrentView.IsBottomBarShown(true);
     }
 
-    private void CurrentBattle_OnAllActionsSelected ()
+    private void HandleOnAllActionsSelected ()
     {
-        InitializeBattleResolver();
-        BattleActionResolver.SortActions(CurrentBattle.BattleParticipantsCollection);
-
         CurrentBattle.CurrentBattleState.PresentValue = BattleState.ACTION_RESOLVE;
     }
 
@@ -55,11 +54,47 @@ public class BattleScreenModel : BaseModel<BattleScreenView>
     {
         CurrentView.SetBottomUIBarInteractible(newValue == BattleState.ACTION_CHOOSE);
 
-        if (newValue == BattleState.ACTION_RESOLVE)
+        switch (newValue)
         {
-            BattleActionResolver.ResolveAllActions();
+            case BattleState.ACTION_CHOOSE:
+                ActionChoose();
+                break;
+            case BattleState.ACTION_RESOLVE:
+                ActionResolve();
+                break;
+            case BattleState.WRAP_UP:
+                WrapUp();
+                break;
+            default:
+                break;
         }
     }
+
+    private void ActionChoose ()
+    {
+        // ENEMY ACTION FAKE CHOOSE
+        BattleParticipant enemy = CurrentBattle.GetNPCBattleParticipant();
+        enemy.QueueAttackAction(enemy.CurrentEntity.PresentValue, CurrentBattle.GetPlayerBattleParticipant(), enemy.CurrentEntity.PresentValue.SelectedSkillsCollection[0]);
+    }
+
+    private void ActionResolve ()
+    {
+        InitializeBattleResolver();
+        BattleActionResolver.SortActions(CurrentBattle.BattleParticipantsCollection);
+        BattleActionResolver.ResolveAllActions();
+    }
+
+    private void WrapUp ()
+    {
+
+        //if current entity is dead show entity chose screen if more than 0 entities in eq and player, if not player then just summon another
+        //else show battle summary board 
+
+        CurrentBattle.ClearChosenBattleActions();
+        CurrentBattle.CurrentBattleState.PresentValue = BattleState.ACTION_CHOOSE;
+    }
+
+
 
     private void InitializeBattleResolver ()
     {
@@ -74,7 +109,7 @@ public class BattleScreenModel : BaseModel<BattleScreenView>
     private void HandleOnAllActionsResolved ()
     {
         DisposeOfBattleResolver();
-        Debug.Log("NEXT PHASE");
+        CurrentBattle.CurrentBattleState.PresentValue = BattleState.WRAP_UP;
     }
 
     private void DisposeOfBattleResolver ()
@@ -91,18 +126,18 @@ public class BattleScreenModel : BaseModel<BattleScreenView>
     {
         SwapBattleAction swapAction = battleAction as SwapBattleAction;
 
-        actionQueue.EnqueueFunction(() => CurrentView.TryToDestroyEntityOnScene(swapAction.ActionOwner.CurrentEntity.PresentValue));
-        actionQueue.EnqueueFunction(() => SwapEntityVariable(swapAction.ActionOwner, swapAction.EntityToSwapTo));
-        actionQueue.EnqueueFunction(() => ChangePlayerEntity(swapAction.ActionOwner.Player, swapAction.EntityToSwapTo));
+        actionQueue.EnqueueFunction(battleAction, () => CurrentView.TryToDestroyEntityOnScene(swapAction.ActionOwner.CurrentEntity.PresentValue));
+        actionQueue.EnqueueFunction(battleAction, () => SwapEntityVariable(swapAction.ActionOwner, swapAction.EntityToSwapTo));
+        actionQueue.EnqueueFunction(battleAction, () => ChangePlayerEntity(swapAction.ActionOwner.Player, swapAction.EntityToSwapTo));
     }
 
     private void AddAttackActionToQueue (BaseBattleAction battleAction, QueueHandler actionQueue)
     {
         AttackBattleAction attackAction = battleAction as AttackBattleAction;
 
-        actionQueue.EnqueueFunction(() => CurrentView.PlayAnimationAsEntity(attackAction.Caster, AnimationType.ATTACK));
-        actionQueue.EnqueueFunction(() => ExecuteAttackAction(attackAction));
-        actionQueue.EnqueueFunction(() => CurrentView.WaitUntilAnimatorIdle(attackAction.Caster));
+        actionQueue.EnqueueFunction(battleAction, () => CurrentView.PlayAnimationAsEntity(attackAction.Caster, AnimationType.ATTACK));
+        actionQueue.EnqueueFunction(battleAction, () => ExecuteAttackAction(attackAction));
+        actionQueue.EnqueueFunction(battleAction, () => CurrentView.WaitUntilAnimatorIdle(attackAction.Caster));
     }
 
     private void AddDisengageActionToQueue (BaseBattleAction battleAction, QueueHandler actionQueue)
@@ -131,10 +166,25 @@ public class BattleScreenModel : BaseModel<BattleScreenView>
     {
         CurrentView.PlayAnimationAsEntity(entity, AnimationType.DIE);
 
-        //reset action queue attacks for this entity
-        //show entity chose screen if more than 0 entities in eq and player, if not player then just summon another
-        //else show battle summary board 
+        if (BattleActionResolver != null)
+        {
+            BattleActionResolver.ActionQueueHandler.RemoveActionsWithPredicate(AttackActionRemovalPredicate);
 
+            bool AttackActionRemovalPredicate (QueuedAction target)
+            {
+                bool output = false;
+
+                if (target.ActionIsBasedOn.ActionType == BattleActionType.ATTACK)
+                {
+                    AttackBattleAction attackAction = target.ActionIsBasedOn as AttackBattleAction;
+
+                    output = attackAction.Caster == entity;
+                }
+
+                return output;
+            }
+
+        }
     }
 
     private IEnumerator ChangePlayerEntity (Player owner, Entity newValue)
