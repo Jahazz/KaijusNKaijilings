@@ -6,16 +6,15 @@ using System.Linq;
 
 public class Battle
 {
-    public delegate void OnEntityDeathParams (Entity entity);
+    public delegate void OnEntityDeathParams (Entity entity, BattleParticipant owner);
     public event OnEntityDeathParams OnEntityDeath;
     public delegate void OnEntitySkillUsageParams (AttackBattleAction attackAction);
     public event OnEntitySkillUsageParams OnSkillUsage;
+    public delegate void OnAllActionsSelectedParams ();
+    public event OnAllActionsSelectedParams OnAllActionsSelected;
 
     public List<BattleParticipant> BattleParticipantsCollection { get; private set; } = new List<BattleParticipant>();
-
     public ObservableVariable<BattleState> CurrentBattleState { get; set; } = new ObservableVariable<BattleState>(BattleState.ACTION_CHOOSE);
-
-    public Queue<BaseBattleAction> ResolveActionsQueue { get; private set; }
 
     public Battle (List<Player> participantsCollection)
     {
@@ -24,7 +23,7 @@ public class Battle
             BattleParticipant participant = new BattleParticipant(playerParticipant);
             BattleParticipantsCollection.Add(participant);
 
-            participant.CurrentEntity.OnVariableChange += HandleCurrentEntityChanged;
+            participant.CurrentEntity.OnVariableChange += (entity) => HandleCurrentEntityChanged(entity, participant);
             participant.SelectedBattleAction.OnVariableChange += HandleSelectedCurrentAction;
 
             participant.SelectFirstAliveEntity();
@@ -35,32 +34,15 @@ public class Battle
 
     public void ExecuteAttackAction (AttackBattleAction attackAction)
     {
-        attackAction.Skill.UseSkill(attackAction.Caster, attackAction.Target);
+        attackAction.Skill.UseSkill(attackAction.Caster, attackAction.Target.CurrentEntity.PresentValue);
         OnSkillUsage?.Invoke(attackAction);
     }
-
-    //public BaseBattleAction ResolveNextAction ()
-    //{
-    //    BaseBattleAction actionToResolve = null;
-
-    //    if (ResolveActionsQueue.Count>0)
-    //    {
-    //        actionToResolve = ResolveActionsQueue.Dequeue();
-    //        ExecuteBattleParticipantAction(actionToResolve);
-    //    }
-    //    else
-    //    {
-    //        WrapUp();
-    //    }
-
-    //    return actionToResolve;
-    //}
 
     private void HandleSelectedCurrentAction (BaseBattleAction newValue)
     {
         if (CurrentBattleState.PresentValue == BattleState.ACTION_CHOOSE && newValue != null && AreAllActionsSelected() == true)
         {
-            SortActions();
+            OnAllActionsSelected?.Invoke();
         }
     }
 
@@ -85,26 +67,8 @@ public class Battle
         CurrentBattleState.PresentValue = BattleState.ACTION_CHOOSE;
 
         // ENEMY ACTION FAKE CHOOSE
-        BattleParticipant enemy = GetOtherBattleParticipant();
-        enemy.QueueAttackAction(enemy.CurrentEntity.PresentValue, GetPlayerBattleParticipant().CurrentEntity.PresentValue, enemy.CurrentEntity.PresentValue.SelectedSkillsCollection[0]);
-    }
-
-    private void SortActions ()
-    {
-        ResolveActionsQueue = new Queue<BaseBattleAction>();
-        //TODO: resolve dots here
-
-        List<BattleParticipant> playersOrderedByBattleActions = BattleParticipantsCollection
-            .OrderBy(n => ((int)n.SelectedBattleAction.PresentValue.ActionType))
-            .ThenBy(n => n.CurrentEntity.PresentValue.ModifiedStats.Initiative.PresentValue)
-            .ToList();
-
-        foreach (BattleParticipant participant in playersOrderedByBattleActions)
-        {
-            ResolveActionsQueue.Enqueue(participant.SelectedBattleAction.PresentValue);
-        }
-
-        CurrentBattleState.PresentValue = BattleState.ACTION_RESOLVE;
+        BattleParticipant enemy = GetNPCBattleParticipant();
+        enemy.QueueAttackAction(enemy.CurrentEntity.PresentValue, GetPlayerBattleParticipant(), enemy.CurrentEntity.PresentValue.SelectedSkillsCollection[0]);
     }
 
     private void WrapUp ()
@@ -117,9 +81,14 @@ public class Battle
         return GetBattleParticipant(false);
     }
 
-    public BattleParticipant GetOtherBattleParticipant ()
+    public BattleParticipant GetNPCBattleParticipant ()
     {
         return GetBattleParticipant(true);
+    }
+
+    public BattleParticipant GetOtherBattleParticipant(BattleParticipant otherBattleParticipant)
+    {
+        return BattleParticipantsCollection.Where(n => n != otherBattleParticipant).FirstOrDefault();
     }
 
     private BattleParticipant GetBattleParticipant (bool isNPC)
@@ -127,8 +96,8 @@ public class Battle
         return BattleParticipantsCollection.Where(n => n.Player.IsNPC == isNPC).FirstOrDefault();
     }
 
-    private void HandleCurrentEntityChanged (Entity AddedEntity)
+    private void HandleCurrentEntityChanged (Entity AddedEntity, BattleParticipant entityOwner)
     {
-        AddedEntity.IsAlive.OnVariableChange += (_) => OnEntityDeath.Invoke(AddedEntity);
+        AddedEntity.IsAlive.OnVariableChange += (_) => OnEntityDeath.Invoke(AddedEntity, entityOwner);
     }
 }

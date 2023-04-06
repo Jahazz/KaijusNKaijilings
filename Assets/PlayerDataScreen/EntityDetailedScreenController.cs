@@ -27,7 +27,7 @@ public class EntityDetailedScreenController : BaseController<EntityDetailedScree
 
     public void SetButtonsVisibility(bool isSpellbookButtonShow, bool isSummonButtonShown)
     {
-        CurrentView.SetButtonsVIsibility(isSpellbookButtonShow, isSummonButtonShown);
+        CurrentView.SetButtonsVisibility(isSpellbookButtonShow, isSummonButtonShown);
     }
 
     protected override void AttachToEvents ()

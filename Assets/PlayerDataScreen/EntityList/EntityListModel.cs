@@ -16,12 +16,14 @@ public class EntityListModel : SingleSelectableListModel<EntityListElement, Enti
     protected virtual void OnEnable ()
     {
         AttachEvents();
+        CurrentView.SetActiveEntityDetailedScreenController(true);
         PopulateEntities();
     }
 
     protected virtual void OnDisable ()
     {
         DetachEvents();
+        CurrentView.SetActiveEntityDetailedScreenController(false);
         ClearEntities();
     }
 

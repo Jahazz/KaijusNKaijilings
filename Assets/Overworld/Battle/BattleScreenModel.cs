@@ -5,29 +5,29 @@ using UnityEngine;
 
 public class BattleScreenModel : BaseModel<BattleScreenView>
 {
-    private BattleActionResolver BattleActionResolver { get; set; } = new BattleActionResolver();
+    private BattleActionResolver BattleActionResolver { get; set; }
     private Battle CurrentBattle { get; set; }
 
-    public void QueuePlayerSkillUsage(Entity caster, SkillScriptableObject skill)
+    public void QueuePlayerSkillUsage (Entity caster, SkillScriptableObject skill)
     {
-        CurrentBattle.GetPlayerBattleParticipant().QueueAttackAction(caster, CurrentBattle.GetOtherBattleParticipant().CurrentEntity.PresentValue, skill);
+        CurrentBattle.GetPlayerBattleParticipant().QueueAttackAction(caster, CurrentBattle.GetNPCBattleParticipant(), skill);
     }
 
-    public void QueuePlayerEntitySwap(Entity entity)
+    public void QueuePlayerEntitySwap (Entity entity)
     {
         CurrentBattle.GetPlayerBattleParticipant().QueueSwapAction(entity);
     }
-    public bool IsInBattle()
+    public bool IsInBattle ()
     {
         return CurrentBattle != null;
     }
 
-    protected override void AttachToEvents()
+    protected override void AttachToEvents ()
     {
         BattleFactory.OnBattleCreation += HandleOnBattleCreated;
     }
 
-    private void HandleOnBattleCreated(Battle createdBattle)
+    private void HandleOnBattleCreated (Battle createdBattle)
     {
         CurrentBattle = createdBattle;
 
@@ -38,85 +38,106 @@ public class BattleScreenModel : BaseModel<BattleScreenView>
 
         CurrentBattle.OnEntityDeath += HandleOnEntityDeath;
         CurrentBattle.CurrentBattleState.OnVariableChange += HandleOnCurrentBattleStateChange;
+        CurrentBattle.OnAllActionsSelected += CurrentBattle_OnAllActionsSelected;
 
         CurrentView.IsBottomBarShown(true);
     }
 
-    private void HandleOnCurrentBattleStateChange(BattleState newValue)
+    private void CurrentBattle_OnAllActionsSelected ()
+    {
+        InitializeBattleResolver();
+        BattleActionResolver.SortActions(CurrentBattle.BattleParticipantsCollection);
+
+        CurrentBattle.CurrentBattleState.PresentValue = BattleState.ACTION_RESOLVE;
+    }
+
+    private void HandleOnCurrentBattleStateChange (BattleState newValue)
     {
         CurrentView.SetBottomUIBarInteractible(newValue == BattleState.ACTION_CHOOSE);
 
         if (newValue == BattleState.ACTION_RESOLVE)
         {
-            ResolveAllActions(CurrentBattle.ResolveActionsQueue);
+            BattleActionResolver.ResolveAllActions();
         }
     }
 
-    private void ResolveAllActions(Queue<BaseBattleAction> baseBattleActionsCollection)
+    private void InitializeBattleResolver ()
     {
-        QueueHandler actionQueue = new QueueHandler(() => Debug.Log("NEXT PHASE"));
+        BattleActionResolver = new BattleActionResolver(HandleOnAllActionsResolved);
 
-        while (baseBattleActionsCollection.Count > 0)
-        {
-            BaseBattleAction attackAction = baseBattleActionsCollection.Dequeue();
-
-            if (attackAction != null)
-            {
-                ExecuteBattleParticipantAction(attackAction, actionQueue);
-            }
-        }
-
-        actionQueue.InvokeActions();
-
+        BattleActionResolver.OnAttackActionResolution += AddAttackActionToQueue;
+        BattleActionResolver.OnDisengageActionResolution += AddDisengageActionToQueue;
+        BattleActionResolver.OnItemActionResolution += AddItemActionToQueue;
+        BattleActionResolver.OnSwapActionResolution += AddSwapActionToQueue;
     }
 
-    public void ExecuteBattleParticipantAction(BaseBattleAction selectedAction, QueueHandler actionQueue)
+    private void HandleOnAllActionsResolved ()
     {
-        switch (selectedAction.ActionType)
-        {
-            case BattleActionType.SWAP:
-                SwapBattleAction swapAction = selectedAction as SwapBattleAction;
-                actionQueue.EnqueueFunction(() => CurrentView.TryToDestroyEntityOnScene(swapAction.ActionOwner.CurrentEntity.PresentValue));
-                actionQueue.EnqueueFunction(() => SwapEntityVariable( swapAction.ActionOwner, swapAction.EntityToSwapTo));
-                actionQueue.EnqueueFunction(() => ChangePlayerEntity(swapAction.ActionOwner.Player, swapAction.EntityToSwapTo));
-                //;
-                //shrink entity
-                //destroy entity
-                //spawn new entity
-                break;
-            case BattleActionType.ITEM:
-                break;
-            case BattleActionType.ATTACK:
-                AttackBattleAction attackAction = selectedAction as AttackBattleAction;
-                actionQueue.EnqueueFunction(() => CurrentView.PlayAnimationAsEntity(attackAction.Caster, AnimationType.ATTACK));
-                actionQueue.EnqueueFunction(() => ExecuteAttackAction(attackAction));
-                actionQueue.EnqueueFunction(() => CurrentView.WaitUntilAnimatorIdle(attackAction.Caster));
-                break;
-            case BattleActionType.DISENGAGE:
-                break;
-            default:
-                break;
-        }
+        DisposeOfBattleResolver();
+        Debug.Log("NEXT PHASE");
     }
 
-    private IEnumerator SwapEntityVariable(BattleParticipant participant, Entity entityToSwapTo)
+    private void DisposeOfBattleResolver ()
+    {
+        BattleActionResolver.OnAttackActionResolution -= AddAttackActionToQueue;
+        BattleActionResolver.OnDisengageActionResolution -= AddDisengageActionToQueue;
+        BattleActionResolver.OnItemActionResolution -= AddItemActionToQueue;
+        BattleActionResolver.OnSwapActionResolution -= AddSwapActionToQueue;
+
+        BattleActionResolver = null;
+    }
+
+    private void AddSwapActionToQueue (BaseBattleAction battleAction, QueueHandler actionQueue)
+    {
+        SwapBattleAction swapAction = battleAction as SwapBattleAction;
+
+        actionQueue.EnqueueFunction(() => CurrentView.TryToDestroyEntityOnScene(swapAction.ActionOwner.CurrentEntity.PresentValue));
+        actionQueue.EnqueueFunction(() => SwapEntityVariable(swapAction.ActionOwner, swapAction.EntityToSwapTo));
+        actionQueue.EnqueueFunction(() => ChangePlayerEntity(swapAction.ActionOwner.Player, swapAction.EntityToSwapTo));
+    }
+
+    private void AddAttackActionToQueue (BaseBattleAction battleAction, QueueHandler actionQueue)
+    {
+        AttackBattleAction attackAction = battleAction as AttackBattleAction;
+
+        actionQueue.EnqueueFunction(() => CurrentView.PlayAnimationAsEntity(attackAction.Caster, AnimationType.ATTACK));
+        actionQueue.EnqueueFunction(() => ExecuteAttackAction(attackAction));
+        actionQueue.EnqueueFunction(() => CurrentView.WaitUntilAnimatorIdle(attackAction.Caster));
+    }
+
+    private void AddDisengageActionToQueue (BaseBattleAction battleAction, QueueHandler actionQueue)
+    {
+        DisengageBattleAction disengageAction = battleAction as DisengageBattleAction;
+    }
+
+    private void AddItemActionToQueue (BaseBattleAction battleAction, QueueHandler actionQueue)
+    {
+        UseItemBattleAction useItemBattleAction = battleAction as UseItemBattleAction;
+    }
+
+    private IEnumerator SwapEntityVariable (BattleParticipant participant, Entity entityToSwapTo)
     {
         participant.CurrentEntity.PresentValue = entityToSwapTo;
         yield return null;
     }
 
-    private IEnumerator ExecuteAttackAction(AttackBattleAction selectedAction)
+    private IEnumerator ExecuteAttackAction (AttackBattleAction selectedAction)
     {
         CurrentBattle.ExecuteAttackAction(selectedAction);
         yield return null;
     }
 
-    private void HandleOnEntityDeath(Entity entity)
+    private void HandleOnEntityDeath (Entity entity, BattleParticipant entityOwner)
     {
         CurrentView.PlayAnimationAsEntity(entity, AnimationType.DIE);
+
+        //reset action queue attacks for this entity
+        //show entity chose screen if more than 0 entities in eq and player, if not player then just summon another
+        //else show battle summary board 
+
     }
 
-    private IEnumerator ChangePlayerEntity(Player owner, Entity newValue)
+    private IEnumerator ChangePlayerEntity (Player owner, Entity newValue)
     {
         IEnumerator output;
 
@@ -133,12 +154,12 @@ public class BattleScreenModel : BaseModel<BattleScreenView>
         return output;
     }
 
-    private void SetupSkills(Entity entity)//TODO: add item skill
+    private void SetupSkills (Entity entity)//TODO: add item skill
     {
         CurrentView.BindSkillToButtons(new List<SkillScriptableObject>(entity.SelectedSkillsCollection), entity);
     }
 
-    protected override void DetachFromEvents()
+    protected override void DetachFromEvents ()
     {
         base.DetachFromEvents();
     }

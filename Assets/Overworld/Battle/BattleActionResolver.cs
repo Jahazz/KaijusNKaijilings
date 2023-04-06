@@ -1,32 +1,76 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BattleActionResolver
 {
-    public void StartResolvingActions (Queue<BaseBattleAction> baseBattleActionsCollection)
+    public delegate void OnBattleActionResolutionParams (BaseBattleAction selectedAction, QueueHandler actionQueue);
+    public event OnBattleActionResolutionParams OnSwapActionResolution;
+    public event OnBattleActionResolutionParams OnItemActionResolution;
+    public event OnBattleActionResolutionParams OnAttackActionResolution;
+    public event OnBattleActionResolutionParams OnDisengageActionResolution;
+
+    public Queue<BaseBattleAction> ResolveActionsQueue { get; private set; }
+    public QueueHandler ActionQueueHandler { get; private set; }
+
+    public BattleActionResolver (Action onActionQueueResolved)
     {
-        SingletonContainer.Instance.StartCoroutine(ResolveAllActions(baseBattleActionsCollection));
+        ActionQueueHandler = new QueueHandler(onActionQueueResolved);
     }
 
-    private IEnumerator ResolveAllActions (Queue<BaseBattleAction> baseBattleActionsCollection)
+    public void SortActions (List<BattleParticipant> battleParticipantsCollection)
     {
-        while (baseBattleActionsCollection.Count > 0)
+        ResolveActionsQueue = new Queue<BaseBattleAction>();
+        //TODO: resolve dots here
+
+        List<BattleParticipant> playersOrderedByBattleActions = battleParticipantsCollection
+            .OrderBy(n => ((int)n.SelectedBattleAction.PresentValue.ActionType))
+            .ThenBy(n => n.CurrentEntity.PresentValue.ModifiedStats.Initiative.PresentValue)
+            .ToList();
+
+        foreach (BattleParticipant participant in playersOrderedByBattleActions)
         {
-            AttackBattleAction attackAction = baseBattleActionsCollection.Dequeue() as AttackBattleAction;
+            ResolveActionsQueue.Enqueue(participant.SelectedBattleAction.PresentValue);
+        }
+    }
+
+    public void ResolveAllActions ()
+    {
+
+        while (ResolveActionsQueue.Count > 0)
+        {
+            BaseBattleAction attackAction = ResolveActionsQueue.Dequeue();
 
             if (attackAction != null)
             {
-                yield return new WaitForSeconds(ResolveOneAction(attackAction));
+                ResolveBattleParticipantAction(attackAction);
             }
         }
-            
+
+        ActionQueueHandler.InvokeActions();
+
     }
 
-    private float ResolveOneAction (AttackBattleAction attackAction)
+    public void ResolveBattleParticipantAction (BaseBattleAction selectedAction)
     {
-        return 3;
-        //CurrentView.PlayAnimationAsEntity(attackAction.Target, AnimationType.GET_HIT);
-        //return CurrentView.PlayAnimationAsEntity(attackAction.Caster, AnimationType.ATTACK);
+        switch (selectedAction.ActionType)
+        {
+            case BattleActionType.SWAP:
+                OnSwapActionResolution?.Invoke(selectedAction, ActionQueueHandler);
+                break;
+            case BattleActionType.ITEM:
+                OnItemActionResolution?.Invoke(selectedAction, ActionQueueHandler);
+                break;
+            case BattleActionType.ATTACK:
+                OnAttackActionResolution?.Invoke(selectedAction, ActionQueueHandler);
+                break;
+            case BattleActionType.DISENGAGE:
+                OnDisengageActionResolution?.Invoke(selectedAction, ActionQueueHandler);
+                break;
+            default:
+                break;
+        }
     }
 }

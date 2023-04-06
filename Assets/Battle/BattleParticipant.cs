@@ -15,7 +15,7 @@ public class BattleParticipant
         Player = player;
     }
 
-    public void QueueAttackAction (Entity caster,Entity skillTarget, SkillScriptableObject skill)
+    public void QueueAttackAction (Entity caster,BattleParticipant skillTarget, SkillScriptableObject skill)
     {
         SelectedBattleAction.PresentValue = new AttackBattleAction(caster, skillTarget, skill);
     }

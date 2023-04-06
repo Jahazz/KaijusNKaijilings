@@ -6,5 +6,11 @@ using UnityEngine;
 
 public class EntityListView : SingleSelectableListView<EntityListElement, Entity>
 {
+    [field: SerializeField]
+    private EntityDetailedScreenController EntityDetailedScreenController { get; set; }
 
+    public void SetActiveEntityDetailedScreenController (bool isActive)
+    {
+        EntityDetailedScreenController.gameObject.SetActive(isActive);
+    }
 }

@@ -42,8 +42,9 @@ public class EntityDetailedScreenView : BaseView
 
     private List<Binding> BindingsCollection { get; set; } = new List<Binding>();
     private Entity CurrentEntityData { get; set; }
+    private bool ShouldSummonButtonBeActive { get; set; }
 
-    public void SetData(Entity entity)
+    public void SetData (Entity entity)
     {
         CurrentEntityData = entity;
         UnbindBindings();
@@ -51,6 +52,7 @@ public class EntityDetailedScreenView : BaseView
         SetupChangableData();
         TypeListColtroler.Initialize(entity.TypeScriptableCollection);
         TraitListController.InitializeTraits(entity.TraitsCollection);
+        HideSummonButtonIfEntityIsInBattle();
     }
 
     public void SetPersistentData ()
@@ -70,7 +72,7 @@ public class EntityDetailedScreenView : BaseView
         BindingsCollection.Add(BindingFactory.GenerateCustomProgressBarBinding(HealthBar, new ObservableVariable<float>(0), CurrentEntityData.ModifiedStats.Health.MaxValue, CurrentEntityData.ModifiedStats.Health.CurrentValue));
         BindingsCollection.Add(BindingFactory.GenerateCustomProgressBarBinding(ManaBar, new ObservableVariable<float>(0), CurrentEntityData.ModifiedStats.Mana.MaxValue, CurrentEntityData.ModifiedStats.Mana.CurrentValue));
         BindingsCollection.Add(BindingFactory.GenerateCustomProgressBarBinding(ExperienceBar, CurrentEntityData.LevelData.ExperienceNeededForCurrentLevel, CurrentEntityData.LevelData.ExperienceNeededForNextLevel, CurrentEntityData.LevelData.CurrentExperience));
-        BindingsCollection.Add(BindingFactory.GenerateInputFieldBinding(CustomNameInputField,"{0}", CurrentEntityData.Name));
+        BindingsCollection.Add(BindingFactory.GenerateInputFieldBinding(CustomNameInputField, "{0}", CurrentEntityData.Name));
     }
 
     public void UnbindBindings ()
@@ -88,9 +90,22 @@ public class EntityDetailedScreenView : BaseView
         SummonEntityButton.gameObject.SetActive(isVisible == true);
     }
 
-    public void SetButtonsVIsibility(bool isSpellbookButtonShow, bool isSummonButtonShown)
+    public void SetButtonsVisibility (bool isSpellbookButtonShow, bool isSummonButtonShown)
     {
         SpellbookButton.gameObject.SetActive(isSpellbookButtonShow);
-        SummonButton.gameObject.SetActive(isSummonButtonShown);
+        ShouldSummonButtonBeActive = isSummonButtonShown;
+    }
+
+    private void HideSummonButtonIfEntityIsInBattle ()
+    {
+        if (BattleFactory.CurrentBattle != null && ShouldSummonButtonBeActive == true)
+        {
+            SummonButton.gameObject.SetActive(CurrentEntityData != BattleFactory.CurrentBattle.GetPlayerBattleParticipant().CurrentEntity.PresentValue);
+        }
+        else
+        {
+            SummonButton.gameObject.SetActive(false);
+        }
+
     }
 }

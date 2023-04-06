@@ -34,8 +34,6 @@ public class CharacterMenuView : SingleSelectableListView<CharacterMenuElement, 
     {
         ContainingElementsCollection.Where(n => n.Key.TabType == CharacterMenuTabType.ENTITIES).FirstOrDefault().Value.Select();
         ShowSelectEntityLabel(true);
-        //TODO: show tab as "Select entity to summon", toggle button to summon entity(disable after close) on button click disable,
-        // cleanup, change entity in battle.    
     }
 
     private void ShowSelectEntityLabel(bool isShown)
