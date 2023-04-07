@@ -43,6 +43,7 @@ public class BattleScreenView : BaseView
         //{
         EntityBattleScreenEntityControllerPair[entityToDestroy].DestroyEntityStats();
         Destroy(EntityBattleScreenEntityControllerPair[entityToDestroy].gameObject);
+        EntityBattleScreenEntityControllerPair.Remove(entityToDestroy);
         yield return null;
         //}
     }

@@ -1,4 +1,5 @@
 using MVC;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,11 @@ public class EntityDetailedScreenController : BaseController<EntityDetailedScree
     public void SummonEntity ()
     {
         CurrentModel.SetCurrentBattleEntityToThisAndCloseWindow();
+    }
+
+    public void SetChooseEntityCallback (Action<Entity> onEntitySelectionCallback)
+    {
+        CurrentModel.SetChooseEntityCallback(onEntitySelectionCallback);
     }
 
     public void SetButtonsVisibility(bool isSpellbookButtonShow, bool isSummonButtonShown)

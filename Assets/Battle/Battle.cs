@@ -44,6 +44,21 @@ public class Battle
         }
     }
 
+    public BattleParticipant GetPlayerBattleParticipant ()
+    {
+        return GetBattleParticipant(false);
+    }
+
+    public BattleParticipant GetNPCBattleParticipant ()
+    {
+        return GetBattleParticipant(true);
+    }
+
+    public BattleParticipant GetOtherBattleParticipant (BattleParticipant otherBattleParticipant)
+    {
+        return BattleParticipantsCollection.Where(n => n != otherBattleParticipant).FirstOrDefault();
+    }
+
     private void HandleSelectedCurrentAction (BaseBattleAction newValue)
     {
         if (CurrentBattleState.PresentValue == BattleState.ACTION_CHOOSE && newValue != null && AreAllActionsSelected() == true)
@@ -66,21 +81,6 @@ public class Battle
         }
 
         return output;
-    }
-
-    public BattleParticipant GetPlayerBattleParticipant ()
-    {
-        return GetBattleParticipant(false);
-    }
-
-    public BattleParticipant GetNPCBattleParticipant ()
-    {
-        return GetBattleParticipant(true);
-    }
-
-    public BattleParticipant GetOtherBattleParticipant(BattleParticipant otherBattleParticipant)
-    {
-        return BattleParticipantsCollection.Where(n => n != otherBattleParticipant).FirstOrDefault();
     }
 
     private BattleParticipant GetBattleParticipant (bool isNPC)

@@ -20,7 +20,14 @@ public class QueueHandler
 
     public void InvokeActions ()
     {
-        ExecuteNext();
+        if (QueuedActionCollection.Count > 0)
+        {
+            ExecuteNext();
+        }
+        else
+        {
+            FinishCallback.Invoke();
+        }
     }
 
     public void RemoveActionsWithPredicate (Func<QueuedAction, bool> predicate)

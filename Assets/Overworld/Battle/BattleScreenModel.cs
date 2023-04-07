@@ -1,10 +1,15 @@
 using MVC;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleScreenModel : BaseModel<BattleScreenView>
 {
+    [field: SerializeField]
+    private BattleScreenSummaryController BattleScreenSummaryController { get; set; }
+    [field: SerializeField]
+    private CharacterMenuController CharacterMenuController { get; set; }
     private BattleActionResolver BattleActionResolver { get; set; }
     private Battle CurrentBattle { get; set; }
 
@@ -13,10 +18,11 @@ public class BattleScreenModel : BaseModel<BattleScreenView>
         CurrentBattle.GetPlayerBattleParticipant().QueueAttackAction(caster, CurrentBattle.GetNPCBattleParticipant(), skill);
     }
 
-    public void QueuePlayerEntitySwap (Entity entity)
+    public void ChangeEntity ()
     {
-        CurrentBattle.GetPlayerBattleParticipant().QueueSwapAction(entity);
+        CharacterMenuController.OpenMenuAsEntitySelection((entity) => CurrentBattle.GetPlayerBattleParticipant().QueueSwapAction(entity));
     }
+
     public bool IsInBattle ()
     {
         return CurrentBattle != null;
@@ -86,12 +92,82 @@ public class BattleScreenModel : BaseModel<BattleScreenView>
 
     private void WrapUp ()
     {
+        if (IsBattleOver(out BattleResultType battleResult) == true)
+        {
+            BattleScreenSummaryController.OpenScreen(battleResult);
+        }
+        else if (CurrentBattle.GetPlayerBattleParticipant().CurrentEntity.PresentValue.IsAlive.PresentValue == false)
+        {
+            HandlePlayerEntitySwap();
+        }
+        else if (CurrentBattle.GetNPCBattleParticipant().CurrentEntity.PresentValue.IsAlive.PresentValue == false)
+        {
+            HandleEnemyEntitySwapIfNeeded();
+        }
+        else
+        {
+            FinishWrapUp();
+        }
+    }
 
-        //if current entity is dead show entity chose screen if more than 0 entities in eq and player, if not player then just summon another
-        //else show battle summary board 
+    private void HandleEntitySwap (BattleParticipant participant, Entity entityToSwap, Action finishCallback)
+    {
+        QueueHandler swapQueue = new QueueHandler(finishCallback);
+        AddSwapActionToQueue(new SwapBattleAction(participant, entityToSwap), swapQueue);
+        swapQueue.InvokeActions();
+    }
 
+    private void HandleEnemyEntitySwapIfNeeded ()
+    {
+        BattleParticipant npc = CurrentBattle.GetNPCBattleParticipant();
+
+        if (npc.CurrentEntity.PresentValue.IsAlive.PresentValue == false)
+        {
+            HandleEntitySwap(npc, npc.GetFirstAliveEntity(), FinishWrapUp);
+        }
+        else
+        {
+            FinishWrapUp();
+        }
+    }
+
+    private void HandlePlayerEntitySwap ()
+    {
+        BattleParticipant player = CurrentBattle.GetPlayerBattleParticipant();
+        CharacterMenuController.OpenMenuAsEntitySelection(SwapPlayerEntity);
+
+        void SwapPlayerEntity (Entity entityToSwapTo)
+        {
+            HandleEntitySwap(player, entityToSwapTo, HandleEnemyEntitySwapIfNeeded);
+        }
+    }
+
+    private void FinishWrapUp ()
+    {
         CurrentBattle.ClearChosenBattleActions();
         CurrentBattle.CurrentBattleState.PresentValue = BattleState.ACTION_CHOOSE;
+    }
+
+    private bool IsBattleOver (out BattleResultType battleResult)
+    {
+        bool output = false;
+
+        if (CurrentBattle.GetPlayerBattleParticipant().AreAllEntitiesOfParticipantDefeated() == true)
+        {
+            battleResult = BattleResultType.DEFEAT;
+            output = true;
+        }
+        else if (CurrentBattle.GetNPCBattleParticipant().AreAllEntitiesOfParticipantDefeated() == true)
+        {
+            battleResult = BattleResultType.VICTORY;
+            output = true;
+        }
+        else
+        {
+            battleResult = BattleResultType.NONE;
+        }
+
+        return output;
     }
 
 

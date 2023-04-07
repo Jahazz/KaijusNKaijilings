@@ -66,6 +66,12 @@ public class BattleScreenEntityController : MonoBehaviour
     {
         StartCoroutine(PlayAnimation(AnimationType.DIE));
     }
+
+    protected virtual void OnDestroy ()
+    {
+        BoundEntity.IsAlive.OnVariableChange -= HandleOnAliveStateChange;
+        BoundEntity.OnDamaged -= HandleOnEntityDamaged;
+    }
 }
 
 public enum AnimationType

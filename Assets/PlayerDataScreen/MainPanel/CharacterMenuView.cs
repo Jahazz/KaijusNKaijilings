@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using MVC.SingleSelectableList;
+using System;
 
 public class CharacterMenuView : SingleSelectableListView<CharacterMenuElement, CharacterMenuElementData>
 {
@@ -30,10 +31,11 @@ public class CharacterMenuView : SingleSelectableListView<CharacterMenuElement, 
         return elementData.CharacterMenuElement;
     }
 
-    public void OpenMenuAsEntitySelection()
+    public void OpenMenuAsEntitySelection(Action<Entity> onEntitySelectionCallback)
     {
         ContainingElementsCollection.Where(n => n.Key.TabType == CharacterMenuTabType.ENTITIES).FirstOrDefault().Value.Select();
         ShowSelectEntityLabel(true);
+        EntityScreenController.SetChooseEntityCallback(onEntitySelectionCallback);
     }
 
     private void ShowSelectEntityLabel(bool isShown)

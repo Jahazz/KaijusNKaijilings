@@ -15,9 +15,9 @@ public class BattleScreenController : BaseController<BattleScreenModel, BattleSc
         CurrentModel.QueuePlayerSkillUsage(caster, skill);
     }
 
-    public void ChangeCurrentEntity(Entity entity)
+    public void ChangeEntity ()
     {
-        CurrentModel.QueuePlayerEntitySwap(entity);
+        CurrentModel.ChangeEntity();
     }
 
     public bool IsInBattle()

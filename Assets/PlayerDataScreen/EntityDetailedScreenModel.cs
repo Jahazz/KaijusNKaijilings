@@ -1,4 +1,5 @@
 using MVC;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine;
 public class EntityDetailedScreenModel : BaseModel<EntityDetailedScreenView>
 {
     public Entity CurrentEntity { get; private set; }
+    private Action<Entity> OnEntitySelectionCallback { get; set; }
 
     public void ShowDataOfEntity (Entity targetEntity)
     {
@@ -21,7 +23,12 @@ public class EntityDetailedScreenModel : BaseModel<EntityDetailedScreenView>
 
     public void SetCurrentBattleEntityToThisAndCloseWindow ()
     {
-        SingletonContainer.Instance.BattleScreenManager.BattleScreenController.ChangeCurrentEntity(CurrentEntity);
+        OnEntitySelectionCallback?.Invoke(CurrentEntity);
         SingletonContainer.Instance.CharacterMenuController.HideCharacterMenu();
+    }
+
+    public void SetChooseEntityCallback (Action<Entity> onEntitySelectionCallback)
+    {
+        OnEntitySelectionCallback = onEntitySelectionCallback;
     }
 }

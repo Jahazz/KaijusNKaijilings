@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MVC.SingleSelectableList;
+using System;
 
 public class CharacterMenuModel : SingleSelectableListModel<CharacterMenuElement, CharacterMenuElementData, CharacterMenuView>
 {
@@ -35,9 +36,9 @@ public class CharacterMenuModel : SingleSelectableListModel<CharacterMenuElement
         CurrentView.ToggleMenuVisibility(isMenuVisible);
     }
 
-    public void OpenMenuAsEntitySelection()
+    public void OpenMenuAsEntitySelection(Action<Entity> onEntitySelectionCallback)
     {
-        CurrentView.OpenMenuAsEntitySelection();
+        CurrentView.OpenMenuAsEntitySelection(onEntitySelectionCallback);
     }
 
     protected override void DetachFromEvents ()

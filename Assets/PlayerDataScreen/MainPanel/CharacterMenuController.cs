@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MVC.SingleSelectableList;
+using System;
 
 public class CharacterMenuController : SingleSelectableListController<CharacterMenuElement, CharacterMenuElementData, CharacterMenuView, CharacterMenuModel>
 {
@@ -15,10 +16,10 @@ public class CharacterMenuController : SingleSelectableListController<CharacterM
         }
     }
 
-    public void OpenMenuAsEntitySelection()
+    public void OpenMenuAsEntitySelection(Action<Entity> onEntitySelectionCallback)
     {
         OpenCharacterMenu();
-        CurrentModel.OpenMenuAsEntitySelection();
+        CurrentModel.OpenMenuAsEntitySelection( onEntitySelectionCallback);
     }
 
     public void HideCharacterMenu()

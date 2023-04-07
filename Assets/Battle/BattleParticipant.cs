@@ -30,7 +30,23 @@ public class BattleParticipant
         CurrentEntity.PresentValue = GetFirstAliveEntity();
     }
 
-    private Entity GetFirstAliveEntity ()
+    public bool AreAllEntitiesOfParticipantDefeated ()
+    {
+        bool isEveryoneDead = true;
+
+        foreach (Entity entity in Player.EntitiesInEquipment)
+        {
+            if (entity.IsAlive.PresentValue == true)
+            {
+                isEveryoneDead = false;
+                break;
+            }
+        }
+
+        return isEveryoneDead;
+    }
+
+    public Entity GetFirstAliveEntity ()
     {
         return Player.EntitiesInEquipment.First(entity => entity.IsAlive.PresentValue == true);
     }

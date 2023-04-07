@@ -52,7 +52,7 @@ public class EntityDetailedScreenView : BaseView
         SetupChangableData();
         TypeListColtroler.Initialize(entity.TypeScriptableCollection);
         TraitListController.InitializeTraits(entity.TraitsCollection);
-        HideSummonButtonIfEntityIsInBattle();
+        HideSummonButtonIfEntityIsInBattleOrDead();
     }
 
     public void SetPersistentData ()
@@ -96,9 +96,9 @@ public class EntityDetailedScreenView : BaseView
         ShouldSummonButtonBeActive = isSummonButtonShown;
     }
 
-    private void HideSummonButtonIfEntityIsInBattle ()
+    private void HideSummonButtonIfEntityIsInBattleOrDead ()
     {
-        if (BattleFactory.CurrentBattle != null && ShouldSummonButtonBeActive == true)
+        if (BattleFactory.CurrentBattle != null && ShouldSummonButtonBeActive == true && CurrentEntityData.IsAlive.PresentValue == true)
         {
             SummonButton.gameObject.SetActive(CurrentEntityData != BattleFactory.CurrentBattle.GetPlayerBattleParticipant().CurrentEntity.PresentValue);
         }
@@ -106,6 +106,5 @@ public class EntityDetailedScreenView : BaseView
         {
             SummonButton.gameObject.SetActive(false);
         }
-
     }
 }
