@@ -28,6 +28,19 @@ public class BattleScreenModel : BaseModel<BattleScreenView>
         return CurrentBattle != null;
     }
 
+    public void CleanupBattle ()
+    {
+
+        foreach (BattleParticipant participant in CurrentBattle.BattleParticipantsCollection)
+        {
+            StartCoroutine(CurrentView.TryToDestroyEntityOnScene(participant.CurrentEntity.PresentValue));
+        }
+
+        CurrentView.SetBottomUIBarInteractible(true);
+        CurrentView.IsBottomBarShown(false);
+        CurrentBattle = null;
+    }
+
     protected override void AttachToEvents ()
     {
         BattleFactory.OnBattleCreation += HandleOnBattleCreated;

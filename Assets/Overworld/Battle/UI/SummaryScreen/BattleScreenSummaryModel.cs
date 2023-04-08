@@ -14,5 +14,7 @@ public class BattleScreenSummaryModel : BaseModel<BattleScreenSummaryView>
     public void CloseScreen ()
     {
         CurrentView.SetPanelVisibility(false);
+        SingletonContainer.Instance.BattleScreenManager.BattleScreenController.CleanupBattle();
+        SingletonContainer.Instance.BattleScreenManager.Close();
     }
 }

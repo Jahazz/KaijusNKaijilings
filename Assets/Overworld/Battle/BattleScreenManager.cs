@@ -76,6 +76,7 @@ public class BattleScreenManager : MultiCameraOverworldLayoutSystem
         spawnedEntity = Instantiate(entityToSpawn.BaseEntityType.ModelPrefab, TargetTransform);
         spawnedEntity.transform.localScale = Vector3.zero;
         FirstActor.SetLayerOfTransform(spawnedEntity.transform);
+
         return spawnedEntity.transform.DOScale(Vector3.one, 1);
     }
 
@@ -91,7 +92,6 @@ public class BattleScreenManager : MultiCameraOverworldLayoutSystem
         InitializeMovingCharactersBack(DOTween.Sequence()
                .Join(MoveActor(FirstActor.Model.transform, FirstActor.InitialPosition, FirstActor.InitialRotation))
                .Join(MoveActor(SecondActor.Model.transform, SecondActor.InitialPosition, SecondActor.InitialRotation)));
-
     }
 
     protected override void HandleOnCharactersMovedBack ()

@@ -24,4 +24,9 @@ public class BattleScreenController : BaseController<BattleScreenModel, BattleSc
     {
         return CurrentModel.IsInBattle();
     }
+
+    public void CleanupBattle ()
+    {
+        CurrentModel.CleanupBattle();
+    }
 }
