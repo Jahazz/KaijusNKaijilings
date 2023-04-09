@@ -2,7 +2,9 @@ using MVC.List;
 using MVC.SingleSelectableList;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Linq;
 using UnityEngine;
 
 public class EntityListModel : SingleSelectableListModel<EntityListElement, Entity, EntityListView>
@@ -11,6 +13,17 @@ public class EntityListModel : SingleSelectableListModel<EntityListElement, Enti
     public override void Initialize (EntityListView currentView)
     {
         base.Initialize(currentView);
+    }
+
+    public void ReorderEntityListByPattern (List<Entity> pattern)
+    {
+        ObservableCollection<Entity> currentEntities = SingletonContainer.Instance.PlayerManager.CurrentPlayer.EntitiesInEquipment;
+        currentEntities.Clear();
+
+        foreach (Entity entity in pattern)
+        {
+            currentEntities.Add(entity);
+        }
     }
 
     protected virtual void OnEnable ()

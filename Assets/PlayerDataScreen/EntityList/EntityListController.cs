@@ -6,5 +6,8 @@ using UnityEngine;
 
 public class EntityListController : SingleSelectableListController<EntityListElement, Entity, EntityListView, EntityListModel>
 {
-
+    public void ReorderEntityListByPattern (List<Entity> pattern)
+    {
+        CurrentModel.ReorderEntityListByPattern(pattern);
+    }
 }

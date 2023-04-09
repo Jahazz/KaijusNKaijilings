@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SingletonContainer : SingletonMonobehaviour<SingletonContainer>
 {
@@ -18,4 +19,6 @@ public class SingletonContainer : SingletonMonobehaviour<SingletonContainer>
     public OverworldPlayerCharacterManager OverworldPlayerCharacterManager { get; private set; }
     [field: SerializeField]
     public CharacterMenuController CharacterMenuController { get; private set; }
+    [field: SerializeField]
+    public PlayerInput InputSystem { get; private set; }
 }

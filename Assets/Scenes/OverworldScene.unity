@@ -3320,6 +3320,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 533383310}
+  - {fileID: 1927910068}
   m_Father: {fileID: 1339974954}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3404,6 +3405,7 @@ MonoBehaviour:
   <BattleScreenManager>k__BackingField: {fileID: 2000360924}
   <OverworldPlayerCharacterManager>k__BackingField: {fileID: 1454093349}
   <CharacterMenuController>k__BackingField: {fileID: 543218015}
+  <InputSystem>k__BackingField: {fileID: 0}
 --- !u!4 &419522532
 Transform:
   m_ObjectHideFlags: 0
@@ -4557,6 +4559,10 @@ MonoBehaviour:
   <ElementToSpawn>k__BackingField: {fileID: 5709183234575346191, guid: 7b4975c91bf49e947981f622c33694cb,
     type: 3}
   <ElementsContainer>k__BackingField: {fileID: 2140247354}
+  <IsDraggable>k__BackingField: 0
+  <OnElementDropped>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
   <MainMenuParent>k__BackingField: {fileID: 1601329989}
   <TabsContainer>k__BackingField: {fileID: 2140247353}
   <SelectEntityLabel>k__BackingField: {fileID: 785069454}
@@ -4906,10 +4912,7 @@ MonoBehaviour:
   <PlayerEntitiesCollection>k__BackingField:
   - <Entity>k__BackingField: {fileID: 11400000, guid: 4a1aa5d657a11074898cb036877839cc,
       type: 2}
-    <Level>k__BackingField: 99
-  - <Entity>k__BackingField: {fileID: 11400000, guid: 4a1aa5d657a11074898cb036877839cc,
-      type: 2}
-    <Level>k__BackingField: 2
+    <Level>k__BackingField: 1
 --- !u!114 &613593514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6772,7 +6775,7 @@ PrefabInstance:
     - target: {fileID: 2737378899671149074, guid: 235d15552c612f54d9bc444c49020220,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 8.666667
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2737378899671149074, guid: 235d15552c612f54d9bc444c49020220,
         type: 3}
@@ -6927,7 +6930,7 @@ PrefabInstance:
     - target: {fileID: 5738511306769058884, guid: 235d15552c612f54d9bc444c49020220,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 8.666667
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5738511306769058884, guid: 235d15552c612f54d9bc444c49020220,
         type: 3}
@@ -8638,6 +8641,10 @@ MonoBehaviour:
   <ElementToSpawn>k__BackingField: {fileID: 4846785039978617096, guid: 4b6d7c32b0a7db146a830522ae4866d2,
     type: 3}
   <ElementsContainer>k__BackingField: {fileID: 1701049773}
+  <IsDraggable>k__BackingField: 0
+  <OnElementDropped>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &940241150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13542,6 +13549,10 @@ MonoBehaviour:
   <ElementToSpawn>k__BackingField: {fileID: 5299633449475166014, guid: 9552093f8f9a8e44287ff4358fe8788e,
     type: 3}
   <ElementsContainer>k__BackingField: {fileID: 1995504761}
+  <IsDraggable>k__BackingField: 0
+  <OnElementDropped>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
   <AcceptButtonLabel>k__BackingField: {fileID: 463974790}
   <AcceptButton>k__BackingField: {fileID: 818889565}
   <RangeSliderStatPairCollection>k__BackingField:
@@ -17128,6 +17139,82 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1927910067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1927910068}
+  - component: {fileID: 1927910070}
+  - component: {fileID: 1927910069}
+  m_Layer: 5
+  m_Name: DragMarker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1927910068
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927910067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 417474540}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 91.5, y: -7.5}
+  m_SizeDelta: {x: 173, y: 5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1927910069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927910067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1927910070
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927910067}
+  m_CullTransparentMesh: 1
 --- !u!1 &1930827824
 GameObject:
   m_ObjectHideFlags: 0
@@ -18749,7 +18836,23 @@ MonoBehaviour:
   <ElementToSpawn>k__BackingField: {fileID: 6462788040680013890, guid: 235d15552c612f54d9bc444c49020220,
     type: 3}
   <ElementsContainer>k__BackingField: {fileID: 417474540}
-  <EntityDetailedScreenController>k__BackingField: {fileID: 0}
+  <IsDraggable>k__BackingField: 1
+  <OnElementDropped>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078217404}
+        m_TargetAssemblyTypeName: EntityListController, Assembly-CSharp
+        m_MethodName: ReorderEntityListByPattern
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  <EntityDetailedScreenController>k__BackingField: {fileID: 536289009}
 --- !u!224 &2078217406
 RectTransform:
   m_ObjectHideFlags: 0
