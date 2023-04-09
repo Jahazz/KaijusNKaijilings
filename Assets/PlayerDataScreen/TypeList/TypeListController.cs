@@ -8,6 +8,7 @@ public class TypeListController : ListController<TypeListElement, TypeDataScript
 {
     public void Initialize (ObservableCollection<TypeDataScriptable> typeScriptableCollection)
     {
+        CurrentModel.Initialize(CurrentView);
         CurrentModel.Initialize(typeScriptableCollection);
     }
 }

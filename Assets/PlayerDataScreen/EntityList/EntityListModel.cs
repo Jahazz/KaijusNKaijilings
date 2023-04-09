@@ -17,6 +17,8 @@ public class EntityListModel : SingleSelectableListModel<EntityListElement, Enti
 
     public void ReorderEntityListByPattern (List<Entity> pattern)
     {
+        SingletonContainer.Instance.PlayerManager.CurrentPlayer.EntitiesInEquipment.CollectionChanged -= HandleOnEntitiesInEquipmentCollectionChanged;
+
         ObservableCollection<Entity> currentEntities = SingletonContainer.Instance.PlayerManager.CurrentPlayer.EntitiesInEquipment;
         currentEntities.Clear();
 
@@ -24,6 +26,8 @@ public class EntityListModel : SingleSelectableListModel<EntityListElement, Enti
         {
             currentEntities.Add(entity);
         }
+
+        SingletonContainer.Instance.PlayerManager.CurrentPlayer.EntitiesInEquipment.CollectionChanged += HandleOnEntitiesInEquipmentCollectionChanged;
     }
 
     protected virtual void OnEnable ()

@@ -11,6 +11,7 @@ public class EntityListView : SingleSelectableListView<EntityListElement, Entity
 
     public void SetActiveEntityDetailedScreenController (bool isActive)
     {
+        EntityDetailedScreenController.Initialize();
         EntityDetailedScreenController.gameObject.SetActive(isActive);
     }
 }

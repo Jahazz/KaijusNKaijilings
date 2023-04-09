@@ -36,9 +36,9 @@ public class EntityDetailedScreenController : BaseController<EntityDetailedScree
         CurrentView.SetButtonsVisibility(isSpellbookButtonShow, isSummonButtonShown);
     }
 
-    protected override void AttachToEvents ()
+    public void Initialize ()
     {
-        base.AttachToEvents();
+        CurrentModel.Initialize(CurrentView);
         EntityListModel.OnElementSelection += HandleOnElementSelection;
     }
 
