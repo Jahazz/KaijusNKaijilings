@@ -13,20 +13,23 @@ public class RitualEntityListView : SelectableListView<RitualEntityListElement, 
     [field: SerializeField]
     private Button AcceptButton { get; set; }
     [field: SerializeField]
-    private List<RangeSliderStatPair> RangeSliderStatPairCollection { get; set; }
-    [field: SerializeField]
     private RitualResultScreen ResultScreen { get; set; }
     [field: SerializeField]
     private TraitListController ExpectedTraitList { get; set; }
+    [field: SerializeField]
+    private StatRangedSpiderGraph SpiderGraph { get; set; }
 
     public void UpdateResultStats (BaseStatsData<Vector2> expectedResultStatRange, BaseStatsData<Vector2> defaultStatRange)
     {
-        foreach (RangeSliderStatPair pair in RangeSliderStatPairCollection)
-        {
-            Vector2 currentDefaultStatRange = defaultStatRange.GetStatOfType(pair.StatType);
-            Vector2 currentExpectedStatRange = expectedResultStatRange.GetStatOfType(pair.StatType);
+        //new sexy spider graph
+        StatType[] statTypesCollection = { StatType.MIGHT, StatType.MAGIC, StatType.WILLPOWER, StatType.AGILITY, StatType.INITIATIVE };
 
-            pair.RangeSlider.SetValue(currentDefaultStatRange.x, currentDefaultStatRange.y, currentExpectedStatRange.x, currentExpectedStatRange.y);
+        foreach (StatType statType in statTypesCollection)
+        {
+            
+            Vector2 currentDefaultStatRange = defaultStatRange.GetStatOfType(statType);
+            Vector2 currentExpectedStatRange = expectedResultStatRange.GetStatOfType(statType);
+            SpiderGraph.UpdateNode(statType, currentDefaultStatRange, currentExpectedStatRange);
         }
     }
 
