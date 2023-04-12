@@ -15,10 +15,12 @@ public class CharacterDialogue : MonoBehaviour
     public bool IsAnimatingText { get; private set; }
     private string CurrentText { get; set; }
     private  IEnumerator TextAnimator { get; set; }
+    private Player CurrentlyTalkingPlayer { get; set; }
 
-    public void SetTextContents (string authorName, string text)
+    public void SetTextContents (Player author, string text)
     {
-        AuthorNameLabel.text = authorName;
+        CurrentlyTalkingPlayer = author;
+        AuthorNameLabel.text = CurrentlyTalkingPlayer.Name;
         CurrentText = text;
         TextAnimator = AnimateText();
         StartCoroutine(TextAnimator);
@@ -27,6 +29,7 @@ public class CharacterDialogue : MonoBehaviour
     public IEnumerator AnimateText ()
     {
         IsAnimatingText = true;
+        CurrentlyTalkingPlayer.SetTalking(true);
 
         string[] words = CurrentText.Split(' ');
         TextContentLabel.text = string.Empty;
@@ -59,6 +62,7 @@ public class CharacterDialogue : MonoBehaviour
 
         TextContentLabel.text = CurrentText;
         IsAnimatingText = false;
+        CurrentlyTalkingPlayer.SetTalking(false);
     }
 
     public void SkipAnimation ()
@@ -66,5 +70,6 @@ public class CharacterDialogue : MonoBehaviour
         StopCoroutine(TextAnimator);
         TextContentLabel.text = CurrentText;
         IsAnimatingText = false;
+        CurrentlyTalkingPlayer.SetTalking(false);
     }
 }

@@ -16,8 +16,15 @@ public class Player
     [field: SerializeField]
     public string Name { get; private set; }
 
+    private const string IS_TALKING_ANIMATOR_VARIABLE_NAME = "IsTalking";
+
     public Player(bool isNPC)
     {
         IsNPC = isNPC;
+    }
+
+    public void SetTalking (bool isTalking)
+    {
+        OverworldAnimator.SetBool(IS_TALKING_ANIMATOR_VARIABLE_NAME,isTalking);
     }
 }

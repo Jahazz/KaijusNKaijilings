@@ -43,7 +43,7 @@ public class DialogueView : ListView<DialogueResponseOption, DialogueResponseOpt
     {
         CharacterDialogue windowToPopulateText = isOnLeftSide == true ? LeftDialogueWindow : RightDialogueWindow;
         windowToPopulateText.gameObject.SetActive(true);
-        windowToPopulateText.SetTextContents(author.Name, text);
+        windowToPopulateText.SetTextContents(author, text);
     }
 
     public void SetResponses (string[] responsesCollection)
