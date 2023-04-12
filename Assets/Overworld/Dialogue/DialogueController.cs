@@ -13,7 +13,7 @@ public class DialogueController : ListController<DialogueResponseOption, Dialogu
 
     public void ProceedDialogue ()
     {
-
+        CurrentModel.SpeedupOrProgress();
     }
 
     public void SelectResponse(int responseID)

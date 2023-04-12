@@ -34,6 +34,11 @@ public class DialogueView : ListView<DialogueResponseOption, DialogueResponseOpt
         RightDialogueWindow.SkipAnimation();
     }
 
+    public bool IsAnyDialogueMidAnimating ()
+    {
+        return LeftDialogueWindow.IsAnimatingText == true || RightDialogueWindow.IsAnimatingText == true;
+    }
+
     public void SetDialogue (Player author, bool isOnLeftSide, string text)
     {
         CharacterDialogue windowToPopulateText = isOnLeftSide == true ? LeftDialogueWindow : RightDialogueWindow;
@@ -43,6 +48,8 @@ public class DialogueView : ListView<DialogueResponseOption, DialogueResponseOpt
 
     public void SetResponses (string[] responsesCollection)
     {
+        ClearList();
+
         DialogueResponseOptionData currentResponseOptionData;
 
         for (int i = 0; i < responsesCollection.Length; i++)

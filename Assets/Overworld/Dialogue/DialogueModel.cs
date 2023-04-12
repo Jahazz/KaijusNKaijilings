@@ -35,16 +35,32 @@ public class DialogueModel : ListModel<DialogueResponseOption, DialogueResponseO
         VD.Next();
     }
 
+    public void SpeedupOrProgress ()
+    {
+        if (CurrentView.IsAnyDialogueMidAnimating() == true)
+        {
+            CurrentView.SkipDialogueAnimation();
+        }
+        else
+        {
+            VD.Next();
+        }
+    }
+
     private void HandleOnEnd (VD.NodeData data)
     {
-        throw new System.NotImplementedException();
+        VD.EndDialogue();
+        CurrentView.SetCanvasEnabled(false);
+        SingletonContainer.Instance.DialogueManager.Close();
     }
 
     private void HandleOnNodeChange (VD.NodeData data)
     {
         Player currentlyTalkingPlayer = AdditionalInterlocutorsCollection[data.tag];
 
-        if (IsNodeChoiceNode(data) == true)
+        bool isChoice = IsNodeChoiceNode(data);
+
+        if (isChoice == true)
         {
             CurrentView.SetResponses(data.comments);
         }
@@ -53,7 +69,10 @@ public class DialogueModel : ListModel<DialogueResponseOption, DialogueResponseO
             bool isOnLeft = data.isPlayer;
             string dialogueText = data.comments[data.commentIndex];
             CurrentView.SetDialogue(currentlyTalkingPlayer, isOnLeft, dialogueText);
+            CurrentView.ClearList();
         }
+
+        CurrentView.SetProceedButtonEnabled(isChoice == false);
 
     }
 
