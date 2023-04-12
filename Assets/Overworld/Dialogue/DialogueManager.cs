@@ -9,10 +9,11 @@ public class DialogueManager : MultiCameraOverworldLayoutSystem
     [field: SerializeField]
     private RectTransform Background { get; set; }
     [field: SerializeField]
-    private RectTransform Foreground { get; set; }
-    private float Duration = 1;
+    public DialogueController DialogueController { get; private set; }
+    private float Duration { get; set; } = 1;
+    private Interlocutor CurrentInterlocutor { get; set; }
 
-    public void Initialize (Player firstAnimator, Player secondAnimator)
+    public void Initialize (Player player, Interlocutor interlocutor)
     {
         TargetNearClipPlane = 0.0f;
         TargetFarClipPlane = 30.0f;
@@ -21,8 +22,9 @@ public class DialogueManager : MultiCameraOverworldLayoutSystem
         Initialize();
 
         TargetActorLayerName = "Dialogue";
-        FirstActor = new Actor(firstAnimator, TargetActorLayerName);
-        SecondActor = new Actor(secondAnimator, TargetActorLayerName);
+        FirstActor = new Actor(player, TargetActorLayerName);
+        SecondActor = new Actor(interlocutor.AssignedPlayer, TargetActorLayerName);
+        CurrentInterlocutor = interlocutor;
 
         InitializeBackgroundEnter(Background.DOScale(Vector3.one, Duration));
     }
@@ -50,7 +52,7 @@ public class DialogueManager : MultiCameraOverworldLayoutSystem
 
     protected override void HandleOnZoomInCompleted ()
     {
-        Close();
+        DialogueController.InitializeDialogue(CurrentInterlocutor);
     }
 
     public void Close ()

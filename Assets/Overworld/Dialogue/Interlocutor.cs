@@ -5,10 +5,14 @@ using UnityEngine;
 public class Interlocutor : MonoBehaviour
 {
     [field: SerializeField]
-    private Player ActorAnimator { get; set; }
+    public Player AssignedPlayer { get; private set; }
+    [field: SerializeField]
+    public VIDE_Assign DialogueData { get;private set; }
+    [field: SerializeField]
+    public List<Interlocutor> AdditionalInterlocutors { get; set; }
 
     public void InitializeConversation ()
     {
-        SingletonContainer.Instance.DialogueManager.Initialize(SingletonContainer.Instance.PlayerManager.CurrentPlayer, ActorAnimator);
+        SingletonContainer.Instance.DialogueManager.Initialize(SingletonContainer.Instance.PlayerManager.CurrentPlayer, this);
     }
 }

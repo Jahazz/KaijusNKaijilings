@@ -13,6 +13,8 @@ public class Player
     public ObservableCollection<Entity> EntitiesInEquipment { get; set; } = new ObservableCollection<Entity>();
     [field: SerializeField]
     public bool IsNPC { get; private set; } = true;
+    [field: SerializeField]
+    public string Name { get; private set; }
 
     public Player(bool isNPC)
     {
