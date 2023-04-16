@@ -4,12 +4,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using VIDE_Data;
+using Ink.Runtime;
 
 public class DialogueModel : ListModel<DialogueResponseOption, DialogueResponseOptionData, DialogueView>
 {
     private Interlocutor CurrentMainInterlocutor { get; set; }
     private Dictionary<string, Player> AdditionalInterlocutorsCollection { get; set; }
+    private Story CurrentStory { get; set; }
 
     private const string PLAYER_DEFAULT_ID = "Player";
     private const string IS_CHOICE_NODE_KEY = "IsChoice";
@@ -20,19 +21,21 @@ public class DialogueModel : ListModel<DialogueResponseOption, DialogueResponseO
 
         GenerateInterlocutorCollection();
 
-        VD.OnActionNode += HandleOnActionNode;
-        VD.OnNodeChange += HandleOnNodeChange;
-        VD.OnEnd += HandleOnEnd;
+        CurrentStory = mainInterlocutor.GenerateStory();
+        //VD.OnActionNode += HandleOnActionNode;
+        //VD.OnNodeChange += HandleOnNodeChange;
+        //VD.OnEnd += HandleOnEnd;
 
         CurrentView.SetCanvasEnabled(true);
 
-        VD.BeginDialogue(mainInterlocutor.DialogueData);
+        ContinueDialogue();
+        //VD.BeginDialogue(mainInterlocutor.DialogueData);
     }
 
     public void SelectResponse (int responseID)
     {
-        VD.nodeData.commentIndex = responseID;
-        VD.Next();
+        CurrentStory.ChooseChoiceIndex(responseID);
+        ContinueDialogue();
     }
 
     public void SpeedupOrProgress ()
@@ -43,54 +46,53 @@ public class DialogueModel : ListModel<DialogueResponseOption, DialogueResponseO
         }
         else
         {
-            VD.Next();
+            ContinueDialogue();
         }
     }
 
-    private void HandleOnEnd (VD.NodeData data)
+    private void HandleOnEnd ()
     {
-        VD.EndDialogue();
+        //VD.EndDialogue();
         CurrentView.SetCanvasEnabled(false);
+        CurrentView.SkipDialogueAnimation();
         SingletonContainer.Instance.DialogueManager.Close();
     }
 
-    private void HandleOnNodeChange (VD.NodeData data)
+    private void ContinueDialogue ()
     {
-        Player currentlyTalkingPlayer = AdditionalInterlocutorsCollection[data.tag];
+        CurrentStory.Continue();
+        bool isChoice = CurrentStory.currentChoices.Count > 0;
+        string text = CurrentStory.currentText;
+        InkNodeTagsData nodeTags = new InkNodeTagsData(CurrentStory.currentTags);
+        CurrentView.SetProceedButtonEnabled(isChoice == false);
 
-        bool isChoice = IsNodeChoiceNode(data);
-
-        if (isChoice == true)
+        if (nodeTags.SpeakerID != null)
         {
-            CurrentView.SetResponses(data.comments);
+            Player currentlyTalkingPlayer = AdditionalInterlocutorsCollection[nodeTags.SpeakerID];
+
+            CurrentView.SetDialogue(currentlyTalkingPlayer, nodeTags.SpeakerSide == Side.LEFT, text);
+            CurrentView.ClearList();
+        }
+        else if (isChoice == true)
+        {
+            string[] choiceCollection = CurrentStory.currentChoices.Select(x => x.text.Trim()).ToArray();
+            CurrentView.SetResponses(choiceCollection);
         }
         else
         {
-            bool isOnLeft = data.isPlayer;
-            string dialogueText = data.comments[data.commentIndex];
-            CurrentView.SetDialogue(currentlyTalkingPlayer, isOnLeft, dialogueText);
-            CurrentView.ClearList();
+            ContinueDialogue();
         }
 
-        CurrentView.SetProceedButtonEnabled(isChoice == false);
 
-    }
-
-    
-
-    private bool IsNodeChoiceNode (VD.NodeData data)
-    {
-        return data.isPlayer && ( data.extraVars.ContainsKey(IS_CHOICE_NODE_KEY) == false || bool.Parse(data.extraVars[IS_CHOICE_NODE_KEY].ToString()) == true);
-    }
-
-    private void HandleOnActionNode (int nodeID)
-    {
-        throw new System.NotImplementedException();
+        if (isChoice == false && CurrentStory.canContinue == false)
+        {
+            HandleOnEnd();
+        }
     }
 
     private void GenerateInterlocutorCollection ()
     {
-        if (CurrentMainInterlocutor.AdditionalInterlocutors!= null && CurrentMainInterlocutor.AdditionalInterlocutors.Count > 0)
+        if (CurrentMainInterlocutor.AdditionalInterlocutors != null && CurrentMainInterlocutor.AdditionalInterlocutors.Count > 0)
         {
             AdditionalInterlocutorsCollection = CurrentMainInterlocutor.AdditionalInterlocutors.ToDictionary(x => x.AssignedPlayer.Name, x => x.AssignedPlayer);
         }

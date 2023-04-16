@@ -59,6 +59,28 @@ public class Battle
         return BattleParticipantsCollection.Where(n => n != otherBattleParticipant).FirstOrDefault();
     }
 
+    public bool CheckIsBattleOver (out BattleResultType battleResult)
+    {
+        bool output = false;
+
+        if (GetPlayerBattleParticipant().AreAllEntitiesOfParticipantDefeated() == true)
+        {
+            battleResult = BattleResultType.DEFEAT;
+            output = true;
+        }
+        else if (GetNPCBattleParticipant().AreAllEntitiesOfParticipantDefeated() == true)
+        {
+            battleResult = BattleResultType.VICTORY;
+            output = true;
+        }
+        else
+        {
+            battleResult = BattleResultType.NONE;
+        }
+
+        return output;
+    }
+
     private void HandleSelectedCurrentAction (BaseBattleAction newValue)
     {
         if (CurrentBattleState.PresentValue == BattleState.ACTION_CHOOSE && newValue != null && AreAllActionsSelected() == true)

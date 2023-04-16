@@ -105,7 +105,7 @@ public class BattleScreenModel : BaseModel<BattleScreenView>
 
     private void WrapUp ()
     {
-        if (IsBattleOver(out BattleResultType battleResult) == true)
+        if (CurrentBattle.CheckIsBattleOver(out BattleResultType battleResult) == true)
         {
             BattleScreenSummaryController.OpenScreen(battleResult);
         }
@@ -159,28 +159,6 @@ public class BattleScreenModel : BaseModel<BattleScreenView>
     {
         CurrentBattle.ClearChosenBattleActions();
         CurrentBattle.CurrentBattleState.PresentValue = BattleState.ACTION_CHOOSE;
-    }
-
-    private bool IsBattleOver (out BattleResultType battleResult)
-    {
-        bool output = false;
-
-        if (CurrentBattle.GetPlayerBattleParticipant().AreAllEntitiesOfParticipantDefeated() == true)
-        {
-            battleResult = BattleResultType.DEFEAT;
-            output = true;
-        }
-        else if (CurrentBattle.GetNPCBattleParticipant().AreAllEntitiesOfParticipantDefeated() == true)
-        {
-            battleResult = BattleResultType.VICTORY;
-            output = true;
-        }
-        else
-        {
-            battleResult = BattleResultType.NONE;
-        }
-
-        return output;
     }
 
 

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,12 +20,12 @@ public class BattleScreenManager : MultiCameraOverworldLayoutSystem
     private BattlegroundPreparedUnityEvent OnBattlegroundPrepared { get; set; }
 
     private Material BackgroundMaterial { get; set; }
-
+    private Action<BattleResultType> BattleFinishedCallback { get; set; }
 
     private float Duration { get; set; } = 1;
     private const string BLAND_FACTOR_VARIABLE_NAME = "_BlendFactor";
 
-    public void Initialize (Player firstPlayer, Player secondPlayer)
+    public void Initialize (Player firstPlayer, Player secondPlayer, Action<BattleResultType> battleFinishedCallback)
     {
         TargetNearClipPlane = 0.0f;
         TargetFarClipPlane = 30.0f;
@@ -35,7 +36,7 @@ public class BattleScreenManager : MultiCameraOverworldLayoutSystem
         TargetActorLayerName = "Dialogue";
         FirstActor = new Actor(firstPlayer, TargetActorLayerName);
         SecondActor = new Actor(secondPlayer, TargetActorLayerName);
-
+        BattleFinishedCallback = battleFinishedCallback;
 
         BackgroundMaterial = BackgroundImage.material;
         BackgroundMaterial.SetFloat(BLAND_FACTOR_VARIABLE_NAME, 0);
@@ -80,8 +81,10 @@ public class BattleScreenManager : MultiCameraOverworldLayoutSystem
         return spawnedEntity.transform.DOScale(Vector3.one, 1);
     }
 
-    public void Close ()
+    public void Close (BattleResultType battleResult)
     {
+        BattleFinishedCallback(battleResult);
+
         CharactersCamera.nearClipPlane = MainCamera.nearClipPlane;
         CharactersCamera.farClipPlane = MainCamera.farClipPlane;
         InitializeZoomOut(CharactersCamera.DOOrthoSize(MainCamera.orthographicSize, Duration));

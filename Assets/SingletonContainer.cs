@@ -1,3 +1,4 @@
+using QuantumTek.QuantumQuest;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,8 @@ public class SingletonContainer : SingletonMonobehaviour<SingletonContainer>
     public OverworldPlayerCharacterManager OverworldPlayerCharacterManager { get; private set; }
     [field: SerializeField]
     public CharacterMenuController CharacterMenuController { get; private set; }
+    [field: SerializeField]
+    public QQ_QuestHandler QuestHandler { get; private set; }
     [field: SerializeField]
     public PlayerInput InputSystem { get; private set; }
 }

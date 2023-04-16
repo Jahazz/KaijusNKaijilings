@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UltEvents;
 
 public class Battler : MonoBehaviour
 {
@@ -8,6 +10,12 @@ public class Battler : MonoBehaviour
     private Player PlayerData { get; set; }
     [field: SerializeField]
     private List<EntityLevelPair> PlayerEntitiesCollection { get; set; }
+    [field: SerializeField]
+    private UltEvent OnBattleWon { get; set; }
+    [field: SerializeField]
+    private UltEvent OnBattleLost { get; set; }
+    [field: SerializeField]
+    private UltEvent OnBattleUnresolved { get; set; }
 
     public void InitialzieBattle ()
     {
@@ -18,6 +26,26 @@ public class Battler : MonoBehaviour
             PlayerData.EntitiesInEquipment.Add(SingletonContainer.Instance.EntityManager.RequestEntity(pair.Entity,pair.Level));
         }
 
-        SingletonContainer.Instance.BattleScreenManager.Initialize(SingletonContainer.Instance.PlayerManager.CurrentPlayer, PlayerData);
+        SingletonContainer.Instance.BattleScreenManager.Initialize(SingletonContainer.Instance.PlayerManager.CurrentPlayer, PlayerData, HandleOnBattleFinished);
+    }
+
+    public void HandleOnBattleFinished(BattleResultType battleResult)
+    {
+        switch (battleResult)
+        {
+            case BattleResultType.NONE:
+                break;
+            case BattleResultType.VICTORY:
+                OnBattleWon.Invoke();
+                break;
+            case BattleResultType.DEFEAT:
+                OnBattleLost.Invoke();
+                break;
+            case BattleResultType.UNRESOLVED:
+                OnBattleUnresolved.Invoke();
+                break;
+            default:
+                break;
+        }
     }
 }

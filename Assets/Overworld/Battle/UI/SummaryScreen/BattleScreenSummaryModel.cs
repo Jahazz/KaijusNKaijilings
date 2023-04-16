@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class BattleScreenSummaryModel : BaseModel<BattleScreenSummaryView>
 {
+    BattleResultType BattleResult { get; set; }
+
     public void OpenScreen (BattleResultType battleResult)
     {
+        BattleResult = battleResult;
         CurrentView.SetPanelVisibility(true);
         CurrentView.ChangeMainLabel(battleResult);
     }
@@ -15,6 +18,6 @@ public class BattleScreenSummaryModel : BaseModel<BattleScreenSummaryView>
     {
         CurrentView.SetPanelVisibility(false);
         SingletonContainer.Instance.BattleScreenManager.BattleScreenController.CleanupBattle();
-        SingletonContainer.Instance.BattleScreenManager.Close();
+        SingletonContainer.Instance.BattleScreenManager.Close(BattleResult);
     }
 }
