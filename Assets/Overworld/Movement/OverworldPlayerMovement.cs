@@ -7,14 +7,15 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class OverworldPlayerMovement : MonoBehaviour
 {
+    public delegate void OnMovementProcessedArguments (Vector3 distance);
+    public event OnMovementProcessedArguments OnMovementProcessed;
+
     [field: SerializeField]
     private CharacterController CharacterController { get; set; }
     [field: SerializeField]
     private Transform MovementVector { get; set; }
     [field: SerializeField]
     private float MovementSpeedFactor { get; set; }
-    [field: SerializeField]
-    private CharacterMovementInterpreter dsasda { get; set; }
     private Vector3 CachedMovementVector { get; set; } = Vector3.zero;
     private bool CanMove { get; set; } = true;
 
@@ -42,14 +43,16 @@ public class OverworldPlayerMovement : MonoBehaviour
     {
         Vector3 velocityOfTransform = MovementVector.TransformDirection(CachedMovementVector);
         Vector3 distance = velocityOfTransform * MovementSpeedFactor * Time.deltaTime;
-        //Vector3 forceWithoutY = velocityOfTransform - CharacterRigidbody.velocity;
-        dsasda.UpdateRotation(distance);
-            CharacterController.Move(distance);
+
+        CharacterController.Move(distance);
+
         if (!CharacterController.isGrounded)
         {
             Vector3 playerVelocity = Vector3.zero;
             playerVelocity.y -= 9.5f * Time.deltaTime;
             CharacterController.Move(playerVelocity);
         }
+
+        OnMovementProcessed?.Invoke(distance);
     }
 }
