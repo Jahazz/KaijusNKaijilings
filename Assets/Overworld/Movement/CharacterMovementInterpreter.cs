@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterMovementInterpreter : MonoBehaviour
 {
     [field: SerializeField]
-    private Rigidbody ConnectedRigidbody { get; set; }
+    private float AnimationSpeed { get; set; }
     [field: SerializeField]
     private Transform Model { get; set; }
     [field: SerializeField]
@@ -15,34 +15,33 @@ public class CharacterMovementInterpreter : MonoBehaviour
 
     public void FreezeCharacterMovement ()
     {
-        ConnectedRigidbody.velocity = Vector3.zero;
-        ConnectedRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        //ConnectedRigidbody.velocity = Vector3.zero;
+        //ConnectedRigidbody.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     public void UnfreezeCharacterMovement ()
     {
-        ConnectedRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+        //ConnectedRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
-    protected virtual void FixedUpdate ()
-    {
-        UpdateRotation();
-        UpdateSpeed();
-    }
+    Vector3 lastVelocity;
 
-    private void UpdateRotation ()
+    public void UpdateRotation (Vector3 movementVector)
     {
-        Vector3 currentVelocity = ConnectedRigidbody.velocity;
+        Debug.DrawRay(transform.position, movementVector);
+        //Vector3 currentVelocity = ConnectedRigidbody.velocity;
 
-        if (currentVelocity != Vector3.zero)
+        if (movementVector != Vector3.zero)
         {
-            Model.rotation = Quaternion.LookRotation(new Vector3(currentVelocity.x, 0, currentVelocity.z));
+            Model.rotation = Quaternion.LookRotation(new Vector3(movementVector.x, 0, movementVector.z));
         }
+
+        UpdateSpeed(movementVector);
     }
 
-    private void UpdateSpeed ()
+    private void UpdateSpeed (Vector3 movementVector)
     {
-        float normalizedVelocity = ConnectedRigidbody.velocity.magnitude / 6; //remove this magic as max velocity
+        float normalizedVelocity = movementVector.magnitude * AnimationSpeed;
         ConnectedAnimator.SetFloat(ANIMATOR_SPEED_PARAMETER_NAME, normalizedVelocity);
     }
 }
