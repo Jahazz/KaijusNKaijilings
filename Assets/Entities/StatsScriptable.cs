@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using BattleCore.ScreenEntity;
 using System.Collections.Generic;
 using UnityEngine;
 

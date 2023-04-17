@@ -1,56 +1,60 @@
+using BattleCore.Actions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class QueueHandler
+namespace BattleCore.ActionQueue
 {
-    private Queue<QueuedAction> QueuedActionCollection { get; set; } = new Queue<QueuedAction>();
-    private Action FinishCallback { get; set; }
-
-    public QueueHandler (Action finishCallback)
+    public class QueueHandler
     {
-        FinishCallback = finishCallback;
-    }
+        private Queue<QueuedAction> QueuedActionCollection { get; set; } = new Queue<QueuedAction>();
+        private Action FinishCallback { get; set; }
 
-    public void EnqueueFunction (BaseBattleAction basedOnAction, Func<IEnumerator> functionToExecute)
-    {
-        QueuedActionCollection.Enqueue(new QueuedAction(functionToExecute, basedOnAction));
-    }
-
-    public void InvokeActions ()
-    {
-        if (QueuedActionCollection.Count > 0)
+        public QueueHandler (Action finishCallback)
         {
-            ExecuteNext();
+            FinishCallback = finishCallback;
         }
-        else
+
+        public void EnqueueFunction (BaseBattleAction basedOnAction, Func<IEnumerator> functionToExecute)
         {
-            FinishCallback.Invoke();
+            QueuedActionCollection.Enqueue(new QueuedAction(functionToExecute, basedOnAction));
         }
-    }
 
-    public void RemoveActionsWithPredicate (Func<QueuedAction, bool> predicate)
-    {
-        QueuedActionCollection = new Queue<QueuedAction>(QueuedActionCollection.Where((n) => predicate(n) == false));
-    }
-
-    private void ExecuteNext ()
-    {
-        QueuedAction action = QueuedActionCollection.Dequeue();
-        action.OnActionFinished += HandleOnSingleActionFinished;
-        action.Execute();
-    }
-
-    private void HandleOnSingleActionFinished ()
-    {
-        if (QueuedActionCollection.Count > 0)
+        public void InvokeActions ()
         {
-            ExecuteNext();
+            if (QueuedActionCollection.Count > 0)
+            {
+                ExecuteNext();
+            }
+            else
+            {
+                FinishCallback.Invoke();
+            }
         }
-        else
+
+        public void RemoveActionsWithPredicate (Func<QueuedAction, bool> predicate)
         {
-            FinishCallback.Invoke();
+            QueuedActionCollection = new Queue<QueuedAction>(QueuedActionCollection.Where((n) => predicate(n) == false));
+        }
+
+        private void ExecuteNext ()
+        {
+            QueuedAction action = QueuedActionCollection.Dequeue();
+            action.OnActionFinished += HandleOnSingleActionFinished;
+            action.Execute();
+        }
+
+        private void HandleOnSingleActionFinished ()
+        {
+            if (QueuedActionCollection.Count > 0)
+            {
+                ExecuteNext();
+            }
+            else
+            {
+                FinishCallback.Invoke();
+            }
         }
     }
 }

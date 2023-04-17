@@ -1,16 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class SwapBattleAction : BaseBattleAction
+namespace BattleCore.Actions
 {
-    public Entity EntityToSwapTo { get; set; }
-    public BattleParticipant ActionOwner { get; set; }
-
-    public SwapBattleAction(BattleParticipant actionOwner, Entity entityToSwapTo)
+    public class SwapBattleAction : BaseBattleAction
     {
-        ActionType = BattleActionType.SWAP;
-        ActionOwner = actionOwner;
-        EntityToSwapTo = entityToSwapTo;
+        public Entity EntityToSwapTo { get; set; }
+        public BattleParticipant ActionOwner { get; set; }
+
+        public SwapBattleAction (BattleParticipant actionOwner, Entity entityToSwapTo)
+        {
+            ActionType = BattleActionType.SWAP;
+            ActionOwner = actionOwner;
+            EntityToSwapTo = entityToSwapTo;
+        }
     }
 }
+
