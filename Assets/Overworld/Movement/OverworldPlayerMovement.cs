@@ -7,14 +7,18 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class OverworldPlayerMovement : MonoBehaviour
 {
+    public delegate void OnMovementProcessedArguments (Vector3 distance);
+    public event OnMovementProcessedArguments OnMovementProcessed;
+
     [field: SerializeField]
-    private Rigidbody CharacterRigidbody { get; set; }
+    private CharacterController CharacterController { get; set; }
     [field: SerializeField]
     private Transform MovementVector { get; set; }
     [field: SerializeField]
     private float MovementSpeedFactor { get; set; }
     private Vector3 CachedMovementVector { get; set; } = Vector3.zero;
     private bool CanMove { get; set; } = true;
+
 
     public void HandleMovementActionPerformed (CallbackContext callbackContext)
     {
@@ -27,7 +31,7 @@ public class OverworldPlayerMovement : MonoBehaviour
         CanMove = canMove;
     }
 
-    protected virtual void FixedUpdate ()
+    protected virtual void Update ()
     {
         if (CanMove == true)
         {
@@ -37,9 +41,18 @@ public class OverworldPlayerMovement : MonoBehaviour
 
     private void UpdateMovement ()
     {
-        Vector3 velocityOfTransform = MovementVector.TransformDirection(CachedMovementVector * MovementSpeedFactor);
-        Vector3 forceWithoutY = velocityOfTransform - CharacterRigidbody.velocity;
+        Vector3 velocityOfTransform = MovementVector.TransformDirection(CachedMovementVector);
+        Vector3 distance = velocityOfTransform * MovementSpeedFactor * Time.deltaTime;
 
-        CharacterRigidbody.AddForce(forceWithoutY, ForceMode.Impulse);
+        CharacterController.Move(distance);
+
+        if (!CharacterController.isGrounded)
+        {
+            Vector3 playerVelocity = Vector3.zero;
+            playerVelocity.y -= 9.5f * Time.deltaTime;
+            CharacterController.Move(playerVelocity);
+        }
+
+        OnMovementProcessed?.Invoke(distance);
     }
 }
