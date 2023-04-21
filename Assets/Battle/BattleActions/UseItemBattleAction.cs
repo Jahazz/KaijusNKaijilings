@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class UseItemBattleAction : BaseBattleAction
+namespace BattleCore.Actions
 {
-    public UseItemBattleAction ()
+    public class UseItemBattleAction : BaseBattleAction
     {
-        ActionType = BattleActionType.ITEM;
+        public UseItemBattleAction ()
+        {
+            ActionType = BattleActionType.ITEM;
+        }
     }
 }

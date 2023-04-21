@@ -1,14 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class BaseBattleAction
+namespace BattleCore.Actions
 {
-    public BattleActionType ActionType { get; protected set; }
-
-    public virtual void Invoke (BattleParticipant actionOwner, Battle battle)
+    public class BaseBattleAction
     {
-
+        public BattleActionType ActionType { get; protected set; }
     }
-
 }

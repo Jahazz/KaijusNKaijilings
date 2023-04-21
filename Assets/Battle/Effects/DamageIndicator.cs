@@ -1,29 +1,31 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
 
-public class DamageIndicator : MonoBehaviour
+namespace BattleCore.UI
 {
-    [field: SerializeField]
-    private TMP_Text DamageLabel { get; set; }
-
-    public void Initialize (float value)
+    public class DamageIndicator : MonoBehaviour
     {
-        DamageLabel.text = value.ToString();
-        DamageLabel.transform.localScale = Vector3.zero;
-        DamageLabel.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.InFlash).OnComplete(()=> StartCoroutine(WaitAndDisappear()));
-    }
+        [field: SerializeField]
+        private TMP_Text DamageLabel { get; set; }
 
-    private IEnumerator WaitAndDisappear ()
-    {
-        yield return new WaitForSeconds(1.0f);
-        DamageLabel.DOFade(0, 1.0f).OnComplete(Dispose);
-    }
+        public void Initialize (float value)
+        {
+            DamageLabel.text = value.ToString();
+            DamageLabel.transform.localScale = Vector3.zero;
+            DamageLabel.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.InFlash).OnComplete(() => StartCoroutine(WaitAndDisappear()));
+        }
 
-    private void Dispose ()
-    {
-        Destroy(gameObject);
+        private IEnumerator WaitAndDisappear ()
+        {
+            yield return new WaitForSeconds(1.0f);
+            DamageLabel.DOFade(0, 1.0f).OnComplete(Dispose);
+        }
+
+        private void Dispose ()
+        {
+            Destroy(gameObject);
+        }
     }
 }

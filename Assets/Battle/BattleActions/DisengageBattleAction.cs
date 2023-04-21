@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class DisengageBattleAction : BaseBattleAction
+namespace BattleCore.Actions
 {
-    public DisengageBattleAction ()
+    public class DisengageBattleAction : BaseBattleAction
     {
-        ActionType = BattleActionType.DISENGAGE;
+        public DisengageBattleAction ()
+        {
+            ActionType = BattleActionType.DISENGAGE;
+        }
     }
 }
