@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028426, g: 0.2257148, b: 0.3069242, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21678,6 +21678,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CaveEnviro
       objectReference: {fileID: 0}
+    - target: {fileID: 4515983641818346812, guid: 673de16c7825d984faa6df62c54fba7f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4515983641818346813, guid: 673de16c7825d984faa6df62c54fba7f,
         type: 3}
       propertyPath: m_RootOrder
@@ -25500,7 +25505,7 @@ PrefabInstance:
     - target: {fileID: 444028532315285533, guid: 9963515ecabf3204cb904e306a57aea1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -19.87
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 444028532315285533, guid: 9963515ecabf3204cb904e306a57aea1,
         type: 3}
@@ -26345,7 +26350,7 @@ PrefabInstance:
     - target: {fileID: 4821588089026638846, guid: 4a3c7b36d9bc0f44c84ef21257881829,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4911494057287693970, guid: 4a3c7b36d9bc0f44c84ef21257881829,
         type: 3}
