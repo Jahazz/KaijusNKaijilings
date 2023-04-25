@@ -1,7 +1,8 @@
 public enum CharacterMenuTabType 
 {
-    CHARACTER,
+    QUEST_LOG,
     ENTITIES,
-    BREEDING,
-    INVENTORY
+    ENCYCLOPEDIA,
+    INVENTORY,
+    SETTINGS
 }

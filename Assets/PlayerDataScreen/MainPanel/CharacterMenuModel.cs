@@ -8,6 +8,12 @@ public class CharacterMenuModel : SingleSelectableListModel<CharacterMenuElement
 {
     [field: SerializeField]
     private List<CharacterMenuElementData> MenuElementCollection { get; set; }
+    [field: SerializeField]
+    private ObjectToCanvasRaycaster BookController { get; set; }
+    [field: SerializeField]
+    private Camera BookCamera { get; set; }
+    [field: SerializeField]
+    private Camera CharacterCamera { get; set; }
 
     public override void Initialize (CharacterMenuView currentView)
     {
@@ -33,6 +39,8 @@ public class CharacterMenuModel : SingleSelectableListModel<CharacterMenuElement
             SingletonContainer.Instance.OverworldPlayerCharacterManager.UnfreezePlayer();
         }
 
+        BookCamera.gameObject.SetActive(isMenuVisible);
+        CharacterCamera.gameObject.SetActive(!isMenuVisible);
         CurrentView.ToggleMenuVisibility(isMenuVisible);
     }
 
@@ -49,6 +57,9 @@ public class CharacterMenuModel : SingleSelectableListModel<CharacterMenuElement
 
     private void HandleElementSelection (CharacterMenuElementData selectedElementData, bool isSelected)
     {
-        selectedElementData.BoundPanel.SetActive(isSelected);
+        if (isSelected == true)
+        {
+            BookController.OpenPage(selectedElementData.PageIndex);
+        }
     }
 }

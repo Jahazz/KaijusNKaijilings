@@ -11,15 +11,15 @@ namespace MVC.List
         public abstract void Initialize (ElementData elementData);
 
         private bool IsDraggingSetUp { get; set; }
-        public RectTransform currentTransform;
-        private GameObject Container;
-        private Vector3 CurrentPosition;
-        private int ChildCount;
+        public RectTransform CurrentTransform { get; private set; }
+        private GameObject Container { get; set; }
+        private Vector3 CurrentPosition { get; set; }
+        private int ChildCount { get; set; }
 
         internal void SetupDragging ()
         {
             IsDraggingSetUp = true;
-            currentTransform = GetComponent<RectTransform>();
+            CurrentTransform = GetComponent<RectTransform>();
         }
 
         public void OnBeginDrag (PointerEventData eventData)
@@ -48,29 +48,29 @@ namespace MVC.List
 
         private void HandleBeginDrag ()
         {
-            CurrentPosition = currentTransform.position;
-            Container = currentTransform.parent.gameObject;
+            CurrentPosition = CurrentTransform.position;
+            Container = CurrentTransform.parent.gameObject;
             ChildCount = Container.transform.childCount;
         }
 
         private void HandleDrag (PointerEventData eventData) // source: https://github.com/dipen-apptrait/Vertical-drag-drop-listview-unity
         {
-            currentTransform.position = new Vector3(currentTransform.position.x, eventData.position.y, currentTransform.position.z);
+            CurrentTransform.position = new Vector3(CurrentTransform.position.x, eventData.position.y, CurrentTransform.position.z);
 
             for (int i = 0; i < ChildCount; i++)
             {
-                if (i != currentTransform.GetSiblingIndex())
+                if (i != CurrentTransform.GetSiblingIndex())
                 {
                     Transform otherTransform = Container.transform.GetChild(i);
-                    int distance = (int)Vector3.Distance(currentTransform.position, otherTransform.position);
+                    int distance = (int)Vector3.Distance(CurrentTransform.position, otherTransform.position);
 
                     if (distance <= 10)
                     {
                         Vector3 otherTransformOldPosition = otherTransform.position;
                         otherTransform.position = new Vector3(otherTransform.position.x, CurrentPosition.y,otherTransform.position.z);
-                        currentTransform.position = new Vector3(currentTransform.position.x, otherTransformOldPosition.y, currentTransform.position.z);
-                        currentTransform.SetSiblingIndex(otherTransform.GetSiblingIndex());
-                        CurrentPosition = currentTransform.position;
+                        CurrentTransform.position = new Vector3(CurrentTransform.position.x, otherTransformOldPosition.y, CurrentTransform.position.z);
+                        CurrentTransform.SetSiblingIndex(otherTransform.GetSiblingIndex());
+                        CurrentPosition = CurrentTransform.position;
                     }
                 }
             }
@@ -78,7 +78,7 @@ namespace MVC.List
 
         private void HandleDrop ()
         {
-            currentTransform.position = CurrentPosition;
+            CurrentTransform.position = CurrentPosition;
             OnElementDropped.Invoke();
         }
     }
