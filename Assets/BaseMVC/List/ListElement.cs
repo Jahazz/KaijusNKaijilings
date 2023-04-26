@@ -61,23 +61,23 @@ namespace MVC.List
             float sign = eventData.delta.y > 0 ? 1.0f : -1.0f;
             CurrentTransform.position = new Vector3(CurrentTransform.position.x,eventData.pressEventCamera.ScreenToWorldPoint(eventData.position).y, CurrentTransform.position.z);
 
-            //for (int i = 0; i < ChildCount; i++)
-            //{
-            //    if (i != CurrentTransform.GetSiblingIndex())
-            //    {
-            //        Transform otherTransform = Container.transform.GetChild(i);
-            //        int distance = (int)Vector3.Distance(CurrentTransform.position, otherTransform.position);
+            for (int i = 0; i < ChildCount; i++)
+            {
+                if (i != CurrentTransform.GetSiblingIndex())
+                {
+                    Transform otherTransform = Container.transform.GetChild(i);
+                    int distance = (int)Vector3.Distance(CurrentTransform.position, otherTransform.position);
 
-            //        if (distance <= 10)
-            //        {
-            //            Vector3 otherTransformOldPosition = otherTransform.position;
-            //            otherTransform.position = new Vector3(otherTransform.position.x, CurrentPosition.y,otherTransform.position.z);
-            //            CurrentTransform.position = new Vector3(CurrentTransform.position.x, otherTransformOldPosition.y, CurrentTransform.position.z);
-            //            CurrentTransform.SetSiblingIndex(otherTransform.GetSiblingIndex());
-            //            CurrentPosition = CurrentTransform.position;
-            //        }
-            //    }
-            //}
+                    if (distance <= 10)
+                    {
+                        Vector3 otherTransformOldPosition = otherTransform.position;
+                        otherTransform.position = new Vector3(otherTransform.position.x, CurrentPosition.y, otherTransform.position.z);
+                        CurrentTransform.position = new Vector3(CurrentTransform.position.x, otherTransformOldPosition.y, CurrentTransform.position.z);
+                        CurrentTransform.SetSiblingIndex(otherTransform.GetSiblingIndex());
+                        CurrentPosition = CurrentTransform.position;
+                    }
+                }
+            }
         }
 
         private void HandleDrop ()
