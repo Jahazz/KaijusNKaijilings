@@ -123,7 +123,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1688274410842403228}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5658121146610652295}
+        m_TargetAssemblyTypeName: MVC.SelectableList.SelectableListElement`1[[CharacterMenuElementData,
+          Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &6665751559308442097
 Animator:
   serializedVersion: 4
@@ -156,7 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f307cf004cb0c42a5390ac711c5e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTransform: {fileID: 0}
 --- !u!1 &3900674072904789681
 GameObject:
   m_ObjectHideFlags: 0

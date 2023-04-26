@@ -1071,46 +1071,6 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.06986641
       objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenPage
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ObjectToCanvasRaycaster, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 5744282511005827676, guid: b180ff5253ceb2f419020821337db695,
         type: 3}
       propertyPath: m_text
@@ -1331,46 +1291,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bookmark (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenPage
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ObjectToCanvasRaycaster, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 5744282511005827676, guid: b180ff5253ceb2f419020821337db695,
         type: 3}
       propertyPath: m_text
@@ -1515,46 +1435,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenPage
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ObjectToCanvasRaycaster, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5744282511005827676, guid: b180ff5253ceb2f419020821337db695,
         type: 3}
@@ -1961,46 +1841,6 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenPage
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ObjectToCanvasRaycaster, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 5744282511005827676, guid: b180ff5253ceb2f419020821337db695,
         type: 3}
       propertyPath: m_text
@@ -2150,41 +1990,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenPage
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ObjectToCanvasRaycaster, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324801485636909101, guid: b180ff5253ceb2f419020821337db695,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7867494785286384763, guid: b180ff5253ceb2f419020821337db695,
         type: 3}

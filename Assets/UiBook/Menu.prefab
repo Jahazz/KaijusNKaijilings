@@ -99,16 +99,16 @@ MonoBehaviour:
     <PageIndex>k__BackingField: 0
     <TabType>k__BackingField: 0
   - <CharacterMenuElement>k__BackingField: {fileID: 7738782028073091997}
-    <PageIndex>k__BackingField: 2
+    <PageIndex>k__BackingField: 1
     <TabType>k__BackingField: 1
   - <CharacterMenuElement>k__BackingField: {fileID: 7738782027900672241}
-    <PageIndex>k__BackingField: 4
+    <PageIndex>k__BackingField: 2
     <TabType>k__BackingField: 2
   - <CharacterMenuElement>k__BackingField: {fileID: 7738782028668770225}
-    <PageIndex>k__BackingField: 6
+    <PageIndex>k__BackingField: 3
     <TabType>k__BackingField: 3
   - <CharacterMenuElement>k__BackingField: {fileID: 7738782027422433643}
-    <PageIndex>k__BackingField: 8
+    <PageIndex>k__BackingField: 4
     <TabType>k__BackingField: 4
   <BookController>k__BackingField: {fileID: 785760306972793369}
   <BookCamera>k__BackingField: {fileID: 5411450489992060872}
@@ -456,12 +456,12 @@ PrefabInstance:
     - target: {fileID: 3377997431201070982, guid: 352eb3a2a91d62f40b921b05e124f4c9,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3377997431201070982, guid: 352eb3a2a91d62f40b921b05e124f4c9,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3377997431201070982, guid: 352eb3a2a91d62f40b921b05e124f4c9,
         type: 3}
@@ -481,7 +481,7 @@ PrefabInstance:
     - target: {fileID: 3377997431201070982, guid: 352eb3a2a91d62f40b921b05e124f4c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1117.68
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3377997431239843057, guid: 352eb3a2a91d62f40b921b05e124f4c9,
         type: 3}
