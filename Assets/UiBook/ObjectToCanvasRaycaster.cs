@@ -7,6 +7,7 @@ using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Users;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.InputSystem.UI;
 
 public class ObjectToCanvasRaycaster : MonoBehaviour
 {
@@ -26,10 +27,8 @@ public class ObjectToCanvasRaycaster : MonoBehaviour
 
     private PageCanvasRelation LeftPage { get; set; }
     private PageCanvasRelation RightPage { get; set; }
-    private Mouse VirtualMouse { get; set; }
-    private Mouse PhysicalMouse { get; set; }
-    private const string VIRTUAL_MOUSE_NAME = "VirtualMouse";
-    private const string PHYSICAL_MOUSE_NAME = "Mouse";
+    public static bool IsCursorOverrideEnabled { get; private set; }
+    public static Vector2 CustomPagePosition { get; private set; }
 
     public void FlipPageLeftToRight (float playbackSpeed = 1.0f)
     {
@@ -106,33 +105,18 @@ public class ObjectToCanvasRaycaster : MonoBehaviour
 
             if (currentCanvasController != null)
             {
-                SwapToMouse(true);
                 CheckHitForPage(ray, hit, currentCanvasController);
             }
             else
             {
-                SwapToMouse(false);
                 DisableAllExcept(null);
+                IsCursorOverrideEnabled = false;
             }
         }
         else
         {
-            SwapToMouse(false);
             DisableAllExcept(null);
-        }
-    }
-
-    private void SwapToMouse(bool swapToVirtual)
-    {
-        if(swapToVirtual == true)
-        {
-            InputSystem.DisableDevice(PhysicalMouse);
-            InputSystem.EnableDevice(VirtualMouse);//TODO: remove shitshow, 
-        }                                          //hint:auto-generate your own .inputactions asset or use individual InputAction variables
-        else
-        {
-            InputSystem.DisableDevice(VirtualMouse);
-            InputSystem.EnableDevice(PhysicalMouse);
+            IsCursorOverrideEnabled = false;
         }
     }
 
@@ -147,7 +131,9 @@ public class ObjectToCanvasRaycaster : MonoBehaviour
             Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.red);
         }
         DisableAllExcept(currentCanvasController);
-        InputState.Change(VirtualMouse, textureCoord);
+
+        IsCursorOverrideEnabled = true;
+        CustomPagePosition = textureCoord;
     }
 
     public void DisableAllExcept (CanvasController currentCanvasController)
@@ -177,7 +163,6 @@ public class ObjectToCanvasRaycaster : MonoBehaviour
 
     public virtual void Awake ()
     {
-        SetupInputs();
         SetPagesToDefaultStates();
         RecalculatePages();
     }
@@ -189,24 +174,6 @@ public class ObjectToCanvasRaycaster : MonoBehaviour
             page.PageControllerInstance.SetPageToSide(page.PageControllerInstance.SideOfPage);
         }
     }
-
-    private void SetupInputs ()
-    {
-        VirtualMouse = (Mouse)InputSystem.GetDevice(VIRTUAL_MOUSE_NAME);
-        PhysicalMouse = (Mouse)InputSystem.GetDevice(PHYSICAL_MOUSE_NAME);
-
-        if (VirtualMouse == null)
-        {
-            VirtualMouse = (Mouse)InputSystem.AddDevice(VIRTUAL_MOUSE_NAME);
-        }
-        else if (VirtualMouse.added == false)
-        {
-            InputSystem.AddDevice(VirtualMouse);
-        }
-
-        InputUser.PerformPairingWithDevice(VirtualMouse, PlayerInputInstance.user);
-    }
-
     private PageCanvasRelation GetPageCanvasPair (PageController controllerToFindBy)
     {
         return PageCanvasInspectorCollection.Where(x => x.PageControllerInstance == controllerToFindBy).FirstOrDefault();

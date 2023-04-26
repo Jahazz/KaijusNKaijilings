@@ -78,6 +78,23 @@ MonoBehaviour:
       restoreCamera: 1
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 60
+--- !u!114 &-2648539066941648992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d780aa9eeca58974cb016e2d39cb035d, type: 3}
+  m_Name: Swirl
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  settings:
+    material: {fileID: 2100000, guid: 4bc1c1e4a93e9704890d11618bda8a82, type: 2}
+    materialPassIndex: 0
+    renderEvent: 300
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +139,8 @@ MonoBehaviour:
   - {fileID: -8416889587325978633}
   - {fileID: 7548334058069834325}
   - {fileID: 4722293794702682287}
-  m_RendererFeatureMap: adc0de57c6d2eee5b4428d52ba5234dbf737c0d18333318b553a3c41d511c168afe848be2ff58841
+  - {fileID: -2648539066941648992}
+  m_RendererFeatureMap: adc0de57c6d2eee5b4428d52ba5234dbf737c0d18333318b553a3c41d511c168afe848be2ff58841a0cf324dc07f3edb
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -173,7 +191,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d780aa9eeca58974cb016e2d39cb035d, type: 3}
-  m_Name: BlitMaterialFeature
+  m_Name: Outline
   m_EditorClassIdentifier: 
   m_Active: 0
   settings:
@@ -192,4 +210,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be91ccc039e49924cb33fd854faa1104, type: 3}
   m_Name: Moebius
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0

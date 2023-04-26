@@ -40,7 +40,7 @@ public class CharacterMenuModel : SingleSelectableListModel<CharacterMenuElement
         }
 
         BookCamera.gameObject.SetActive(isMenuVisible);
-        CharacterCamera.gameObject.SetActive(!isMenuVisible);
+        //CharacterCamera.gameObject.SetActive(!isMenuVisible);
         CurrentView.ToggleMenuVisibility(isMenuVisible);
     }
 

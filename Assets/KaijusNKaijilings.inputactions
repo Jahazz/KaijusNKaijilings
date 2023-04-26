@@ -241,7 +241,7 @@
                     "type": "PassThrough",
                     "id": "e5ef601e-029a-4c81-9169-56eacbe19124",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "BookPageReposition",
                     "interactions": "",
                     "initialStateCheck": false
                 },
@@ -268,7 +268,7 @@
                     "type": "PassThrough",
                     "id": "58260ff2-0ddd-458b-b9bd-0bfe68643cd5",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "BookPageReposition",
                     "interactions": "",
                     "initialStateCheck": true
                 },

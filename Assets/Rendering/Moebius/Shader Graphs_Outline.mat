@@ -46,16 +46,16 @@ Material:
     m_Floats:
     - REQUIRE_DEPTH_TEXTURE: 1
     - REQUIRE_OPAQUE_TEXTURE: 1
-    - _ColorStrength: 1
-    - _ColorThickness: 0.5
-    - _ColorTreshold: 0.2
-    - _DepthStrength: 1
-    - _DepthThickness: 1
-    - _DepthTreshold: 1
+    - _ColorStrength: 0.98
+    - _ColorThickness: 1.25
+    - _ColorTreshold: 0.25
+    - _DepthStrength: 0.95
+    - _DepthThickness: 0.78
+    - _DepthTreshold: 1.02
     - _QueueControl: 0
     - _QueueOffset: 0
     - _REQUIRE_DEPTH_TEXTURE: 1
-    - _Thickness: 0.0001
+    - _Thickness: 0.001
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

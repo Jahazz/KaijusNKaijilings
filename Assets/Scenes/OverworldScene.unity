@@ -19463,6 +19463,11 @@ PrefabInstance:
       propertyPath: <PageCanvasInspectorCollection>k__BackingField.Array.data[4].<CanvasControllerBottomInstance>k__BackingField
       value: 
       objectReference: {fileID: 3377997432619601503}
+    - target: {fileID: 1864570473217104443, guid: aeb3d531870b91a48940ac6e32a10e71,
+        type: 3}
+      propertyPath: m_CameraType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1928193419777130540, guid: aeb3d531870b91a48940ac6e32a10e71,
         type: 3}
       propertyPath: m_AnchorMax.y
