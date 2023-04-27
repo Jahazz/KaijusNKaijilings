@@ -15,12 +15,23 @@ public class CharacterMenuView : SingleSelectableListView<CharacterMenuElement, 
     private GameObject SelectEntityLabel { get; set; }
     [field: SerializeField]
     private EntityDetailedScreenController EntityScreenController { get; set; }
+    [field: SerializeField]
+    private SwirlBackgroundAnimator SwirlAnimator { get; set; }
 
     public void ToggleMenuVisibility(bool isMenuVisible)
     {
         MainMenuParent.SetActive(isMenuVisible);
         ShowSelectEntityLabel(false);
         EntityScreenController.SetButtonsVisibility(true, false);
+
+        if (isMenuVisible == true)
+        {
+            SwirlAnimator.Show();
+        }
+        else
+        {
+            SwirlAnimator.Hide();
+        }
     }
 
     public override CharacterMenuElement AddNewItem (CharacterMenuElementData elementData)
