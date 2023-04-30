@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffec2a4a25ffab84bbf43a0597cc2dd9, type: 3}
+  m_Name: Teevenge
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Teevenge
+  <Description>k__BackingField: 
+  <Image>k__BackingField: {fileID: 0}
+  <ModelPrefab>k__BackingField: {fileID: 0}
+  <EntityTypeCollection>k__BackingField:
+  - {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}
+  <BaseStats>k__BackingField:
+    <Might>k__BackingField: 10
+    <Magic>k__BackingField: 5
+    <Willpower>k__BackingField: 7
+    <Agility>k__BackingField: 8
+    <Initiative>k__BackingField: 12
+  <StatsPerLevel>k__BackingField:
+    <Might>k__BackingField: 0.75
+    <Magic>k__BackingField: 0.3
+    <Willpower>k__BackingField: 0.5
+    <Agility>k__BackingField: 0.7
+    <Initiative>k__BackingField: 0.9
+  <BaseMatRange>k__BackingField:
+    <Might>k__BackingField: {x: 0.3, y: 0.5}
+    <Magic>k__BackingField: {x: 0.1, y: 0.3}
+    <Willpower>k__BackingField: {x: 0.3, y: 0.25}
+    <Agility>k__BackingField: {x: 0.4, y: 0.5}
+    <Initiative>k__BackingField: {x: 0.1, y: 1.1}
+  <SkillsWithRequirements>k__BackingField: []
+  <GroupCountRequiredToBreed>k__BackingField: 0
