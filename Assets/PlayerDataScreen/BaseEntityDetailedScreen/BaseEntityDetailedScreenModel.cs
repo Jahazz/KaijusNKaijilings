@@ -4,21 +4,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityDetailedScreenModel : BaseModel<EntityDetailedScreenView>
+public class BaseEntityDetailedScreenModel<ViewType> : BaseModel<ViewType> where ViewType : BaseEntityDetailedScreenView
 {
-    public Entity CurrentEntity { get; private set; }
     private Action<Entity> OnEntitySelectionCallback { get; set; }
 
-    public void ShowDataOfEntity (Entity targetEntity)
+    public Entity CurrentEntity { get; private set; }
+
+    public virtual void ShowDataOfEntity (Entity targetEntity)
     {
         CurrentEntity = targetEntity;
 
         CurrentView.SetData(CurrentEntity);
-    }
-
-    public void ChangeEntityCustomName (string value)
-    {
-        CurrentEntity.Name.PresentValue = value;
     }
 
     public void SetCurrentBattleEntityToThisAndCloseWindow ()
@@ -31,4 +27,5 @@ public class EntityDetailedScreenModel : BaseModel<EntityDetailedScreenView>
     {
         OnEntitySelectionCallback = onEntitySelectionCallback;
     }
+
 }

@@ -7,24 +7,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using Utils;
 
-public class EntityListElement : SingleSelectableListElement<Entity>
+public class EntityListElement : BaseEntityListElement
 {
     [field: SerializeField]
     private TMP_Text CustomNameLabel { get; set; }
     [field: SerializeField]
-    private TMP_Text EntityNameLabel { get; set; }
-    [field: SerializeField]
     private TMP_Text LevelLabel { get; set; }
     [field: SerializeField]
-    private Image EntityImage { get; set; }
-    [field: SerializeField]
     private string LevelLabelFormat { get; set; }
-    [field: SerializeField]
-    private GameObject SelectionBorder { get; set; }
-
-    [field: Space]
-    [field: SerializeField]
-    private TypeListController TypeController { get; set; }
 
     [field: Space]
     [field: SerializeField]
@@ -38,10 +28,7 @@ public class EntityListElement : SingleSelectableListElement<Entity>
     {
         base.Initialize(elementData);
 
-        InitializeBaseData();
-        InitializeTypes();
         InitializeBars();
-
         CurrentElementData.LevelData.CurrentLevel.OnVariableChange += HandleOnLevelChange;
         CurrentElementData.Name.OnVariableChange += HandleOnNameChange;
     }
@@ -56,17 +43,12 @@ public class EntityListElement : SingleSelectableListElement<Entity>
         LevelLabel.text = string.Format(LevelLabelFormat, newValue);
     }
 
-    private void InitializeBaseData ()
+    protected override void InitializeBaseData ()
     {
-        CustomNameLabel.text = CurrentElementData.Name.PresentValue;
-        EntityNameLabel.text = CurrentElementData.BaseEntityType.Name;
-        LevelLabel.text = string.Format(LevelLabelFormat, CurrentElementData.LevelData.CurrentLevel.PresentValue);
-        EntityImage.sprite = CurrentElementData.BaseEntityType.Image;
-    }
+        base.InitializeBaseData();
 
-    private void InitializeTypes ()
-    {
-        TypeController.Initialize(CurrentElementData.TypeScriptableCollection);
+        CustomNameLabel.text = CurrentElementData.Name.PresentValue;
+        LevelLabel.text = string.Format(LevelLabelFormat, CurrentElementData.LevelData.CurrentLevel.PresentValue);
     }
 
     private void InitializeBars ()
@@ -74,25 +56,5 @@ public class EntityListElement : SingleSelectableListElement<Entity>
         BindingFactory.GenerateCustomProgressBarBinding(HealthBar, new ObservableVariable<float>(0), CurrentElementData.ModifiedStats.Health.MaxValue, CurrentElementData.ModifiedStats.Health.CurrentValue);
         BindingFactory.GenerateCustomProgressBarBinding(ManaBar, new ObservableVariable<float>(0), CurrentElementData.ModifiedStats.Mana.MaxValue, CurrentElementData.ModifiedStats.Mana.CurrentValue);
         BindingFactory.GenerateCustomProgressBarBinding(ExperienceBar, CurrentElementData.LevelData.ExperienceNeededForCurrentLevel, CurrentElementData.LevelData.ExperienceNeededForNextLevel, CurrentElementData.LevelData.CurrentExperience);
-    }
-
-    public override void Select ()
-    {
-        base.Select();
-
-        if (IsSelected == true)
-        {
-            SelectionBorder.SetActive(true);
-        }
-    }
-
-    public override void Deselect ()
-    {
-        base.Deselect();
-
-        if (IsSelected == false)
-        {
-            SelectionBorder.SetActive(false);
-        }
     }
 }

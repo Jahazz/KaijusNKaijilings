@@ -4,36 +4,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityDetailedScreenController : BaseController<EntityDetailedScreenModel, EntityDetailedScreenView>
+public class BaseEntityDetailedScreenController<ModelType,ViewType> : BaseController<ModelType, ViewType> where ModelType : BaseEntityDetailedScreenModel<ViewType> where ViewType : BaseEntityDetailedScreenView
 {
     [field: SerializeField]
-    private EntityListModel EntityListModel { get; set; }
-    [field: SerializeField]
-    private SkillListController SkillListController { get; set; }
-
-    public void ChangeEntityCustomName (string newName)
-    {
-        CurrentModel.ChangeEntityCustomName(newName);
-    }
-
-    public void ShowSpellbook ()
-    {
-        SkillListController.Show(CurrentModel.CurrentEntity);
-    }
-
-    public void SummonEntity ()
-    {
-        CurrentModel.SetCurrentBattleEntityToThisAndCloseWindow();
-    }
+    private BaseEntityListModel EntityListModel { get; set; }
 
     public void SetChooseEntityCallback (Action<Entity> onEntitySelectionCallback)
     {
         CurrentModel.SetChooseEntityCallback(onEntitySelectionCallback);
-    }
-
-    public void SetButtonsVisibility(bool isSpellbookButtonShow, bool isSummonButtonShown)
-    {
-        CurrentView.SetButtonsVisibility(isSpellbookButtonShow, isSummonButtonShown);
     }
 
     public void Initialize ()
