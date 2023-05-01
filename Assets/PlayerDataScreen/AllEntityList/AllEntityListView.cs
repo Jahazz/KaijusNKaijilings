@@ -1,18 +1,16 @@
+using MVC.SingleSelectableList;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AllEntityListView : MonoBehaviour
+public class AllEntityListView : SingleSelectableListView<AllEntityListElement, StatsScriptable>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [field: SerializeField]
+    private AllEntityDetailedScreenController EntityDetailedScreenController { get; set; }
 
-    // Update is called once per frame
-    void Update()
+    public void SetActiveEntityDetailedScreenController (bool isActive)
     {
-        
+        EntityDetailedScreenController.Initialize();
+        EntityDetailedScreenController.gameObject.SetActive(isActive);
     }
 }

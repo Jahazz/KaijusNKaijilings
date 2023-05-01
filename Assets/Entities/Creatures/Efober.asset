@@ -15,7 +15,8 @@ MonoBehaviour:
   <Name>k__BackingField: Efober
   <Description>k__BackingField: 
   <Image>k__BackingField: {fileID: 0}
-  <ModelPrefab>k__BackingField: {fileID: 0}
+  <ModelPrefab>k__BackingField: {fileID: 4171992773031642236, guid: 333b98c04c99dc9498022525a8f5a4fc,
+    type: 3}
   <EntityTypeCollection>k__BackingField:
   - {fileID: 11400000, guid: c2bd31ce945a21d4b91321cc3bd26f76, type: 2}
   <BaseStats>k__BackingField:

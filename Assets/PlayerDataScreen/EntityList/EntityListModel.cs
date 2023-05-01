@@ -7,8 +7,23 @@ using System.Collections.Specialized;
 using System.Linq;
 using UnityEngine;
 
-public class EntityListModel : BaseEntityListModel
+public class EntityListModel : BaseEntityListModel<EntityListView>
 {
+    public void ReorderEntityListByPattern (List<Entity> pattern)
+    {
+        SingletonContainer.Instance.PlayerManager.CurrentPlayer.EntitiesInEquipment.CollectionChanged -= HandleOnEntitiesInEquipmentCollectionChanged;
+
+        ObservableCollection<Entity> currentEntities = SingletonContainer.Instance.PlayerManager.CurrentPlayer.EntitiesInEquipment;
+        currentEntities.Clear();
+
+        foreach (Entity entity in pattern)
+        {
+            currentEntities.Add(entity);
+        }
+
+        SingletonContainer.Instance.PlayerManager.CurrentPlayer.EntitiesInEquipment.CollectionChanged += HandleOnEntitiesInEquipmentCollectionChanged;
+    }
+
     protected virtual void OnEnable ()
     {
         AttachEvents();

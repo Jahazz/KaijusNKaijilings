@@ -15,7 +15,8 @@ MonoBehaviour:
   <Name>k__BackingField: Lightless Body
   <Description>k__BackingField: 
   <Image>k__BackingField: {fileID: 0}
-  <ModelPrefab>k__BackingField: {fileID: 0}
+  <ModelPrefab>k__BackingField: {fileID: 4171992773031642236, guid: 333b98c04c99dc9498022525a8f5a4fc,
+    type: 3}
   <EntityTypeCollection>k__BackingField:
   - {fileID: 11400000, guid: 618cf5565bc626f4a84e1802977c48e7, type: 2}
   <BaseStats>k__BackingField:

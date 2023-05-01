@@ -15,7 +15,8 @@ MonoBehaviour:
   <Name>k__BackingField: Underfolk
   <Description>k__BackingField: 
   <Image>k__BackingField: {fileID: 0}
-  <ModelPrefab>k__BackingField: {fileID: 0}
+  <ModelPrefab>k__BackingField: {fileID: 4171992773031642236, guid: 333b98c04c99dc9498022525a8f5a4fc,
+    type: 3}
   <EntityTypeCollection>k__BackingField:
   - {fileID: 11400000, guid: f05a79a5ad7bef748941bd40976b53e7, type: 2}
   - {fileID: 11400000, guid: c9113c55941e79b418d86ed61814add9, type: 2}

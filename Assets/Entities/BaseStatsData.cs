@@ -6,15 +6,15 @@ using Utils;
 public class BaseStatsData<Type>
 {
     [field: SerializeField]
-    public Type Might { get; set; }
+    public Type Might { get; set; } = default;
     [field: SerializeField]
-    public Type Magic { get; set; }
+    public Type Magic { get; set; } = default;
     [field: SerializeField]
-    public Type Willpower { get; set; }
+    public Type Willpower { get; set; } = default;
     [field: SerializeField]
-    public Type Agility { get; set; }
+    public Type Agility { get; set; } = default;
     [field: SerializeField]
-    public Type Initiative { get; set; }
+    public Type Initiative { get; set; } = default;
 
     public virtual Type GetStatOfType (StatType statType)
     {
@@ -42,5 +42,30 @@ public class BaseStatsData<Type>
         }
 
         return output;
+    }
+
+    public virtual void SetStatOfType (StatType statType, Type value)
+    {
+        switch (statType)
+        {
+            case StatType.MIGHT:
+                Might = value;
+                break;
+            case StatType.MAGIC:
+                Magic = value;
+                break;
+            case StatType.WILLPOWER:
+                Willpower = value;
+                break;
+            case StatType.AGILITY:
+                Agility = value;
+                break;
+            case StatType.INITIATIVE:
+                Initiative = value;
+                break;
+            default:
+                break;
+        }
+
     }
 }

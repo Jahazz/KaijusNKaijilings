@@ -7,7 +7,7 @@ using Utils;
 public class EntityManager : MonoBehaviour
 {
     [field: SerializeField]
-    private List<StatsScriptable> AllEntitiesTypes { get; set; } = new List<StatsScriptable>();
+    public List<StatsScriptable> AllEntitiesTypes { get; set; } = new List<StatsScriptable>();
     [field: SerializeField]
     public List<TraitBaseScriptableObject> AvailableTraits { get; private set; } = new List<TraitBaseScriptableObject>();
     [field: SerializeField]

@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityDetailedScreenController : BaseEntityDetailedScreenController<EntityDetailedScreenModel, EntityDetailedScreenView>
+public class EntityDetailedScreenController : BaseEntityDetailedScreenController<EntityDetailedScreenModel, EntityDetailedScreenView, EntityListModel>
 {
     [field: SerializeField]
     private SkillListController SkillListController { get; set; }

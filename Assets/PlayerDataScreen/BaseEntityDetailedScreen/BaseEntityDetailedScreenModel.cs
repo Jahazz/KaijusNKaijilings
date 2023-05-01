@@ -17,15 +17,15 @@ public class BaseEntityDetailedScreenModel<ViewType> : BaseModel<ViewType> where
         CurrentView.SetData(CurrentEntity);
     }
 
+    public void SetChooseEntityCallback (Action<Entity> onEntitySelectionCallback)
+    {
+        OnEntitySelectionCallback = onEntitySelectionCallback;
+    }
+
     public void SetCurrentBattleEntityToThisAndCloseWindow ()
     {
         OnEntitySelectionCallback?.Invoke(CurrentEntity);
         SingletonContainer.Instance.CharacterMenuController.HideCharacterMenu();
-    }
-
-    public void SetChooseEntityCallback (Action<Entity> onEntitySelectionCallback)
-    {
-        OnEntitySelectionCallback = onEntitySelectionCallback;
     }
 
 }

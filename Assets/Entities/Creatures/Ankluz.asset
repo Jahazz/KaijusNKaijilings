@@ -15,7 +15,8 @@ MonoBehaviour:
   <Name>k__BackingField: Ankluz
   <Description>k__BackingField: 
   <Image>k__BackingField: {fileID: 0}
-  <ModelPrefab>k__BackingField: {fileID: 0}
+  <ModelPrefab>k__BackingField: {fileID: 4171992773031642236, guid: 333b98c04c99dc9498022525a8f5a4fc,
+    type: 3}
   <EntityTypeCollection>k__BackingField:
   - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
   - {fileID: 11400000, guid: c9113c55941e79b418d86ed61814add9, type: 2}

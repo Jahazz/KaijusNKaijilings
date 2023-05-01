@@ -4,12 +4,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseEntityDetailedScreenController<ModelType,ViewType, EntityListModelType> : BaseController<ModelType, ViewType> where ModelType : BaseEntityDetailedScreenModel<ViewType> where ViewType : BaseEntityDetailedScreenView where EntityListModelType : EntityListModel
+public class AllEntityDetailedScreenController : BaseController<AllEntityDetailedScreenModel, AllEntityDetailedScreenView>
 {
     [field: SerializeField]
-    private EntityListModelType EntityListModel { get; set; }
+    private AllEntityListModel EntityListModel { get; set; }
 
-    public void SetChooseEntityCallback (Action<Entity> onEntitySelectionCallback)
+    public void SetChooseEntityCallback (Action<StatsScriptable> onEntitySelectionCallback)
     {
         CurrentModel.SetChooseEntityCallback(onEntitySelectionCallback);
     }
@@ -26,7 +26,7 @@ public class BaseEntityDetailedScreenController<ModelType,ViewType, EntityListMo
         EntityListModel.OnElementSelection -= HandleOnElementSelection;
     }
 
-    private void HandleOnElementSelection (Entity selectedElementData, bool isSelected)
+    private void HandleOnElementSelection (StatsScriptable selectedElementData, bool isSelected)
     {
         if (isSelected == true)
         {

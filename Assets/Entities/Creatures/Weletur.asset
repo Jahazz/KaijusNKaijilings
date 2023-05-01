@@ -15,7 +15,8 @@ MonoBehaviour:
   <Name>k__BackingField: Weletur
   <Description>k__BackingField: 
   <Image>k__BackingField: {fileID: 0}
-  <ModelPrefab>k__BackingField: {fileID: 0}
+  <ModelPrefab>k__BackingField: {fileID: 4171992773031642236, guid: 333b98c04c99dc9498022525a8f5a4fc,
+    type: 3}
   <EntityTypeCollection>k__BackingField:
   - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
   - {fileID: 11400000, guid: c234248a3f3e91f4fb1dd30b735bb570, type: 2}
