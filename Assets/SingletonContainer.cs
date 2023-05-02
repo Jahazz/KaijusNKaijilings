@@ -16,6 +16,8 @@ public class SingletonContainer : SingletonMonobehaviour<SingletonContainer>
     [field: SerializeField]
     public BattleScreenManager BattleScreenManager { get; private set; }
     [field: SerializeField]
+    public LeyLaneManager LeyLaneManager { get; private set; }
+    [field: SerializeField]
     public OverworldPlayerCharacterManager OverworldPlayerCharacterManager { get; private set; }
     [field: SerializeField]
     public CharacterMenuController CharacterMenuController { get; private set; }

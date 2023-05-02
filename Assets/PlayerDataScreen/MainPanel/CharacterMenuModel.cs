@@ -25,7 +25,13 @@ public class CharacterMenuModel : SingleSelectableListModel<CharacterMenuElement
         }
 
         OnElementSelection += HandleElementSelection;
+        BookController.OnBookPrepared += HandleOnBookPrepared;
         CurrentView.SelectFirstElement();
+    }
+
+    private void HandleOnBookPrepared ()
+    {
+        ToggleMenuVisibility(false);
     }
 
     public void ToggleMenuVisibility (bool isMenuVisible)

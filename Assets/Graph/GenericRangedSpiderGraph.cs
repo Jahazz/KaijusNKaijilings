@@ -37,7 +37,7 @@ public class GenericRangedSpiderGraph<Type> : MonoBehaviour
         DictionarizedValues[nodeType].InnerTransform.DOAnchorPos(RotateVectorByAngleFromCenter(AngleBetweenNodes * DictionarizedValues[nodeType].Index, Center.anchoredPosition + new Vector2(0, distanceToInnerNode * Radius)), 0.5f);
     }
 
-    protected virtual void Start ()
+    protected virtual void Awake ()
     {
         int angleCount = MaxNodes.Count;
         AngleBetweenNodes = FULL_RECT_ANGLE / angleCount;

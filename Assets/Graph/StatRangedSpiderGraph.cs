@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class StatRangedSpiderGraph : GenericRangedSpiderGraph<StatType>
 {
-    protected override void Start ()
-    {
-        base.Start();
-    }
+
 }
