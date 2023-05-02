@@ -10,11 +10,19 @@ public class RotatingRune : MonoBehaviour
     private float Speed { get; set; }
     private Color DefaultColor { get; set; }
 
+    private const string EMISSION_COLOR_NAME = "_EmissionColor";
+    private const string BASE_COLOR_NAME = "_BaseColor";
+
     public void Start ()
     {
         Speed = Random.Range(-1.0f, 1.0f);
-        DefaultColor = RuneRenderer.material.GetColor("_EmissionColor");
+        DefaultColor = RuneRenderer.material.GetColor(EMISSION_COLOR_NAME);
         SetGlowIntensity(10f);
+    }
+
+    public void SetRotationSpeed (float speed)
+    {
+        Speed = speed;
     }
 
 
@@ -25,6 +33,13 @@ public class RotatingRune : MonoBehaviour
 
     public void SetGlowIntensity(float value)
     {
-        RuneRenderer.material.SetColor("_EmissionColor", DefaultColor * value);
+        RuneRenderer.material.SetColor(EMISSION_COLOR_NAME, DefaultColor * value);
+    }
+
+    public void SetBaseMapAlpha (float alphaValue)
+    {
+        Color defaultColor = RuneRenderer.material.GetColor(BASE_COLOR_NAME);
+        defaultColor.a = alphaValue;
+        RuneRenderer.material.SetColor(BASE_COLOR_NAME, defaultColor);
     }
 }

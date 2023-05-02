@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1814053823975836266}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RotatingRunes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,9 +63,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8843835056629292689}
   - component: {fileID: 8546897412807436822}
-  m_Layer: 0
+  - component: {fileID: 460916080}
+  - component: {fileID: 460916078}
+  - component: {fileID: 460916079}
+  m_Layer: 11
   m_Name: LeyLane
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,6 +126,54 @@ MonoBehaviour:
   - {fileID: 5352307899955920463}
   - {fileID: 1707778072557585344}
   - {fileID: 6136489053864445468}
+--- !u!64 &460916080
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8843835056629292694}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1242787718562846042, guid: ea11c14baff531e4fb2854c4285ff683, type: 3}
+--- !u!114 &460916078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8843835056629292694}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &460916079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8843835056629292694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f145776c62b5f8149b21b04c040a4041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <InteractionEvent>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <InteractorOutline>k__BackingField: {fileID: 460916078}
 --- !u!1001 &145120864840124366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -204,6 +255,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RotatingRune (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
@@ -307,6 +368,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: RotatingRune (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
 --- !u!114 &2616202043270537492 stripped
@@ -408,6 +479,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RotatingRune (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
@@ -511,6 +592,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: RotatingRune (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
 --- !u!4 &3106517747305499322 stripped
@@ -612,6 +703,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RotatingRune (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
@@ -715,6 +816,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: RotatingRune (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
 --- !u!4 &3641073449248807418 stripped
@@ -816,6 +927,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RotatingRune (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
@@ -919,6 +1040,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: RotatingRune (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
 --- !u!4 &730519140680996216 stripped
@@ -1020,6 +1151,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RotatingRune (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
@@ -1123,6 +1264,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: RotatingRune (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
 --- !u!114 &1707778072557585344 stripped
@@ -1224,6 +1375,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RotatingRune (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
@@ -1327,6 +1488,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: RotatingRune (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
 --- !u!114 &7533684987585462124 stripped
@@ -1428,6 +1599,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RotatingRune (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
@@ -1531,6 +1712,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: RotatingRune (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
 --- !u!4 &8402122368248007026 stripped
@@ -1632,6 +1823,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RotatingRune (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
@@ -1735,6 +1936,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: RotatingRune (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
 --- !u!114 &8926427965968833022 stripped
@@ -1836,6 +2047,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RotatingRune
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
@@ -1939,6 +2160,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: RotatingRune (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
 --- !u!114 &4747015573525081636 stripped
@@ -2040,6 +2271,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RotatingRune (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
@@ -2143,6 +2384,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: RotatingRune (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
 --- !u!4 &5585877068863998172 stripped
@@ -2244,6 +2495,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RotatingRune (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
@@ -2347,6 +2608,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: RotatingRune (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 2384662788084767646, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384662788262698475, guid: 934a6a4a4103a3b4a89132524f3af73e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934a6a4a4103a3b4a89132524f3af73e, type: 3}
 --- !u!114 &6136489053864445468 stripped
@@ -2378,6 +2649,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrystalMetal_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312877713528143078, guid: 6556eb308be7da4449e729b004afccb2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1833976597140432476, guid: 6556eb308be7da4449e729b004afccb2,
         type: 3}

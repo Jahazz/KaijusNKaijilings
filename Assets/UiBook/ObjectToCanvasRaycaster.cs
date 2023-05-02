@@ -11,6 +11,8 @@ using UnityEngine.InputSystem.UI;
 
 public class ObjectToCanvasRaycaster : MonoBehaviour
 {
+    public delegate void OnBookPreparedParams ();
+    public event OnBookPreparedParams OnBookPrepared;
 
     [field: SerializeField]
     private PlayerInput PlayerInputInstance { get; set; }
@@ -165,6 +167,13 @@ public class ObjectToCanvasRaycaster : MonoBehaviour
     {
         SetPagesToDefaultStates();
         RecalculatePages();
+        StartCoroutine(NotifyPreparationCompleted());
+    }
+
+    public IEnumerator NotifyPreparationCompleted ()
+    {
+        yield return new WaitUntil(AreAllPagesTurned);
+        OnBookPrepared?.Invoke();
     }
 
     private void SetPagesToDefaultStates ()
@@ -174,6 +183,23 @@ public class ObjectToCanvasRaycaster : MonoBehaviour
             page.PageControllerInstance.SetPageToSide(page.PageControllerInstance.SideOfPage);
         }
     }
+
+    private bool AreAllPagesTurned ()
+    {
+        bool areAllPagesTurned = true;
+
+        foreach (var page in PageCanvasInspectorCollection)
+        {
+            if(page.PageControllerInstance.IsAnimating()== true)
+            {
+                areAllPagesTurned = false;
+                break;
+            }
+        }
+
+        return areAllPagesTurned;
+    }
+
     private PageCanvasRelation GetPageCanvasPair (PageController controllerToFindBy)
     {
         return PageCanvasInspectorCollection.Where(x => x.PageControllerInstance == controllerToFindBy).FirstOrDefault();
@@ -191,6 +217,11 @@ public class ObjectToCanvasRaycaster : MonoBehaviour
         //TargetRenderTexture.width = TargetRenderTextureWidth;
         //TargetRenderTexture.height = (int)(TargetRenderTexture.width * ratio);
         //TargetRenderTexture.Create();
+    }
+
+    private void OnDisable ()
+    {
+        IsCursorOverrideEnabled = false;
     }
 
     private void RecalculatePages ()
@@ -229,12 +260,12 @@ public class ObjectToCanvasRaycaster : MonoBehaviour
 
         for (int i = leftIndex; i >= 0; i--)//todo: just one loop with if
         {
-            PageCanvasInspectorCollection[i].PageControllerInstance.SetTopPageMark(i-1);
+            PageCanvasInspectorCollection[i].PageControllerInstance.SetTopPageMark(i - 1);
         }
 
         for (int i = rightIndex; i < PageCanvasInspectorCollection.Count; i++)
         {
-            PageCanvasInspectorCollection[i].PageControllerInstance.SetTopPageMark(rightIndex-i-1);
+            PageCanvasInspectorCollection[i].PageControllerInstance.SetTopPageMark(rightIndex - i - 1);
         }
 
         LeftPage?.PageControllerInstance.SetTopPageMark(leftIndex);
