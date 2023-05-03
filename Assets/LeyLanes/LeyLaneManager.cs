@@ -1,7 +1,9 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LeyLaneManager : MonoBehaviour
 {
@@ -18,6 +20,8 @@ public class LeyLaneManager : MonoBehaviour
     [field: SerializeField]
     private Transform TargetLeyLaneTransform { get; set; }
     private LeyLaneScript TargetLeyLane { get; set; }
+    [field: SerializeField]
+    private Image FlareImage { get; set; }
 
 
     public void OpenLeyLaneMenu (LeyLaneScript targetLeyLane)
@@ -25,8 +29,21 @@ public class LeyLaneManager : MonoBehaviour
         TargetLeyLane = targetLeyLane;
         SetCamera(LeyLaneCamera);
         SetCamera(BackgroundCamera);
-        SetCamera(ForegroundCamera);
+        SetCamera(ForegroundCamera, false);
         Background.DOScale(Vector3.one, 1).OnComplete(HandleOnBackgroundScaled);
+    }
+
+    public void InitializeBreedingAnimation(Action onAnimationFinished)
+    {
+        FlareImage.transform.localScale = Vector3.zero;
+        FlareImage.gameObject.SetActive(true);
+        FlareImage.transform.DOScale(180, 3).OnComplete(flarea);
+
+        void flarea ()
+        {
+            onAnimationFinished?.Invoke();
+            FlareImage.DOFade(0, 1).OnStepComplete(()=> FlareImage.gameObject.SetActive(false)); 
+        }
     }
 
     private void HandleOnBackgroundScaled ()
@@ -34,14 +51,20 @@ public class LeyLaneManager : MonoBehaviour
         DOTween.Sequence()
             .Join(TargetLeyLane.transform.DOScale(TargetLeyLaneTransform.localScale, 1))
             .Join(TargetLeyLane.transform.DORotateQuaternion(TargetLeyLaneTransform.rotation, 1))
-            .Join(TargetLeyLane.transform.DOMove(TargetLeyLaneTransform.position, 1));
+            .Join(TargetLeyLane.transform.DOMove(TargetLeyLaneTransform.position, 1))
+            .OnComplete(OnBackgroundSet);
         TargetLeyLane.SetRunesVisibility(1, 10);
     }
 
-    private void SetCamera (Camera camera)
+    private void SetCamera (Camera camera, bool setActive = true)
     {
         camera.transform.SetPositionAndRotation(MainCamera.transform.position, MainCamera.transform.rotation);
         camera.orthographicSize = MainCamera.orthographicSize;
-        camera.gameObject.SetActive(true);
+        camera.gameObject.SetActive(setActive);
+    }
+
+    private void OnBackgroundSet ()
+    {
+        ForegroundCamera.gameObject.SetActive(true);
     }
 }

@@ -13,7 +13,8 @@ public class RitualEntityListModel : SelectableListModel<RitualEntityListElement
 
     public void StartRitual ()
     {
-        CurrentView.ShowSummonedEntity(SingletonContainer.Instance.BreedingManager.Breed(SingletonContainer.Instance.PlayerManager.CurrentPlayer, RitualParentsColection));
+        Entity summonedEntity = SingletonContainer.Instance.BreedingManager.Breed(SingletonContainer.Instance.PlayerManager.CurrentPlayer, RitualParentsColection);
+        SingletonContainer.Instance.LeyLaneManager.InitializeBreedingAnimation(()=> CurrentView.ShowSummonedEntity(summonedEntity));
 
         RitualParentsColection.Clear();
 
