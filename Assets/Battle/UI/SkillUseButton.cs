@@ -30,11 +30,11 @@ namespace BattleCore.UI
             BoundSkill = skill;
             SkillOwner = skillOwner;
 
-            SkillLabel.text = skill.Name;
-            SkillCostLabel.text = skill.Cost.ToString();
-            SkillImage.sprite = skill.Image;
+            SkillLabel.text = skill.BaseSkillData.Name;
+            SkillCostLabel.text = skill.BaseSkillData.Cost.ToString();
+            SkillImage.sprite = skill.BaseSkillData.Image;
 
-            TypeDataScriptable skillType = skill.SkilType[0];
+            TypeDataScriptable skillType = skill.BaseSkillData.SkilType[0];
 
             SkillTypeLabel.text = skillType.TypeName;
             SkillTypeImage.sprite = skillType.TypeSprite;
@@ -45,7 +45,7 @@ namespace BattleCore.UI
 
         private void HandleOnCurrentManaChanged (float newValue)
         {
-            SkillButton.interactable = SkillOwner.HasResourceForSkill(BoundSkill.Cost) == true;
+            SkillButton.interactable = SkillOwner.HasResourceForSkill(BoundSkill.BaseSkillData.Cost) == true;
         }
 
         public void Click ()

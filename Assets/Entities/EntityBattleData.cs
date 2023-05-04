@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 
 public partial class Entity
 {
     public delegate void OnDamagedArguments (EntityDamageData damage);
     public event OnDamagedArguments OnDamaged;
+
+    public ObservableCollection<BaseStatusEffect> PresentStatusEffects { get; set; } = new ObservableCollection<BaseStatusEffect>();
 
     public void GetDamaged (EntityDamageData damageData)
     {

@@ -27,11 +27,11 @@ public class SkillListElement : SelectableListElement<SkillScriptableObject>
     {
         base.Initialize(elementData);
 
-        SkillImage.sprite = elementData.Image;
-        SkillNameLabel.text = elementData.Name;
-        SkillDescriptionLabel.text = elementData.Description;
-        SkillCostLabel.text = string.Format(SkillCostLabelFormat, elementData.Cost);
-        TypeListController.Initialize(new ObservableCollection<TypeDataScriptable>(elementData.SkilType));
+        SkillImage.sprite = elementData.BaseSkillData.Image;
+        SkillNameLabel.text = elementData.BaseSkillData.Name;
+        SkillDescriptionLabel.text = elementData.BaseSkillData.Description;
+        SkillCostLabel.text = string.Format(SkillCostLabelFormat, elementData.BaseSkillData.Cost);
+        TypeListController.Initialize(new ObservableCollection<TypeDataScriptable>(elementData.BaseSkillData.SkilType));
     }
 
     public void SetSelection (bool value)

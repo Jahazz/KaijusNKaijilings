@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class BaseStatusEffect
 {
-    public string Description { get; private set; }
-    public Sprite Image { get; private set; }
+    public BaseScriptableStatusEffect BaseData { get; private set; }
 
-    public void FillScriptableData (ScriptableStatusEffect effectData)
+    public BaseStatusEffect (BaseScriptableStatusEffect effectData)
     {
-        Description = effectData.Description;
-        Image = effectData.Image;
+        BaseData = effectData;
     }
+
+    public void SummonRandomEntity ()
+    {
+
+    }
+}
+
+public enum StatusEffectTrigger
+{
+    ON_WRAP_UP
 }

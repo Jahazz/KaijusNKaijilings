@@ -61,7 +61,10 @@ namespace BattleCore.ScreenEntity
             spawnedIndicator.transform.position = DamageIndicatorTransform.position;
             spawnedIndicator.Initialize(damage.TotalDamage);
 
-            Instantiate(damage.AttackEffect, OnHitEffectTransform);
+            if (damage.AttackEffect != null)
+            {
+                Instantiate(damage.AttackEffect, OnHitEffectTransform);
+            }
         }
 
         private void HandleOnAliveStateChange (bool newValue)

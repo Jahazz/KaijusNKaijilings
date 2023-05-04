@@ -33,7 +33,7 @@ namespace BattleCore
 
         public void ExecuteAttackAction (AttackBattleAction attackAction)
         {
-            attackAction.Skill.UseSkill(attackAction.Caster, attackAction.Target.CurrentEntity.PresentValue);
+            attackAction.Skill.UseSkill(attackAction.CasterOwner, attackAction.Caster, attackAction.Target.CurrentEntity.PresentValue, this);
             OnSkillUsage?.Invoke(attackAction);
         }
 

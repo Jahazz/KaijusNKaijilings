@@ -17,7 +17,7 @@ namespace BattleCore
 
         public void QueueAttackAction (Entity caster, BattleParticipant skillTarget, SkillScriptableObject skill)
         {
-            SelectedBattleAction.PresentValue = new AttackBattleAction(caster, skillTarget, skill);
+            SelectedBattleAction.PresentValue = new AttackBattleAction(this, caster, skillTarget, skill);
         }
 
         public void QueueSwapAction (Entity entityToSwapTo)
