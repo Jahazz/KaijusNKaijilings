@@ -18,6 +18,7 @@ public class LeyLaneScript : MonoBehaviour
     private float CurrentGlow { get; set; }
     private float CurrentAlpha { get; set; }
     private float CurrentRotationSpeed { get; set; }
+    private Tween GlowTween { get; set; }
 
 
     public void OpenLeyLane ()
@@ -58,6 +59,14 @@ public class LeyLaneScript : MonoBehaviour
         CurrentRotationSpeed = speed;
     }
 
+    public void SetRuneRotationSpeedToInitial ()
+    {
+        foreach (var item in RunesCollection)
+        {
+            item.SetRotationSpeedToDefault();
+        }
+    }
+
     private void SetRunesVisibility (float targetAlpha)
     {
         foreach (var item in RunesCollection)
@@ -77,7 +86,20 @@ public class LeyLaneScript : MonoBehaviour
     void Start ()
     {
         Setup();
-        DOTween.To(SetGlow, CurrentGlow, 10, 3).SetLoops(-1, LoopType.Yoyo);
+        ResetGlowToInitial();
+    }
+
+    public Tween SetGlowBurst (float value, float time)
+    {
+        GlowTween?.Kill();
+        return GlowTween = DOTween.To(SetGlow, CurrentGlow, value, time);
+    }
+
+    public void ResetGlowToInitial ()
+    {
+        GlowTween?.Kill();
+        SetGlowBurst(10, 3);
+        GlowTween.SetLoops(-1, LoopType.Yoyo);
     }
 
     private void Setup ()

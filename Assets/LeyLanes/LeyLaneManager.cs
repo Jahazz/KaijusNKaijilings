@@ -37,11 +37,18 @@ public class LeyLaneManager : MonoBehaviour
     {
         FlareImage.transform.localScale = Vector3.zero;
         FlareImage.gameObject.SetActive(true);
-        FlareImage.transform.DOScale(180, 3).OnComplete(flarea);
+        TargetLeyLane.SetRunesRotationSpeed(20, 3);
+        TargetLeyLane.SetGlowBurst(100, 3).OnComplete(flare1);
+        void flare1 ()
+        {
+            FlareImage.transform.DOScale(180, 3).OnComplete(flarea);
+        }
 
         void flarea ()
         {
             onAnimationFinished?.Invoke();
+            TargetLeyLane.SetRuneRotationSpeedToInitial();
+            TargetLeyLane.ResetGlowToInitial();
             FlareImage.DOFade(0, 1).OnStepComplete(()=> FlareImage.gameObject.SetActive(false)); 
         }
     }

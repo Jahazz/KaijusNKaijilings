@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BreedingManager : MonoBehaviour
@@ -58,7 +59,7 @@ public class BreedingManager : MonoBehaviour
 
         foreach (Entity entity in entitiesToBreedCollection)
         {
-            output.AddRange(entity.TraitsCollection);
+            output.AddRange(entity.TraitsCollection.Except(output));
         }
 
         return output;
