@@ -39,4 +39,4 @@ MonoBehaviour:
     <Agility>k__BackingField: {x: 0.4, y: 0.7}
     <Initiative>k__BackingField: {x: 0.2, y: 0.9}
   <SkillsWithRequirements>k__BackingField: []
-  <GroupCountRequiredToBreed>k__BackingField: 0
+  <GroupCountRequiredToBreed>k__BackingField: 2
