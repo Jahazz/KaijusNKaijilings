@@ -68,6 +68,7 @@ namespace BattleCore.UI
             CurrentBattle.ViewEntitySwapAction = CurrentView.TryToDestroyEntityOnScene;
             CurrentBattle.ViewPlayAnimationAsEntity =(entity) => CurrentView.PlayAnimationAsEntity(entity,AnimationType.ATTACK);
             CurrentBattle.ViewWaitForAnimationFinished = CurrentView.WaitUntilAnimatorIdle;
+            CurrentBattle.ViewSwapEntity = ChangePlayerEntity;
 
 
             CurrentView.IsBottomBarShown(true);
@@ -110,12 +111,6 @@ namespace BattleCore.UI
             }
 
             return output;
-        }
-
-        private IEnumerator ExecuteAttackAction (AttackBattleAction selectedAction)
-        {
-            CurrentBattle.ExecuteAttackAction(selectedAction);
-            yield return null;
         }
 
         private void SetupSkills (Entity entity)//TODO: add item skill

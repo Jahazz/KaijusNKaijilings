@@ -14,43 +14,55 @@ namespace Skills
         [field: SerializeField]
         private StatusEffects.HauntingOmen StatusEffectToApply { get; set; }
 
-        private Battle CurrentBattle { get; set; }
-        private BattleParticipant CasterOwner { get; set; }
-        private Entity Caster { get; set; }
-
+        private BaseStatusEffect CreatedStatusEffect { get; set; }
         public override void UseSkill (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle)
         {
             base.UseSkill(casterOwner, caster, target, currentBattle);
-            CurrentBattle = currentBattle;
-            CasterOwner = casterOwner;
-            Caster = caster;
 
             SkillUtils.UseDamagingSkill(caster, target, BaseSkillData, DamageData);//Deals 10 damage
 
             caster.ModifiedStats.Mana.CurrentValue.PresentValue += caster.ModifiedStats.Mana.MaxValue.PresentValue * 0.2f;//regains 20% total mana 
 
-            SkillUtils.ApplyStatusEffect(caster, new BaseStatusEffect(StatusEffectToApply));//at the end of this turn it retreats and pushes random kaijling from team into battle.
+            CreatedStatusEffect = new BaseStatusEffect(StatusEffectToApply);
 
-            CurrentBattle.CurrentBattleState.OnVariableChange += HandleOnCurrentBattleStateChange;
+            SkillUtils.ApplyStatusEffect(caster, CreatedStatusEffect);//at the end of this turn it retreats and pushes random kaijling from team into battle.
+
+            CurrentBattle.OnTurnEnd += HandleOnCurrentBattleStateChange;
         }
 
-        private void HandleOnCurrentBattleStateChange (BattleState newValue)
+        private IEnumerator HandleOnCurrentBattleStateChange ()
         {
-            if (newValue == BattleState.WRAP_UP)
-            {
-                CurrentBattle.CurrentBattleState.OnVariableChange -= HandleOnCurrentBattleStateChange;
+            CurrentBattle.OnTurnEnd -= HandleOnCurrentBattleStateChange;
+            bool swapFinished = false;
 
-                if (CasterOwner.Player.EntitiesInEquipment.Count > 0 && CasterOwner.CurrentEntity.PresentValue == Caster)
+            if (CasterOwner.Player.EntitiesInEquipment.Count > 0 && CasterOwner.CurrentEntity.PresentValue == Caster)
+            {
+                List<Entity> exception = new List<Entity>() { Caster };
+                Entity newEntity = CasterOwner.Player.EntitiesInEquipment.Except(exception).FirstOrDefault();
+
+                if (newEntity != null)
                 {
-                    List<Entity> exception = new List<Entity>() { Caster };
-                    Entity newEntity = CasterOwner.Player.EntitiesInEquipment.Except(exception).FirstOrDefault();
-                    if (newEntity != null)
+                    void OnEntitySwapCallback ()
                     {
-                        CasterOwner.CurrentEntity.PresentValue = newEntity;
+                        swapFinished = true;
                     }
+
+                    CurrentBattle.RequestEntitySwap(CasterOwner, newEntity, OnEntitySwapCallback);
+                }
+                else
+                {
+                    swapFinished = true;
                 }
             }
+            else
+            {
+                swapFinished = true;
+            }
+
+            SkillUtils.RemoveStatusEffect(Caster, CreatedStatusEffect);
+            yield return new WaitUntil(() => swapFinished);
         }
+
     }
 }
 

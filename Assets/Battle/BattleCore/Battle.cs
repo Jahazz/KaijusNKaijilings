@@ -14,14 +14,18 @@ namespace BattleCore
     {
         public delegate void OnEntityDeathParams (Entity entity, BattleParticipant owner);
         public event OnEntityDeathParams OnEntityDeath;
-        public delegate void OnEntitySkillUsageParams (AttackBattleAction attackAction);
-        public event OnEntitySkillUsageParams OnSkillUsage;
-        public delegate void OnAllActionsSelectedParams ();
-        public event OnAllActionsSelectedParams OnAllActionsSelected;
         public delegate void OnBattleFinishedParams (BattleResultType battleResult);
         public event OnBattleFinishedParams OnBattleFinished;
         public delegate void OnPlayerEntitySwapRequestParams (Action<Entity> callback);
         public event OnPlayerEntitySwapRequestParams OnPlayerEntitySwapRequest;
+
+        //  Events for status effects
+        //      start of turn
+        //      before creature attacks
+        //      after creature attacks
+        //      end of turn
+        public delegate IEnumerator OnTurnEndParams ();
+        public event OnTurnEndParams OnTurnEnd;
 
         public Func<Entity, IEnumerator> ViewEntitySwapAction { get; set; }//shopuld be more generalised and not bound with view, but for now it will suffice? idk
         public Func<Entity, IEnumerator> ViewPlayAnimationAsEntity { get; set; }
@@ -44,14 +48,8 @@ namespace BattleCore
 
                 participant.SelectFirstAliveEntity();
             }
-            OnAllActionsSelected += HandleOnAllActionsSelected;
-            SetBattleState(BattleState.ACTION_CHOOSE);
-        }
 
-        public void ExecuteAttackAction (AttackBattleAction attackAction)
-        {
-            attackAction.Skill.UseSkill(attackAction.CasterOwner, attackAction.Caster, attackAction.Target.CurrentEntity.PresentValue, this);
-            OnSkillUsage?.Invoke(attackAction);
+            SetBattleState(BattleState.ACTION_CHOOSE);
         }
 
         public BattleParticipant GetPlayerBattleParticipant ()
@@ -95,7 +93,7 @@ namespace BattleCore
         {
             if (CurrentBattleState.PresentValue == BattleState.ACTION_CHOOSE && newValue != null && AreAllActionsSelected() == true)
             {
-                OnAllActionsSelected?.Invoke();
+                AllActionsSelected();
             }
         }
 
@@ -163,7 +161,7 @@ namespace BattleCore
                     ActionResolve();
                     break;
                 case BattleState.WRAP_UP:
-                    WrapUp();
+                    SingletonContainer.Instance.StartCoroutine(WaitUntilIEnumeratorEventIsFullyResolved(OnTurnEnd, WrapUp));
                     break;
                 default:
                     break;
@@ -186,6 +184,8 @@ namespace BattleCore
 
         private void WrapUp ()
         {
+
+
             if (CheckIsBattleOver(out BattleResultType battleResult) == true)
             {
                 OnBattleFinished?.Invoke(battleResult);
@@ -203,6 +203,7 @@ namespace BattleCore
                 FinishWrapUp();
             }
         }
+
         private void InitializeBattleResolver ()
         {
             BattleActionResolver = new BattleActionResolver(HandleOnAllActionsResolved);
@@ -213,7 +214,7 @@ namespace BattleCore
             BattleActionResolver.OnSwapActionResolution += AddSwapActionToQueue;
         }
 
-        private void HandleOnAllActionsSelected ()
+        private void AllActionsSelected ()
         {
             SetBattleState(BattleState.ACTION_RESOLVE);
         }
@@ -248,7 +249,7 @@ namespace BattleCore
             BattleActionResolver = null;
         }
 
-        private void HandleEntitySwap (BattleParticipant participant, Entity entityToSwap, Action finishCallback)
+        public void RequestEntitySwap (BattleParticipant participant, Entity entityToSwap, Action finishCallback)
         {
             QueueHandler swapQueue = new QueueHandler(finishCallback);
             AddSwapActionToQueue(new SwapBattleAction(participant, entityToSwap), swapQueue);
@@ -261,7 +262,7 @@ namespace BattleCore
 
             if (npc.CurrentEntity.PresentValue.IsAlive.PresentValue == false)
             {
-                HandleEntitySwap(npc, npc.GetFirstAliveEntity(), FinishWrapUp);
+                RequestEntitySwap(npc, npc.GetFirstAliveEntity(), FinishWrapUp);
             }
             else
             {
@@ -277,7 +278,7 @@ namespace BattleCore
 
             void SwapPlayerEntity (Entity entityToSwapTo)
             {
-                HandleEntitySwap(player, entityToSwapTo, HandleEnemyEntitySwapIfNeeded);
+                RequestEntitySwap(player, entityToSwapTo, HandleEnemyEntitySwapIfNeeded);
             }
         }
 
@@ -318,8 +319,26 @@ namespace BattleCore
 
         private IEnumerator ExecuteAttackActionDelegate (AttackBattleAction selectedAction)
         {
-            ExecuteAttackAction(selectedAction);
+            selectedAction.Skill.UseSkill(selectedAction.CasterOwner, selectedAction.Caster, selectedAction.Target.CurrentEntity.PresentValue, this);
             yield return null;
+        }
+
+        //public delegate IEnumerator OnTurnEndParams ();
+        //public event OnTurnEndParams OnTurnEnd;
+
+        private IEnumerator WaitUntilIEnumeratorEventIsFullyResolved<T> (T eventToWaitFor, Action onAllEventsCompletedCallback, params object[] paramList) where T : Delegate
+        {
+            if (OnTurnEnd != null)
+            {
+                Delegate[] delegatesToInvokeCollection = eventToWaitFor.GetInvocationList();
+
+                foreach (Delegate singleDelagate in delegatesToInvokeCollection)
+                {
+                    yield return (IEnumerator)singleDelagate.DynamicInvoke(paramList);
+                }
+            }
+
+            onAllEventsCompletedCallback.Invoke();
         }
     }
 }

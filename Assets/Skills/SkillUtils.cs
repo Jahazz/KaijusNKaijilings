@@ -19,5 +19,10 @@ public static class SkillUtils
     {
         target.PresentStatusEffects.Add(effectData);
     }
+
+    public static void RemoveStatusEffect (Entity target, BaseStatusEffect effectData)
+    {
+        target.PresentStatusEffects.Remove(effectData);
+    }
 } 
 
