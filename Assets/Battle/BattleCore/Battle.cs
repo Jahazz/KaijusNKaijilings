@@ -319,6 +319,7 @@ namespace BattleCore
 
         private IEnumerator ExecuteAttackActionDelegate (AttackBattleAction selectedAction)
         {
+            Debug.Log(selectedAction.Caster.BaseEntityType.Name);
             selectedAction.Skill.UseSkill(selectedAction.CasterOwner, selectedAction.Caster, selectedAction.Target.CurrentEntity.PresentValue, this);
             yield return null;
         }

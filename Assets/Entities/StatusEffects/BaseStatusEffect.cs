@@ -10,14 +10,4 @@ public class BaseStatusEffect
     {
         BaseData = effectData;
     }
-
-    public void SummonRandomEntity ()
-    {
-
-    }
-}
-
-public enum StatusEffectTrigger
-{
-    ON_WRAP_UP
 }

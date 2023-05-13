@@ -21,6 +21,8 @@ public class EntityStats : MonoBehaviour
     private RectTransform RectTransform { get; set; }
     [field: SerializeField]
     private GameObject ExperienceBar { get; set; }
+    [field: SerializeField]
+    private StatusEffectList StatusEffectList { get; set; }
 
     private Entity EntityToAttach { get; set; }
     private Transform TransfromToAttach { get; set; }
@@ -33,6 +35,7 @@ public class EntityStats : MonoBehaviour
 
         EntityCustomNameLabel.text = EntityToAttach.Name.PresentValue;
         EntityBaseNameLabel.text = EntityToAttach.BaseEntityType.Name;
+        StatusEffectList.Initialize(EntityToAttach.PresentStatusEffects);
 
         ExperienceBar.SetActive(isPlayerOwner);
 
@@ -69,6 +72,5 @@ public class EntityStats : MonoBehaviour
         Vector2 viewportPoint = SingletonContainer.Instance.BattleScreenManager.GUICamera.WorldToViewportPoint(TransfromToAttach.position);
         RectTransform.anchorMin = viewportPoint;
         RectTransform.anchorMax = viewportPoint;
-        //TODO: ugghhsdasdaghvsba
     }
 }
