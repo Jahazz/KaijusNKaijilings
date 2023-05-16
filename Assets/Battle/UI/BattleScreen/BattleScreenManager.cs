@@ -30,7 +30,7 @@ namespace BattleCore.UI
         {
             TargetNearClipPlane = 0.0f;
             TargetFarClipPlane = 30.0f;
-            TargetOrthoSize = 3f;
+            TargetFOV = 3f;
 
             Initialize();
 

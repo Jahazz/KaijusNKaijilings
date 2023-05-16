@@ -6,7 +6,7 @@ public class AreaInteractor : BaseInteractor
 {
     private void OnTriggerEnter (Collider other)
     {
-        if (other.gameObject == SingletonContainer.Instance.OverworldPlayerCharacterManager.OverworldCharacterMovement.gameObject)
+        if (other.gameObject == SingletonContainer.Instance.OverworldPlayerCharacterManager.ThirdPersonControllerInstance.gameObject)
         {
             InteractionEvent.Invoke();
         }

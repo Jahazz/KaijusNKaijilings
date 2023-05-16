@@ -17,7 +17,7 @@ public class DialogueManager : MultiCameraOverworldLayoutSystem
     {
         TargetNearClipPlane = 0.0f;
         TargetFarClipPlane = 30.0f;
-        TargetOrthoSize = 0.8f;
+        TargetFOV = 40;
 
         Initialize();
 
@@ -45,9 +45,9 @@ public class DialogueManager : MultiCameraOverworldLayoutSystem
 
     protected override void HandleOnCharactersMoved ()
     {
-        CharactersCamera.nearClipPlane = TargetNearClipPlane;
-        CharactersCamera.farClipPlane = TargetFarClipPlane;
-        InitializeZoomIn(CharactersCamera.DOOrthoSize(TargetOrthoSize, Duration));
+        //CharactersCamera.nearClipPlane = TargetNearClipPlane;
+        //CharactersCamera.farClipPlane = TargetFarClipPlane;
+        InitializeZoomIn(CharactersCamera.DOFieldOfView(TargetFOV, Duration));
     }
 
     protected override void HandleOnZoomInCompleted ()

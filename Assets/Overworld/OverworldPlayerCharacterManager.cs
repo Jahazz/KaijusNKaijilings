@@ -1,3 +1,5 @@
+using Cinemachine;
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,19 +7,23 @@ using UnityEngine;
 public class OverworldPlayerCharacterManager : MonoBehaviour
 {
     [field: SerializeField]
-    public CharacterMovementInterpreter CharacterMovementInterpreter { get; private set; }
+    public AssetInputs AssetInputsInstance { get; private set; }
     [field: SerializeField]
-    public OverworldPlayerMovement OverworldCharacterMovement { get; private set; }
+    public ThirdPersonController ThirdPersonControllerInstance { get; private set; }
+    [field: SerializeField]
+    public CinemachineVirtualCamera CameraFollow { get; set; }
 
     public void FreezePlayer ()
     {
-        OverworldCharacterMovement.SetCharacterMovementActive(false);
-        CharacterMovementInterpreter.FreezeCharacterMovement();
+        CameraFollow.gameObject.SetActive(false);
+        AssetInputsInstance.SetCharacterMovementActive(false);
+        ThirdPersonControllerInstance.FreezeCharacterMovement();
     }
 
     public void UnfreezePlayer ()
     {
-        OverworldCharacterMovement.SetCharacterMovementActive(true);
-        CharacterMovementInterpreter.UnfreezeCharacterMovement();
+        CameraFollow.gameObject.SetActive(true);
+        AssetInputsInstance.SetCharacterMovementActive(true);
+        ThirdPersonControllerInstance.UnfreezeCharacterMovement();
     }
 }

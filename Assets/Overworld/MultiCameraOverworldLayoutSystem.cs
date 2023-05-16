@@ -22,7 +22,7 @@ public abstract class MultiCameraOverworldLayoutSystem : MonoBehaviour
     public Camera GUICamera { get; private set; }
     protected float TargetNearClipPlane { get;  set; }
     protected float TargetFarClipPlane { get;  set; }
-    protected float TargetOrthoSize { get;  set; }
+    protected float TargetFOV { get;  set; }
     protected string TargetActorLayerName { get; set; }
     protected abstract void HandleOnBackgroundEntered ();
     protected abstract void HandleOnCharactersMoved ();
@@ -53,9 +53,9 @@ public abstract class MultiCameraOverworldLayoutSystem : MonoBehaviour
         SetCameraFarNearPlanes(GUICamera);
 
         return DOTween.Sequence()
-            .Join(CharactersCamera.DOOrthoSize(TargetOrthoSize, duration))
-            .Join(BackgroundCamera.DOOrthoSize(TargetOrthoSize, duration))
-            .Join(GUICamera.DOOrthoSize(TargetOrthoSize, duration));
+            .Join(CharactersCamera.DOOrthoSize(TargetFOV, duration))
+            .Join(BackgroundCamera.DOOrthoSize(TargetFOV, duration))
+            .Join(GUICamera.DOOrthoSize(TargetFOV, duration));
     }
 
     private void SetCameraFarNearPlanes (Camera camera)
