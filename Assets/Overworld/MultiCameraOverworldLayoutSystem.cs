@@ -94,6 +94,11 @@ public abstract class MultiCameraOverworldLayoutSystem : MonoBehaviour
     }
     protected virtual void HandleOnBackgroundExited ()
     {
+        FirstActor.ResetLayer();
+        SecondActor.ResetLayer();
+        CharactersCamera.gameObject.SetActive(false);
+        BackgroundCamera.gameObject.SetActive(false);
+        GUICamera.gameObject.SetActive(false);
         SingletonContainer.Instance.OverworldPlayerCharacterManager.UnfreezePlayer();
     }
 }
