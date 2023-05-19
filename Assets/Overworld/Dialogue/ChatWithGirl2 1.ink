@@ -8,7 +8,7 @@ So, waddaya want? # speaker: Girl # side: RIGHT
 { IsQuestStarted(0) == false:
 + [Any quest for me?] 
     -> getQuest0
-    - else:  
+- else:  
 + [About that quest...] 
     -> aboutQuest0
 }
@@ -45,6 +45,7 @@ Anything else? # speaker: Girl # side: RIGHT
 === smallTalk ===
 Lets talk. # speaker: Player # side: LEFT
 Well, i can tell you about this place, myself or show you feet.# speaker: Girl # side: RIGHT
+
 + [Place]
     Tell me more about this place. # speaker: Player # side: LEFT
     This is a debug area, nothing less blah, blah blah. # speaker: Girl # side: RIGHT
@@ -70,4 +71,13 @@ EXTERNAL IsQuestStarted(questID)
 EXTERNAL StartQuest(questID)
 EXTERNAL ProgressQuestTask(questID, taskID, progress)
 EXTERNAL IsQuestTaskFinished(questID, taskID)
+
+=== function IsQuestStarted(questID) ===
+~ return false
+=== function StartQuest(questID) ===
+~ return false
+=== function ProgressQuestTask(questID, taskID, progress) ===
+~ return false
+=== function IsQuestTaskFinished(questID, taskID) ===
+~ return false
 

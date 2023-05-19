@@ -61,6 +61,7 @@ namespace StarterAssets
 		{
 			IsCharacterMovementActive = isEnabled;
 			SetCursorState(IsCharacterMovementActive);
+			CursorLocked = isEnabled;
 		}
 
 		public void OnLook(InputValue value)

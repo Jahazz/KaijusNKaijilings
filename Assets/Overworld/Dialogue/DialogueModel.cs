@@ -22,14 +22,10 @@ public class DialogueModel : ListModel<DialogueResponseOption, DialogueResponseO
         GenerateInterlocutorCollection();
 
         CurrentStory = mainInterlocutor.GenerateStory();
-        //VD.OnActionNode += HandleOnActionNode;
-        //VD.OnNodeChange += HandleOnNodeChange;
-        //VD.OnEnd += HandleOnEnd;
 
         CurrentView.SetCanvasEnabled(true);
 
         ContinueDialogue();
-        //VD.BeginDialogue(mainInterlocutor.DialogueData);
     }
 
     public void SelectResponse (int responseID)
@@ -52,7 +48,6 @@ public class DialogueModel : ListModel<DialogueResponseOption, DialogueResponseO
 
     private void HandleOnEnd ()
     {
-        //VD.EndDialogue();
         CurrentView.SetCanvasEnabled(false);
         CurrentView.SkipDialogueAnimation();
         SingletonContainer.Instance.DialogueManager.Close();
@@ -73,12 +68,12 @@ public class DialogueModel : ListModel<DialogueResponseOption, DialogueResponseO
             CurrentView.SetDialogue(currentlyTalkingPlayer, nodeTags.SpeakerSide == Side.LEFT, text);
             CurrentView.ClearList();
         }
-        else if (isChoice == true)
+        if (isChoice == true)
         {
             string[] choiceCollection = CurrentStory.currentChoices.Select(x => x.text.Trim()).ToArray();
             CurrentView.SetResponses(choiceCollection);
         }
-        else
+        if(isChoice == false && nodeTags.SpeakerID == null)
         {
             ContinueDialogue();
         }
