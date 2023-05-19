@@ -1,6 +1,7 @@
 ﻿ using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
+using DG.Tweening;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -208,6 +209,16 @@ namespace StarterAssets
         public void FreezeCharacterMovement ()
         {
             enabled = false;
+            if (_hasAnimator)
+            {
+                TweenAnimation(_animIDSpeed, 0, 1.0f);
+                TweenAnimation(_animIDMotionSpeed, 0, 1.0f);
+            }
+        }
+
+        private void TweenAnimation (int animationID, float targetValue, float duration)
+        {
+            DOTween.To(() => _animator.GetFloat(animationID), (float value) => _animator.SetFloat(_animIDSpeed, value), targetValue, duration);
         }
 
         public void UnfreezeCharacterMovement ()
