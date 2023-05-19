@@ -17,7 +17,7 @@ public class DialogueManager : MultiCameraOverworldLayoutSystem
     {
         TargetNearClipPlane = 0.0f;
         TargetFarClipPlane = 30.0f;
-        TargetFOV = 40;
+        TargetFOV = 60;
 
         Initialize();
 

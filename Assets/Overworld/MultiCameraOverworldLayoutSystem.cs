@@ -53,9 +53,9 @@ public abstract class MultiCameraOverworldLayoutSystem : MonoBehaviour
         SetCameraFarNearPlanes(GUICamera);
 
         return DOTween.Sequence()
-            .Join(CharactersCamera.DOOrthoSize(TargetFOV, duration))
-            .Join(BackgroundCamera.DOOrthoSize(TargetFOV, duration))
-            .Join(GUICamera.DOOrthoSize(TargetFOV, duration));
+            .Join(CharactersCamera.DOFieldOfView(TargetFOV, duration))
+            .Join(BackgroundCamera.DOFieldOfView(TargetFOV, duration))
+            .Join(GUICamera.DOFieldOfView(TargetFOV, duration));
     }
 
     private void SetCameraFarNearPlanes (Camera camera)

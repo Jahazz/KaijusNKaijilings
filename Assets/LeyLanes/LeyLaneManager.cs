@@ -30,6 +30,9 @@ public class LeyLaneManager : MonoBehaviour
         SetCamera(LeyLaneCamera);
         SetCamera(BackgroundCamera);
         SetCamera(ForegroundCamera, false);
+
+        SingletonContainer.Instance.OverworldPlayerCharacterManager.FreezePlayer();
+
         Background.DOScale(Vector3.one, 1).OnComplete(HandleOnBackgroundScaled);
     }
 
