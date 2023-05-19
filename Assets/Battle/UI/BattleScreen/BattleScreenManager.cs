@@ -28,7 +28,7 @@ namespace BattleCore.UI
 
         public void Initialize (Player firstPlayer, Player secondPlayer, Action<BattleResultType> battleFinishedCallback)
         {
-            TargetNearClipPlane = 0.0f;
+            TargetNearClipPlane = 0.01f;
             TargetFarClipPlane = 30.0f;
             TargetFOV = 60f;
 
