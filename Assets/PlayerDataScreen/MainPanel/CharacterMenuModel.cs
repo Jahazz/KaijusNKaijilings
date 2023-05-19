@@ -38,7 +38,7 @@ public class CharacterMenuModel : SingleSelectableListModel<CharacterMenuElement
     {
         if (isMenuVisible == true)
         {
-            SingletonContainer.Instance.OverworldPlayerCharacterManager.FreezePlayer();
+            SingletonContainer.Instance.OverworldPlayerCharacterManager.FreezePlayer(PlayerState.IN_MENU);
         }
         else
         {

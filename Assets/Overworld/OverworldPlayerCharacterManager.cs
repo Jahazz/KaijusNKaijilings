@@ -13,8 +13,11 @@ public class OverworldPlayerCharacterManager : MonoBehaviour
     [field: SerializeField]
     public CinemachineVirtualCamera CameraFollow { get; set; }
 
-    public void FreezePlayer ()
+    public PlayerState CurrentPlayerState { get; set; } 
+
+    public void FreezePlayer (PlayerState reason)
     {
+        CurrentPlayerState = reason;
         CameraFollow.gameObject.SetActive(false);
         AssetInputsInstance.SetCharacterMovementActive(false);
         ThirdPersonControllerInstance.FreezeCharacterMovement();
@@ -22,6 +25,7 @@ public class OverworldPlayerCharacterManager : MonoBehaviour
 
     public void UnfreezePlayer ()
     {
+        CurrentPlayerState = PlayerState.IN_OVERWORLD;
         CameraFollow.gameObject.SetActive(true);
         AssetInputsInstance.SetCharacterMovementActive(true);
         ThirdPersonControllerInstance.UnfreezeCharacterMovement();

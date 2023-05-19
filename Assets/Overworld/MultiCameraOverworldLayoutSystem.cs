@@ -30,9 +30,9 @@ public abstract class MultiCameraOverworldLayoutSystem : MonoBehaviour
     protected abstract void HandleOnCharactersMovedBack ();
     protected abstract void HandleOnZoomOutCompleted ();
 
-    protected void Initialize ()
+    protected void Initialize (PlayerState movementFreezeReason)
     {
-        SingletonContainer.Instance.OverworldPlayerCharacterManager.FreezePlayer();
+        SingletonContainer.Instance.OverworldPlayerCharacterManager.FreezePlayer(movementFreezeReason);
         SetCamera(CharactersCamera);
         SetCamera(BackgroundCamera);
         SetCamera(MainCamera);

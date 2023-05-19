@@ -32,7 +32,7 @@ namespace BattleCore.UI
             TargetFarClipPlane = 30.0f;
             TargetFOV = 60f;
 
-            Initialize();
+            Initialize(PlayerState.IN_BATTLE);
 
             TargetActorLayerName = "Dialogue";
             FirstActor = new Actor(firstPlayer, TargetActorLayerName);

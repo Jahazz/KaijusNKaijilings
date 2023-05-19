@@ -19,7 +19,7 @@ public class DialogueManager : MultiCameraOverworldLayoutSystem
         TargetFarClipPlane = 30.0f;
         TargetFOV = 60;
 
-        Initialize();
+        Initialize(PlayerState.IN_DIALOGUE);
 
         TargetActorLayerName = "Dialogue";
         FirstActor = new Actor(player, TargetActorLayerName);

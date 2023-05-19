@@ -10,7 +10,7 @@ public class CharacterMenuController : SingleSelectableListController<CharacterM
 
     public void HandleOnMenuButtonClick ()
     {
-        if (SingletonContainer.Instance.BattleScreenManager.BattleScreenController.IsInBattle() == false)
+        if (SingletonContainer.Instance.OverworldPlayerCharacterManager.CurrentPlayerState == PlayerState.IN_OVERWORLD)
         {
             OpenCharacterMenu();
         }
