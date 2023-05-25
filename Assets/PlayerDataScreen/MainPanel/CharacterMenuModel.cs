@@ -12,8 +12,6 @@ public class CharacterMenuModel : SingleSelectableListModel<CharacterMenuElement
     private ObjectToCanvasRaycaster BookController { get; set; }
     [field: SerializeField]
     private Camera BookCamera { get; set; }
-    [field: SerializeField]
-    private Camera CharacterCamera { get; set; }
 
     public override void Initialize (CharacterMenuView currentView)
     {
@@ -34,7 +32,7 @@ public class CharacterMenuModel : SingleSelectableListModel<CharacterMenuElement
         ToggleMenuVisibility(false);
     }
 
-    public void ToggleMenuVisibility (bool isMenuVisible)
+    public void ToggleMenuVisibility (bool isMenuVisible, bool unfreezePlayer = true)
     {
         if (isMenuVisible == true)
         {
@@ -42,11 +40,13 @@ public class CharacterMenuModel : SingleSelectableListModel<CharacterMenuElement
         }
         else
         {
-            SingletonContainer.Instance.OverworldPlayerCharacterManager.UnfreezePlayer();
+            if (unfreezePlayer == true)
+            {
+                SingletonContainer.Instance.OverworldPlayerCharacterManager.UnfreezePlayer();
+            }
         }
 
         BookCamera.gameObject.SetActive(isMenuVisible);
-        //CharacterCamera.gameObject.SetActive(!isMenuVisible);
         CurrentView.ToggleMenuVisibility(isMenuVisible);
     }
 

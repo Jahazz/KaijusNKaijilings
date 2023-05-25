@@ -7,6 +7,7 @@ using System;
 using System.Collections;
 using BattleCore.ScreenEntity;
 using UnityEngine;
+using System.Collections.ObjectModel;
 
 namespace BattleCore
 {
@@ -19,11 +20,6 @@ namespace BattleCore
         public delegate void OnPlayerEntitySwapRequestParams (Action<Entity> callback);
         public event OnPlayerEntitySwapRequestParams OnPlayerEntitySwapRequest;
 
-        //  Events for status effects
-        //      start of turn
-        //      before creature attacks
-        //      after creature attacks
-        //      end of turn
         public delegate IEnumerator OnTurnEndParams ();
         public event OnTurnEndParams OnTurnEnd;
 
@@ -32,6 +28,7 @@ namespace BattleCore
         public Func<Entity, IEnumerator> ViewWaitForAnimationFinished { get; set; }
         public Func<Player, Entity, IEnumerator> ViewSwapEntity { get; set; }
 
+        public ObservableCollection<BaseStatusEffect> BattlegroundStatusEffects { get; set; } = new ObservableCollection<BaseStatusEffect>();
         public List<BattleParticipant> BattleParticipantsCollection { get; private set; } = new List<BattleParticipant>();
         public ObservableVariable<BattleState> CurrentBattleState { get; private set; } = new ObservableVariable<BattleState>(BattleState.NONE);
         private BattleActionResolver BattleActionResolver { get; set; }

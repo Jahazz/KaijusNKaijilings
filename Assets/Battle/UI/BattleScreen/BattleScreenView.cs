@@ -27,6 +27,8 @@ namespace BattleCore.UI
         private RectTransform BottomBar { get; set; }
         [field: SerializeField]
         private GameObject BottomBarBlocker { get; set; }
+        [field: SerializeField]
+        public StatusEffectList BattlegroundStatusEffectList { get;private set; }
 
         private Dictionary<Entity, BattleScreenEntityController> EntityBattleScreenEntityControllerPair { get; set; } = new Dictionary<Entity, BattleScreenEntityController>();
 

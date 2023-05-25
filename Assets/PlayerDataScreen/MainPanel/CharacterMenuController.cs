@@ -22,10 +22,10 @@ public class CharacterMenuController : SingleSelectableListController<CharacterM
         CurrentModel.OpenMenuAsEntitySelection( onEntitySelectionCallback);
     }
 
-    public void HideCharacterMenu()
+    public void HideCharacterMenu(bool unfreezePlayer = true)
     {
         IsMenuVisible = false;
-        CurrentModel.ToggleMenuVisibility(false);
+        CurrentModel.ToggleMenuVisibility(false, unfreezePlayer);
     }
 
     private void OpenCharacterMenu()

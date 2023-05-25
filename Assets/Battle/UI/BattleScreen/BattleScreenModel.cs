@@ -3,8 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using BattleCore.ActionQueue;
-using BattleCore.Actions;
 using BattleCore.ScreenEntity;
 using BattleCore.UI.SummaryScreen;
 
@@ -72,6 +70,7 @@ namespace BattleCore.UI
 
 
             CurrentView.IsBottomBarShown(true);
+            CurrentView.BattlegroundStatusEffectList.Initialize(CurrentBattle.BattlegroundStatusEffects);
         }
 
         private void CurrentBattle_OnEntityDeath (Entity entity, BattleParticipant owner)

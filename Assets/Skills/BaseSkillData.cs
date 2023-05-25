@@ -18,4 +18,6 @@ public class BaseSkillData
     public List<TypeDataScriptable> SkilType { get; private set; }
     [field: SerializeField]
     public GameObject GameobjectToSpawnOnHitTarget { get; private set; }
+    [field: SerializeField]
+    private string DevelopmentData { get; set; }
 }

@@ -25,7 +25,7 @@ public class BaseEntityDetailedScreenModel<ViewType> : BaseModel<ViewType> where
     public void SetCurrentBattleEntityToThisAndCloseWindow ()
     {
         OnEntitySelectionCallback?.Invoke(CurrentEntity);
-        SingletonContainer.Instance.CharacterMenuController.HideCharacterMenu();
+        SingletonContainer.Instance.CharacterMenuController.HideCharacterMenu(false);
     }
 
 }

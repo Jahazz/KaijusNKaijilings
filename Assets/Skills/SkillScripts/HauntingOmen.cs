@@ -23,6 +23,7 @@ namespace Skills
             caster.ModifiedStats.Mana.CurrentValue.PresentValue += caster.ModifiedStats.Mana.MaxValue.PresentValue * 0.2f;//regains 20% total mana 
 
             BaseStatusEffect createdStatusEffect = new BaseStatusEffect(StatusEffectToApply);
+            createdStatusEffect.OnStatusEffectRemoved += HandleOnStatusEffectRemoved;
 
             SkillUtils.ApplyStatusEffect(caster, createdStatusEffect);//at the end of this turn it retreats and pushes random kaijling from team into battle.
 
@@ -32,6 +33,11 @@ namespace Skills
             {
                 yield return HandleOnCurrentBattleStateChange(casterOwner, caster, target, currentBattle);
                 SkillUtils.RemoveStatusEffect(caster, createdStatusEffect);
+                currentBattle.OnTurnEnd -= Wrapper;
+            }
+
+            void HandleOnStatusEffectRemoved ()
+            {
                 currentBattle.OnTurnEnd -= Wrapper;
             }
         }

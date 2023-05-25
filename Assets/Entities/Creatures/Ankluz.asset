@@ -42,4 +42,7 @@ MonoBehaviour:
   - <RequiredLevel>k__BackingField: 0
     <AssignedSkill>k__BackingField: {fileID: 11400000, guid: 84296c3de14251440adfd2ce69a43a84,
       type: 2}
+  - <RequiredLevel>k__BackingField: 0
+    <AssignedSkill>k__BackingField: {fileID: 11400000, guid: 29aa7e265e7913b42a8956f4e1c8df6b,
+      type: 2}
   <GroupCountRequiredToBreed>k__BackingField: 2

@@ -88,7 +88,7 @@ namespace BattleCore.UI
 
             CharactersCamera.nearClipPlane = MainCamera.nearClipPlane;
             CharactersCamera.farClipPlane = MainCamera.farClipPlane;
-            InitializeZoomOut(CharactersCamera.DOOrthoSize(MainCamera.orthographicSize, Duration));
+            InitializeZoomOut(CharactersCamera.DOFieldOfView(MainCamera.orthographicSize, Duration));
         }
 
         protected override void HandleOnZoomOutCompleted ()

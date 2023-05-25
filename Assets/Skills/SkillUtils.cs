@@ -1,3 +1,4 @@
+using BattleCore;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,7 +23,19 @@ public static class SkillUtils
 
     public static void RemoveStatusEffect (Entity target, BaseStatusEffect effectData)
     {
+        effectData.InvokeOnRemoved();
         target.PresentStatusEffects.Remove(effectData);
+    }
+
+    public static void ApplyStatusEffectToBattleground (Battle target, BaseStatusEffect effectData)
+    {
+        target.BattlegroundStatusEffects.Add(effectData);
+    }
+
+    public static void RemoveStatusEffectFromBattleground (Battle target, BaseStatusEffect effectData)
+    {
+        effectData.InvokeOnRemoved();
+        target.BattlegroundStatusEffects.Remove(effectData);
     }
 } 
 
