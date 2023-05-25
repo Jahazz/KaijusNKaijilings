@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffec2a4a25ffab84bbf43a0597cc2dd9, type: 3}
   m_Name: Homen
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: 
+  <Name>k__BackingField: Homen
   <Description>k__BackingField: 
   <Image>k__BackingField: {fileID: 21300000, guid: 79940bd64f51b0d4fbb908c2c7ad5457,
     type: 3}
@@ -21,23 +21,23 @@ MonoBehaviour:
   <EntityTypeCollection>k__BackingField:
   - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
   <BaseStats>k__BackingField:
-    <Might>k__BackingField: 4
+    <Might>k__BackingField: 15
     <Magic>k__BackingField: 5
-    <Willpower>k__BackingField: 5
-    <Agility>k__BackingField: 5
-    <Initiative>k__BackingField: 5
+    <Willpower>k__BackingField: 10
+    <Agility>k__BackingField: 6
+    <Initiative>k__BackingField: 6
   <StatsPerLevel>k__BackingField:
-    <Might>k__BackingField: 1
-    <Magic>k__BackingField: 2
-    <Willpower>k__BackingField: 3
-    <Agility>k__BackingField: 4
-    <Initiative>k__BackingField: 5
+    <Might>k__BackingField: 0.5
+    <Magic>k__BackingField: 0.3
+    <Willpower>k__BackingField: 0.4
+    <Agility>k__BackingField: 0.2
+    <Initiative>k__BackingField: 0.2
   <BaseMatRange>k__BackingField:
-    <Might>k__BackingField: {x: 2, y: 4}
-    <Magic>k__BackingField: {x: 1, y: 7}
-    <Willpower>k__BackingField: {x: 3, y: 12}
-    <Agility>k__BackingField: {x: 0, y: 5}
-    <Initiative>k__BackingField: {x: 0, y: 10}
+    <Might>k__BackingField: {x: 0.1, y: 0.7}
+    <Magic>k__BackingField: {x: 0.1, y: 0.4}
+    <Willpower>k__BackingField: {x: 0.1, y: 0.3}
+    <Agility>k__BackingField: {x: 0.3, y: 0.6}
+    <Initiative>k__BackingField: {x: 0.1, y: 0.4}
   <SkillsWithRequirements>k__BackingField:
   - <RequiredLevel>k__BackingField: 0
     <AssignedSkill>k__BackingField: {fileID: 11400000, guid: 2c53da82ec0e40a49aabe9fcd4a9c7c5,

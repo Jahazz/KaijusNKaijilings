@@ -35,6 +35,6 @@ MonoBehaviour:
     <Magic>k__BackingField: {x: 0.3, y: 1.1}
     <Willpower>k__BackingField: {x: 0.3, y: 1.1}
     <Agility>k__BackingField: {x: 0.3, y: 1.1}
-    <Initiative>k__BackingField: {x: 0, y: 0}
+    <Initiative>k__BackingField: {x: 0.3, y: 1.1}
   <SkillsWithRequirements>k__BackingField: []
   <GroupCountRequiredToBreed>k__BackingField: 0

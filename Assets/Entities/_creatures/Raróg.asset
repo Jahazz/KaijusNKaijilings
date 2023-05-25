@@ -10,35 +10,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ffec2a4a25ffab84bbf43a0597cc2dd9, type: 3}
-  m_Name: "Dusio\u0142"
+  m_Name: "Rar\xF3g"
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: "Dusio\u0142"
+  <Name>k__BackingField: "Rar\xF3g"
   <Description>k__BackingField: 
   <Image>k__BackingField: {fileID: 21300000, guid: 79940bd64f51b0d4fbb908c2c7ad5457,
     type: 3}
   <ModelPrefab>k__BackingField: {fileID: 4171992773031642236, guid: 333b98c04c99dc9498022525a8f5a4fc,
     type: 3}
   <EntityTypeCollection>k__BackingField:
-  - {fileID: 11400000, guid: 6e1104a6f36d78a4c9ff580066d89997, type: 2}
-  - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
+  - {fileID: 11400000, guid: 0a7afdcb0cd24d54695c0c4884ac7df6, type: 2}
   <BaseStats>k__BackingField:
-    <Might>k__BackingField: 15
-    <Magic>k__BackingField: 10
-    <Willpower>k__BackingField: 20
-    <Agility>k__BackingField: 5
-    <Initiative>k__BackingField: 5
+    <Might>k__BackingField: 7
+    <Magic>k__BackingField: 8
+    <Willpower>k__BackingField: 6
+    <Agility>k__BackingField: 9
+    <Initiative>k__BackingField: 10
   <StatsPerLevel>k__BackingField:
-    <Might>k__BackingField: 0.1
-    <Magic>k__BackingField: 0.1
-    <Willpower>k__BackingField: 0.1
-    <Agility>k__BackingField: 0.1
-    <Initiative>k__BackingField: 0.1
+    <Might>k__BackingField: 0.3
+    <Magic>k__BackingField: 0.35
+    <Willpower>k__BackingField: 0.2
+    <Agility>k__BackingField: 0.4
+    <Initiative>k__BackingField: 0.3
   <BaseMatRange>k__BackingField:
-    <Might>k__BackingField: {x: 0.2, y: 0.5}
-    <Magic>k__BackingField: {x: 0.25, y: 0.6}
-    <Willpower>k__BackingField: {x: 0.1, y: 0.7}
-    <Agility>k__BackingField: {x: 0.1, y: 0.15}
-    <Initiative>k__BackingField: {x: 0.1, y: 0.15}
+    <Might>k__BackingField: {x: 0.2, y: 0.4}
+    <Magic>k__BackingField: {x: 0.2, y: 0.65}
+    <Willpower>k__BackingField: {x: 0.3, y: 0.5}
+    <Agility>k__BackingField: {x: 0.1, y: 0.6}
+    <Initiative>k__BackingField: {x: 0.2, y: 1.2}
   <SkillsWithRequirements>k__BackingField:
   - <RequiredLevel>k__BackingField: 0
     <AssignedSkill>k__BackingField: {fileID: 11400000, guid: 2c53da82ec0e40a49aabe9fcd4a9c7c5,

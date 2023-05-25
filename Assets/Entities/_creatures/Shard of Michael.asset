@@ -31,10 +31,10 @@ MonoBehaviour:
     <Agility>k__BackingField: 0.9
     <Initiative>k__BackingField: 0.5
   <BaseMatRange>k__BackingField:
-    <Might>k__BackingField: {x: 0.3, y: 0.5}
-    <Magic>k__BackingField: {x: 0.3, y: 0.5}
-    <Willpower>k__BackingField: {x: 0.3, y: 0.5}
-    <Agility>k__BackingField: {x: 0.3, y: 0.5}
-    <Initiative>k__BackingField: {x: 0.3, y: 0.5}
+    <Might>k__BackingField: {x: 0.3, y: 1}
+    <Magic>k__BackingField: {x: 0.3, y: 1}
+    <Willpower>k__BackingField: {x: 0.3, y: 1}
+    <Agility>k__BackingField: {x: 0.3, y: 1}
+    <Initiative>k__BackingField: {x: 0.3, y: 1}
   <SkillsWithRequirements>k__BackingField: []
   <GroupCountRequiredToBreed>k__BackingField: 0
