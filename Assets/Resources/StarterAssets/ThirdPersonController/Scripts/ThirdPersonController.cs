@@ -209,16 +209,17 @@ namespace StarterAssets
         public void FreezeCharacterMovement ()
         {
             enabled = false;
-            if (_hasAnimator)
+            if (_hasAnimator == true)
             {
                 TweenAnimation(_animIDSpeed, 0, 1.0f);
                 TweenAnimation(_animIDMotionSpeed, 0, 1.0f);
+                _input.ResetValues();
             }
         }
 
         private void TweenAnimation (int animationID, float targetValue, float duration)
         {
-            DOTween.To(() => _animator.GetFloat(animationID), (float value) => _animator.SetFloat(_animIDSpeed, value), targetValue, duration);
+            DOTween.To(() => _animator.GetFloat(animationID), (float value) => _animator.SetFloat(animationID, value), targetValue, duration);
         }
 
         public void UnfreezeCharacterMovement ()

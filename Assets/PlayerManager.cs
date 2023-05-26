@@ -10,7 +10,5 @@ public class PlayerManager : MonoBehaviour
     protected virtual void Start ()
     {
         CurrentPlayer.EntitiesInEquipment.Add(SingletonContainer.Instance.EntityManager.RequestRandomEntity(7));
-        CurrentPlayer.EntitiesInEquipment.Add(SingletonContainer.Instance.EntityManager.RequestRandomEntity(1));
-        CurrentPlayer.EntitiesInEquipment.Add(SingletonContainer.Instance.EntityManager.RequestRandomEntity(3));
     }
 }

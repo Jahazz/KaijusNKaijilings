@@ -57,6 +57,14 @@ namespace StarterAssets
 			}
 		}
 
+		public void ResetValues ()
+        {
+			Move = Vector2.zero;
+			Look = Vector2.zero;
+			Jump = false;
+			Sprint = false;
+		}
+
 		public void SetCharacterMovementActive (bool isEnabled)
 		{
 			IsCharacterMovementActive = isEnabled;

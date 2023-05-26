@@ -6325,7 +6325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &435558867
 Transform:
   m_ObjectHideFlags: 0
@@ -27268,7 +27268,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1576976899
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34421,7 +34421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <BattleScreenSummaryController>k__BackingField: {fileID: 435558868}
-  <CharacterMenuController>k__BackingField: {fileID: 0}
+  <CharacterMenuController>k__BackingField: {fileID: 1118156693}
 --- !u!114 &2000360927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50473,8 +50473,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3535629684602905257, guid: 4a3c7b36d9bc0f44c84ef21257881829,
         type: 3}
+      propertyPath: <OnBattleWon>k__BackingField._PersistentCalls.Array.data[0]._Target
+      value: 
+      objectReference: {fileID: 379838094}
+    - target: {fileID: 3535629684602905257, guid: 4a3c7b36d9bc0f44c84ef21257881829,
+        type: 3}
       propertyPath: <OnBattleWon>k__BackingField._PersistentCalls.Array.data[0]._MethodName
-      value: .ProgressTask
+      value: CompleteTask
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535629684602905257, guid: 4a3c7b36d9bc0f44c84ef21257881829,
+        type: 3}
+      propertyPath: <OnBattleWon>k__BackingField._PersistentCalls.Array.data[0]._PersistentArguments.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535629684602905257, guid: 4a3c7b36d9bc0f44c84ef21257881829,
+        type: 3}
+      propertyPath: <OnBattleWon>k__BackingField._PersistentCalls.Array.data[0]._PersistentArguments.Array.data[1]._Int
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535629684602905257, guid: 4a3c7b36d9bc0f44c84ef21257881829,
+        type: 3}
+      propertyPath: <OnBattleWon>k__BackingField._PersistentCalls.Array.data[0]._PersistentArguments.Array.data[1]._Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535629684602905257, guid: 4a3c7b36d9bc0f44c84ef21257881829,
+        type: 3}
+      propertyPath: <OnBattleWon>k__BackingField._PersistentCalls.Array.data[0]._PersistentArguments.Array.data[1]._String
+      value: WinAFight
       objectReference: {fileID: 0}
     - target: {fileID: 3535629685554511522, guid: 4a3c7b36d9bc0f44c84ef21257881829,
         type: 3}

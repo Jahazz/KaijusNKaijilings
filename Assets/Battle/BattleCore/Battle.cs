@@ -67,13 +67,20 @@ namespace BattleCore
         public bool CheckIsBattleOver (out BattleResultType battleResult)
         {
             bool output = false;
+            bool arePlayerEntitiesDefeated = GetPlayerBattleParticipant().AreAllEntitiesOfParticipantDefeated();
+            bool areNpcEntitiesDefeated = GetNPCBattleParticipant().AreAllEntitiesOfParticipantDefeated();
 
-            if (GetPlayerBattleParticipant().AreAllEntitiesOfParticipantDefeated() == true)
+            if (arePlayerEntitiesDefeated == true && areNpcEntitiesDefeated == true)
+            {
+                battleResult = BattleResultType.UNRESOLVED;
+                output = true;
+            }
+            else if (arePlayerEntitiesDefeated == true)
             {
                 battleResult = BattleResultType.DEFEAT;
                 output = true;
             }
-            else if (GetNPCBattleParticipant().AreAllEntitiesOfParticipantDefeated() == true)
+            else if (areNpcEntitiesDefeated == true)
             {
                 battleResult = BattleResultType.VICTORY;
                 output = true;
@@ -181,8 +188,6 @@ namespace BattleCore
 
         private void WrapUp ()
         {
-
-
             if (CheckIsBattleOver(out BattleResultType battleResult) == true)
             {
                 OnBattleFinished?.Invoke(battleResult);

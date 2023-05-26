@@ -19,14 +19,17 @@ namespace BattleCore.OverworldCharacter
 
         public void InitialzieBattle ()
         {
-            PlayerData.EntitiesInEquipment = new System.Collections.ObjectModel.ObservableCollection<Entity>();
-
-            foreach (EntityLevelPair pair in PlayerEntitiesCollection)
+            if (SingletonContainer.Instance.OverworldPlayerCharacterManager.CurrentPlayerState == PlayerState.IN_OVERWORLD)
             {
-                PlayerData.EntitiesInEquipment.Add(SingletonContainer.Instance.EntityManager.RequestEntity(pair.Entity, pair.Level));
-            }
+                PlayerData.EntitiesInEquipment = new System.Collections.ObjectModel.ObservableCollection<Entity>();
 
-            SingletonContainer.Instance.BattleScreenManager.Initialize(SingletonContainer.Instance.PlayerManager.CurrentPlayer, PlayerData, HandleOnBattleFinished);
+                foreach (EntityLevelPair pair in PlayerEntitiesCollection)
+                {
+                    PlayerData.EntitiesInEquipment.Add(SingletonContainer.Instance.EntityManager.RequestEntity(pair.Entity, pair.Level));
+                }
+
+                SingletonContainer.Instance.BattleScreenManager.Initialize(SingletonContainer.Instance.PlayerManager.CurrentPlayer, PlayerData, HandleOnBattleFinished);
+            }
         }
 
         public void HandleOnBattleFinished (BattleResultType battleResult)
