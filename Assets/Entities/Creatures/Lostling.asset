@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffec2a4a25ffab84bbf43a0597cc2dd9, type: 3}
+  m_Name: Lostling
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Lostling
+  <Description>k__BackingField: 
+  <Image>k__BackingField: {fileID: 21300000, guid: 79940bd64f51b0d4fbb908c2c7ad5457,
+    type: 3}
+  <ModelPrefab>k__BackingField: {fileID: 4171992773031642236, guid: 333b98c04c99dc9498022525a8f5a4fc,
+    type: 3}
+  <EntityTypeCollection>k__BackingField:
+  - {fileID: 11400000, guid: 618cf5565bc626f4a84e1802977c48e7, type: 2}
+  <BaseStats>k__BackingField:
+    <Might>k__BackingField: 9
+    <Magic>k__BackingField: 7
+    <Willpower>k__BackingField: 10
+    <Agility>k__BackingField: 9
+    <Initiative>k__BackingField: 6
+  <StatsPerLevel>k__BackingField:
+    <Might>k__BackingField: 0.75
+    <Magic>k__BackingField: 0.6
+    <Willpower>k__BackingField: 0.7
+    <Agility>k__BackingField: 0.6
+    <Initiative>k__BackingField: 0.3
+  <BaseMatRange>k__BackingField:
+    <Might>k__BackingField: {x: 0.15, y: 0.45}
+    <Magic>k__BackingField: {x: 0.1, y: 0.4}
+    <Willpower>k__BackingField: {x: 0.2, y: 0.5}
+    <Agility>k__BackingField: {x: 0.1, y: 0.6}
+    <Initiative>k__BackingField: {x: 0.2, y: 0.7}
+  <SkillsWithRequirements>k__BackingField:
+  - <RequiredLevel>k__BackingField: 0
+    <AssignedSkill>k__BackingField: {fileID: 11400000, guid: 2c53da82ec0e40a49aabe9fcd4a9c7c5,
+      type: 2}
+  <GroupCountRequiredToBreed>k__BackingField: 2
