@@ -21,7 +21,10 @@ public class StatusEffectList : MonoBehaviour
 
     protected virtual void OnDestroy ()
     {
-        SourceCollection.CollectionChanged -= HandleSourceCollectionChanged;
+        if (SourceCollection != null)
+        {
+            SourceCollection.CollectionChanged -= HandleSourceCollectionChanged;
+        }
     }
 
     private void HandleSourceCollectionChanged (object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)

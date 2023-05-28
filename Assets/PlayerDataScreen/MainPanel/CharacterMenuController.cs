@@ -10,25 +10,26 @@ public class CharacterMenuController : SingleSelectableListController<CharacterM
 
     public void HandleOnMenuButtonClick ()
     {
-        if (SingletonContainer.Instance.OverworldPlayerCharacterManager.CurrentPlayerState == PlayerState.IN_OVERWORLD)
+        PlayerState currentPlayerState = SingletonContainer.Instance.OverworldPlayerCharacterManager.CurrentPlayerState;
+        if (currentPlayerState == PlayerState.IN_OVERWORLD || currentPlayerState == PlayerState.IN_MENU)
         {
             OpenCharacterMenu();
         }
     }
 
-    public void OpenMenuAsEntitySelection(Action<Entity> onEntitySelectionCallback)
+    public void OpenMenuAsEntitySelection (Action<Entity> onEntitySelectionCallback)
     {
         OpenCharacterMenu();
-        CurrentModel.OpenMenuAsEntitySelection( onEntitySelectionCallback);
+        CurrentModel.OpenMenuAsEntitySelection(onEntitySelectionCallback);
     }
 
-    public void HideCharacterMenu(bool unfreezePlayer = true)
+    public void HideCharacterMenu (bool unfreezePlayer = true)
     {
         IsMenuVisible = false;
         CurrentModel.ToggleMenuVisibility(false, unfreezePlayer);
     }
 
-    private void OpenCharacterMenu()
+    private void OpenCharacterMenu ()
     {
         IsMenuVisible = !IsMenuVisible;
         CurrentModel.ToggleMenuVisibility(IsMenuVisible);
