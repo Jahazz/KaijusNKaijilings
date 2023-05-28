@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Utils;
 
@@ -12,6 +13,12 @@ public class EntityManager : MonoBehaviour
     public List<TraitBaseScriptableObject> AvailableTraits { get; private set; } = new List<TraitBaseScriptableObject>();
     [field: SerializeField]
     public LevelRequirementsScriptable LevelRequirements { get; private set; }
+    [field: SerializeField]
+    private List<StatTypeSpritePair> StatTypeSpriteCollection { get; set; }
+    [field: SerializeField]
+    public Dictionary<StatType, Sprite> StatTypeSpriteDictionary { get; set; } = new Dictionary<StatType, Sprite>();
+
+
 
     public Entity RequestEntity (StatsScriptable entityType, int level, List<TraitBaseScriptableObject> availableTraits = null, BaseStatsData<Vector2> matStatsRange = null)
     {
@@ -44,6 +51,16 @@ public class EntityManager : MonoBehaviour
         }
 
         return output;
+    }
+
+    protected virtual void Start ()
+    {
+        DictionarizeStatTypeSpriteCollection();
+    }
+
+    private void DictionarizeStatTypeSpriteCollection ()
+    {
+        StatTypeSpriteDictionary = StatTypeSpriteCollection.ToDictionary(k => k.Stat, v => v.Sprite);
     }
 
     private void AddRandomTraitsToEntity (Entity entityToAddTraits, List<TraitBaseScriptableObject> availableTraits)

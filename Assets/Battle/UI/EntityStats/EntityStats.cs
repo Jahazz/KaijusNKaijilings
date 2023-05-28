@@ -18,38 +18,25 @@ public class EntityStats : MonoBehaviour
     [field: SerializeField]
     private CustomProgressBar ExperienceProgressBar { get; set; }
     [field: SerializeField]
-    private RectTransform RectTransform { get; set; }
-    [field: SerializeField]
     private GameObject ExperienceBar { get; set; }
     [field: SerializeField]
     private StatusEffectList StatusEffectList { get; set; }
 
     private Entity EntityToAttach { get; set; }
-    private Transform TransfromToAttach { get; set; }
     private List<Binding> BindingsCollection { get; set; } = new List<Binding>();
 
-    public void Initialize (Entity entityToAttach, Transform transfromToAttach, bool isPlayerOwner)
+    public void Initialize (Entity entityToAttach, bool isPlayerOwner)
     {
         EntityToAttach = entityToAttach;
-        TransfromToAttach = transfromToAttach;
 
         EntityCustomNameLabel.text = EntityToAttach.Name.PresentValue;
         EntityBaseNameLabel.text = EntityToAttach.BaseEntityType.Name;
         StatusEffectList.Initialize(EntityToAttach.PresentStatusEffects);
 
         ExperienceBar.SetActive(isPlayerOwner);
+        gameObject.SetActive(true);
 
         GenerateBindings();
-    }
-
-    protected virtual void Update ()
-    {
-        UpdatePosition();
-    }
-
-    protected virtual void OnDestroy ()
-    {
-        DisposeOfBindings();
     }
 
     private void GenerateBindings ()
@@ -59,18 +46,11 @@ public class EntityStats : MonoBehaviour
         BindingsCollection.Add(BindingFactory.GenerateCustomProgressBarBinding(ExperienceProgressBar, EntityToAttach.LevelData.ExperienceNeededForCurrentLevel, EntityToAttach.LevelData.ExperienceNeededForNextLevel, EntityToAttach.LevelData.CurrentExperience));
     }
 
-    private void DisposeOfBindings ()
+    public void DisposeOfBindings ()
     {
         foreach (Binding binding in BindingsCollection)
         {
             binding.Unbind();
         }
-    }
-
-    private void UpdatePosition ()
-    {
-        Vector2 viewportPoint = SingletonContainer.Instance.BattleScreenManager.GUICamera.WorldToViewportPoint(TransfromToAttach.position);
-        RectTransform.anchorMin = viewportPoint;
-        RectTransform.anchorMax = viewportPoint;
     }
 }

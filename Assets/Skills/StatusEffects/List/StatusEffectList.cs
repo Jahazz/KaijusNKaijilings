@@ -14,6 +14,7 @@ public class StatusEffectList : MonoBehaviour
     private ObservableCollection<BaseStatusEffect> SourceCollection;
     public void Initialize (ObservableCollection<BaseStatusEffect> sourceCollection)
     {
+        ClearList();
         SourceCollection = sourceCollection;
         SourceCollection.CollectionChanged += HandleSourceCollectionChanged;
     }

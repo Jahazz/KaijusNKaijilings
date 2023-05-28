@@ -10,8 +10,6 @@ namespace Skills
     public class HauntingOmen : SkillScriptableObject
     {
         [field: SerializeField]
-        private DamageSkillData DamageData { get; set; }
-        [field: SerializeField]
         private StatusEffects.HauntingOmen StatusEffectToApply { get; set; }
 
         public override void UseSkill (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle)

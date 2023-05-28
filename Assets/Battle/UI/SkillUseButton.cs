@@ -13,15 +13,29 @@ namespace BattleCore.UI
         [field: SerializeField]
         private Button SkillButton { get; set; }
         [field: SerializeField]
+        private Image SkillImage { get; set; }
+
+        [field: Space]
+        [field: SerializeField]
         private TMP_Text SkillLabel { get; set; }
+        [field: SerializeField]
+        private Image SkillTypeImage { get; set; }
+        [field: SerializeField]
+        private Image DefenceStatImage { get; set; }
+        [field: SerializeField]
+        private Image OffenceStatImage { get; set; }
+        [field: SerializeField]
+        private GameObject DefenceStatContainer { get; set; }
+        [field: SerializeField]
+        private GameObject OffenceStatContainer { get; set; }
+        [field: SerializeField]
+        private TMP_Text SkillPowerLabel { get; set; }
+        [field: SerializeField]
+        private GameObject OffencePowerContainer { get; set; }
         [field: SerializeField]
         private TMP_Text SkillCostLabel { get; set; }
         [field: SerializeField]
-        private Image SkillImage { get; set; }
-        [field: SerializeField]
-        private TMP_Text SkillTypeLabel { get; set; }
-        [field: SerializeField]
-        private Image SkillTypeImage { get; set; }
+        private TMP_Text SkillDescriptionLabel { get; set; }
         private SkillScriptableObject BoundSkill { get; set; }
         private Entity SkillOwner { get; set; }
 
@@ -36,11 +50,12 @@ namespace BattleCore.UI
 
             TypeDataScriptable skillType = skill.BaseSkillData.SkilType[0];
 
-            SkillTypeLabel.text = skillType.TypeName;
             SkillTypeImage.sprite = skillType.TypeSprite;
+            SkillDescriptionLabel.text = skill.BaseSkillData.Description;
 
             skillOwner.ModifiedStats.Mana.CurrentValue.OnVariableChange += HandleOnCurrentManaChanged;
             HandleOnCurrentManaChanged(skillOwner.ModifiedStats.Mana.CurrentValue.PresentValue);
+            TryToFillDamageSKillData();
         }
 
         private void HandleOnCurrentManaChanged (float newValue)
@@ -51,6 +66,34 @@ namespace BattleCore.UI
         public void Click ()
         {
             BattleScreenController.UseSkill(SkillOwner, BoundSkill);
+        }
+
+        private void TryToFillDamageSKillData ()
+        {
+            bool isDamageSkill = BoundSkill.IsDamageSkill;
+
+            if (isDamageSkill == true)
+            {
+                DefenceStatImage.sprite = SingletonContainer.Instance.EntityManager.StatTypeSpriteDictionary[BoundSkill.DamageData.DefenceType];
+                OffenceStatImage.sprite = SingletonContainer.Instance.EntityManager.StatTypeSpriteDictionary[BoundSkill.DamageData.AttackType];
+
+                float minDamage = BoundSkill.DamageData.DamageRangeValue.x;
+                float maxDamage = BoundSkill.DamageData.DamageRangeValue.x;
+
+                if (minDamage == maxDamage)
+                {
+                    SkillPowerLabel.text = string.Format("{0}", minDamage);
+                }
+                else
+                {
+                    SkillPowerLabel.text = string.Format("{0}-{1}", minDamage, maxDamage);
+                }
+            }
+
+            DefenceStatContainer.SetActive(isDamageSkill);
+            OffenceStatContainer.SetActive(isDamageSkill);
+            OffencePowerContainer.SetActive(isDamageSkill);
+
         }
     }
 }
