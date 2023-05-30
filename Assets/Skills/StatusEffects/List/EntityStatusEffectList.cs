@@ -1,6 +1,6 @@
 using StatusEffects.EntityStatusEffects;
 
-public class EntityStatusEffectList : StatusEffectList<BaseEntityScriptableStatusEffect>
+public class EntityStatusEffectList : StatusEffectList<StatusEffects.EntityStatusEffects.BaseScriptableEntityStatusEffect>
 {
 
 }

@@ -22,6 +22,8 @@ namespace BattleCore
         public event OnBattleFinishedParams OnBattleFinished;
         public delegate void OnPlayerEntitySwapRequestParams (Action<Entity> callback);
         public event OnPlayerEntitySwapRequestParams OnPlayerEntitySwapRequest;
+        public delegate void OnBattlegroundCleanseParams ();
+        public event OnBattlegroundCleanseParams OnBattlegroundCleanse;
 
         public delegate IEnumerator OnTurnEndParams ();
         public event OnTurnEndParams OnTurnEnd;
@@ -31,7 +33,7 @@ namespace BattleCore
         public Func<Entity, IEnumerator> ViewWaitForAnimationFinished { get; set; }
         public Func<Player, Entity, IEnumerator> ViewSwapEntity { get; set; }
 
-        public ObservableCollection<BaseStatusEffect<BaseScriptableBattlegroundStatusEffect>> BattlegroundStatusEffects { get; set; } = new ObservableCollection<BaseStatusEffect<BaseScriptableBattlegroundStatusEffect>>();
+        public ObservableCollection<BattlegroundStatusEffect> BattlegroundStatusEffects { get; set; } = new ObservableCollection<BattlegroundStatusEffect>();
         public List<BattleParticipant> BattleParticipantsCollection { get; private set; } = new List<BattleParticipant>();
         public ObservableVariable<BattleState> CurrentBattleState { get; private set; } = new ObservableVariable<BattleState>(BattleState.NONE);
         private BattleActionResolver BattleActionResolver { get; set; }

@@ -7,30 +7,31 @@ using UnityEngine;
 namespace StatusEffects.EntityStatusEffects
 {
     [CreateAssetMenu(fileName = nameof(HauntingOmen), menuName = "ScriptableObjects/StatusEffects/" + nameof(HauntingOmen))]
-    public class HauntingOmen : BaseEntityScriptableStatusEffect
+    public class HauntingOmen : BaseScriptableEntityStatusEffect
     {
         public override void ApplyStatus (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle)
         {
-            BaseStatusEffect<BaseEntityScriptableStatusEffect> createdStatusEffect = new BaseStatusEffect<BaseEntityScriptableStatusEffect>(this);
-            createdStatusEffect.OnStatusEffectRemoved += HandleOnStatusEffectRemoved;
+            EntityStatusEffect createdStatusEffect;
+            bool hasStatusBeenApplied = SkillUtils.TryToApplyStatusEffect(this, target, currentBattle, 1, out createdStatusEffect);//at the end of this turn it retreats and pushes random kaijling from team into battle.
 
-            SkillUtils.ApplyStatusEffect(caster, createdStatusEffect);//at the end of this turn it retreats and pushes random kaijling from team into battle.
-
-            currentBattle.OnTurnEnd += Wrapper;
-
-            IEnumerator Wrapper ()
+            if (hasStatusBeenApplied == true)
             {
-                yield return HandleOnCurrentBattleStateChange(casterOwner, caster, target, currentBattle);
-                SkillUtils.RemoveStatusEffect(caster, createdStatusEffect);
-                currentBattle.OnTurnEnd -= Wrapper;
-            }
+                createdStatusEffect.OnStatusEffectRemoved += HandleOnStatusEffectRemoved;
 
-            void HandleOnStatusEffectRemoved ()
-            {
-                currentBattle.OnTurnEnd -= Wrapper;
-            }
+                currentBattle.OnTurnEnd += Wrapper;
 
-            AddRemoveEvents(createdStatusEffect, currentBattle, caster);
+                IEnumerator Wrapper ()
+                {
+                    yield return HandleOnCurrentBattleStateChange(casterOwner, caster, target, currentBattle);
+                    SkillUtils.RemoveAllStacksOfStatusEffect(target, this);
+                    currentBattle.OnTurnEnd -= Wrapper;
+                }
+
+                void HandleOnStatusEffectRemoved ()
+                {
+                    currentBattle.OnTurnEnd -= Wrapper;
+                }
+            }
         }
 
         private IEnumerator HandleOnCurrentBattleStateChange (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle)

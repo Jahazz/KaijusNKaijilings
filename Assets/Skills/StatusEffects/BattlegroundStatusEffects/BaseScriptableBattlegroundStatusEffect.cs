@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using BattleCore;
 
 namespace StatusEffects.BattlegroundStatusEffects
 {
-    public class BaseScriptableBattlegroundStatusEffect : BaseScriptableStatusEffect
+    public abstract class BaseScriptableBattlegroundStatusEffect : BaseScriptableStatusEffect
     {
-
+        public bool Cleansable { get; private set; }
+        public bool RemovedAtEndOfCombat { get; private set; }
+        public abstract void ApplyStatus (Battle currentBattle);
     }
 }
 

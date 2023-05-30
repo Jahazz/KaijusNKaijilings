@@ -4,6 +4,7 @@ using StatusEffects.BattlegroundStatusEffects;
 using StatusEffects.EntityStatusEffects;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class SkillUtils
@@ -19,26 +20,83 @@ public static class SkillUtils
         target.GetDamaged(new EntityDamageData(attributeDamageMultiplier, typeDamageMultiplier, attackRandomizedValue, totalDamage, baseSkillData.GameobjectToSpawnOnHitTarget));
     }
 
-    public static void ApplyStatusEffect (Entity target, BaseStatusEffect<BaseEntityScriptableStatusEffect> effectData)
+    public static bool TryToApplyStatusEffect (BaseScriptableEntityStatusEffect baseScriptableStatusEffect, Entity target, Battle currentBattle, int numberOfStacksToAdd, out EntityStatusEffect createdStatusEffect)
     {
-        target.PresentStatusEffects.Add(effectData);
+        bool hasStatusBeenApplied = false;
+
+        EntityStatusEffect statusInEntity = GetStatusOfTypeFromEntity(baseScriptableStatusEffect, target);
+
+        if (statusInEntity == null)
+        {
+            createdStatusEffect = new EntityStatusEffect(baseScriptableStatusEffect, target, currentBattle, numberOfStacksToAdd);
+            target.PresentStatusEffects.Add(createdStatusEffect);
+            hasStatusBeenApplied = true;
+        }
+        else
+        {
+            createdStatusEffect = null;
+            AddStacksToStatusEffect(statusInEntity, numberOfStacksToAdd);
+        }
+
+        return hasStatusBeenApplied;
     }
 
-    public static void RemoveStatusEffect (Entity target, BaseStatusEffect<BaseEntityScriptableStatusEffect> effectData)
+    public static void RemoveStatusEffect (Entity target, BaseScriptableEntityStatusEffect baseScriptableStatusEffect, int stacksToRemove)
     {
-        effectData.InvokeOnRemoved();
-        target.PresentStatusEffects.Remove(effectData);
+        EntityStatusEffect statusInEntity = GetStatusOfTypeFromEntity(baseScriptableStatusEffect, target);
+
+        if(statusInEntity != null)
+        {
+            int numberOfStacks = statusInEntity.CurrentNumberOfStacks.PresentValue - stacksToRemove;
+
+            if (numberOfStacks > 0)
+            {
+                statusInEntity.CurrentNumberOfStacks.PresentValue = numberOfStacks;
+            }
+            else
+            {
+                RemoveAllStacksOfStatusEffect(target, baseScriptableStatusEffect);
+            }
+        }
     }
 
-    public static void ApplyStatusEffectToBattleground (Battle target, BaseStatusEffect<BaseScriptableBattlegroundStatusEffect> effectData)
+    public static void RemoveAllStacksOfStatusEffect (Entity target, BaseScriptableEntityStatusEffect baseScriptableStatusEffect)
     {
-        target.BattlegroundStatusEffects.Add(effectData);
+        EntityStatusEffect statusInEntity = GetStatusOfTypeFromEntity(baseScriptableStatusEffect, target);
+
+        target.PresentStatusEffects.Remove(statusInEntity);
+        statusInEntity.Cleanup();
+        statusInEntity.InvokeOnRemoved();
     }
 
-    public static void RemoveStatusEffectFromBattleground (Battle target, BaseStatusEffect<BaseScriptableBattlegroundStatusEffect> effectData)
+    public static BattlegroundStatusEffect ApplyStatusEffectToBattleground (BaseScriptableBattlegroundStatusEffect effectData, Battle target)
     {
-        effectData.InvokeOnRemoved();
-        target.BattlegroundStatusEffects.Remove(effectData);
+        BattlegroundStatusEffect createdStatusEffect = new BattlegroundStatusEffect(effectData, target);
+        target.BattlegroundStatusEffects.Add(createdStatusEffect);
+        return createdStatusEffect;
     }
-} 
+
+    public static void RemoveStatusEffectFromBattleground (Battle target, BaseScriptableBattlegroundStatusEffect effectData)
+    {
+        BattlegroundStatusEffect statusToRemove = target.BattlegroundStatusEffects.FirstOrDefault(n => n.BaseStatusEffect == effectData);
+
+        if (statusToRemove != null)
+        {
+            statusToRemove.InvokeOnRemoved();
+            statusToRemove.Cleanup();
+            target.BattlegroundStatusEffects.Remove(statusToRemove);
+        }
+    }
+
+    private static EntityStatusEffect GetStatusOfTypeFromEntity (BaseScriptableEntityStatusEffect baseScriptableStatusEffect, Entity target)
+    {
+        return target.PresentStatusEffects.FirstOrDefault(n => n.BaseStatusEffect == baseScriptableStatusEffect);
+    }
+
+    private static void AddStacksToStatusEffect (EntityStatusEffect targetStatus, int stacksToAdd)
+    {
+        int numberOfStacks = targetStatus.CurrentNumberOfStacks.PresentValue + stacksToAdd;
+        targetStatus.CurrentNumberOfStacks.PresentValue = Mathf.Clamp(numberOfStacks, 0, targetStatus.BaseStatusEffect.MaxStacks);
+    }
+}
 

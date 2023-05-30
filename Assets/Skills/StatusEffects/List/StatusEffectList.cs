@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
 
-public class StatusEffectList<StatusType> : MonoBehaviour where StatusType : BaseScriptableStatusEffect
+public class StatusEffectList<StatusType> : MonoBehaviour
 {
     [field: SerializeField]
     private StatusEffectElement<StatusType> ElementToSpawn { get; set; }
@@ -12,8 +12,8 @@ public class StatusEffectList<StatusType> : MonoBehaviour where StatusType : Bas
     private Transform ElementsContainer { get; set; }
 
     private List<StatusEffectElement<StatusType>> AllElementsCollection = new List<StatusEffectElement<StatusType>>();
-    private ObservableCollection<BaseStatusEffect<StatusType>> SourceCollection;
-    public void Initialize (ObservableCollection<BaseStatusEffect<StatusType>> sourceCollection)
+    private ObservableCollection<StatusType> SourceCollection;
+    public void Initialize (ObservableCollection<StatusType> sourceCollection)
     {
         ClearList();
         SourceCollection = sourceCollection;
@@ -46,13 +46,13 @@ public class StatusEffectList<StatusType> : MonoBehaviour where StatusType : Bas
 
     private void InitializeFromSourceList ()
     {
-        foreach (BaseStatusEffect<StatusType> singleStatusEffect in SourceCollection)
+        foreach (StatusType singleStatusEffect in SourceCollection)
         {
             CreateNewElement(singleStatusEffect);
         }
     }
 
-    private void CreateNewElement (BaseStatusEffect<StatusType> sourceData)
+    private void CreateNewElement (StatusType sourceData)
     {
         StatusEffectElement<StatusType> createdElement = Instantiate(ElementToSpawn, ElementsContainer);
         createdElement.Initialize(sourceData);

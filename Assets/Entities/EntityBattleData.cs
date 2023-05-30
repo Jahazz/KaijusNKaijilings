@@ -9,7 +9,7 @@ public partial class Entity
     public delegate void OnCleanseArguments ();
     public event OnCleanseArguments OnCleanse;
 
-    public ObservableCollection<BaseStatusEffect<BaseEntityScriptableStatusEffect>> PresentStatusEffects { get; set; } = new ObservableCollection<BaseStatusEffect<BaseEntityScriptableStatusEffect>>();
+    public ObservableCollection<EntityStatusEffect> PresentStatusEffects { get; set; } = new ObservableCollection<EntityStatusEffect>();
 
     public void GetDamaged (EntityDamageData damageData)
     {

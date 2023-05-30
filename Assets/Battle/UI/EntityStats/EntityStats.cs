@@ -21,7 +21,7 @@ public class EntityStats : MonoBehaviour
     [field: SerializeField]
     private GameObject ExperienceBar { get; set; }
     [field: SerializeField]
-    private StatusEffectList<BaseEntityScriptableStatusEffect> StatusEffectList { get; set; }
+    private StatusEffectList<EntityStatusEffect> StatusEffectList { get; set; }
 
     private Entity EntityToAttach { get; set; }
     private List<Binding> BindingsCollection { get; set; } = new List<Binding>();
