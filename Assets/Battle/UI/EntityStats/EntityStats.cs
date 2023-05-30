@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Utils;
 using UnityEngine;
+using StatusEffects.EntityStatusEffects;
 
 public class EntityStats : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class EntityStats : MonoBehaviour
     [field: SerializeField]
     private GameObject ExperienceBar { get; set; }
     [field: SerializeField]
-    private StatusEffectList StatusEffectList { get; set; }
+    private StatusEffectList<BaseEntityScriptableStatusEffect> StatusEffectList { get; set; }
 
     private Entity EntityToAttach { get; set; }
     private List<Binding> BindingsCollection { get; set; } = new List<Binding>();

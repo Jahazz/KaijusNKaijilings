@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4144098983321074495}
   - component: {fileID: 3444222858605955527}
-  - component: {fileID: 5954010912608021922}
+  - component: {fileID: 749875729908307914}
   m_Layer: 8
-  m_Name: StausEffects
+  m_Name: BattlegroundStausEffects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &5954010912608021922
+--- !u!114 &749875729908307914
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,10 +74,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3684990337872244677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 437000e120608c64eb9c4db7d4098996, type: 3}
+  m_Script: {fileID: 11500000, guid: 41ce2f0af1e7cd5458bead7600cfda93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ElementToSpawn>k__BackingField: {fileID: 1712011353318393735, guid: 8da054b99a82dbb4ca4b3853fac566fc,
+  <ElementToSpawn>k__BackingField: {fileID: 7776247045135483052, guid: 8da054b99a82dbb4ca4b3853fac566fc,
     type: 3}
   <ElementsContainer>k__BackingField: {fileID: 4144098983321074495}
 --- !u!1001 &3084742244100152703

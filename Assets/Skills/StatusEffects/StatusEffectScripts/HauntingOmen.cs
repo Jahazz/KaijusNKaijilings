@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace StatusEffects
+namespace StatusEffects.EntityStatusEffects
 {
     [CreateAssetMenu(fileName = nameof(HauntingOmen), menuName = "ScriptableObjects/StatusEffects/" + nameof(HauntingOmen))]
-    public class HauntingOmen : BaseScriptableStatusEffect
+    public class HauntingOmen : BaseEntityScriptableStatusEffect
     {
         public override void ApplyStatus (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle)
         {
-            BaseStatusEffect createdStatusEffect = new BaseStatusEffect(this);
+            BaseStatusEffect<BaseEntityScriptableStatusEffect> createdStatusEffect = new BaseStatusEffect<BaseEntityScriptableStatusEffect>(this);
             createdStatusEffect.OnStatusEffectRemoved += HandleOnStatusEffectRemoved;
 
             SkillUtils.ApplyStatusEffect(caster, createdStatusEffect);//at the end of this turn it retreats and pushes random kaijling from team into battle.

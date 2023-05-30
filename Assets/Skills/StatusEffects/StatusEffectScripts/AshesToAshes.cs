@@ -1,15 +1,12 @@
 using BattleCore;
 using UnityEngine;
 
-namespace StatusEffects
+namespace StatusEffects.BattlegroundStatusEffects
 {
     [CreateAssetMenu(fileName = nameof(AshesToAshes), menuName = "ScriptableObjects/StatusEffects/" + nameof(AshesToAshes))]
-    public class AshesToAshes : BaseScriptableStatusEffect
+    public class AshesToAshes : BaseScriptableBattlegroundStatusEffect
     {
-        public override void ApplyStatus (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle)
-        {
-            throw new System.NotImplementedException();
-        }
+       
     }
 }
 

@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
 
-public class StatusEffectList : MonoBehaviour
+public class StatusEffectList<StatusType> : MonoBehaviour where StatusType : BaseScriptableStatusEffect
 {
     [field: SerializeField]
-    private StatusEffectElement ElementToSpawn { get; set; }
+    private StatusEffectElement<StatusType> ElementToSpawn { get; set; }
     [field: SerializeField]
     private Transform ElementsContainer { get; set; }
 
-    private List<StatusEffectElement> AllElementsCollection = new List<StatusEffectElement>();
-    private ObservableCollection<BaseStatusEffect> SourceCollection;
-    public void Initialize (ObservableCollection<BaseStatusEffect> sourceCollection)
+    private List<StatusEffectElement<StatusType>> AllElementsCollection = new List<StatusEffectElement<StatusType>>();
+    private ObservableCollection<BaseStatusEffect<StatusType>> SourceCollection;
+    public void Initialize (ObservableCollection<BaseStatusEffect<StatusType>> sourceCollection)
     {
         ClearList();
         SourceCollection = sourceCollection;
@@ -36,7 +36,7 @@ public class StatusEffectList : MonoBehaviour
 
     private void ClearList ()
     {
-        foreach (StatusEffectElement singleElement in AllElementsCollection)
+        foreach (StatusEffectElement<StatusType> singleElement in AllElementsCollection)
         {
             Destroy(singleElement.gameObject);
         }
@@ -46,15 +46,15 @@ public class StatusEffectList : MonoBehaviour
 
     private void InitializeFromSourceList ()
     {
-        foreach (BaseStatusEffect singleStatusEffect in SourceCollection)
+        foreach (BaseStatusEffect<StatusType> singleStatusEffect in SourceCollection)
         {
             CreateNewElement(singleStatusEffect);
         }
     }
 
-    private void CreateNewElement (BaseStatusEffect sourceData)
+    private void CreateNewElement (BaseStatusEffect<StatusType> sourceData)
     {
-        StatusEffectElement createdElement = Instantiate(ElementToSpawn, ElementsContainer);
+        StatusEffectElement<StatusType> createdElement = Instantiate(ElementToSpawn, ElementsContainer);
         createdElement.Initialize(sourceData);
         AllElementsCollection.Add(createdElement);
     }

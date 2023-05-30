@@ -1,8 +1,6 @@
 using StatusEffects;
-using System.Collections;
-using System.Collections.Generic;
+using StatusEffects.EntityStatusEffects;
 using System.Collections.ObjectModel;
-using UnityEngine;
 
 public partial class Entity
 {
@@ -11,7 +9,7 @@ public partial class Entity
     public delegate void OnCleanseArguments ();
     public event OnCleanseArguments OnCleanse;
 
-    public ObservableCollection<BaseStatusEffect> PresentStatusEffects { get; set; } = new ObservableCollection<BaseStatusEffect>();
+    public ObservableCollection<BaseStatusEffect<BaseEntityScriptableStatusEffect>> PresentStatusEffects { get; set; } = new ObservableCollection<BaseStatusEffect<BaseEntityScriptableStatusEffect>>();
 
     public void GetDamaged (EntityDamageData damageData)
     {

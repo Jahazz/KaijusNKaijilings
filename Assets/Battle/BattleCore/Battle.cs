@@ -9,6 +9,8 @@ using BattleCore.ScreenEntity;
 using UnityEngine;
 using System.Collections.ObjectModel;
 using StatusEffects;
+using StatusEffects.EntityStatusEffects;
+using StatusEffects.BattlegroundStatusEffects;
 
 namespace BattleCore
 {
@@ -29,7 +31,7 @@ namespace BattleCore
         public Func<Entity, IEnumerator> ViewWaitForAnimationFinished { get; set; }
         public Func<Player, Entity, IEnumerator> ViewSwapEntity { get; set; }
 
-        public ObservableCollection<BaseStatusEffect> BattlegroundStatusEffects { get; set; } = new ObservableCollection<BaseStatusEffect>();
+        public ObservableCollection<BaseStatusEffect<BaseScriptableBattlegroundStatusEffect>> BattlegroundStatusEffects { get; set; } = new ObservableCollection<BaseStatusEffect<BaseScriptableBattlegroundStatusEffect>>();
         public List<BattleParticipant> BattleParticipantsCollection { get; private set; } = new List<BattleParticipant>();
         public ObservableVariable<BattleState> CurrentBattleState { get; private set; } = new ObservableVariable<BattleState>(BattleState.NONE);
         private BattleActionResolver BattleActionResolver { get; set; }

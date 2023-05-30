@@ -5,16 +5,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StatusEffectElement : MonoBehaviour
+public class StatusEffectElement<StatusType> : MonoBehaviour where StatusType: BaseScriptableStatusEffect
 {
     [field: SerializeField]
     private Image StatusEffectImage { get; set; }
     [field: SerializeField]
     private TMP_Text StatusEffectNameLabel { get; set; }
 
-    private BaseStatusEffect SourceStatusEffect;
+    private BaseStatusEffect<StatusType> SourceStatusEffect;
 
-    public void Initialize (BaseStatusEffect sourceStatusEffect)
+    public void Initialize (BaseStatusEffect<StatusType> sourceStatusEffect)
     {
         SourceStatusEffect = sourceStatusEffect;
         StatusEffectImage.sprite = SourceStatusEffect.BaseData.Image;

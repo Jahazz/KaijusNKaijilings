@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using StatusEffects;
+using StatusEffects.BattlegroundStatusEffects;
 
 namespace Skills
 {
@@ -13,14 +14,14 @@ namespace Skills
         [field: SerializeField]
         private float MaxHealthPercentage { get; set; }
         [field: SerializeField]
-        private StatusEffects.AshesToAshes StatusEffectToApply { get; set; }
+        private StatusEffects.BattlegroundStatusEffects.AshesToAshes StatusEffectToApply { get; set; }
 
         public override void UseSkill (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle)
         {
             base.UseSkill(casterOwner, caster, target, currentBattle);
 
 
-            BaseStatusEffect createdStatusEffect = new BaseStatusEffect(StatusEffectToApply); 
+            BaseStatusEffect<BaseScriptableBattlegroundStatusEffect> createdStatusEffect = new BaseStatusEffect<BaseScriptableBattlegroundStatusEffect>(StatusEffectToApply); 
 
             SkillUtils.ApplyStatusEffectToBattleground(currentBattle, createdStatusEffect);
             createdStatusEffect.OnStatusEffectRemoved += HandleOnStatusEffectRemoved;
