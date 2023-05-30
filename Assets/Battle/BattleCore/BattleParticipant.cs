@@ -1,14 +1,21 @@
 using BattleCore.Actions;
 using System.Linq;
+using Unity.VisualScripting;
 using Utils;
 
 namespace BattleCore
 {
+    [Inspectable]
     public class BattleParticipant
     {
         public Player Player { get; private set; }
         public ObservableVariable<Entity> CurrentEntity { get; set; } = new ObservableVariable<Entity>();
         public ObservableVariable<BaseBattleAction> SelectedBattleAction { get; private set; } = new ObservableVariable<BaseBattleAction>();
+
+        public BattleParticipant ()
+        {
+
+        }
 
         public BattleParticipant (Player player)
         {
