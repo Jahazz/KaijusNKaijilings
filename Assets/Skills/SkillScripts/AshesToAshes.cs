@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using StatusEffects;
 
 namespace Skills
 {
@@ -19,7 +20,7 @@ namespace Skills
             base.UseSkill(casterOwner, caster, target, currentBattle);
 
 
-            BaseStatusEffect createdStatusEffect = new BaseStatusEffect(StatusEffectToApply);
+            BaseStatusEffect createdStatusEffect = new BaseStatusEffect(StatusEffectToApply); 
 
             SkillUtils.ApplyStatusEffectToBattleground(currentBattle, createdStatusEffect);
             createdStatusEffect.OnStatusEffectRemoved += HandleOnStatusEffectRemoved;

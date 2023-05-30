@@ -1,4 +1,5 @@
 using BattleCore;
+using StatusEffects;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

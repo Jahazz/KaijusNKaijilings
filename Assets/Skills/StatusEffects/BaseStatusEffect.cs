@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseStatusEffect
+namespace StatusEffects
 {
-    public delegate void OnStatusEffectRemovedParams ();
-    public event OnStatusEffectRemovedParams OnStatusEffectRemoved;
-    public BaseScriptableStatusEffect BaseData { get; private set; }
-
-    public void InvokeOnRemoved ()
+    public class BaseStatusEffect
     {
-        OnStatusEffectRemoved.Invoke();
-    }
+        public delegate void OnStatusEffectRemovedParams ();
+        public event OnStatusEffectRemovedParams OnStatusEffectRemoved;
+        public BaseScriptableStatusEffect BaseData { get; private set; }
 
-    public BaseStatusEffect (BaseScriptableStatusEffect effectData)
-    {
-        BaseData = effectData;
+        public void InvokeOnRemoved ()
+        {
+            OnStatusEffectRemoved.Invoke();
+        }
+
+        public BaseStatusEffect (BaseScriptableStatusEffect effectData)
+        {
+            BaseData = effectData;
+        }
     }
 }
+

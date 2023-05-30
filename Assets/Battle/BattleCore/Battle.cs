@@ -8,6 +8,7 @@ using System.Collections;
 using BattleCore.ScreenEntity;
 using UnityEngine;
 using System.Collections.ObjectModel;
+using StatusEffects;
 
 namespace BattleCore
 {
