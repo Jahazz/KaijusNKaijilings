@@ -26,7 +26,6 @@ public class ApplyStatusToEntityNode : Unit
 
     protected override void Definition ()
     {
-        //The lambda to execute our node action when the inputTrigger port is triggered.
         inputTrigger = ControlInput("inputTrigger", (flow) =>
         {
             flow.GetValue<BaseScriptableEntityStatusEffect>(statusEffectToApply).ApplyStatus(flow.GetValue<BattleParticipant>(casterOwner), flow.GetValue<Entity>(caster), flow.GetValue<Entity>(target), flow.GetValue<Battle>(currentBattle), flow.GetValue<int>(numberOfStacksToAdd));

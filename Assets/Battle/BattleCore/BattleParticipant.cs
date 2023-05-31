@@ -12,11 +12,6 @@ namespace BattleCore
         public ObservableVariable<Entity> CurrentEntity { get; set; } = new ObservableVariable<Entity>();
         public ObservableVariable<BaseBattleAction> SelectedBattleAction { get; private set; } = new ObservableVariable<BaseBattleAction>();
 
-        public BattleParticipant ()
-        {
-
-        }
-
         public BattleParticipant (Player player)
         {
             Player = player;
@@ -56,6 +51,11 @@ namespace BattleCore
         public Entity GetFirstAliveEntity ()
         {
             return Player.EntitiesInEquipment.First(entity => entity.IsAlive.PresentValue == true);
+        }
+
+        public Entity GetRandomAliveEntity ()
+        {
+            return Player.EntitiesInEquipment.Where((n) => n.IsAlive.PresentValue == true).GetRandomElement();
         }
     }
 }

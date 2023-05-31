@@ -64,6 +64,22 @@ namespace BattleCore
             return GetBattleParticipant(true);
         }
 
+        public BattleParticipant GetParticipantByEntity (Entity entity)
+        {
+            BattleParticipant output = null;
+
+            foreach (BattleParticipant participant in BattleParticipantsCollection)
+            {
+                if (participant.Player.EntitiesInEquipment.Contains(entity) == true)
+                {
+                    output = participant;
+                    break;
+                }
+            }
+
+            return output;
+        }
+
         public BattleParticipant GetOtherBattleParticipant (BattleParticipant otherBattleParticipant)
         {
             return BattleParticipantsCollection.Where(n => n != otherBattleParticipant).FirstOrDefault();

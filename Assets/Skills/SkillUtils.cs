@@ -112,6 +112,12 @@ public static class SkillUtils
         target.Cleanse();
     }
 
+    public static void Retreat (Entity target, Battle currentBattle)
+    {
+        BattleParticipant participant = currentBattle.GetParticipantByEntity(target);
+        participant.CurrentEntity.PresentValue = participant.GetRandomAliveEntity();
+    }
+
     private static EntityStatusEffect GetStatusOfTypeFromEntity (BaseScriptableEntityStatusEffect baseScriptableStatusEffect, Entity target)
     {
         return target.PresentStatusEffects.FirstOrDefault(n => n.BaseStatusEffect == baseScriptableStatusEffect);
