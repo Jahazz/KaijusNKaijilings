@@ -39,6 +39,6 @@ public class ApplyStatusToEntityNode : Unit
         target = ValueInput<Entity>("target");
         currentBattle = ValueInput<Battle>("battle");
         statusEffectToApply = ValueInput<BaseScriptableEntityStatusEffect>("statusEffectToApply", null);
-        numberOfStacksToAdd = ValueInput("statusEffectToApply", 1);
+        numberOfStacksToAdd = ValueInput("numberOfStacksToAdd", 1);
     }
 }
