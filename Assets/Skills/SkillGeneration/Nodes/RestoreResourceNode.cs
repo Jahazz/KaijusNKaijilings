@@ -1,6 +1,7 @@
 using BattleCore;
 using StatusEffects.BattlegroundStatusEffects;
 using Unity.VisualScripting;
+using UnityEngine;
 
 [UnitCategory("SkillNodes")]
 public class RestoreResourceNode : Unit
@@ -12,21 +13,27 @@ public class RestoreResourceNode : Unit
     public ControlOutput outputTrigger;
 
     [DoNotSerialize]
-    public ValueInput currentBattle;
+    public ValueInput targetEntity;
     [DoNotSerialize]
-    public ValueInput statusEffectToApply;
+    public ValueInput typeOfResourceToRestore;
+    [DoNotSerialize]
+    public ValueInput isValueToRestorePercentage;
+    [DoNotSerialize]
+    public ValueInput value;
 
     protected override void Definition ()
     {
-        //The lambda to execute our node action when the inputTrigger port is triggered.
         inputTrigger = ControlInput("inputTrigger", (flow) =>
         {
-            flow.GetValue<BaseScriptableBattlegroundStatusEffect>(statusEffectToApply).ApplyStatus(flow.GetValue<Battle>(currentBattle));
+            SkillUtils.RestoreResource(flow.GetValue<Entity>(targetEntity), flow.GetValue<ResourceToChangeType>(typeOfResourceToRestore), flow.GetValue<bool>(isValueToRestorePercentage), flow.GetValue<float>(value));
             return outputTrigger;
         });
 
         outputTrigger = ControlOutput("outputTrigger");
-        currentBattle = ValueInput<Battle>("battle");
-        statusEffectToApply = ValueInput<BaseScriptableBattlegroundStatusEffect>("statusEffectToApply");
+
+        targetEntity = ValueInput<Entity>("targetEntity");
+        typeOfResourceToRestore = ValueInput("typeOfResourceToRestore", ResourceToChangeType.HEALTH);
+        isValueToRestorePercentage = ValueInput("isValueToRestorePercentage", false);
+        value = ValueInput("value", 0.0f);
     }
 }

@@ -27,6 +27,6 @@ public class ApplyStatusToBattlegroundNode : Unit
 
         outputTrigger = ControlOutput("outputTrigger");
         currentBattle = ValueInput<Battle>("battle");
-        statusEffectToApply = ValueInput<BaseScriptableBattlegroundStatusEffect>("statusEffectToApply");
+        statusEffectToApply = ValueInput<BaseScriptableBattlegroundStatusEffect>("statusEffectToApply", null);
     }
 }

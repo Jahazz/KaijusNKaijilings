@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Utils;
 
 public static class SkillUtils
 {
@@ -41,11 +42,29 @@ public static class SkillUtils
         return hasStatusBeenApplied;
     }
 
+    public static void RestoreResource (Entity targetEntity, ResourceToChangeType typeOfResourceToChange, bool percentageValue, float value)
+    {
+        Resource<float> resourceToChange = typeOfResourceToChange == ResourceToChangeType.HEALTH ? targetEntity.ModifiedStats.Health : targetEntity.ModifiedStats.Mana;
+        float newValue;
+
+        if (percentageValue == true)
+        {
+            newValue = resourceToChange.CurrentValue.PresentValue + (resourceToChange.MaxValue.PresentValue * value);
+        }
+        else
+        {
+            newValue = resourceToChange.CurrentValue.PresentValue + value;
+        }
+
+        newValue = Mathf.Clamp(newValue, 0, resourceToChange.MaxValue.PresentValue);
+        resourceToChange.CurrentValue.PresentValue = newValue;
+    }
+
     public static void RemoveStatusEffect (Entity target, BaseScriptableEntityStatusEffect baseScriptableStatusEffect, int stacksToRemove)
     {
         EntityStatusEffect statusInEntity = GetStatusOfTypeFromEntity(baseScriptableStatusEffect, target);
 
-        if(statusInEntity != null)
+        if (statusInEntity != null)
         {
             int numberOfStacks = statusInEntity.CurrentNumberOfStacks.PresentValue - stacksToRemove;
 

@@ -36,6 +36,6 @@ public class ApplyStatusToEntityNode : Unit
         caster = ValueInput<Entity>("caster");
         target = ValueInput<Entity>("target");
         currentBattle = ValueInput<Battle>("battle");
-        statusEffectToApply = ValueInput<BaseScriptableEntityStatusEffect>("statusEffectToApply");
+        statusEffectToApply = ValueInput<BaseScriptableEntityStatusEffect>("statusEffectToApply", null);
     }
 }
