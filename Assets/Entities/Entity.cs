@@ -29,7 +29,7 @@ public partial class Entity
 
     public ObservableVariable<bool> IsAlive { get; set; } = new ObservableVariable<bool>(true);
 
-    private ObservableCollection<StatModifier> StatModifiers { get; set; } = new ObservableCollection<StatModifier>();
+    public ObservableCollection<StatModifier> StatModifiers { get; set; } = new ObservableCollection<StatModifier>();
 
     public Entity (StatsScriptable baseEntity, BaseStatsData<Vector2> matStatsRange = null)
     {

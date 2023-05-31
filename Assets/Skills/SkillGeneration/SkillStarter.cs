@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 public class SkillStarter : EventUnit<SkillInputWrapper>
 {
     [DoNotSerialize]// No need to serialize ports.
-    public ValueOutput result { get; private set; }// The Event output data to return when the Event is triggered.
+    public ValueOutput SkillInputData { get; private set; }// The Event output data to return when the Event is triggered.
     protected override bool register => true;
 
     // Add an EventHook with the name of the Event to the list of Visual Scripting Events.
@@ -19,11 +19,11 @@ public class SkillStarter : EventUnit<SkillInputWrapper>
     {
         base.Definition();
         // Setting the value on our port.
-        result = ValueOutput<SkillInputWrapper>(nameof(result));
+        SkillInputData = ValueOutput<SkillInputWrapper>(nameof(SkillInputData));
     }
     // Setting the value on our port.
     protected override void AssignArguments (Flow flow, SkillInputWrapper data)
     {
-        flow.SetValue(result, data);
+        flow.SetValue(SkillInputData, data);
     }
 }
