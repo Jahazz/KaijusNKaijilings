@@ -12,7 +12,7 @@ namespace StatusEffects.EntityStatusEffects
         private float ModificationValue { get; set; }
 
 
-        public override void ApplyStatus (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle)
+        public override void ApplyStatus (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle,int a)
         {
             EntityStatusEffect createdStatusEffect;
             bool hasStatusBeenApplied = SkillUtils.TryToApplyStatusEffect(this, target, currentBattle, 1, out createdStatusEffect);

@@ -9,10 +9,10 @@ namespace StatusEffects.EntityStatusEffects
     [CreateAssetMenu(fileName = nameof(HauntingOmen), menuName = "ScriptableObjects/StatusEffects/" + nameof(HauntingOmen))]
     public class HauntingOmen : BaseScriptableEntityStatusEffect
     {
-        public override void ApplyStatus (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle)
+        public override void ApplyStatus (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle, int numberOfStacksToAdd)
         {
             EntityStatusEffect createdStatusEffect;
-            bool hasStatusBeenApplied = SkillUtils.TryToApplyStatusEffect(this, target, currentBattle, 1, out createdStatusEffect);//at the end of this turn it retreats and pushes random kaijling from team into battle.
+            bool hasStatusBeenApplied = SkillUtils.TryToApplyStatusEffect(this, target, currentBattle, numberOfStacksToAdd, out createdStatusEffect);//at the end of this turn it retreats and pushes random kaijling from team into battle.
 
             if (hasStatusBeenApplied == true)
             {

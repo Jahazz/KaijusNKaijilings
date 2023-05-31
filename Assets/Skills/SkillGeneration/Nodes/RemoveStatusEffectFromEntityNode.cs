@@ -1,3 +1,5 @@
+using BattleCore;
+using StatusEffects.EntityStatusEffects;
 using Unity.VisualScripting;
 
 [UnitCategory("SkillNodes")]
@@ -10,27 +12,23 @@ public class RemoveStatusEffectFromEntityNode : Unit
     public ControlOutput outputTrigger;
 
     [DoNotSerialize]
-    public ValueInput caster;
-    [DoNotSerialize]
     public ValueInput target;
     [DoNotSerialize]
-    public ValueInput baseSkillData;
+    public ValueInput statusEffectToRemove;
     [DoNotSerialize]
-    public ValueInput damageSkillData;
+    public ValueInput numberOfStacksToRemove;
 
     protected override void Definition ()
     {
-        //The lambda to execute our node action when the inputTrigger port is triggered.
         inputTrigger = ControlInput("inputTrigger", (flow) =>
         {
-            SkillUtils.UseDamagingSkill(flow.GetValue<Entity>(caster), flow.GetValue<Entity>(target), flow.GetValue<BaseSkillData>(baseSkillData), flow.GetValue<DamageSkillData>(damageSkillData));
+            SkillUtils.RemoveStatusEffect(flow.GetValue<Entity>(target), flow.GetValue<BaseScriptableEntityStatusEffect>(statusEffectToRemove), flow.GetValue<int>(numberOfStacksToRemove));
             return outputTrigger;
         });
 
         outputTrigger = ControlOutput("outputTrigger");
-        caster = ValueInput<Entity>("caster");
         target = ValueInput<Entity>("target");
-        baseSkillData = ValueInput<BaseSkillData>("baseSkillData");
-        damageSkillData = ValueInput<DamageSkillData>("damageSkillData");
+        statusEffectToRemove = ValueInput<BaseScriptableEntityStatusEffect>("statusEffectToApply", null);
+        numberOfStacksToRemove = ValueInput("numberOfStacksToRemove", 1);
     }
 }

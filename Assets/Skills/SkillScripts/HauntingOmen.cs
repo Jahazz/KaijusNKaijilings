@@ -21,7 +21,7 @@ namespace Skills
 
             caster.ModifiedStats.Mana.CurrentValue.PresentValue += caster.ModifiedStats.Mana.MaxValue.PresentValue * 0.2f;//regains 20% total mana 
 
-            StatusEffectToApply.ApplyStatus(casterOwner, caster, caster, currentBattle);
+            StatusEffectToApply.ApplyStatus(casterOwner, caster, caster, currentBattle,1);
         }
     }
 }

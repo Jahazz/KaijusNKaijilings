@@ -19,7 +19,7 @@ namespace StatusEffects.EntityStatusEffects
         [field: SerializeField]
         public int MaxStacks { get; private set; }
 
-        public abstract void ApplyStatus (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle);
+        public abstract void ApplyStatus (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle, int numberOfStacksToAdd);
     }
 }
 

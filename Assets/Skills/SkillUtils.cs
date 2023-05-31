@@ -107,6 +107,11 @@ public static class SkillUtils
         }
     }
 
+    public static void Cleanse (Entity target)
+    {
+        target.Cleanse();
+    }
+
     private static EntityStatusEffect GetStatusOfTypeFromEntity (BaseScriptableEntityStatusEffect baseScriptableStatusEffect, Entity target)
     {
         return target.PresentStatusEffects.FirstOrDefault(n => n.BaseStatusEffect == baseScriptableStatusEffect);
