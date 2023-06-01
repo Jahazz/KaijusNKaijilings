@@ -4,13 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using BattleCore.ScreenEntity;
+using StatusEffects.BattlegroundStatusEffects;
 
 namespace BattleCore.UI
 {
     public class BattleScreenView : BaseView
     {
         [field: SerializeField]
-        private EntityStats EntityStatsPrefab { get; set; }
+        private EntityStats PlayerEntityStats { get; set; }
+        [field: SerializeField]
+        private EntityStats EnemyEntityStats { get; set; }
         [field: SerializeField]
         private Canvas BattleScreenCanvas { get; set; }
         [field: SerializeField]
@@ -28,7 +31,7 @@ namespace BattleCore.UI
         [field: SerializeField]
         private GameObject BottomBarBlocker { get; set; }
         [field: SerializeField]
-        public StatusEffectList BattlegroundStatusEffectList { get;private set; }
+        public StatusEffectList<BattlegroundStatusEffect> BattlegroundStatusEffectList { get;private set; }
 
         private Dictionary<Entity, BattleScreenEntityController> EntityBattleScreenEntityControllerPair { get; set; } = new Dictionary<Entity, BattleScreenEntityController>();
 
@@ -46,7 +49,7 @@ namespace BattleCore.UI
         {
             //if (entityToDestroy != null && EntityBattleScreenEntityControllerPair.ContainsKey(entityToDestroy) == true)
             //{
-            EntityBattleScreenEntityControllerPair[entityToDestroy].DestroyEntityStats();
+            EntityBattleScreenEntityControllerPair[entityToDestroy].HideEntityStats();
             Destroy(EntityBattleScreenEntityControllerPair[entityToDestroy].gameObject);
             EntityBattleScreenEntityControllerPair.Remove(entityToDestroy);
             yield return null;
@@ -93,15 +96,15 @@ namespace BattleCore.UI
             BattleScreenEntityController entityController;
             Tweener tweener = SingletonContainer.Instance.BattleScreenManager.SpawnEntity(position, entity, out entityController);
             EntityBattleScreenEntityControllerPair.Add(entity, entityController);
-            entityController.Initialize(entity, DamageIndicatorCanvas, DamageIndicatorPrefab, SpawnEntityStats(entity, position, isPlayerOwner));
+            entityController.Initialize(entity, DamageIndicatorCanvas, DamageIndicatorPrefab, InitializeEntityStats(entity, isPlayerOwner));
             yield return tweener.WaitForCompletion();
         }
 
-        private EntityStats SpawnEntityStats (Entity entity, Transform transformPosition, bool isPlayerOwner)
+        private EntityStats InitializeEntityStats (Entity entity, bool isPlayerOwner)
         {
-            EntityStats output = Instantiate(EntityStatsPrefab, BattleScreenCanvas.transform);
-            output.Initialize(entity, transformPosition, isPlayerOwner);
-            return output;
+            EntityStats entityStats = isPlayerOwner == true ? PlayerEntityStats : EnemyEntityStats;
+            entityStats.Initialize(entity, isPlayerOwner);
+            return entityStats;
         }
     }
 }

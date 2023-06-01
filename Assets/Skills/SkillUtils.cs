@@ -1,7 +1,12 @@
 using BattleCore;
+using StatusEffects;
+using StatusEffects.BattlegroundStatusEffects;
+using StatusEffects.EntityStatusEffects;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Utils;
 
 public static class SkillUtils
 {
@@ -16,26 +21,112 @@ public static class SkillUtils
         target.GetDamaged(new EntityDamageData(attributeDamageMultiplier, typeDamageMultiplier, attackRandomizedValue, totalDamage, baseSkillData.GameobjectToSpawnOnHitTarget));
     }
 
-    public static void ApplyStatusEffect (Entity target, BaseStatusEffect effectData)
+    public static bool TryToApplyStatusEffect (BaseScriptableEntityStatusEffect baseScriptableStatusEffect, Entity target, Battle currentBattle, int numberOfStacksToAdd, out EntityStatusEffect createdStatusEffect)
     {
-        target.PresentStatusEffects.Add(effectData);
+        bool hasStatusBeenApplied = false;
+
+        EntityStatusEffect statusInEntity = GetStatusOfTypeFromEntity(baseScriptableStatusEffect, target);
+
+        if (statusInEntity == null)
+        {
+            createdStatusEffect = new EntityStatusEffect(baseScriptableStatusEffect, target, currentBattle, numberOfStacksToAdd);
+            target.PresentStatusEffects.Add(createdStatusEffect);
+            hasStatusBeenApplied = true;
+        }
+        else
+        {
+            createdStatusEffect = null;
+            AddStacksToStatusEffect(statusInEntity, numberOfStacksToAdd);
+        }
+
+        return hasStatusBeenApplied;
     }
 
-    public static void RemoveStatusEffect (Entity target, BaseStatusEffect effectData)
+    public static void RestoreResource (Entity targetEntity, ResourceToChangeType typeOfResourceToChange, bool percentageValue, float value)
     {
-        effectData.InvokeOnRemoved();
-        target.PresentStatusEffects.Remove(effectData);
+        Resource<float> resourceToChange = typeOfResourceToChange == ResourceToChangeType.HEALTH ? targetEntity.ModifiedStats.Health : targetEntity.ModifiedStats.Mana;
+        float newValue;
+
+        if (percentageValue == true)
+        {
+            newValue = resourceToChange.CurrentValue.PresentValue + (resourceToChange.MaxValue.PresentValue * value);
+        }
+        else
+        {
+            newValue = resourceToChange.CurrentValue.PresentValue + value;
+        }
+
+        newValue = Mathf.Clamp(newValue, 0, resourceToChange.MaxValue.PresentValue);
+        resourceToChange.CurrentValue.PresentValue = newValue;
     }
 
-    public static void ApplyStatusEffectToBattleground (Battle target, BaseStatusEffect effectData)
+    public static void RemoveStatusEffect (Entity target, BaseScriptableEntityStatusEffect baseScriptableStatusEffect, int stacksToRemove)
     {
-        target.BattlegroundStatusEffects.Add(effectData);
+        EntityStatusEffect statusInEntity = GetStatusOfTypeFromEntity(baseScriptableStatusEffect, target);
+
+        if (statusInEntity != null)
+        {
+            int numberOfStacks = statusInEntity.CurrentNumberOfStacks.PresentValue - stacksToRemove;
+
+            if (numberOfStacks > 0)
+            {
+                statusInEntity.CurrentNumberOfStacks.PresentValue = numberOfStacks;
+            }
+            else
+            {
+                RemoveAllStacksOfStatusEffect(target, baseScriptableStatusEffect);
+            }
+        }
     }
 
-    public static void RemoveStatusEffectFromBattleground (Battle target, BaseStatusEffect effectData)
+    public static void RemoveAllStacksOfStatusEffect (Entity target, BaseScriptableEntityStatusEffect baseScriptableStatusEffect)
     {
-        effectData.InvokeOnRemoved();
-        target.BattlegroundStatusEffects.Remove(effectData);
+        EntityStatusEffect statusInEntity = GetStatusOfTypeFromEntity(baseScriptableStatusEffect, target);
+
+        target.PresentStatusEffects.Remove(statusInEntity);
+        statusInEntity.Cleanup();
+        statusInEntity.InvokeOnRemoved();
     }
-} 
+
+    public static BattlegroundStatusEffect ApplyStatusEffectToBattleground (BaseScriptableBattlegroundStatusEffect effectData, Battle target)
+    {
+        BattlegroundStatusEffect createdStatusEffect = new BattlegroundStatusEffect(effectData, target);
+        target.BattlegroundStatusEffects.Add(createdStatusEffect);
+        return createdStatusEffect;
+    }
+
+    public static void RemoveStatusEffectFromBattleground (Battle target, BaseScriptableBattlegroundStatusEffect effectData)
+    {
+        BattlegroundStatusEffect statusToRemove = target.BattlegroundStatusEffects.FirstOrDefault(n => n.BaseStatusEffect == effectData);
+
+        if (statusToRemove != null)
+        {
+            statusToRemove.InvokeOnRemoved();
+            statusToRemove.Cleanup();
+            target.BattlegroundStatusEffects.Remove(statusToRemove);
+        }
+    }
+
+    public static void Cleanse (Entity target)
+    {
+        target.Cleanse();
+    }
+
+    public static void Retreat (Entity target, Battle currentBattle)
+    {
+        BattleParticipant participant = currentBattle.GetParticipantByEntity(target);
+        participant.CurrentEntity.PresentValue = participant.GetRandomAliveEntity();
+    }
+
+    private static EntityStatusEffect GetStatusOfTypeFromEntity (BaseScriptableEntityStatusEffect baseScriptableStatusEffect, Entity target)
+    {
+        return target.PresentStatusEffects.FirstOrDefault(n => n.BaseStatusEffect == baseScriptableStatusEffect);
+    }
+
+    private static void AddStacksToStatusEffect (EntityStatusEffect targetStatus, int stacksToAdd)
+    {
+        int numberOfStacks = targetStatus.CurrentNumberOfStacks.PresentValue + stacksToAdd;
+        targetStatus.CurrentNumberOfStacks.PresentValue = Mathf.Clamp(numberOfStacks, 0, targetStatus.BaseStatusEffect.MaxStacks);
+    }
+}
 

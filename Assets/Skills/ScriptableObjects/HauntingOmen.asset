@@ -21,6 +21,8 @@ MonoBehaviour:
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}
     <GameobjectToSpawnOnHitTarget>k__BackingField: {fileID: 0}
+    <DevelopmentData>k__BackingField: 
+  <IsDamageSkill>k__BackingField: 1
   <DamageData>k__BackingField:
     <DamageRangeValue>k__BackingField: {x: 0, y: 3}
     <AttackType>k__BackingField: 5

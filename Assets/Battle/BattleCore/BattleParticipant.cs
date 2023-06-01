@@ -1,9 +1,11 @@
 using BattleCore.Actions;
 using System.Linq;
+using Unity.VisualScripting;
 using Utils;
 
 namespace BattleCore
 {
+    [Inspectable]
     public class BattleParticipant
     {
         public Player Player { get; private set; }
@@ -49,6 +51,11 @@ namespace BattleCore
         public Entity GetFirstAliveEntity ()
         {
             return Player.EntitiesInEquipment.First(entity => entity.IsAlive.PresentValue == true);
+        }
+
+        public Entity GetRandomAliveEntity ()
+        {
+            return Player.EntitiesInEquipment.Where((n) => n.IsAlive.PresentValue == true).GetRandomElement();
         }
     }
 }

@@ -31,9 +31,10 @@ namespace BattleCore.ScreenEntity
             BoundEntity.OnDamaged += HandleOnEntityDamaged;
         }
 
-        public void DestroyEntityStats ()
+        public void HideEntityStats ()
         {
-            Destroy(EntityStats.gameObject);
+            EntityStats.gameObject.SetActive(false);
+            EntityStats.DisposeOfBindings();
         }
 
         public void AttackAnimationCallback ()

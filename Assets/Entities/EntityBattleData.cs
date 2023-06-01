@@ -1,14 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using StatusEffects;
+using StatusEffects.EntityStatusEffects;
 using System.Collections.ObjectModel;
-using UnityEngine;
 
 public partial class Entity
 {
     public delegate void OnDamagedArguments (EntityDamageData damage);
-    public event OnDamagedArguments OnDamaged;
+    public event OnDamagedArguments OnDamaged; 
+    public delegate void OnCleanseArguments ();
+    public event OnCleanseArguments OnCleanse;
 
-    public ObservableCollection<BaseStatusEffect> PresentStatusEffects { get; set; } = new ObservableCollection<BaseStatusEffect>();
+    public ObservableCollection<EntityStatusEffect> PresentStatusEffects { get; set; } = new ObservableCollection<EntityStatusEffect>();
 
     public void GetDamaged (EntityDamageData damageData)
     {
@@ -32,5 +33,10 @@ public partial class Entity
     public void CheckIfIsDead ()
     {
         IsAlive.PresentValue = ModifiedStats.Health.CurrentValue.PresentValue > 0.0f;
+    }
+
+    public void Cleanse ()
+    {
+        OnCleanse?.Invoke();
     }
 }

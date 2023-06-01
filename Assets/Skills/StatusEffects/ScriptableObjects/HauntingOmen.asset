@@ -15,3 +15,8 @@ MonoBehaviour:
   <Name>k__BackingField: Haunting Omen
   <Description>k__BackingField: Prophesizing arrival of one of its kin...
   <Image>k__BackingField: {fileID: 0}
+  <StatusEffectType>k__BackingField: 0
+  <Cleansable>k__BackingField: 0
+  <RemovedAtEndOfCombat>k__BackingField: 0
+  <RemovedOnDeath>k__BackingField: 0
+  <MaxStacks>k__BackingField: 1

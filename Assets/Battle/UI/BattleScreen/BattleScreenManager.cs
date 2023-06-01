@@ -10,6 +10,8 @@ namespace BattleCore.UI
     public class BattleScreenManager : MultiCameraOverworldLayoutSystem
     {
         [field: SerializeField]
+        public Unity.VisualScripting.ScriptMachine ScriptMachine { get; private set; }
+        [field: SerializeField]
         public BattleScreenController BattleScreenController { get; private set; }
         [field: SerializeField]
         private RectTransform Background { get; set; }
