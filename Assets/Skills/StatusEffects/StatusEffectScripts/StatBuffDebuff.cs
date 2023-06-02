@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace StatusEffects.EntityStatusEffects
 {
-    [CreateAssetMenu(fileName = nameof(StatBuff), menuName = "ScriptableObjects/StatusEffects/" + nameof(StatBuff))]
-    public class StatBuff : BaseScriptableEntityStatusEffect
+    [CreateAssetMenu(fileName = nameof(StatBuffDebuff), menuName = "ScriptableObjects/StatusEffects/" + nameof(StatBuffDebuff))]
+    public class StatBuffDebuff : BaseScriptableEntityStatusEffect
     {
         [field: SerializeField]
         private StatType StatType { get; set; }
         [field: SerializeField]
         private float ModificationValue { get; set; }
         [field: SerializeField]
-        private StatBuff InvertedScriptableEffect { get; set; }
+        private StatBuffDebuff InvertedScriptableEffect { get; set; }
         [field: SerializeField]
         private float BaseMultiplier { get; set; }
 

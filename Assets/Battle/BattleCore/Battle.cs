@@ -25,6 +25,8 @@ namespace BattleCore
 
         public delegate IEnumerator OnTurnEndParams ();
         public event OnTurnEndParams OnTurnEnd;
+        public delegate IEnumerator OnTurnStartParams ();
+        public event OnTurnEndParams OnTurnStart;
 
         public Func<Entity, IEnumerator> ViewEntitySwapAction { get; set; }//shopuld be more generalised and not bound with view, but for now it will suffice? idk
         public Func<Entity, IEnumerator> ViewPlayAnimationAsEntity { get; set; }
@@ -178,7 +180,7 @@ namespace BattleCore
             switch (newValue)
             {
                 case BattleState.ACTION_CHOOSE:
-                    ActionChoose();
+                    SingletonContainer.Instance.StartCoroutine(WaitUntilIEnumeratorEventIsFullyResolved(OnTurnStart, ActionChoose));
                     break;
                 case BattleState.ACTION_RESOLVE:
                     ActionResolve();

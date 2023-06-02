@@ -21,9 +21,12 @@ namespace StatusEffects.BattlegroundStatusEffects
             {
                 foreach (BattleParticipant item in currentBattle.BattleParticipantsCollection)
                 {
-                    float typeDamageMultiplier = BattleUtils.GetDamageMultiplierByType(StatusEffectType[0], item.CurrentEntity.PresentValue.BaseEntityType.EntityTypeCollection[0]);
+                    if (StatusEffectType[0] != item.CurrentEntity.PresentValue.BaseEntityType.EntityTypeCollection[0])
+                    {
+                        float typeDamageMultiplier = BattleUtils.GetDamageMultiplierByType(StatusEffectType[0], item.CurrentEntity.PresentValue.BaseEntityType.EntityTypeCollection[0]);
 
-                    item.CurrentEntity.PresentValue.GetDamagedForPercentageMaxValue(1, 1, HealthPercentageToLose, null);
+                        item.CurrentEntity.PresentValue.GetDamagedForPercentageMaxValue(1, 1, HealthPercentageToLose, null);
+                    }
                 }
 
                 yield return null;
