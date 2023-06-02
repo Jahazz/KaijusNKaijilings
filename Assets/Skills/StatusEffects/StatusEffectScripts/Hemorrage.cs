@@ -21,7 +21,8 @@ public class Hemorrage : BaseScriptableEntityStatusEffect
 
             IEnumerator Wrapper ()
             {
-                EntityResourceUtils.LosePercentageResource(target.ModifiedStats.Health, HpPercentLostPerStack * createdStatusEffect.CurrentNumberOfStacks.PresentValue);
+                float damageValue = HpPercentLostPerStack * createdStatusEffect.CurrentNumberOfStacks.PresentValue;
+                caster.GetDamagedForPercentageMaxValue(1.0f, 1.0f, damageValue, null);
                 yield return null;
             }
 

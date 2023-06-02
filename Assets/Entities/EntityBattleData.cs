@@ -1,6 +1,7 @@
 using StatusEffects;
 using StatusEffects.EntityStatusEffects;
 using System.Collections.ObjectModel;
+using UnityEngine;
 
 public partial class Entity
 {
@@ -17,6 +18,12 @@ public partial class Entity
         ClampResource(ModifiedStats.Health, newValue);
         OnDamaged?.Invoke(damageData);
         CheckIfIsDead();
+    }
+
+    public void GetDamagedForPercentageMaxValue (float attributeDamageMultiplier, float typeDamageMultiplier, float hpPercentToLose, GameObject attackEffect)
+    {
+        float entityPercentageHp = ModifiedStats.Health.MaxValue.PresentValue * hpPercentToLose;
+        GetDamaged(new EntityDamageData(attributeDamageMultiplier, typeDamageMultiplier, entityPercentageHp, entityPercentageHp, attackEffect));
     }
 
     public void PayForSkill (float cost)

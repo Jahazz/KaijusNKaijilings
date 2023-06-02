@@ -24,7 +24,7 @@ public class Poison : BaseScriptableEntityStatusEffect
                 {
                     float typeDamageMultiplier = BattleUtils.GetDamageMultiplierByType(SkilType[0], skillCaster.BaseEntityType.EntityTypeCollection[0]);
                     float damageValue = DamagePerStack * createdStatusEffect.CurrentNumberOfStacks.PresentValue;
-                    caster.GetDamaged(new EntityDamageData(1.0f, typeDamageMultiplier, damageValue, damageValue, null));
+                    skillCaster.GetDamaged(new EntityDamageData(1.0f, typeDamageMultiplier, damageValue, damageValue, null));
                 }
             }
 

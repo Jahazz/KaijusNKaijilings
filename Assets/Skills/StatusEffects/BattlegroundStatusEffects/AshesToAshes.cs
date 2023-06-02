@@ -21,8 +21,9 @@ namespace StatusEffects.BattlegroundStatusEffects
             {
                 foreach (BattleParticipant item in currentBattle.BattleParticipantsCollection)
                 {
-                    float entityPercentageHp = item.CurrentEntity.PresentValue.ModifiedStats.Health.MaxValue.PresentValue * MaxHealthPercentage;
-                    item.CurrentEntity.PresentValue.GetDamaged(new EntityDamageData(1, 1, entityPercentageHp, entityPercentageHp, null));
+                    float typeDamageMultiplier = BattleUtils.GetDamageMultiplierByType(StatusEffectType[0], item.CurrentEntity.PresentValue.BaseEntityType.EntityTypeCollection[0]);
+
+                    item.CurrentEntity.PresentValue.GetDamagedForPercentageMaxValue(1, 1, MaxHealthPercentage, null);
                 }
 
                 yield return null;
