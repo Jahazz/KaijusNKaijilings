@@ -3,7 +3,7 @@ using StatusEffects.EntityStatusEffects;
 using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = nameof(Burning), menuName = "ScriptableObjects/StatusEffects/" + nameof(Burning))]
+[CreateAssetMenu(fileName = nameof(ManaLeak), menuName = "ScriptableObjects/StatusEffects/" + nameof(ManaLeak))]
 public class ManaLeak : BaseScriptableEntityStatusEffect
 {
     [field: SerializeField]
@@ -22,7 +22,7 @@ public class ManaLeak : BaseScriptableEntityStatusEffect
 
             IEnumerator Wrapper ()
             {
-                target.ModifiedStats.Mana.CurrentValue.PresentValue = Mathf.Clamp(target.ModifiedStats.Mana.CurrentValue.PresentValue * (1.0f - ManaLostPerStack),0, target.ModifiedStats.Mana.MaxValue.PresentValue);
+                EntityResourceUtils.LosePercentageResource(target.ModifiedStats.Mana, ManaLostPerStack * createdStatusEffect.CurrentNumberOfStacks.PresentValue);
                 yield return null;
             }
 
