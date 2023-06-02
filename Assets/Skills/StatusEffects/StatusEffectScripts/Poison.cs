@@ -11,7 +11,7 @@ public class Poison : BaseScriptableEntityStatusEffect
     public override void ApplyStatus (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle, int numberOfStacksToAdd)
     {
         EntityStatusEffect createdStatusEffect;
-        bool hasStatusBeenApplied = SkillUtils.TryToApplyStatusEffect(this, target, currentBattle, numberOfStacksToAdd, out createdStatusEffect);//at the end of this turn it retreats and pushes random kaijling from team into battle.
+        bool hasStatusBeenApplied = SkillUtils.TryToApplyStatusEffect(this, target, currentBattle, numberOfStacksToAdd, out createdStatusEffect);
 
         if (hasStatusBeenApplied == true)
         {

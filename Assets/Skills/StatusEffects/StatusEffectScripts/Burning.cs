@@ -14,7 +14,7 @@ public class Burning : BaseScriptableEntityStatusEffect
     public override void ApplyStatus (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle, int numberOfStacksToAdd)
     {
         EntityStatusEffect createdStatusEffect;
-        bool hasStatusBeenApplied = SkillUtils.TryToApplyStatusEffect(this, target, currentBattle, numberOfStacksToAdd, out createdStatusEffect);//at the end of this turn it retreats and pushes random kaijling from team into battle.
+        bool hasStatusBeenApplied = SkillUtils.TryToApplyStatusEffect(this, target, currentBattle, numberOfStacksToAdd, out createdStatusEffect);
 
         if (hasStatusBeenApplied == true)
         {
@@ -26,7 +26,13 @@ public class Burning : BaseScriptableEntityStatusEffect
             {
                 float typeDamageMultiplier = BattleUtils.GetDamageMultiplierByType(SkilType[0], target.BaseEntityType.EntityTypeCollection[0]);
                 float damageValue = DamagePerStack * createdStatusEffect.CurrentNumberOfStacks.PresentValue;
-                caster.GetDamaged(new EntityDamageData(1.0f, typeDamageMultiplier, damageValue, damageValue, null));
+                target.GetDamaged(new EntityDamageData(1.0f, typeDamageMultiplier, damageValue, damageValue, null));
+
+                if (Random.Range(0.0f, 1.0f) < ChanceToRemovePerTurn)
+                {
+                    SkillUtils.RemoveAllStacksOfStatusEffect(target, this);
+                }
+
                 yield return null;
             }
 
