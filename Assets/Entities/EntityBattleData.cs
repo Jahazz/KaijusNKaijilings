@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 public partial class Entity
 {
     public delegate void OnDamagedArguments (EntityDamageData damage);
-    public event OnDamagedArguments OnDamaged; 
+    public event OnDamagedArguments OnDamaged;
     public delegate void OnCleanseArguments ();
     public event OnCleanseArguments OnCleanse;
 

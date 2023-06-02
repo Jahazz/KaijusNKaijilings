@@ -14,6 +14,8 @@ namespace Skills
 
         public override void UseSkill (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle)
         {
+            base.UseSkill(casterOwner, caster, target, currentBattle);
+
             SkillInputWrapper wrapper = new SkillInputWrapper(casterOwner, caster, target, currentBattle, this);
             CurrentScriptMachine = SingletonContainer.Instance.BattleScreenManager.ScriptMachine;
 

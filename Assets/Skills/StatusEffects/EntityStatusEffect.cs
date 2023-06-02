@@ -29,6 +29,7 @@ public class EntityStatusEffect
         Target.OnCleanse -= HandleOnEntityCleansed;
         CurrentBattle.OnBattleFinished -= HandleOnEndOfCombat;
         Target.IsAlive.OnVariableChange -= HandleOnEntityDeath;
+        OnStatusEffectRemoved -= Cleanup;
     }
 
     private void AddEventsToEntiy (Battle currentBattle)
@@ -47,6 +48,8 @@ public class EntityStatusEffect
         {
             Target.IsAlive.OnVariableChange += HandleOnEntityDeath;
         }
+
+        OnStatusEffectRemoved += Cleanup;
     }
 
     void HandleOnEntityCleansed ()

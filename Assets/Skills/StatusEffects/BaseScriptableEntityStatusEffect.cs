@@ -1,4 +1,5 @@
 using BattleCore;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace StatusEffects.EntityStatusEffects
@@ -8,6 +9,8 @@ namespace StatusEffects.EntityStatusEffects
         [field: Space]
         [field: SerializeField]
         public StatusEffectType StatusEffectType { get; private set; }
+        [field: SerializeField]
+        public List<TypeDataScriptable> SkilType { get; private set; }
 
         [field: Space]
         [field: SerializeField]
