@@ -36,6 +36,11 @@ namespace Utils
             return output;
         }
 
+        public static void SetAndClampFloatResource (Resource<float> resource, float value)
+        {
+            resource.CurrentValue.PresentValue = Mathf.Clamp(value, 0, resource.MaxValue.PresentValue);
+        }
+
         public static bool IsPositionOnCollider (Vector2 screenPosition, Collider collider)
         {
             bool output = false;

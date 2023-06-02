@@ -5,11 +5,7 @@ using BattleCore.Actions;
 using BattleCore.ActionQueue;
 using System;
 using System.Collections;
-using BattleCore.ScreenEntity;
-using UnityEngine;
 using System.Collections.ObjectModel;
-using StatusEffects;
-using StatusEffects.EntityStatusEffects;
 using StatusEffects.BattlegroundStatusEffects;
 
 namespace BattleCore
@@ -24,9 +20,13 @@ namespace BattleCore
         public event OnPlayerEntitySwapRequestParams OnPlayerEntitySwapRequest;
         public delegate void OnBattlegroundCleanseParams ();
         public event OnBattlegroundCleanseParams OnBattlegroundCleanse;
+        public delegate void OnSkillUseArguments (BattleParticipant skillCasterOwner, Entity skillCaster, Entity skillTarget, Battle skillCurrentBattle, SkillScriptableObject usedSkill);
+        public event OnSkillUseArguments OnSkillUse;
 
         public delegate IEnumerator OnTurnEndParams ();
         public event OnTurnEndParams OnTurnEnd;
+        public delegate IEnumerator OnTurnStartParams ();
+        public event OnTurnEndParams OnTurnStart;
 
         public Func<Entity, IEnumerator> ViewEntitySwapAction { get; set; }//shopuld be more generalised and not bound with view, but for now it will suffice? idk
         public Func<Entity, IEnumerator> ViewPlayAnimationAsEntity { get; set; }
@@ -180,7 +180,7 @@ namespace BattleCore
             switch (newValue)
             {
                 case BattleState.ACTION_CHOOSE:
-                    ActionChoose();
+                    SingletonContainer.Instance.StartCoroutine(WaitUntilIEnumeratorEventIsFullyResolved(OnTurnStart, ActionChoose));
                     break;
                 case BattleState.ACTION_RESOLVE:
                     ActionResolve();
@@ -342,13 +342,10 @@ namespace BattleCore
 
         private IEnumerator ExecuteAttackActionDelegate (AttackBattleAction selectedAction)
         {
-            Debug.Log(selectedAction.Caster.BaseEntityType.Name);
             selectedAction.Skill.UseSkill(selectedAction.CasterOwner, selectedAction.Caster, selectedAction.Target.CurrentEntity.PresentValue, this);
+            OnSkillUse?.Invoke(selectedAction.CasterOwner, selectedAction.Caster, selectedAction.Target.CurrentEntity.PresentValue, this, selectedAction.Skill);
             yield return null;
         }
-
-        //public delegate IEnumerator OnTurnEndParams ();
-        //public event OnTurnEndParams OnTurnEnd;
 
         private IEnumerator WaitUntilIEnumeratorEventIsFullyResolved<T> (T eventToWaitFor, Action onAllEventsCompletedCallback, params object[] paramList) where T : Delegate
         {
