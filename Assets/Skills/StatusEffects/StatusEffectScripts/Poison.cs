@@ -7,6 +7,7 @@ public class Poison : BaseScriptableEntityStatusEffect
 {
     [field: SerializeField]
     private float DamagePerStack { get; set; }
+
     public override void ApplyStatus (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle, int numberOfStacksToAdd)
     {
         EntityStatusEffect createdStatusEffect;
@@ -19,9 +20,12 @@ public class Poison : BaseScriptableEntityStatusEffect
 
             void Wrapper (BattleParticipant skillCasterOwner, Entity skillCaster, Entity skillTarget, Battle skillCurrentBattle, SkillScriptableObject usedSkill)
             {
-                float typeDamageMultiplier = BattleUtils.GetDamageMultiplierByType(SkilType[0], skillCaster.BaseEntityType.EntityTypeCollection[0]);
-                float damageValue = DamagePerStack * createdStatusEffect.CurrentNumberOfStacks.PresentValue;
-                caster.GetDamaged(new EntityDamageData(1.0f, typeDamageMultiplier, damageValue, damageValue, null));
+                if (skillCaster == target)
+                {
+                    float typeDamageMultiplier = BattleUtils.GetDamageMultiplierByType(SkilType[0], skillCaster.BaseEntityType.EntityTypeCollection[0]);
+                    float damageValue = DamagePerStack * createdStatusEffect.CurrentNumberOfStacks.PresentValue;
+                    caster.GetDamaged(new EntityDamageData(1.0f, typeDamageMultiplier, damageValue, damageValue, null));
+                }
             }
 
             void HandleOnStatusEffectRemoved ()
@@ -31,5 +35,5 @@ public class Poison : BaseScriptableEntityStatusEffect
         }
     }
 
-    
+
 }
