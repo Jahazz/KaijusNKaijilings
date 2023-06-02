@@ -5,6 +5,7 @@ using TMPro;
 using Utils;
 using UnityEngine;
 using StatusEffects.EntityStatusEffects;
+using StatusEffects.EntityStatusEffects.UI;
 
 public class EntityStats : MonoBehaviour
 {
@@ -21,13 +22,14 @@ public class EntityStats : MonoBehaviour
     [field: SerializeField]
     private GameObject ExperienceBar { get; set; }
     [field: SerializeField]
-    private StatusEffectList<EntityStatusEffect> StatusEffectList { get; set; }
+    private EntityStatusEffectsListModel StatusEffectList { get; set; }
 
     private Entity EntityToAttach { get; set; }
     private List<Binding> BindingsCollection { get; set; } = new List<Binding>();
 
     public void Initialize (Entity entityToAttach, bool isPlayerOwner)
     {
+        gameObject.SetActive(true);
         EntityToAttach = entityToAttach;
 
         EntityCustomNameLabel.text = EntityToAttach.Name.PresentValue;
@@ -35,7 +37,6 @@ public class EntityStats : MonoBehaviour
         StatusEffectList.Initialize(EntityToAttach.PresentStatusEffects);
 
         ExperienceBar.SetActive(isPlayerOwner);
-        gameObject.SetActive(true);
 
         GenerateBindings();
     }

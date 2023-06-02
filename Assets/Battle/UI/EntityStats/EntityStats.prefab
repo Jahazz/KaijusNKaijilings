@@ -84,8 +84,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 25, y: 0}
-  m_SizeDelta: {x: -50, y: 0}
+  m_AnchoredPosition: {x: 50, y: 0}
+  m_SizeDelta: {x: -100, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7026948532695313306
 MonoBehaviour:
@@ -212,7 +212,7 @@ MonoBehaviour:
   <ManaProgressBar>k__BackingField: {fileID: 1524364097610972891}
   <ExperienceProgressBar>k__BackingField: {fileID: 2743661063640306937}
   <ExperienceBar>k__BackingField: {fileID: 8979896916425881473}
-  <StatusEffectList>k__BackingField: {fileID: 0}
+  <StatusEffectList>k__BackingField: {fileID: 8298564227839669512}
 --- !u!1 &3472553481383566155
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,8 +521,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 25, y: 0}
-  m_SizeDelta: {x: -50, y: 0}
+  m_AnchoredPosition: {x: 50, y: 0}
+  m_SizeDelta: {x: -100, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3479498199266796379
 MonoBehaviour:
@@ -618,8 +618,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 25, y: 0}
-  m_SizeDelta: {x: -50, y: 0}
+  m_AnchoredPosition: {x: 50, y: 0}
+  m_SizeDelta: {x: -100, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2135552965468386118
 MonoBehaviour:
@@ -846,6 +846,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6537779731656777570}
     m_Modifications:
+    - target: {fileID: 1078088307809725430, guid: a02a9c5708c96e54f8dacdd24aa2c702,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078088307809725430, guid: a02a9c5708c96e54f8dacdd24aa2c702,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078088307809725430, guid: a02a9c5708c96e54f8dacdd24aa2c702,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078088307809725430, guid: a02a9c5708c96e54f8dacdd24aa2c702,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3684990337872244677, guid: a02a9c5708c96e54f8dacdd24aa2c702,
         type: 3}
       propertyPath: m_Name
@@ -889,7 +909,7 @@ PrefabInstance:
     - target: {fileID: 4144098983321074495, guid: a02a9c5708c96e54f8dacdd24aa2c702,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4144098983321074495, guid: a02a9c5708c96e54f8dacdd24aa2c702,
         type: 3}
@@ -964,6 +984,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 830700144485610870}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8298564227839669512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8695695875680993406, guid: a02a9c5708c96e54f8dacdd24aa2c702,
+    type: 3}
+  m_PrefabInstance: {fileID: 830700144485610870}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60edbe281946dcf489776cc468cdce41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1317443406435642192
 PrefabInstance:
   m_ObjectHideFlags: 0

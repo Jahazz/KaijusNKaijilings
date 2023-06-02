@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4144098983321074495}
   - component: {fileID: 3444222858605955527}
-  - component: {fileID: 4530337966115776373}
+  - component: {fileID: 1682273831719737384}
+  - component: {fileID: 7953699594787149241}
+  - component: {fileID: 6636377257699923224}
   m_Layer: 8
-  m_Name: EntityStausEffects
+  m_Name: BattlegroundStausEffects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +67,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &4530337966115776373
+--- !u!114 &1682273831719737384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,12 +76,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 3684990337872244677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb45320a529e12d4e89f08dcc753bfa4, type: 3}
+  m_Script: {fileID: 11500000, guid: 53e650d9caecfb046b578110d8382028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ElementToSpawn>k__BackingField: {fileID: 784268559562978682, guid: f0169b8b5500cd34a8b3b53fb146872b,
+  <ElementToSpawn>k__BackingField: {fileID: 1173186177625239436, guid: 8da054b99a82dbb4ca4b3853fac566fc,
     type: 3}
   <ElementsContainer>k__BackingField: {fileID: 4144098983321074495}
+  <IsDraggable>k__BackingField: 0
+  <OnElementDropped>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7953699594787149241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3684990337872244677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 809ed40d156008b43b5b580f03d0333c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6636377257699923224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3684990337872244677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e97685c2e9d8f04892a1d2088e4b89b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CurrentModel>k__BackingField: {fileID: 7953699594787149241}
+  <CurrentView>k__BackingField: {fileID: 1682273831719737384}
 --- !u!1001 &3084742244100152703
 PrefabInstance:
   m_ObjectHideFlags: 0

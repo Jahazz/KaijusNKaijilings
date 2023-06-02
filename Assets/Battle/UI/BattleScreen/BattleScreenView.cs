@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using BattleCore.ScreenEntity;
-using StatusEffects.BattlegroundStatusEffects;
+using StatusEffects.BattlegroundStatusEffects.UI;
 
 namespace BattleCore.UI
 {
@@ -31,7 +31,7 @@ namespace BattleCore.UI
         [field: SerializeField]
         private GameObject BottomBarBlocker { get; set; }
         [field: SerializeField]
-        public StatusEffectList<BattlegroundStatusEffect> BattlegroundStatusEffectList { get;private set; }
+        public BattlegroundStatusEffectsListModel BattlegroundStatusEffectList { get;private set; }
 
         private Dictionary<Entity, BattleScreenEntityController> EntityBattleScreenEntityControllerPair { get; set; } = new Dictionary<Entity, BattleScreenEntityController>();
 
