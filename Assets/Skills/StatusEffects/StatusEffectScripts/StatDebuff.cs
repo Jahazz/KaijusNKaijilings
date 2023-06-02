@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace StatusEffects.EntityStatusEffects
 {
-    public class StatChangeStatus : BaseScriptableEntityStatusEffect
+    [CreateAssetMenu(fileName = nameof(StatDebuff), menuName = "ScriptableObjects/StatusEffects/" + nameof(StatDebuff))]
+    public class StatDebuff : BaseScriptableEntityStatusEffect
     {
         [field: SerializeField]
         private StatType StatType { get; set; } 

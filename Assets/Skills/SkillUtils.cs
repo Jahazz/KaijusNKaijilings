@@ -118,7 +118,7 @@ public static class SkillUtils
         participant.CurrentEntity.PresentValue = participant.GetRandomAliveEntity();
     }
 
-    private static EntityStatusEffect GetStatusOfTypeFromEntity (BaseScriptableEntityStatusEffect baseScriptableStatusEffect, Entity target)
+    public static EntityStatusEffect GetStatusOfTypeFromEntity (BaseScriptableEntityStatusEffect baseScriptableStatusEffect, Entity target)
     {
         return target.PresentStatusEffects.FirstOrDefault(n => n.BaseStatusEffect == baseScriptableStatusEffect);
     }
