@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f188bc2841fdf43a033c0ff3afd79b, type: 3}
+  m_Name: AshesToAshes
+  m_EditorClassIdentifier: 
+  <BaseSkillData>k__BackingField:
+    <Name>k__BackingField: AshesToAshes
+    <Cost>k__BackingField: 0
+    <Description>k__BackingField: 
+    <Image>k__BackingField: {fileID: 21300000, guid: 09f50b88573642c44a2eb0013734df3e,
+      type: 3}
+    <SkilType>k__BackingField:
+    - {fileID: 11400000, guid: 618cf5565bc626f4a84e1802977c48e7, type: 2}
+    <GameobjectToSpawnOnHitTarget>k__BackingField: {fileID: 0}
+    <DevelopmentData>k__BackingField: 
+  <MaxHealthPercentage>k__BackingField: 0.05
+  <StatusEffectToApply>k__BackingField: {fileID: 11400000, guid: 92dae89cc62d96449a20d08874533b6d,
+    type: 2}

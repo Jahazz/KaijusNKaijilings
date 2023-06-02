@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435dbce7bb019ff4aacd371ba3e9f94a, type: 3}
+  m_Name: HeavyRain
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Heavy Rain
+  <Description>k__BackingField: 
+  <Image>k__BackingField: {fileID: 0}
+  <StatusEffectType>k__BackingField:
+  - {fileID: 11400000, guid: ef42084dcb328664f9c4e4a207c8ba53, type: 2}
+  <Cleansable>k__BackingField: 1
+  <RemovedAtEndOfCombat>k__BackingField: 1
