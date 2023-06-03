@@ -53,7 +53,7 @@ public class EntityDetailedScreenView : BaseEntityDetailedScreenView
     {
         foreach (StatTypeStatElementPair statType in StatElementCollection)
         {
-            BindingsCollection.Add(BindingFactory.GenerateStatElementBinding(statType.StatElement, CurrentEntityData.StatsGainedThroughLeveling.GetStatOfType(statType.StatType), CurrentEntityData.ModifiedStats.GetStatOfType(statType.StatType)));
+            BindingsCollection.Add(BindingFactory.GenerateStatElementBinding(statType.StatElement, CurrentEntityData.StatsGainedThroughLeveling.GetStatOfType(statType.StatType), CurrentEntityData.ModifiedStats.GetStatOfType(statType.StatType), statType.StatType));
         }
 
         BindingsCollection.Add(BindingFactory.GenerateCustomProgressBarBinding(HealthBar, new ObservableVariable<float>(0), CurrentEntityData.ModifiedStats.Health.MaxValue, CurrentEntityData.ModifiedStats.Health.CurrentValue));

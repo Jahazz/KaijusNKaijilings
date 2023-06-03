@@ -722,13 +722,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb407929f9cc07548ac2c330834e7450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CustomNameLabel>k__BackingField: {fileID: 1825626972068321270}
-  <EntityNameLabel>k__BackingField: {fileID: 876226494884422492}
-  <LevelLabel>k__BackingField: {fileID: 2845187660254186170}
-  <EntityImage>k__BackingField: {fileID: 1399679860498760832}
-  <LevelLabelFormat>k__BackingField: '{0} lvl'
   <SelectionBorder>k__BackingField: {fileID: 6558231432950683344}
+  <EntityImage>k__BackingField: {fileID: 1399679860498760832}
+  <EntityNameLabel>k__BackingField: {fileID: 876226494884422492}
   <TypeController>k__BackingField: {fileID: 3359300557228777242}
+  <CustomNameLabel>k__BackingField: {fileID: 1825626972068321270}
+  <LevelLabel>k__BackingField: {fileID: 2845187660254186170}
+  <LevelLabelFormat>k__BackingField: '{0} lvl'
   <HealthBar>k__BackingField: {fileID: 5738511307560939687}
   <ManaBar>k__BackingField: {fileID: 6289256800918536874}
   <ExperienceBar>k__BackingField: {fileID: 7938869427891208918}
@@ -1727,6 +1727,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8072961501736883618}
     m_Modifications:
+    - target: {fileID: 104657727511017143, guid: 0e465b7a505e82b4a96aad2852eea7a7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -5.300003
+      objectReference: {fileID: 0}
+    - target: {fileID: 104657727511017143, guid: 0e465b7a505e82b4a96aad2852eea7a7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000030517578
+      objectReference: {fileID: 0}
     - target: {fileID: 104657727783755442, guid: 0e465b7a505e82b4a96aad2852eea7a7,
         type: 3}
       propertyPath: m_Name
@@ -1860,7 +1870,7 @@ PrefabInstance:
     - target: {fileID: 104657728157784652, guid: 0e465b7a505e82b4a96aad2852eea7a7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -187.65
+      value: -159.5
       objectReference: {fileID: 0}
     - target: {fileID: 104657728157784652, guid: 0e465b7a505e82b4a96aad2852eea7a7,
         type: 3}
@@ -1870,7 +1880,7 @@ PrefabInstance:
     - target: {fileID: 104657728157784652, guid: 0e465b7a505e82b4a96aad2852eea7a7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -8.21
+      value: -7.1799927
       objectReference: {fileID: 0}
     - target: {fileID: 104657728157784652, guid: 0e465b7a505e82b4a96aad2852eea7a7,
         type: 3}
@@ -1934,6 +1944,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8072961501736883618}
     m_Modifications:
+    - target: {fileID: 104657727511017143, guid: 0e465b7a505e82b4a96aad2852eea7a7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 8.667206
+      objectReference: {fileID: 0}
+    - target: {fileID: 104657727511017143, guid: 0e465b7a505e82b4a96aad2852eea7a7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000030517578
+      objectReference: {fileID: 0}
     - target: {fileID: 104657727783755442, guid: 0e465b7a505e82b4a96aad2852eea7a7,
         type: 3}
       propertyPath: m_Name
@@ -2169,7 +2189,7 @@ PrefabInstance:
     - target: {fileID: 104657727614599534, guid: 0e465b7a505e82b4a96aad2852eea7a7,
         type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 104657727614599535, guid: 0e465b7a505e82b4a96aad2852eea7a7,
         type: 3}

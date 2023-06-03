@@ -29,16 +29,16 @@ namespace Bindings
             });
         }
 
-        public static Binding GenerateStatElementBinding (StatElement statElement, ObservableVariable<float> currentStatValue, ObservableVariable<float> modifiedValue)
+        public static Binding GenerateStatElementBinding (StatElement statElement, ObservableVariable<float> currentStatValue, ObservableVariable<float> modifiedValue, StatType statType)
         {
-            statElement.SetStatValues(currentStatValue.PresentValue, modifiedValue.PresentValue);
+            statElement.SetStatValues(currentStatValue.PresentValue, modifiedValue.PresentValue, statType);
 
             currentStatValue.OnVariableChange += HandleValueChange;
             modifiedValue.OnVariableChange += HandleValueChange;
 
             void HandleValueChange (float newValue)
             {
-                statElement.SetStatValues(currentStatValue.PresentValue, modifiedValue.PresentValue);
+                statElement.SetStatValues(currentStatValue.PresentValue, modifiedValue.PresentValue, statType);
             }
 
             return new Binding(() =>

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StatElement : MonoBehaviour
 {
@@ -19,13 +20,16 @@ public class StatElement : MonoBehaviour
     private Color DefaultStatValueColor { get; set; }
     [field: SerializeField]
     private string StatModifierFormat { get; set; }
+    [field: SerializeField]
+    private Image StatImage { get; set; }
+    [field: SerializeField]
+    private string StatFormat { get; set; }
 
-
-
-    public void SetStatValues (float baseStatValue, float finalStatValue)
+    public void SetStatValues (float baseStatValue, float finalStatValue, StatType statType)
     {
-        StatValueLabel.text = baseStatValue.ToString();
-        FinalStatValue.text = finalStatValue.ToString();
+        StatValueLabel.text = string.Format(StatFormat, baseStatValue);
+        FinalStatValue.text = string.Format(StatFormat, finalStatValue);
+        StatImage.sprite = SingletonContainer.Instance.EntityManager.StatTypeSpriteDictionary[statType];
 
         float statModifierValue = finalStatValue - baseStatValue;
 
