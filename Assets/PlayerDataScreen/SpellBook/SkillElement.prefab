@@ -100,7 +100,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.3
+  m_fontSize: 24.45
   m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -256,7 +256,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: -65}
-  m_SizeDelta: {x: 130, y: 130}
+  m_SizeDelta: {x: 0, y: 130}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &3003031167615972676
 MonoBehaviour:
@@ -1163,6 +1163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9080306529688785739}
   - component: {fileID: 4846785039978617096}
+  - component: {fileID: 6291651829557179123}
   m_Layer: 5
   m_Name: SkillElement
   m_TagString: Untagged
@@ -1204,7 +1205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bb6234ff266bcb4ba6fd9353534ce83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTransform: {fileID: 0}
   <SkillImage>k__BackingField: {fileID: 3900917286752894930}
   <SkillNameLabel>k__BackingField: {fileID: 2597917147566594997}
   <SkillDescriptionLabel>k__BackingField: {fileID: 3848538515442762486}
@@ -1212,6 +1212,26 @@ MonoBehaviour:
   <SkillCostLabelFormat>k__BackingField: 'Cost: {0}'
   <TypeListController>k__BackingField: {fileID: 9153924206088823459}
   <SelectionToggle>k__BackingField: {fileID: 1672944218704103408}
+--- !u!114 &6291651829557179123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9080306529688785738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: 300
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1001 &8736824459473187455
 PrefabInstance:
   m_ObjectHideFlags: 0

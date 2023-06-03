@@ -24,19 +24,22 @@ public static class SkillUtils
     public static bool TryToApplyStatusEffect (BaseScriptableEntityStatusEffect baseScriptableStatusEffect, Entity target, Battle currentBattle, int numberOfStacksToAdd, out EntityStatusEffect createdStatusEffect)
     {
         bool hasStatusBeenApplied = false;
+        createdStatusEffect = null;
 
-        EntityStatusEffect statusInEntity = GetStatusOfTypeFromEntity(baseScriptableStatusEffect, target);
+        if (target.IsAlive.PresentValue == true)
+        {
+            EntityStatusEffect statusInEntity = GetStatusOfTypeFromEntity(baseScriptableStatusEffect, target);
 
-        if (statusInEntity == null)
-        {
-            createdStatusEffect = new EntityStatusEffect(baseScriptableStatusEffect, target, currentBattle, numberOfStacksToAdd);
-            target.PresentStatusEffects.Add(createdStatusEffect);
-            hasStatusBeenApplied = true;
-        }
-        else
-        {
-            createdStatusEffect = null;
-            AddStacksToStatusEffect(statusInEntity, numberOfStacksToAdd);
+            if (statusInEntity == null)
+            {
+                createdStatusEffect = new EntityStatusEffect(baseScriptableStatusEffect, target, currentBattle, numberOfStacksToAdd);
+                target.PresentStatusEffects.Add(createdStatusEffect);
+                hasStatusBeenApplied = true;
+            }
+            else
+            {
+                AddStacksToStatusEffect(statusInEntity, numberOfStacksToAdd);
+            }
         }
 
         return hasStatusBeenApplied;

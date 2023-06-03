@@ -14,6 +14,7 @@ public class ApplyStatusToBattlegroundNode : Unit
     [DoNotSerialize]
     public ValueInput currentBattle;
     [DoNotSerialize]
+    [PortLabelHidden]
     public ValueInput statusEffectToApply;
 
     protected override void Definition ()
