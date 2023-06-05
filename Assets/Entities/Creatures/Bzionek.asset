@@ -37,5 +37,14 @@ MonoBehaviour:
     <Willpower>k__BackingField: {x: 0.1, y: 0.6}
     <Agility>k__BackingField: {x: 0.2, y: 1}
     <Initiative>k__BackingField: {x: 0.1, y: 0.5}
-  <SkillsWithRequirements>k__BackingField: []
+  <SkillsWithRequirements>k__BackingField:
+  - <RequiredLevel>k__BackingField: 0
+    <AssignedSkill>k__BackingField: {fileID: 11400000, guid: e011d6ccf220945498fd33e29b1aa751,
+      type: 2}
+  - <RequiredLevel>k__BackingField: 0
+    <AssignedSkill>k__BackingField: {fileID: 11400000, guid: dc2e8f623bd609a438daa11bf74e3eb9,
+      type: 2}
+  - <RequiredLevel>k__BackingField: 0
+    <AssignedSkill>k__BackingField: {fileID: 11400000, guid: 83735573b9097a74fa5d07c75f0eb46c,
+      type: 2}
   <GroupCountRequiredToBreed>k__BackingField: 0
