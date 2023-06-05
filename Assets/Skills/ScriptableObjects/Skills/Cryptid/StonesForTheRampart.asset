@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d15f0df10b7969488e695e772b214dd, type: 3}
+  m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: StonesForTheRampart
   m_EditorClassIdentifier: 
   <BaseSkillData>k__BackingField:
@@ -27,3 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 15, y: 25}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <SkillGraph>k__BackingField: {fileID: 11400000, guid: cf3cc132ae950a140a5829c5b0d3b2e1,
+    type: 2}
