@@ -15,7 +15,8 @@ MonoBehaviour:
   <BaseSkillData>k__BackingField:
     <Name>k__BackingField: Blessing For The Warrior
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: 
+    <Description>k__BackingField: Buff user Might and Magic. Restore 20hp to user.
+      Deal dmg to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
@@ -26,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 3, y: 7}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
-  <SkillGraph>k__BackingField: {fileID: 0}
+  <SkillGraph>k__BackingField: {fileID: 11400000, guid: f1e660b34c5808740b795f13d0824084,
+    type: 2}

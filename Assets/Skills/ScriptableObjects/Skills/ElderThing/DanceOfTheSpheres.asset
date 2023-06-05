@@ -15,7 +15,8 @@ MonoBehaviour:
   <BaseSkillData>k__BackingField:
     <Name>k__BackingField: Dance of the Spheres
     <Cost>k__BackingField: 15
-    <Description>k__BackingField: 
+    <Description>k__BackingField: Retreat enemy and put out random enemy. Deal dmg.
+      Retreat and put out random ally
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c2bd31ce945a21d4b91321cc3bd26f76, type: 2}
@@ -26,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 30, y: 30}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
-  <SkillGraph>k__BackingField: {fileID: 0}
+  <SkillGraph>k__BackingField: {fileID: 11400000, guid: 804335c13747a3a4196b6911268f5cd8,
+    type: 2}

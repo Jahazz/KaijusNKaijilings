@@ -15,7 +15,7 @@ MonoBehaviour:
   <BaseSkillData>k__BackingField:
     <Name>k__BackingField: ' Eyes In The Darkness'
     <Cost>k__BackingField: 5
-    <Description>k__BackingField: 
+    <Description>k__BackingField: Deal dmg to enemy. Debuff willpower of enemy
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}
@@ -26,4 +26,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 8, y: 12}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
-  <SkillGraph>k__BackingField: {fileID: 0}
+  <SkillGraph>k__BackingField: {fileID: 11400000, guid: 43bec35c039834b4c9e6c17c7e282fb0,
+    type: 2}

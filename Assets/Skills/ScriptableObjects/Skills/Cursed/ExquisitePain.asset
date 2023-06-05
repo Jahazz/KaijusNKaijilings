@@ -15,7 +15,7 @@ MonoBehaviour:
   <BaseSkillData>k__BackingField:
     <Name>k__BackingField: Exquisite Pain
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: 
+    <Description>k__BackingField: Deal dmg to enemy. Buff enemy Willpower.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
@@ -26,4 +26,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 25, y: 40}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
-  <SkillGraph>k__BackingField: {fileID: 0}
+  <SkillGraph>k__BackingField: {fileID: 11400000, guid: d34478dbd7905654a9f41e2f0c4793eb,
+    type: 2}
