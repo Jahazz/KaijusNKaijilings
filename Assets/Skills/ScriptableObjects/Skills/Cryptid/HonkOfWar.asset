@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 0
     <DefenceType>k__BackingField: 0
-  <SkillGraph>k__BackingField: {fileID: 0}
+  <SkillGraph>k__BackingField: {fileID: 11400000, guid: f1e660b34c5808740b795f13d0824084,
+    type: 2}

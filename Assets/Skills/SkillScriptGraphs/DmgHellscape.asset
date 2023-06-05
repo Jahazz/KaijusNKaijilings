@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e66c6366d904e98bc83428217d4fd7, type: 3}
+  m_Name: DmgHellscape
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":271.769,"y":299.1451},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-274.0,"y":-23.0},"guid":"d86ce274-414c-4666-89d0-7e90050b78b3","$version":"A","$type":"SkillStarter","$id":"9"},{"defaultValues":{},"position":{"x":229.0,"y":-268.0},"guid":"fb48b08f-ba91-4323-b94b-1d4b1156ac1b","$version":"A","$type":"DealDamageNode","$id":"11"},{"type":"SkillInputWrapper","instance":true,"static":false,"defaultValues":{},"position":{"x":-85.0,"y":139.0},"guid":"e006c4c7-d93d-4781-a415-424bd321ee9b","$version":"A","$type":"Unity.VisualScripting.Expose","$id":"13"},{"type":"SkillScriptableObject","instance":true,"static":false,"defaultValues":{"target":null},"position":{"x":218.0,"y":260.0},"guid":"d76b819a-bd3c-45c5-8f36-31218801d6eb","$version":"A","$type":"Unity.VisualScripting.Expose","$id":"15"},{"defaultValues":{"statusEffectToApply":{"$content":0,"$type":"UnityEngine.Object"}},"position":{"x":378.0,"y":-4.0},"guid":"828e984f-8858-4a26-af5a-1a93c8e3515b","$version":"A","$type":"ApplyStatusToBattlegroundNode","$id":"17"},{"sourceUnit":{"$ref":"9"},"sourceKey":"trigger","destinationUnit":{"$ref":"11"},"destinationKey":"inputTrigger","guid":"c58befad-4784-4514-a170-6cdfd3934f0d","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"11"},"sourceKey":"outputTrigger","destinationUnit":{"$ref":"17"},"destinationKey":"inputTrigger","guid":"9e0e2f1f-325c-4d7c-8508-d99049f2d32b","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"9"},"sourceKey":"SkillInputData","destinationUnit":{"$ref":"13"},"destinationKey":"target","guid":"b17928ec-e7a6-4be4-8ccc-0afda1deb6fd","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"13"},"sourceKey":"Caster","destinationUnit":{"$ref":"11"},"destinationKey":"caster","guid":"f0aab748-e867-4bc9-ae67-ca5dbf8ff338","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"13"},"sourceKey":"Target","destinationUnit":{"$ref":"11"},"destinationKey":"target","guid":"1679dd29-1e44-4394-9f92-a43a9a7b999e","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"15"},"sourceKey":"BaseSkillData","destinationUnit":{"$ref":"11"},"destinationKey":"baseSkillData","guid":"d40ea0a5-3aa6-42a0-82bb-463c0d20d65b","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"15"},"sourceKey":"DamageData","destinationUnit":{"$ref":"11"},"destinationKey":"damageSkillData","guid":"0f1540a7-3715-44c5-991d-0c85816a44de","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"13"},"sourceKey":"SkillScriptableObjectData","destinationUnit":{"$ref":"15"},"destinationKey":"target","guid":"a8a7501b-ceb9-4fbf-819d-11f68be26d3d","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"13"},"sourceKey":"CurrentBattle","destinationUnit":{"$ref":"17"},"destinationKey":"battle","guid":"9268e067-7617-4eff-aecd-2daea2d3f5bc","$type":"Unity.VisualScripting.ValueConnection"}],"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 95a211208ebbad94b86680e89e78c762, type: 2}

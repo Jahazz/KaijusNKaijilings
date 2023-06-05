@@ -15,7 +15,7 @@ MonoBehaviour:
   <BaseSkillData>k__BackingField:
     <Name>k__BackingField: Ghostly Touch
     <Cost>k__BackingField: 2
-    <Description>k__BackingField: 
+    <Description>k__BackingField: Deal dmg to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}

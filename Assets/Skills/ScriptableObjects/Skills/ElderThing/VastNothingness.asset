@@ -15,7 +15,7 @@ MonoBehaviour:
   <BaseSkillData>k__BackingField:
     <Name>k__BackingField: Vast Nothingness
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: 
+    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Willpower.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c2bd31ce945a21d4b91321cc3bd26f76, type: 2}
@@ -26,4 +26,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 15, y: 15}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
-  <SkillGraph>k__BackingField: {fileID: 0}
+  <SkillGraph>k__BackingField: {fileID: 11400000, guid: 43bec35c039834b4c9e6c17c7e282fb0,
+    type: 2}

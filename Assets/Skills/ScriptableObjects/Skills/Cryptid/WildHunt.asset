@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d15f0df10b7969488e695e772b214dd, type: 3}
+  m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: WildHunt
   m_EditorClassIdentifier: 
   <BaseSkillData>k__BackingField:
@@ -27,3 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 35, y: 45}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <SkillGraph>k__BackingField: {fileID: 11400000, guid: 4487219e42f235a40bb643f5ecd4e354,
+    type: 2}

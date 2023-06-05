@@ -52280,6 +52280,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3535629684602905257, guid: 4a3c7b36d9bc0f44c84ef21257881829,
         type: 3}
+      propertyPath: <PlayerEntitiesCollection>k__BackingField.Array.data[0].<Level>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535629684602905257, guid: 4a3c7b36d9bc0f44c84ef21257881829,
+        type: 3}
+      propertyPath: <PlayerEntitiesCollection>k__BackingField.Array.data[0].<Entity>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 51841ac681cae6547b44e1b44b61545b,
+        type: 2}
+    - target: {fileID: 3535629684602905257, guid: 4a3c7b36d9bc0f44c84ef21257881829,
+        type: 3}
       propertyPath: <OnBattleWon>k__BackingField._PersistentCalls.Array.data[0]._PersistentArguments.Array.size
       value: 2
       objectReference: {fileID: 0}

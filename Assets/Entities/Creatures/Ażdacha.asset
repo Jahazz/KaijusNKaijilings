@@ -41,6 +41,12 @@ MonoBehaviour:
     <Initiative>k__BackingField: {x: 0.25, y: 0.7}
   <SkillsWithRequirements>k__BackingField:
   - <RequiredLevel>k__BackingField: 0
-    <AssignedSkill>k__BackingField: {fileID: 11400000, guid: 2c53da82ec0e40a49aabe9fcd4a9c7c5,
+    <AssignedSkill>k__BackingField: {fileID: 11400000, guid: 0cd61f810c64547488c361bd97b68244,
+      type: 2}
+  - <RequiredLevel>k__BackingField: 0
+    <AssignedSkill>k__BackingField: {fileID: 11400000, guid: 26686364fe9e47e48b1c554709c19346,
+      type: 2}
+  - <RequiredLevel>k__BackingField: 0
+    <AssignedSkill>k__BackingField: {fileID: 11400000, guid: c8b19f3df646c7f4b982ccf2f8ca91d2,
       type: 2}
   <GroupCountRequiredToBreed>k__BackingField: 2

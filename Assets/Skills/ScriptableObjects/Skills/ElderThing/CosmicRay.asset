@@ -15,7 +15,7 @@ MonoBehaviour:
   <BaseSkillData>k__BackingField:
     <Name>k__BackingField: Cosmic Ray
     <Cost>k__BackingField: 5
-    <Description>k__BackingField: 
+    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with Mana Leak.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c2bd31ce945a21d4b91321cc3bd26f76, type: 2}
@@ -26,4 +26,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 5, y: 5}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
-  <SkillGraph>k__BackingField: {fileID: 0}
+  <SkillGraph>k__BackingField: {fileID: 11400000, guid: b05ace09d5f7b604fb116da2d385ece3,
+    type: 2}

@@ -15,7 +15,7 @@ MonoBehaviour:
   <BaseSkillData>k__BackingField:
     <Name>k__BackingField: Dream of Freedom
     <Cost>k__BackingField: 40
-    <Description>k__BackingField: 
+    <Description>k__BackingField: Cleanse user. Deal dmg to enemy. Buff user Might.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
@@ -26,4 +26,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 50, y: 90}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
-  <SkillGraph>k__BackingField: {fileID: 0}
+  <SkillGraph>k__BackingField: {fileID: 11400000, guid: 056ba5ad10515ed4c86d82639f1f5d37,
+    type: 2}
