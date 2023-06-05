@@ -31,7 +31,7 @@ namespace BattleCore.UI
         [field: SerializeField]
         private GameObject BottomBarBlocker { get; set; }
         [field: SerializeField]
-        public BattlegroundStatusEffectsListModel BattlegroundStatusEffectList { get;private set; }
+        public BattlegroundStatusEffectsListModel BattlegroundStatusEffectList { get; private set; }
 
         private Dictionary<Entity, BattleScreenEntityController> EntityBattleScreenEntityControllerPair { get; set; } = new Dictionary<Entity, BattleScreenEntityController>();
 
@@ -58,9 +58,20 @@ namespace BattleCore.UI
 
         public void BindSkillToButtons (List<SkillScriptableObject> skillCollection, Entity ownerEntity)
         {
-            for (int i = 0; i < skillCollection.Count; i++)
+            SkillUseButton skillUseButton;
+            bool isSkillCollectionInRange = false;
+
+            for (int i = 0; i < SkillButtonCollection.Count; i++)
             {
-                SkillButtonCollection[i].BindWithSkill(skillCollection[i], ownerEntity);
+                skillUseButton = SkillButtonCollection[i];
+                isSkillCollectionInRange = skillCollection.Count > i;
+
+                if (isSkillCollectionInRange == true)
+                {
+                    skillUseButton.BindWithSkill(skillCollection[i], ownerEntity);
+                }
+
+                skillUseButton.SetEnabled(isSkillCollectionInRange);
             }
         }
 

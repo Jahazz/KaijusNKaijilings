@@ -14,6 +14,8 @@ namespace BattleCore.UI
         private Button SkillButton { get; set; }
         [field: SerializeField]
         private Image SkillImage { get; set; }
+        [field: SerializeField]
+        private GameObject SkillInactivityMarker { get; set; }
 
         [field: Space]
         [field: SerializeField]
@@ -58,14 +60,19 @@ namespace BattleCore.UI
             TryToFillDamageSKillData();
         }
 
-        private void HandleOnCurrentManaChanged (float newValue)
-        {
-            SkillButton.interactable = SkillOwner.HasResourceForSkill(BoundSkill.BaseSkillData.Cost) == true;
-        }
-
         public void Click ()
         {
             BattleScreenController.UseSkill(SkillOwner, BoundSkill);
+        }
+
+        public void SetEnabled (bool isEnabled)
+        {
+            SkillInactivityMarker.SetActive(isEnabled == false);
+        }
+
+        private void HandleOnCurrentManaChanged (float newValue)
+        {
+            SkillButton.interactable = SkillOwner.HasResourceForSkill(BoundSkill.BaseSkillData.Cost) == true;
         }
 
         private void TryToFillDamageSKillData ()
