@@ -17,7 +17,8 @@ MonoBehaviour:
     <Cost>k__BackingField: 5
     <Description>k__BackingField: 
     <Image>k__BackingField: {fileID: 0}
-    <SkilType>k__BackingField: []
+    <SkilType>k__BackingField:
+    - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
     <GameobjectToSpawnOnHitTarget>k__BackingField: {fileID: 0}
     <DevelopmentData>k__BackingField: 
   <IsDamageSkill>k__BackingField: 1

@@ -18,7 +18,8 @@ MonoBehaviour:
     <Description>k__BackingField: Deal dmg to enemy.  User have 40% to gain debuff
       Lost. Enemy has 60% to gain debuff Lost.
     <Image>k__BackingField: {fileID: 0}
-    <SkilType>k__BackingField: []
+    <SkilType>k__BackingField:
+    - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
     <GameobjectToSpawnOnHitTarget>k__BackingField: {fileID: 0}
     <DevelopmentData>k__BackingField: 
   <IsDamageSkill>k__BackingField: 1

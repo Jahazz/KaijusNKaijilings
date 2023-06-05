@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
-  m_Name: DawnOfTheFallen
+  m_Name: TrumpetsOfApocalypse
   m_EditorClassIdentifier: 
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Dawn of the Fallen
-    <Cost>k__BackingField: 30
-    <Description>k__BackingField: Restore 10% max HP to EVERY Cursed kaijiling. Buff
-      user Magic. Deal dmg to enemy.
+    <Name>k__BackingField: Trumpets of Apocalypse
+    <Cost>k__BackingField: 0
+    <Description>k__BackingField: Deal dmg to enemy, increased by percentage of used
+      mana. [+1% dmg for 1% mana]
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
-    - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
+    - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
     <GameobjectToSpawnOnHitTarget>k__BackingField: {fileID: 0}
     <DevelopmentData>k__BackingField: 
   <IsDamageSkill>k__BackingField: 1
   <DamageData>k__BackingField:
-    <DamageRangeValue>k__BackingField: {x: 15, y: 20}
+    <DamageRangeValue>k__BackingField: {x: 60, y: 60}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
   <SkillGraph>k__BackingField: {fileID: 0}
