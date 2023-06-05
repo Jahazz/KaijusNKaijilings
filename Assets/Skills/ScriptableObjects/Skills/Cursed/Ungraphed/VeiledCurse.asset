@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
+  m_Name: VeiledCurse
+  m_EditorClassIdentifier: 
+  <BaseSkillData>k__BackingField:
+    <Name>k__BackingField: Veiled Curse
+    <Cost>k__BackingField: 30
+    <Description>k__BackingField: '3 round attack. 1st round: restore 20% max HP
+      to enemy. 2nd round: buff user Magic and debuff enemy Willpower. 3rd round:
+      deal dmg to enemy'
+    <Image>k__BackingField: {fileID: 0}
+    <SkilType>k__BackingField: []
+    <GameobjectToSpawnOnHitTarget>k__BackingField: {fileID: 0}
+    <DevelopmentData>k__BackingField: 
+  <IsDamageSkill>k__BackingField: 1
+  <DamageData>k__BackingField:
+    <DamageRangeValue>k__BackingField: {x: 85, y: 90}
+    <AttackType>k__BackingField: 6
+    <DefenceType>k__BackingField: 7
+  <SkillGraph>k__BackingField: {fileID: 0}
