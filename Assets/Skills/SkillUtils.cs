@@ -115,6 +115,11 @@ public static class SkillUtils
         target.Cleanse();
     }
 
+    public static void CleanseBattleground (Battle target)
+    {
+        target.BattlegroundStatusEffects.Clear();
+    }
+
     public static void Retreat (Entity target, Battle currentBattle)
     {
         BattleParticipant participant = currentBattle.GetParticipantByEntity(target);
