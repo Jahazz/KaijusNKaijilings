@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
+  m_Name: EscapeRoute
+  m_EditorClassIdentifier: 
+  <BaseSkillData>k__BackingField:
+    <Name>k__BackingField: Escape Route
+    <Cost>k__BackingField: 20
+    <Description>k__BackingField: Halve users initiative for this attack. Deal dmg
+      to enemy. Return user and put ally.
+    <Image>k__BackingField: {fileID: 0}
+    <SkilType>k__BackingField:
+    - {fileID: 11400000, guid: c234248a3f3e91f4fb1dd30b735bb570, type: 2}
+    <GameobjectToSpawnOnHitTarget>k__BackingField: {fileID: 0}
+    <DevelopmentData>k__BackingField: 
+  <IsDamageSkill>k__BackingField: 1
+  <DamageData>k__BackingField:
+    <DamageRangeValue>k__BackingField: {x: 25, y: 30}
+    <AttackType>k__BackingField: 5
+    <DefenceType>k__BackingField: 8
+  <SkillGraph>k__BackingField: {fileID: 0}
