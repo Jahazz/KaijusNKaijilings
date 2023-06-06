@@ -70,7 +70,7 @@ namespace BattleCore.UI
             SkillInactivityMarker.SetActive(isEnabled == false);
         }
 
-        private void HandleOnCurrentManaChanged (float newValue)
+        private void HandleOnCurrentManaChanged (float newValue, float _ = default)
         {
             SkillButton.interactable = SkillOwner.HasResourceForSkill(BoundSkill.BaseSkillData.Cost) == true;
         }

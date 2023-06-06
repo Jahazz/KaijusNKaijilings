@@ -88,7 +88,7 @@ namespace BattleCore.UI
             BattleScreenSummaryController.OpenScreen(battleResult);
         }
 
-        private void HandleOnCurrentBattleStateChange (BattleState newValue)
+        private void HandleOnCurrentBattleStateChange (BattleState newValue, BattleState _)
         {
             CurrentView.SetBottomUIBarInteractible(newValue == BattleState.ACTION_CHOOSE);
         }

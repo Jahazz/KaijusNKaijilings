@@ -27,7 +27,7 @@ namespace StatusEffects.BattlegroundStatusEffects
             createdStatusEffect.OnStatusEffectRemoved += HandleOnStatusEffectRemoved;
             target.CurrentEntity.OnVariableChange += Wrapper;
 
-            void Wrapper (Entity newValue)
+            void Wrapper (Entity newValue, Entity _)
             {
                 float typeDamageMultiplier = BattleUtils.GetDamageMultiplierByType(StatusEffectType[0], newValue.BaseEntityType.EntityTypeCollection[0]);
                 newValue.GetDamaged(new EntityDamageData(1, typeDamageMultiplier, Damage, Damage, null));

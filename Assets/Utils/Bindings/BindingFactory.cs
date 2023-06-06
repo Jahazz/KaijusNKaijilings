@@ -17,7 +17,7 @@ namespace Bindings
             maxValue.OnVariableChange += HandleValueChange;
             currentValue.OnVariableChange += HandleValueChange;
 
-            void HandleValueChange (float newValue)
+            void HandleValueChange (float newValue, float _)
             {
                 progressBar.SetValue(minValue.PresentValue, maxValue.PresentValue, currentValue.PresentValue);
             }
@@ -36,7 +36,7 @@ namespace Bindings
             currentStatValue.OnVariableChange += HandleValueChange;
             modifiedValue.OnVariableChange += HandleValueChange;
 
-            void HandleValueChange (float newValue)
+            void HandleValueChange (float newValue, float _)
             {
                 statElement.SetStatValues(currentStatValue.PresentValue, modifiedValue.PresentValue, statType);
             }
@@ -57,7 +57,7 @@ namespace Bindings
                 observableString.OnVariableChange += HandleValueChange;
             }
 
-            void HandleValueChange (string newValue = "")
+            void HandleValueChange (string newValue = "", string _ = default)
             {
                 textField.text = string.Format(format, textCollection.Select(observableElement => observableElement.PresentValue).ToArray());
             }

@@ -33,12 +33,12 @@ public class EntityListElement : BaseEntityListElement
         CurrentElementData.Name.OnVariableChange += HandleOnNameChange;
     }
 
-    private void HandleOnNameChange (string newValue)
+    private void HandleOnNameChange (string newValue, string _)
     {
         CustomNameLabel.text = newValue;
     }
 
-    private void HandleOnLevelChange (int newValue)
+    private void HandleOnLevelChange (int newValue, int _)
     {
         LevelLabel.text = string.Format(LevelLabelFormat, newValue);
     }

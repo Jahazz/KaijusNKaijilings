@@ -45,7 +45,7 @@ namespace BattleCore
                 BattleParticipant participant = new BattleParticipant(playerParticipant);
                 BattleParticipantsCollection.Add(participant);
 
-                participant.CurrentEntity.OnVariableChange += (entity) => HandleCurrentEntityChanged(entity, participant);
+                participant.CurrentEntity.OnVariableChange += (entity, _) => HandleCurrentEntityChanged(entity, participant);
                 participant.SelectedBattleAction.OnVariableChange += HandleSelectedCurrentAction;
 
                 participant.SelectFirstAliveEntity();
@@ -114,7 +114,7 @@ namespace BattleCore
             return output;
         }
 
-        private void HandleSelectedCurrentAction (BaseBattleAction newValue)
+        private void HandleSelectedCurrentAction (BaseBattleAction newValue, BaseBattleAction _)
         {
             if (CurrentBattleState.PresentValue == BattleState.ACTION_CHOOSE && newValue != null && AreAllActionsSelected() == true)
             {
@@ -145,7 +145,7 @@ namespace BattleCore
 
         private void HandleCurrentEntityChanged (Entity AddedEntity, BattleParticipant entityOwner)
         {
-            AddedEntity.IsAlive.OnVariableChange += (_) => HandleEntityDeath(AddedEntity, entityOwner);
+            AddedEntity.IsAlive.OnVariableChange += (_,_) => HandleEntityDeath(AddedEntity, entityOwner);
         }
 
         private void HandleEntityDeath (Entity deadEntity, BattleParticipant entityOwner)
