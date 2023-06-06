@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
+  m_Name: NightmaresOfTheOldOne
+  m_EditorClassIdentifier: 
+  <BaseSkillData>k__BackingField:
+    <Name>k__BackingField: Nightmares of the Old One
+    <Cost>k__BackingField: 40
+    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with Hemorrage.
+    <Image>k__BackingField: {fileID: 0}
+    <SkilType>k__BackingField:
+    - {fileID: 11400000, guid: c25159e9fea49214393c12f323598142, type: 2}
+    <GameobjectToSpawnOnHitTarget>k__BackingField: {fileID: 0}
+    <DevelopmentData>k__BackingField: 
+  <IsDamageSkill>k__BackingField: 1
+  <DamageData>k__BackingField:
+    <DamageRangeValue>k__BackingField: {x: 65, y: 70}
+    <AttackType>k__BackingField: 6
+    <DefenceType>k__BackingField: 7
+  <SkillGraph>k__BackingField: {fileID: 11400000, guid: c890af9c5ba11e44485efcc83811ab7c,
+    type: 2}
