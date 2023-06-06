@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
+  m_Name: RainDance
+  m_EditorClassIdentifier: 
+  <BaseSkillData>k__BackingField:
+    <Name>k__BackingField: Bloodied Waters
+    <Cost>k__BackingField: 10
+    <Description>k__BackingField: Cleanse enemy. Restore 20% Hp to user. Buff user
+      Magic.
+    <Image>k__BackingField: {fileID: 0}
+    <SkilType>k__BackingField:
+    - {fileID: 11400000, guid: ef42084dcb328664f9c4e4a207c8ba53, type: 2}
+    <GameobjectToSpawnOnHitTarget>k__BackingField: {fileID: 0}
+    <DevelopmentData>k__BackingField: 
+  <IsDamageSkill>k__BackingField: 0
+  <DamageData>k__BackingField:
+    <DamageRangeValue>k__BackingField: {x: 0, y: 0}
+    <AttackType>k__BackingField: 0
+    <DefenceType>k__BackingField: 0
+  <SkillGraph>k__BackingField: {fileID: 11400000, guid: 68e5c86dc95ba9b438134a56f6e0f70c,
+    type: 2}
