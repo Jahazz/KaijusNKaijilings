@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
-  m_Name: Jumpscare
+  m_Name: Flash
   m_EditorClassIdentifier: 
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Jumpscare
-    <Cost>k__BackingField: 20
-    <Description>k__BackingField: Deal dmg to enemy.
+    <Name>k__BackingField: Flash
+    <Cost>k__BackingField: 30
+    <Description>k__BackingField: Double users Initiative for this attack. Buff user
+      with Dodge.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
-    - {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}
+    - {fileID: 11400000, guid: 6e1104a6f36d78a4c9ff580066d89997, type: 2}
     <GameobjectToSpawnOnHitTarget>k__BackingField: {fileID: 0}
     <DevelopmentData>k__BackingField: 
   <IsDamageSkill>k__BackingField: 1
   <DamageData>k__BackingField:
-    <DamageRangeValue>k__BackingField: {x: 40, y: 50}
+    <DamageRangeValue>k__BackingField: {x: 4, y: 5}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
-  <SkillGraph>k__BackingField: {fileID: 11400000, guid: eb3a9c1e0c7689e4ead8db4baa05f550,
-    type: 2}
+  <SkillGraph>k__BackingField: {fileID: 0}
