@@ -19,7 +19,7 @@ public class Hemorrage : BaseScriptableEntityStatusEffect
             currentBattle.OnTurnEnd += Wrapper;
             createdStatusEffect.OnStatusEffectRemoved += HandleOnStatusEffectRemoved;
 
-            IEnumerator Wrapper ()
+            IEnumerator Wrapper (int _)
             {
                 float damageValue = HpPercentLostPerStack * createdStatusEffect.CurrentNumberOfStacks.PresentValue;
                 caster.GetDamagedForPercentageMaxValue(1.0f, 1.0f, damageValue, null);

@@ -20,7 +20,7 @@ namespace StatusEffects.EntityStatusEffects
 
                 currentBattle.OnTurnEnd += Wrapper;
 
-                IEnumerator Wrapper ()
+                IEnumerator Wrapper (int _)
                 {
                     yield return HandleOnCurrentBattleStateChange(casterOwner, caster, target, currentBattle);
                     SkillUtils.RemoveAllStacksOfStatusEffect(target, this);

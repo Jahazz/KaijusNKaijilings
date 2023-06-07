@@ -22,7 +22,7 @@ public class Burning : BaseScriptableEntityStatusEffect
             ;
             createdStatusEffect.OnStatusEffectRemoved += HandleOnStatusEffectRemoved;
 
-            IEnumerator Wrapper ()
+            IEnumerator Wrapper (int _)
             {
                 float typeDamageMultiplier = BattleUtils.GetDamageMultiplierByType(SkilType[0], target.BaseEntityType.EntityTypeCollection[0]);
                 float damageValue = DamagePerStack * createdStatusEffect.CurrentNumberOfStacks.PresentValue;
