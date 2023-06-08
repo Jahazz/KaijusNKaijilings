@@ -11,12 +11,13 @@ namespace CombatLogging.Entries
         public ActionType ActionType { get; private set; }
         public float OldNumberOfStacks { get; private set; }
         public float NewNumberOfStacks { get; private set; }
+        protected override string ENTRY_FORMAT { get; set; } = "Status effect {0} has been {1} to player {2} entity {3}({4}).";
 
         public override CombatLogEntryType CurrentActionType { get; protected set; } = CombatLogEntryType.ENTITY_STATUS_EFFECT_CHANGED;
 
         public override string EntryToString ()
         {
-            throw new System.NotImplementedException();
+            return string.Format(ENTRY_FORMAT, TargetStatusEffect.Name, ActionType.ToString().ToLower(), EntityOwner.Player.Name, TargetEntity.Name, TargetEntity.BaseEntityType.Name);
         }
     }
 }

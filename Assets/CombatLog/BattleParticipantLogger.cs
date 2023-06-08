@@ -9,10 +9,12 @@ namespace CombatLogging.EventHandling
     {
         private BattleParticipant CurrentBattleParticipant { get; set; }
         private EntityLogger CurrentEntityLogger { get; set; }
+        private BattleLogger BattleLoggerReference { get; set; }
 
-        public BattleParticipantLogger (BattleParticipant battleParticipant)
+        public BattleParticipantLogger (BattleParticipant battleParticipant, BattleLogger battleLoggerReference)
         {
             CurrentBattleParticipant = battleParticipant;
+            BattleLoggerReference = battleLoggerReference;
 
             CurrentBattleParticipant.CurrentEntity.OnVariableChange += HandleOnEntityChange;
         }
@@ -23,7 +25,7 @@ namespace CombatLogging.EventHandling
         {
             CurrentEntityLogger?.Dispose();
 
-            CurrentEntityLogger = new EntityLogger(newValue);
+            CurrentEntityLogger = new EntityLogger(newValue, BattleLoggerReference);
         }
 
         public void Dispose ()

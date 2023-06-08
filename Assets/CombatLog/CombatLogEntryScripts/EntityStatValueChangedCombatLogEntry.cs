@@ -12,10 +12,11 @@ namespace CombatLogging.Entries
         public float NewValue { get; private set; }
 
         public override CombatLogEntryType CurrentActionType { get; protected set; } = CombatLogEntryType.ENTITY_STAT_CHANGED;
+        protected override string ENTRY_FORMAT { get; set; } = "Player {0} entity {1}({2}) {3} has been changed from {4} to {5}";
 
         public override string EntryToString ()
         {
-            throw new System.NotImplementedException();
+            return string.Format(ENTRY_FORMAT, EntityOwner.Player.Name, EntityThatResourceChanged.Name, EntityThatResourceChanged.BaseEntityType.name, OldValue, NewValue);
         }
     }
 }

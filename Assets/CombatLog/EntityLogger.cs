@@ -9,12 +9,15 @@ namespace CombatLogging.EventHandling
         private Entity CurrentEntity { get; set; }
         private Dictionary<StatType, VariableChangedArguments> OnStatChangeHook { get; set; } = new Dictionary<StatType, VariableChangedArguments>();
         private StatType[] statTypesToListen = new StatType[] { StatType.MIGHT, StatType.MAGIC, StatType.WILLPOWER, StatType.AGILITY, StatType.INITIATIVE };
+        private BattleLogger BattleLoggerReference { get; set; }
 
-        public EntityLogger (Entity entity)
+        public EntityLogger (Entity entity, BattleLogger battleLoggerReference)
         {
             Dispose();
 
             CurrentEntity = entity;
+            BattleLoggerReference = battleLoggerReference;
+
             CurrentEntity.OnDamaged += HandleOnDamaged;
             CurrentEntity.ModifiedStats.Mana.CurrentValue.OnVariableChange += HandleOnCurrentManaChanged;
             CurrentEntity.ModifiedStats.Mana.MaxValue.OnVariableChange += HandleOnMaxManaChanged;

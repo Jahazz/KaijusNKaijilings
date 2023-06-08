@@ -13,10 +13,20 @@ namespace CombatLogging.Entries
         public Battle SkillCurrentBattle { get; private set; }
         public SkillScriptableObject UsedSkill { get; private set; }
         public override CombatLogEntryType CurrentActionType { get; protected set; } = CombatLogEntryType.SKILL_USED;
+        protected override string ENTRY_FORMAT { get; set; } = "Player {0} entity {1}({2}) casted ability {3}.";
+
+        public SkillUsedCombatLogEntry (BattleParticipant skillCasterOwner, Entity skillCaster, Entity skillTarget, Battle skillCurrentBattle, SkillScriptableObject usedSkill)
+        {
+            SkillCasterOwner = skillCasterOwner;
+            SkillCaster = skillCaster;
+            SkillTarget = skillTarget;
+            SkillCurrentBattle = skillCurrentBattle;
+            UsedSkill = usedSkill;
+        }
 
         public override string EntryToString ()
         {
-            throw new System.NotImplementedException();
+            return string.Format(ENTRY_FORMAT, SkillCasterOwner.Player.Name, SkillCaster.Name, SkillCaster.BaseEntityType.Name, UsedSkill.BaseSkillData.Name);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace CombatLogging.Entries
         public ActionType ActionType { get; private set; }
         public BattlegroundStatusEffect TargetStatusEffect { get; set; }
         public override CombatLogEntryType CurrentActionType { get; protected set; } = CombatLogEntryType.BATTLEGROUND_STATUS_EFFECT_CHANGED;
-        protected override string ENTRY_FORMAT { get; set; } = "Battleground status effect {0} has been {1}";
+        protected override string ENTRY_FORMAT { get; set; } = "Battleground status effect {0} has been {1}.";
 
         public BattlegroundStatusEffectChangeCombatLogEntry (ActionType actionType, BattlegroundStatusEffect targetStatusEffect)
         {
@@ -17,7 +17,7 @@ namespace CombatLogging.Entries
 
         public override string EntryToString ()
         {
-            return string.Format(ENTRY_FORMAT, ActionType, TargetStatusEffect);
+            return string.Format(ENTRY_FORMAT, TargetStatusEffect.BaseStatusEffect.Name, ActionType.ToString().ToLower());
         }
     }
 }
