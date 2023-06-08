@@ -3,31 +3,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleParticipantLogger
+namespace CombatLogging.EventHandling
 {
-    private BattleParticipant CurrentBattleParticipant { get; set; }
-    private EntityLogger CurrentEntityLogger { get; set; }
-
-    public BattleParticipantLogger (BattleParticipant battleParticipant)
+    public class BattleParticipantLogger
     {
-        CurrentBattleParticipant = battleParticipant;
+        private BattleParticipant CurrentBattleParticipant { get; set; }
+        private EntityLogger CurrentEntityLogger { get; set; }
 
-        CurrentBattleParticipant.CurrentEntity.OnVariableChange += HandleOnEntityChange;
-    }
+        public BattleParticipantLogger (BattleParticipant battleParticipant)
+        {
+            CurrentBattleParticipant = battleParticipant;
 
-    //RECALLED,
-    //SUMMONED,
-    private void HandleOnEntityChange (Entity newValue, Entity oldValue)
-    {
-        CurrentEntityLogger?.Dispose();
+            CurrentBattleParticipant.CurrentEntity.OnVariableChange += HandleOnEntityChange;
+        }
 
-        CurrentEntityLogger = new EntityLogger(newValue);
-    }
+        //RECALLED,
+        //SUMMONED,
+        private void HandleOnEntityChange (Entity newValue, Entity oldValue)
+        {
+            CurrentEntityLogger?.Dispose();
 
-    public void Dispose ()
-    {
-        CurrentEntityLogger.Dispose();
+            CurrentEntityLogger = new EntityLogger(newValue);
+        }
 
-        CurrentBattleParticipant.CurrentEntity.OnVariableChange -= HandleOnEntityChange;
+        public void Dispose ()
+        {
+            CurrentEntityLogger.Dispose();
+
+            CurrentBattleParticipant.CurrentEntity.OnVariableChange -= HandleOnEntityChange;
+        }
     }
 }
