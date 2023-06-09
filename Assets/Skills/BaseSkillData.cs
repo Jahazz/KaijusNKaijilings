@@ -20,4 +20,6 @@ public class BaseSkillData
     public GameObject GameobjectToSpawnOnHitTarget { get; private set; }
     [field: SerializeField]
     private string DevelopmentData { get; set; }
+    [field: SerializeField]
+    public string SkillGUID { get; set; } = Guid.NewGuid().ToString();
 }

@@ -17,6 +17,7 @@ namespace CombatLogging.EventHandling
             CurrentBattleParticipant = battleParticipant;
             BattleLoggerReference = battleLoggerReference;
 
+            HandleOnEntityChange(CurrentBattleParticipant.CurrentEntity.PresentValue, null);
             CurrentBattleParticipant.CurrentEntity.OnVariableChange += HandleOnEntityChange;
         }
 

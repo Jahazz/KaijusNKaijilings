@@ -25,4 +25,6 @@ public class SingletonContainer : SingletonMonobehaviour<SingletonContainer>
     public QQ_QuestHandler QuestHandler { get; private set; }
     [field: SerializeField]
     public PlayerInput InputSystem { get; private set; }
+    [field: SerializeField]
+    public SkillManager SkillManagerInstance { get; private set; }
 }

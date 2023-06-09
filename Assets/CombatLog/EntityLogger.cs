@@ -55,7 +55,7 @@ namespace CombatLogging.EventHandling
 
         private void InvokeStatusEffctEvent (ActionType actionType, object targetObject)
         {
-            BattleParticipantLogger.BattleLoggerReference.InvokeOnEntryLogCreatedEvent(new EntityStatusEffectsChangedCombatLogEntry(BattleParticipantLogger.CurrentBattleParticipant,CurrentEntity, targetObject as BaseScriptableEntityStatusEffect, actionType,1,1 ));
+            BattleParticipantLogger.BattleLoggerReference.InvokeOnEntryLogCreatedEvent(new EntityStatusEffectsChangedCombatLogEntry(BattleParticipantLogger.CurrentBattleParticipant,CurrentEntity, targetObject as EntityStatusEffect, actionType,1,1 ));
         }
 
         private void HandleOnStatChanged (StatType statType, float newValue, float oldValue)
@@ -91,18 +91,21 @@ namespace CombatLogging.EventHandling
 
         public void Dispose ()
         {
-            CurrentEntity.OnDamaged -= HandleOnDamaged;
-            CurrentEntity.ModifiedStats.Mana.CurrentValue.OnVariableChange -= HandleOnCurrentManaChanged;
-            CurrentEntity.ModifiedStats.Mana.MaxValue.OnVariableChange -= HandleOnMaxManaChanged;
-            CurrentEntity.ModifiedStats.Health.MaxValue.OnVariableChange -= HandleOnMaxHealthChanged;
-            CurrentEntity.PresentStatusEffects.CollectionChanged -= HandleOnStatusEffectsChanged;
-
-            foreach (KeyValuePair<StatType, VariableChangedArguments> variableChangedEventKeyValueHandler in OnStatChangeHook)
+            if(CurrentEntity!= null)
             {
-                CurrentEntity.ModifiedStats.GetStatOfType(variableChangedEventKeyValueHandler.Key).OnVariableChange += variableChangedEventKeyValueHandler.Value;
-            }
+                CurrentEntity.OnDamaged -= HandleOnDamaged;
+                CurrentEntity.ModifiedStats.Mana.CurrentValue.OnVariableChange -= HandleOnCurrentManaChanged;
+                CurrentEntity.ModifiedStats.Mana.MaxValue.OnVariableChange -= HandleOnMaxManaChanged;
+                CurrentEntity.ModifiedStats.Health.MaxValue.OnVariableChange -= HandleOnMaxHealthChanged;
+                CurrentEntity.PresentStatusEffects.CollectionChanged -= HandleOnStatusEffectsChanged;
 
-            CurrentEntity = null;
+                foreach (KeyValuePair<StatType, VariableChangedArguments> variableChangedEventKeyValueHandler in OnStatChangeHook)
+                {
+                    CurrentEntity.ModifiedStats.GetStatOfType(variableChangedEventKeyValueHandler.Key).OnVariableChange += variableChangedEventKeyValueHandler.Value;
+                }
+
+                CurrentEntity = null;
+            }
         }
     }
 }

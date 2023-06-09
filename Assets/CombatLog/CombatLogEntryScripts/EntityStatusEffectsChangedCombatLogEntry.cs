@@ -7,7 +7,7 @@ namespace CombatLogging.Entries
     {
         public BattleParticipant EntityOwner { get; private set; }
         public Entity TargetEntity { get; private set; }
-        public BaseScriptableEntityStatusEffect TargetStatusEffect { get; private set; }
+        public EntityStatusEffect TargetStatusEffect { get; private set; }
         public ActionType ActionType { get; private set; }
         public float OldNumberOfStacks { get; private set; }
         public float NewNumberOfStacks { get; private set; }
@@ -15,7 +15,7 @@ namespace CombatLogging.Entries
 
         public override CombatLogEntryType CurrentActionType { get; protected set; } = CombatLogEntryType.ENTITY_STATUS_EFFECT_CHANGED;
 
-        public EntityStatusEffectsChangedCombatLogEntry (BattleParticipant entityOwner, Entity targetEntity, BaseScriptableEntityStatusEffect targetStatusEffect, ActionType actionType, float oldNumberOfStacks, float newNumberOfStacks)
+        public EntityStatusEffectsChangedCombatLogEntry (BattleParticipant entityOwner, Entity targetEntity, EntityStatusEffect targetStatusEffect, ActionType actionType, float oldNumberOfStacks, float newNumberOfStacks)
         {
             EntityOwner = entityOwner;
             TargetEntity = targetEntity;
@@ -27,7 +27,7 @@ namespace CombatLogging.Entries
 
         public override string EntryToString ()
         {
-            return string.Format(ENTRY_FORMAT, TargetStatusEffect.Name, ActionType.ToString().ToLower(), EntityOwner.Player.Name, TargetEntity.Name, TargetEntity.BaseEntityType.Name);
+            return string.Format(ENTRY_FORMAT, TargetStatusEffect.BaseStatusEffect.Name, ActionType.ToString().ToLower(), EntityOwner.Player.Name, TargetEntity.Name.PresentValue, TargetEntity.BaseEntityType.Name);
         }
     }
 }

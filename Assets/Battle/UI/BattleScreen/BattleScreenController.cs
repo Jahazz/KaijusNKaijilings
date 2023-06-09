@@ -17,6 +17,16 @@ namespace BattleCore.UI
             CurrentModel.QueuePlayerSkillUsage(caster, skill);
         }
 
+        public void DisplaySKillTooltip ()
+        {
+
+        }
+
+        public void HideSkillTooltip ()
+        {
+
+        }
+
         public void ChangeEntity ()
         {
             CurrentModel.ChangeEntity();

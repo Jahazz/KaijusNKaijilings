@@ -8,7 +8,8 @@ namespace CombatLogging.Entries
         public Entity EntityChangedFrom { get; private set; }
         public BattleParticipant Owner { get; private set; }
         public override CombatLogEntryType CurrentActionType { get; protected set; } = CombatLogEntryType.ENTITY_CHANGED;
-        protected override string ENTRY_FORMAT { get; set; } = "Player {0} entity {1}({2}) has been swapped to {1}({2})";
+        protected override string ENTRY_FORMAT { get; set; } = "Player {0} entity {1}({2}) has been swapped to {3}({4})";
+        private const string ENTRY_FORMAT_WITHOUT_OLD_VALUE = "Payer {0} summoned entity {1}({2})";
 
         public EntityChangedCombatLogEntry (Entity entityChangedTo, Entity entityChangedFrom, BattleParticipant owner)
         {
@@ -19,7 +20,18 @@ namespace CombatLogging.Entries
 
         public override string EntryToString ()
         {
-            return string.Format(ENTRY_FORMAT, Owner.Player.Name, EntityChangedFrom.Name, EntityChangedFrom.BaseEntityType.Name, EntityChangedTo.Name, EntityChangedTo.BaseEntityType.Name);
+            string output;
+
+            if (EntityChangedFrom == null)
+            {
+                output = string.Format(ENTRY_FORMAT_WITHOUT_OLD_VALUE, Owner.Player.Name, EntityChangedTo.Name.PresentValue, EntityChangedTo.BaseEntityType.Name);
+            }
+            else
+            {
+                output = string.Format(ENTRY_FORMAT, Owner.Player.Name, EntityChangedFrom.Name.PresentValue, EntityChangedFrom.BaseEntityType.Name, EntityChangedTo.Name.PresentValue, EntityChangedTo.BaseEntityType.Name);
+            }
+
+            return output;
         }
     }
 }
