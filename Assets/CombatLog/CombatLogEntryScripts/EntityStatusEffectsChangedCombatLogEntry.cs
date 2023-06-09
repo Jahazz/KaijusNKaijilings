@@ -15,6 +15,16 @@ namespace CombatLogging.Entries
 
         public override CombatLogEntryType CurrentActionType { get; protected set; } = CombatLogEntryType.ENTITY_STATUS_EFFECT_CHANGED;
 
+        public EntityStatusEffectsChangedCombatLogEntry (BattleParticipant entityOwner, Entity targetEntity, BaseScriptableEntityStatusEffect targetStatusEffect, ActionType actionType, float oldNumberOfStacks, float newNumberOfStacks)
+        {
+            EntityOwner = entityOwner;
+            TargetEntity = targetEntity;
+            TargetStatusEffect = targetStatusEffect;
+            ActionType = actionType;
+            OldNumberOfStacks = oldNumberOfStacks;
+            NewNumberOfStacks = newNumberOfStacks;
+        }
+
         public override string EntryToString ()
         {
             return string.Format(ENTRY_FORMAT, TargetStatusEffect.Name, ActionType.ToString().ToLower(), EntityOwner.Player.Name, TargetEntity.Name, TargetEntity.BaseEntityType.Name);

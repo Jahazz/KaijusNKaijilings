@@ -1,5 +1,7 @@
-using System;
+using CombatLogging.Entries;
+using StatusEffects.EntityStatusEffects;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using static Utils.ObservableVariable<float>;
 
 namespace CombatLogging.EventHandling
@@ -9,14 +11,14 @@ namespace CombatLogging.EventHandling
         private Entity CurrentEntity { get; set; }
         private Dictionary<StatType, VariableChangedArguments> OnStatChangeHook { get; set; } = new Dictionary<StatType, VariableChangedArguments>();
         private StatType[] statTypesToListen = new StatType[] { StatType.MIGHT, StatType.MAGIC, StatType.WILLPOWER, StatType.AGILITY, StatType.INITIATIVE };
-        private BattleLogger BattleLoggerReference { get; set; }
+        private BattleParticipantLogger BattleParticipantLogger { get; set; }
 
-        public EntityLogger (Entity entity, BattleLogger battleLoggerReference)
+        public EntityLogger (Entity entity, BattleParticipantLogger battleParticipantLogger)
         {
             Dispose();
 
             CurrentEntity = entity;
-            BattleLoggerReference = battleLoggerReference;
+            BattleParticipantLogger = battleParticipantLogger;
 
             CurrentEntity.OnDamaged += HandleOnDamaged;
             CurrentEntity.ModifiedStats.Mana.CurrentValue.OnVariableChange += HandleOnCurrentManaChanged;
@@ -32,34 +34,54 @@ namespace CombatLogging.EventHandling
             }
         }
 
-        private void HandleOnStatusEffectsChanged (object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        private void HandleOnStatusEffectsChanged (object sender, NotifyCollectionChangedEventArgs eventArgs)
         {
-            throw new NotImplementedException();
+            if(eventArgs.Action == NotifyCollectionChangedAction.Add)
+            {
+                foreach (object item in eventArgs.NewItems)
+                {
+                    InvokeStatusEffctEvent(ActionType.ADDED, item);
+                }
+            }
+
+            if (eventArgs.Action == NotifyCollectionChangedAction.Remove)
+            {
+                foreach (object item in eventArgs.OldItems)
+                {
+                    InvokeStatusEffctEvent(ActionType.REMOVED, item);
+                }
+            }
+        }
+
+        private void InvokeStatusEffctEvent (ActionType actionType, object targetObject)
+        {
+            BattleParticipantLogger.BattleLoggerReference.InvokeOnEntryLogCreatedEvent(new EntityStatusEffectsChangedCombatLogEntry(BattleParticipantLogger.CurrentBattleParticipant,CurrentEntity, targetObject as BaseScriptableEntityStatusEffect, actionType,1,1 ));
         }
 
         private void HandleOnStatChanged (StatType statType, float newValue, float oldValue)
         {
-            throw new System.NotImplementedException();
+            BattleParticipantLogger.BattleLoggerReference.InvokeOnEntryLogCreatedEvent(new EntityStatValueChangedCombatLogEntry(BattleParticipantLogger.CurrentBattleParticipant, CurrentEntity, statType, oldValue, newValue));
         }
 
         private void HandleOnMaxHealthChanged (float newValue, float oldValue)
         {
-            throw new System.NotImplementedException();
+            BattleParticipantLogger.BattleLoggerReference.InvokeOnEntryLogCreatedEvent(new EntityResourceMaxValueChangedCombatLogEntry(BattleParticipantLogger.CurrentBattleParticipant, CurrentEntity, ResourceChangedType.HEALTH, oldValue, newValue));
+
         }
 
         private void HandleOnMaxManaChanged (float newValue, float oldValue)
         {
-            throw new System.NotImplementedException();
+            BattleParticipantLogger.BattleLoggerReference.InvokeOnEntryLogCreatedEvent(new EntityResourceMaxValueChangedCombatLogEntry(BattleParticipantLogger.CurrentBattleParticipant, CurrentEntity, ResourceChangedType.MANA, oldValue, newValue));
         }
 
         private void HandleOnCurrentManaChanged (float newValue, float oldValue)
         {
-            throw new System.NotImplementedException();
+            BattleParticipantLogger.BattleLoggerReference.InvokeOnEntryLogCreatedEvent(new EntityCurrentManaChangedCombatLogEntry(BattleParticipantLogger.CurrentBattleParticipant, CurrentEntity, oldValue, newValue));
         }
 
         private void HandleOnDamaged (EntityDamageData damage)
         {
-            throw new System.NotImplementedException();
+            BattleParticipantLogger.BattleLoggerReference.InvokeOnEntryLogCreatedEvent(new EntityDamagedCombatLogEntry(BattleParticipantLogger.CurrentBattleParticipant, CurrentEntity, damage));
         }
 
         //HP_CHANGED,

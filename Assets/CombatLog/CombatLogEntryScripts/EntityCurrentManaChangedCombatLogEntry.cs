@@ -12,6 +12,14 @@ namespace CombatLogging.Entries
 
         public override CombatLogEntryType CurrentActionType { get; protected set; } = CombatLogEntryType.ENTITY_MANA_CHANGED;
 
+        public EntityCurrentManaChangedCombatLogEntry (BattleParticipant entityOwner, Entity entityThatResourceChanged, float oldValue, float newValue)
+        {
+            EntityOwner = entityOwner;
+            EntityThatResourceChanged = entityThatResourceChanged;
+            OldValue = oldValue;
+            NewValue = newValue;
+        }
+
         public override string EntryToString ()
         {
             return string.Format(ENTRY_FORMAT, EntityOwner.Player.Name, EntityThatResourceChanged.Name, EntityThatResourceChanged.BaseEntityType.Name, OldValue, NewValue);

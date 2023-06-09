@@ -12,6 +12,14 @@ namespace CombatLogging.Entries
         protected override string ENTRY_FORMAT { get; set; } = "Player {0} entity {1}({2}) maximum {3} has been changed from {4} to {5}.";
 
         public override CombatLogEntryType CurrentActionType { get; protected set; } = CombatLogEntryType.ENTITY_MAX_RESOURCE_CHANGED;
+        public EntityResourceMaxValueChangedCombatLogEntry (BattleParticipant entityOwner, Entity entityThatResourceChanged, ResourceChangedType resourceType, float oldValue, float newValue)
+        {
+            EntityOwner = entityOwner;
+            EntityThatResourceChanged = entityThatResourceChanged;
+            ResourceType = resourceType;
+            OldValue = oldValue;
+            NewValue = newValue;
+        }
 
         public override string EntryToString ()
         {
