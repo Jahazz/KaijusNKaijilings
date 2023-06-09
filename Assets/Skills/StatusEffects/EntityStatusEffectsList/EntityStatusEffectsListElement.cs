@@ -30,7 +30,7 @@ namespace StatusEffects.EntityStatusEffects.UI
             SourceStatusEffect.CurrentNumberOfStacks.OnVariableChange -= HandleOnNumberOfStacksChanged;
         }
 
-        private void HandleOnNumberOfStacksChanged (int newValue)
+        private void HandleOnNumberOfStacksChanged (int newValue, int _ = default)
         {
             NumberOfStacksLabel.text = newValue.ToString();
         }

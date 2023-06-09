@@ -13,7 +13,7 @@ namespace Utils
         {
             customNameVariable.OnVariableChange += HandleVariableChange;
 
-            void HandleVariableChange (string newValue)
+            void HandleVariableChange (string newValue, string _)
             {
                 targetTextBox.text = newValue;
             }

@@ -17,7 +17,7 @@ namespace StatusEffects.BattlegroundStatusEffects
             createdStatusEffect.OnStatusEffectRemoved += HandleOnStatusEffectRemoved;
             currentBattle.OnTurnEnd += Wrapper;
 
-            IEnumerator Wrapper ()
+            IEnumerator Wrapper (int _)
             {
                 foreach (BattleParticipant item in currentBattle.BattleParticipantsCollection)
                 {

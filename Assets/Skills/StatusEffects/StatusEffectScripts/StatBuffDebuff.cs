@@ -38,7 +38,7 @@ namespace StatusEffects.EntityStatusEffects
 
                     createdStatusEffect.CurrentNumberOfStacks.OnVariableChange += CurrentNumberOfStacks_OnVariableChange;
 
-                    void CurrentNumberOfStacks_OnVariableChange (int newValue)
+                    void CurrentNumberOfStacks_OnVariableChange (int newValue, int _)
                     {
                         if (createdStatModifier != null)
                         {

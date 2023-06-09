@@ -68,7 +68,7 @@ namespace BattleCore.ScreenEntity
             }
         }
 
-        private void HandleOnAliveStateChange (bool newValue)
+        private void HandleOnAliveStateChange (bool newValue, bool _)
         {
             StartCoroutine(PlayAnimation(AnimationType.DIE));
         }

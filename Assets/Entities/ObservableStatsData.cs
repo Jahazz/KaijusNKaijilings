@@ -96,12 +96,12 @@ public class ObservableStatsData : BaseStatsData<ObservableVariable<float>>
         }
     }
 
-    private void HandleOnMagicValueChange (float newValue)
+    private void HandleOnMagicValueChange (float newValue, float _)
     {
         RecalculateResourceValue(Mana, Magic.PresentValue);
     }
 
-    private void HandleOnMightValueCHange (float newValue)
+    private void HandleOnMightValueCHange (float newValue, float _)
     {
         RecalculateResourceValue(Health, Might.PresentValue);
     }

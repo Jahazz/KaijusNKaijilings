@@ -20,7 +20,7 @@ public class ManaLeak : BaseScriptableEntityStatusEffect
             ;
             createdStatusEffect.OnStatusEffectRemoved += HandleOnStatusEffectRemoved;
 
-            IEnumerator Wrapper ()
+            IEnumerator Wrapper (int _)
             {
                 EntityResourceUtils.LosePercentageMaxResource(target.ModifiedStats.Mana, ManaLostPerStack * createdStatusEffect.CurrentNumberOfStacks.PresentValue);
                 yield return null;

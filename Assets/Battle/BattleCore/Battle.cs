@@ -23,10 +23,10 @@ namespace BattleCore
         public delegate void OnSkillUseArguments (BattleParticipant skillCasterOwner, Entity skillCaster, Entity skillTarget, Battle skillCurrentBattle, SkillScriptableObject usedSkill);
         public event OnSkillUseArguments OnSkillUse;
 
-        public delegate IEnumerator OnTurnEndParams ();
+        public delegate IEnumerator OnTurnEndParams (int curentTurn);
         public event OnTurnEndParams OnTurnEnd;
-        public delegate IEnumerator OnTurnStartParams ();
-        public event OnTurnEndParams OnTurnStart;
+        public delegate IEnumerator OnTurnStartParams (int currentTurn);
+        public event OnTurnStartParams OnTurnStart;
 
         public Func<Entity, IEnumerator> ViewEntitySwapAction { get; set; }//shopuld be more generalised and not bound with view, but for now it will suffice? idk
         public Func<Entity, IEnumerator> ViewPlayAnimationAsEntity { get; set; }
@@ -37,6 +37,7 @@ namespace BattleCore
         public List<BattleParticipant> BattleParticipantsCollection { get; private set; } = new List<BattleParticipant>();
         public ObservableVariable<BattleState> CurrentBattleState { get; private set; } = new ObservableVariable<BattleState>(BattleState.NONE);
         private BattleActionResolver BattleActionResolver { get; set; }
+        private int TurnCounter = 0;
 
         public Battle (List<Player> participantsCollection)
         {
@@ -45,7 +46,7 @@ namespace BattleCore
                 BattleParticipant participant = new BattleParticipant(playerParticipant);
                 BattleParticipantsCollection.Add(participant);
 
-                participant.CurrentEntity.OnVariableChange += (entity) => HandleCurrentEntityChanged(entity, participant);
+                participant.CurrentEntity.OnVariableChange += (entity, _) => HandleCurrentEntityChanged(entity, participant);
                 participant.SelectedBattleAction.OnVariableChange += HandleSelectedCurrentAction;
 
                 participant.SelectFirstAliveEntity();
@@ -114,7 +115,7 @@ namespace BattleCore
             return output;
         }
 
-        private void HandleSelectedCurrentAction (BaseBattleAction newValue)
+        private void HandleSelectedCurrentAction (BaseBattleAction newValue, BaseBattleAction _)
         {
             if (CurrentBattleState.PresentValue == BattleState.ACTION_CHOOSE && newValue != null && AreAllActionsSelected() == true)
             {
@@ -145,7 +146,7 @@ namespace BattleCore
 
         private void HandleCurrentEntityChanged (Entity AddedEntity, BattleParticipant entityOwner)
         {
-            AddedEntity.IsAlive.OnVariableChange += (_) => HandleEntityDeath(AddedEntity, entityOwner);
+            AddedEntity.IsAlive.OnVariableChange += (_,_) => HandleEntityDeath(AddedEntity, entityOwner);
         }
 
         private void HandleEntityDeath (Entity deadEntity, BattleParticipant entityOwner)
@@ -180,13 +181,14 @@ namespace BattleCore
             switch (newValue)
             {
                 case BattleState.ACTION_CHOOSE:
-                    SingletonContainer.Instance.StartCoroutine(WaitUntilIEnumeratorEventIsFullyResolved(OnTurnStart, ActionChoose));
+                    TurnCounter++;
+                    SingletonContainer.Instance.StartCoroutine(WaitUntilIEnumeratorEventIsFullyResolved(OnTurnStart, ActionChoose,TurnCounter));
                     break;
                 case BattleState.ACTION_RESOLVE:
                     ActionResolve();
                     break;
                 case BattleState.WRAP_UP:
-                    SingletonContainer.Instance.StartCoroutine(WaitUntilIEnumeratorEventIsFullyResolved(OnTurnEnd, WrapUp));
+                    SingletonContainer.Instance.StartCoroutine(WaitUntilIEnumeratorEventIsFullyResolved(OnTurnEnd, WrapUp, TurnCounter));
                     break;
                 default:
                     break;

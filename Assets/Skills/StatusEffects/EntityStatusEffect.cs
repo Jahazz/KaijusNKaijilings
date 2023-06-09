@@ -64,7 +64,7 @@ public class EntityStatusEffect
         SkillUtils.RemoveAllStacksOfStatusEffect(Target, BaseStatusEffect);
     }
 
-    void HandleOnEntityDeath (bool newValue)
+    void HandleOnEntityDeath (bool newValue, bool _)
     {
         if (newValue == false)
         {
