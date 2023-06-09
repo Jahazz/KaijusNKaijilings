@@ -15,10 +15,8 @@ namespace CombatLogging.EventHandling
         private Battle CurrentBattle { get; set; }
         private List<BattleParticipantLogger> BattleParticipantsCollection = new List<BattleParticipantLogger>();
 
-        public void Initialize (Battle currentBattle)
+        public BattleLogger (Battle currentBattle)
         {
-            Dispose();
-
             CurrentBattle = currentBattle;
 
             foreach (BattleParticipant participant in currentBattle.BattleParticipantsCollection)
@@ -34,12 +32,7 @@ namespace CombatLogging.EventHandling
             CurrentBattle.OnEntityDeath += HandleOnEntityDeath;
         }
 
-        internal void InvokeOnEntryLogCreatedEvent (BaseCombatLogEntry createdEntry)
-        {
-            OnLogEntryCreated?.Invoke(createdEntry);
-        }
-
-        private void Dispose ()
+        public void Dispose ()
         {
             CurrentBattle.BattlegroundStatusEffects.CollectionChanged -= HandleBattlegroundStatusEffectsChanged;
             CurrentBattle.OnBattleFinished -= HandleOnBattleFinished;
@@ -56,6 +49,11 @@ namespace CombatLogging.EventHandling
             }
 
             BattleParticipantsCollection.Clear();
+        }
+
+        internal void InvokeOnEntryLogCreatedEvent (BaseCombatLogEntry createdEntry)
+        {
+            OnLogEntryCreated?.Invoke(createdEntry);
         }
 
         //ADD_BATTLEGROUND_STATUS_EFFECT,

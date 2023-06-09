@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BattleCore.ScreenEntity;
 using BattleCore.UI.SummaryScreen;
+using CombatLogging.UI;
 
 namespace BattleCore.UI
 {
@@ -14,6 +15,8 @@ namespace BattleCore.UI
         private BattleScreenSummaryController BattleScreenSummaryController { get; set; }
         [field: SerializeField]
         private CharacterMenuController CharacterMenuController { get; set; }
+        [field: SerializeField]
+        private CombatLogListModel CurrentCombatLogListMode { get; set; }
         private Battle CurrentBattle { get; set; }
 
         public void QueuePlayerSkillUsage (Entity caster, SkillScriptableObject skill)
@@ -52,6 +55,7 @@ namespace BattleCore.UI
         private void HandleOnBattleCreated (Battle createdBattle)
         {
             CurrentBattle = createdBattle;
+            CurrentCombatLogListMode.Initialize(createdBattle);
 
             foreach (BattleParticipant battleParticipant in CurrentBattle.BattleParticipantsCollection)
             {
