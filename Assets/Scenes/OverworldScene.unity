@@ -6598,7 +6598,7 @@ MonoBehaviour:
   <QuestHandler>k__BackingField: {fileID: 379838094}
   <InputSystem>k__BackingField: {fileID: 592053670}
   <SkillManagerInstance>k__BackingField: {fileID: 559175268}
-  <TooltipManager>k__BackingField: {fileID: 0}
+  <TooltipManager>k__BackingField: {fileID: 2098227263}
 --- !u!4 &419522532
 Transform:
   m_ObjectHideFlags: 0
