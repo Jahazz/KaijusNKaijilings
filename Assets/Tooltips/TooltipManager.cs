@@ -1,10 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using TMPro.EditorUtilities;
 using Tooltips.UI;
-using UnityEditor;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 using System.Linq;
