@@ -27,4 +27,6 @@ public class SingletonContainer : SingletonMonobehaviour<SingletonContainer>
     public PlayerInput InputSystem { get; private set; }
     [field: SerializeField]
     public SkillManager SkillManagerInstance { get; private set; }
+    [field: SerializeField]
+    public TooltipManager TooltipManager {get; private set;}
 }

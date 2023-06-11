@@ -17,7 +17,7 @@ namespace BattleCore.UI
             CurrentModel.QueuePlayerSkillUsage(caster, skill);
         }
 
-        public void DisplaySKillTooltip ()
+        public void DisplaySKillTooltip (Vector2 position, SkillScriptableObject mousedOverSkill)
         {
 
         }

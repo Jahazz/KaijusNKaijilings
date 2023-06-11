@@ -1,0 +1,6 @@
+public enum TooltipType
+{
+    ENTITY,
+    ENTITY_STATUS_EFFECT,
+    BATTLEGROUND_STATUS_EFFECT
+}
