@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10814481, g: 0.26840746, b: 0.42698294, a: 1}
+  m_IndirectSpecularColor: {r: 0.10826455, g: 0.268006, b: 0.427005, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6598,6 +6598,7 @@ MonoBehaviour:
   <QuestHandler>k__BackingField: {fileID: 379838094}
   <InputSystem>k__BackingField: {fileID: 592053670}
   <SkillManagerInstance>k__BackingField: {fileID: 559175268}
+  <TooltipManager>k__BackingField: {fileID: 0}
 --- !u!4 &419522532
 Transform:
   m_ObjectHideFlags: 0
@@ -6619,6 +6620,7 @@ Transform:
   - {fileID: 2000360923}
   - {fileID: 547367438}
   - {fileID: 379838093}
+  - {fileID: 2098227262}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9224,11 +9226,35 @@ MonoBehaviour:
     m_ActionId: af3cecd7-cc68-481a-8c66-12b4969c4759
     m_ActionName: UI/Cancel[/Keyboard/escape]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2098227263}
+        m_TargetAssemblyTypeName: Tooltips.TooltipManager, Assembly-CSharp
+        m_MethodName: HandleOnPointerChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 58260ff2-0ddd-458b-b9bd-0bfe68643cd5
     m_ActionName: UI/Point[/Mouse/position]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2098227263}
+        m_TargetAssemblyTypeName: Tooltips.TooltipManager, Assembly-CSharp
+        m_MethodName: HandleOnClick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 34457442-b2cf-4ea9-bf7f-93edf16270e3
     m_ActionName: UI/Click[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -48130,6 +48156,93 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2093130545}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2098227261
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 419522532}
+    m_Modifications:
+    - target: {fileID: 5751568606496599875, guid: b15c5ff223a9dc847a1bebd055de5d86,
+        type: 3}
+      propertyPath: m_Name
+      value: TooltipManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5751568606496599885, guid: b15c5ff223a9dc847a1bebd055de5d86,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5751568606496599885, guid: b15c5ff223a9dc847a1bebd055de5d86,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5751568606496599885, guid: b15c5ff223a9dc847a1bebd055de5d86,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5751568606496599885, guid: b15c5ff223a9dc847a1bebd055de5d86,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5751568606496599885, guid: b15c5ff223a9dc847a1bebd055de5d86,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5751568606496599885, guid: b15c5ff223a9dc847a1bebd055de5d86,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5751568606496599885, guid: b15c5ff223a9dc847a1bebd055de5d86,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5751568606496599885, guid: b15c5ff223a9dc847a1bebd055de5d86,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5751568606496599885, guid: b15c5ff223a9dc847a1bebd055de5d86,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5751568606496599885, guid: b15c5ff223a9dc847a1bebd055de5d86,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5751568606496599885, guid: b15c5ff223a9dc847a1bebd055de5d86,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b15c5ff223a9dc847a1bebd055de5d86, type: 3}
+--- !u!4 &2098227262 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5751568606496599885, guid: b15c5ff223a9dc847a1bebd055de5d86,
+    type: 3}
+  m_PrefabInstance: {fileID: 2098227261}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2098227263 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5751568606496599874, guid: b15c5ff223a9dc847a1bebd055de5d86,
+    type: 3}
+  m_PrefabInstance: {fileID: 2098227261}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a65e4bb2f0bf542bba987a7dacb6a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2105320882
 GameObject:
   m_ObjectHideFlags: 0

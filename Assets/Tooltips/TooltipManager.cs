@@ -3,66 +3,94 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using TMPro.EditorUtilities;
+using Tooltips.UI;
 using UnityEditor;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
+using System.Linq;
 
-public class TooltipManager : MonoBehaviour
+namespace Tooltips
 {
-    private List<TMP_Text> TooltipCollection { get; set; } = new List<TMP_Text>();
-    private Vector2 PointerPosition { get; set; }
-
-    public void SubscribeToMouseovers (TMP_Text target)
+    public class TooltipManager : MonoBehaviour
     {
-        TooltipCollection.Add(target);
-    }
+        [field: SerializeField]
+        private List<TooltipTypeBaseTooltipPair> PrefabsCollection { get; set; } = new List<TooltipTypeBaseTooltipPair>();
+        [field: SerializeField]
+        private Canvas TooltipCanvas { get; set; }
+        [field: SerializeField]
+        private Color TooltipColor { get; set; }
+        private Dictionary<TooltipType, BaseTooltip> PrefabsDictionary { get; set; } = new Dictionary<TooltipType, BaseTooltip>();
+        private List<TMP_Text> TooltipCollection { get; set; } = new List<TMP_Text>();
+        private Vector2 PointerPosition { get; set; }
+        private static string FORMAT_WITH_URL = "<b><u><color=#{0}><link=\"{1}-{2}\">{3}</link></color></u></b>";
 
-    public void UnsubscribeFromMouseovers (TMP_Text target)
-    {
-        TooltipCollection.Remove(target);
-    }
-
-    public void HandleOnClick (CallbackContext context)
-    {
-        if (context.performed == true)
+        public string GenerateSkillURLWithGuid (SkillScriptableObject skillScriptableObject)
         {
-            foreach (TMP_Text item in TooltipCollection)
+            return string.Format(FORMAT_WITH_URL, ColorUtility.ToHtmlStringRGB(TooltipColor),TooltipType.ABILITY, skillScriptableObject.BaseSkillData.SkillGUID, skillScriptableObject.BaseSkillData.Name);
+        }
+
+        public void SubscribeToMouseovers (TMP_Text target)
+        {
+            TooltipCollection.Add(target);
+        }
+
+        public void UnsubscribeFromMouseovers (TMP_Text target)
+        {
+            TooltipCollection.Remove(target);
+        }
+
+        public void HandleOnClick (CallbackContext context)
+        {
+            if (context.performed == true)
             {
-                CheckForLinkAtMousePosition(item);
+                foreach (TMP_Text item in TooltipCollection)
+                {
+                    CheckForLinkAtMousePosition(item);
+                }
             }
         }
-    }
 
-    public void HandleOnPointerChange (CallbackContext context)
-    {
-        PointerPosition = context.ReadValue<Vector2>();
-    }
-
-    public void OpentTooltip (TooltipType type, string id)
-    {
-        Debug.Log(type);
-        Debug.Log(id);
-    }
-
-    private void CheckForLinkAtMousePosition (TMP_Text target)
-    {
-        Camera _cameraToUse;
-        if (target.canvas.renderMode == RenderMode.ScreenSpaceOverlay)
-            _cameraToUse = null;
-        else
-            _cameraToUse = target.canvas.worldCamera;
-
-        bool isIntersectingRectTransform = TMP_TextUtilities.IsIntersectingRectTransform(target.rectTransform, PointerPosition, _cameraToUse);
-
-        if (isIntersectingRectTransform == true)
+        public void HandleOnPointerChange (CallbackContext context)
         {
-            int intersectingLink = TMP_TextUtilities.FindIntersectingLink(target, PointerPosition, _cameraToUse);
+            PointerPosition = context.ReadValue<Vector2>();
+        }
 
-            if (intersectingLink != -1)
+        public void OpentTooltip (TooltipType type, string id)
+        {
+            BaseTooltip createdTooltip = Instantiate(PrefabsDictionary[type], PointerPosition, Quaternion.identity, TooltipCanvas.transform);
+            createdTooltip.Initialize(type, id);
+        }
+
+        protected virtual void Start ()
+        {
+            PrefabsDictionary = PrefabsCollection.ToDictionary(item => item.Type, item=>item.BaseTooltipPrefab);
+        }
+
+        private void CheckForLinkAtMousePosition (TMP_Text target)
+        {
+            Camera cameraToUse;
+
+            if (target.canvas.renderMode == RenderMode.ScreenSpaceOverlay)
             {
-                TMP_LinkInfo linkInfo = target.textInfo.linkInfo[intersectingLink];
-                string[] temp = linkInfo.GetLinkID().Split("-", 2);
-                OpentTooltip(Enum.Parse<TooltipType>(temp[0]), temp[1]);
+                cameraToUse = null;
+            }
+            else
+            {
+                cameraToUse = target.canvas.worldCamera;
+            }
+
+            bool isIntersectingRectTransform = TMP_TextUtilities.IsIntersectingRectTransform(target.rectTransform, PointerPosition, cameraToUse);
+
+            if (isIntersectingRectTransform == true)
+            {
+                int intersectingLink = TMP_TextUtilities.FindIntersectingLink(target, PointerPosition, cameraToUse);
+
+                if (intersectingLink != -1)
+                {
+                    TMP_LinkInfo linkInfo = target.textInfo.linkInfo[intersectingLink];
+                    string[] temp = linkInfo.GetLinkID().Split("-", 2);
+                    OpentTooltip(Enum.Parse<TooltipType>(temp[0]), temp[1]);
+                }
             }
         }
     }

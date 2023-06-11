@@ -1,6 +1,9 @@
-public enum TooltipType
+namespace Tooltips
 {
-    ENTITY,
-    ENTITY_STATUS_EFFECT,
-    BATTLEGROUND_STATUS_EFFECT
+    public enum TooltipType
+    {
+        ABILITY,
+        ENTITY_STATUS_EFFECT,
+        BATTLEGROUND_STATUS_EFFECT
+    }
 }

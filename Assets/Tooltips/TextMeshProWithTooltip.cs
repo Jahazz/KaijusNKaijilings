@@ -5,18 +5,21 @@ using TMPro.EditorUtilities;
 using UnityEditor;
 using UnityEngine;
 
-public class TextMeshProWithTooltip : MonoBehaviour
+namespace Tooltips.UI
 {
-    [field: SerializeField]
-    private TMP_Text AssignedTextWIthTooltip { get; set; }
-
-    protected virtual void OnEnable ()
+    public class TextMeshProWithTooltip : MonoBehaviour
     {
-        SingletonContainer.Instance.TooltipManager.SubscribeToMouseovers(AssignedTextWIthTooltip);
-    }
+        [field: SerializeField]
+        private TMP_Text AssignedTextWIthTooltip { get; set; }
 
-    protected virtual void OnDisable ()
-    {
-        SingletonContainer.Instance.TooltipManager.UnsubscribeFromMouseovers(AssignedTextWIthTooltip);
+        protected virtual void OnEnable ()
+        {
+            SingletonContainer.Instance.TooltipManager.SubscribeToMouseovers(AssignedTextWIthTooltip);
+        }
+
+        protected virtual void OnDisable ()
+        {
+            SingletonContainer.Instance.TooltipManager.UnsubscribeFromMouseovers(AssignedTextWIthTooltip);
+        }
     }
 }
