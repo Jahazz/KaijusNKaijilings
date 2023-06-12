@@ -172,3 +172,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee6f0aad9435294bb63bb5c0ed43439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <RectTransform>k__BackingField: {fileID: 3102455970600767491}
+--- !u!224 &3102455970600767491 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5585149652823723369, guid: ceded063e6989a244bc9509b6ecb09f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 7389372623404572010}
+  m_PrefabAsset: {fileID: 0}

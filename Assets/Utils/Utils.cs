@@ -63,9 +63,23 @@ namespace Utils
             return firstHashset.SetEquals(second);
         }
 
-        public void LookAtCameraBillboard (Transform targetTransform, Transform cameraTransform)
+        public static void LookAtCameraBillboard (Transform targetTransform, Transform cameraTransform)
         {
             targetTransform.LookAt(targetTransform.position + cameraTransform.rotation * Vector3.back, cameraTransform.rotation * Vector3.up);
+        }
+
+        //REMEMBER TO SET ANCHOR AT BOTTOM LEFT
+        public static Vector2 ClampRectInsideScreen (RectTransform targetPanel, Vector2 position)
+        {
+            float minX = 0;
+            float maxX = Screen.width - targetPanel.sizeDelta.x;
+            float minY = 0 + targetPanel.sizeDelta.y;
+            float maxY = Screen.height;
+
+            position.x = Mathf.Clamp(position.x, minX, maxX);
+            position.y = Mathf.Clamp(position.y, minY, maxY);
+
+            return position;
         }
     }
 }

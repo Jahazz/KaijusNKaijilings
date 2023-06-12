@@ -8,7 +8,7 @@ namespace Tooltips.UI
     {
         public override void Initialize (TooltipType type, string ID)
         {
-
+            base.Initialize(type, ID);
         }
     }
 }
