@@ -1,5 +1,6 @@
+#if UNITY_EDITOR
+
 using System.Collections.Generic;
-using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
@@ -91,3 +92,4 @@ public class TypeDamageGridDrawer : PropertyDrawer
         return 18f * (property.FindPropertyRelative(nameof(TypeDamageGrid.TypeDataCollection)).arraySize+2);
     }
 }
+#endif

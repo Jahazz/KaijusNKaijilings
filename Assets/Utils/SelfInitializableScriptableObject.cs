@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+#if UNITY_EDITOR
 namespace Utils
 {
     public class SelfInitializableScriptableObject<ComponentType> : ScriptableObject where ComponentType : struct, IConvertible
@@ -29,3 +30,4 @@ namespace Utils
         }
     }
 }
+#endif

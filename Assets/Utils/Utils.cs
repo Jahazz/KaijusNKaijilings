@@ -7,6 +7,7 @@ namespace Utils
 {
     public class Utils
     {
+#if UNITY_EDITOR
         public static string TryGetTypeByDirectory (string assetType, string assetName)
         {
             string[] guids = AssetDatabase.FindAssets($"t:{assetType} {assetName}");
@@ -23,6 +24,7 @@ namespace Utils
 
             return output;
         }
+#endif
 
         public static List<ItemType> GetResourcesOfType<ItemType> ()
         {
