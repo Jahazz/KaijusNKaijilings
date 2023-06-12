@@ -2,6 +2,7 @@ using MVC;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.InputSystem.InputAction;
 
 namespace BattleCore.UI
 {
@@ -15,11 +16,6 @@ namespace BattleCore.UI
         public void UseSkill (Entity caster, SkillScriptableObject skill)
         {
             CurrentModel.QueuePlayerSkillUsage(caster, skill);
-        }
-
-        public void DisplaySKillTooltip (Vector2 position, SkillScriptableObject mousedOverSkill)
-        {
-
         }
 
         public void HideSkillTooltip ()

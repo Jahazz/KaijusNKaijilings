@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.InputSystem.InputAction;
 
 namespace BattleCore.UI
 {
@@ -41,6 +42,9 @@ namespace BattleCore.UI
         private SkillScriptableObject BoundSkill { get; set; }
         private Entity SkillOwner { get; set; }
 
+        private bool HasManaForSkill { get; set; } = false;
+        private bool IsSkillNotEmpty { get; set; } = false;
+
         public void BindWithSkill (SkillScriptableObject skill, Entity skillOwner)
         {
             BoundSkill = skill;
@@ -60,19 +64,34 @@ namespace BattleCore.UI
             TryToFillDamageSKillData();
         }
 
+        public void ClickFromKeyboard (CallbackContext _)
+        {
+            SkillButton.onClick.Invoke();
+        }
+
         public void Click ()
         {
-            BattleScreenController.UseSkill(SkillOwner, BoundSkill);
+            if (CanSkillBeUsed())
+            {
+                BattleScreenController.UseSkill(SkillOwner, BoundSkill);
+            }
         }
 
         public void SetEnabled (bool isEnabled)
         {
-            SkillInactivityMarker.SetActive(isEnabled == false);
+            IsSkillNotEmpty = isEnabled;
+            SkillInactivityMarker.SetActive(IsSkillNotEmpty == false);
+        }
+
+        public bool CanSkillBeUsed ()
+        {
+            return IsSkillNotEmpty && HasManaForSkill;
         }
 
         private void HandleOnCurrentManaChanged (float newValue, float _ = default)
         {
-            SkillButton.interactable = SkillOwner.HasResourceForSkill(BoundSkill.BaseSkillData.Cost) == true;
+            HasManaForSkill = SkillOwner.HasResourceForSkill(BoundSkill.BaseSkillData.Cost) == true;
+            SkillButton.interactable = HasManaForSkill;
         }
 
         private void TryToFillDamageSKillData ()

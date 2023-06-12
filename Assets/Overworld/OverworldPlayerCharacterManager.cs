@@ -21,6 +21,11 @@ public class OverworldPlayerCharacterManager : MonoBehaviour
         CameraFollow.gameObject.SetActive(false);
         AssetInputsInstance.SetCharacterMovementActive(false);
         ThirdPersonControllerInstance.FreezeCharacterMovement();
+
+        if (reason == PlayerState.IN_BATTLE)
+        {
+            SetActionMap(InputMapType.BATTLE);
+        }
     }
 
     public void UnfreezePlayer ()
@@ -29,5 +34,11 @@ public class OverworldPlayerCharacterManager : MonoBehaviour
         CameraFollow.gameObject.SetActive(true);
         AssetInputsInstance.SetCharacterMovementActive(true);
         ThirdPersonControllerInstance.UnfreezeCharacterMovement();
+        SetActionMap(InputMapType.PLAYER);
+    }
+
+    private void SetActionMap (InputMapType mapType)
+    {
+        SingletonContainer.Instance.InputSystem.SwitchCurrentActionMap(mapType.ToString());
     }
 }

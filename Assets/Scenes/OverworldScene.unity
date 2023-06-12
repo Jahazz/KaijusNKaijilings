@@ -337,7 +337,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143962
+  m_Name: pb_Mesh-68674
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -747,7 +747,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143804
+  m_Name: pb_Mesh-68516
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3051,7 +3051,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143748
+  m_Name: pb_Mesh-68460
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4949,7 +4949,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143976
+  m_Name: pb_Mesh-68688
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5113,7 +5113,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143762
+  m_Name: pb_Mesh-68474
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5754,7 +5754,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143734
+  m_Name: pb_Mesh-68446
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6240,7 +6240,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143572
+  m_Name: pb_Mesh-68284
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6801,7 +6801,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143902
+  m_Name: pb_Mesh-68614
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9435,9 +9435,73 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e87d9a10-8d2a-4d32-99ac-50e7a890e8b2
     m_ActionName: Player/Sprint[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2823648756113208484}
+        m_TargetAssemblyTypeName: BattleCore.UI.SkillUseButton, Assembly-CSharp
+        m_MethodName: ClickFromKeyboard
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3e9d458e-7a71-443f-a473-0cdfb3da2455
+    m_ActionName: Battle/FirstSkill[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 630866630}
+        m_TargetAssemblyTypeName: BattleCore.UI.SkillUseButton, Assembly-CSharp
+        m_MethodName: ClickFromKeyboard
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 65964033-12dc-442a-991f-5014297508c7
+    m_ActionName: Battle/SecondSkill[/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 204362610}
+        m_TargetAssemblyTypeName: BattleCore.UI.SkillUseButton, Assembly-CSharp
+        m_MethodName: ClickFromKeyboard
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 892bd1a2-fed0-439e-a5db-1f19ef6c9831
+    m_ActionName: Battle/ThirdSkill[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 885128160}
+        m_TargetAssemblyTypeName: BattleCore.UI.SkillUseButton, Assembly-CSharp
+        m_MethodName: ClickFromKeyboard
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bcf2360d-4ac2-4160-92cd-4929a9975f44
+    m_ActionName: Battle/FourthSkill[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: PLAYER
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 2059725471}
 --- !u!4 &592053671
@@ -13178,7 +13242,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143586
+  m_Name: pb_Mesh-68298
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13586,7 +13650,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143720
+  m_Name: pb_Mesh-68432
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16053,7 +16117,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143692
+  m_Name: pb_Mesh-68404
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -24476,7 +24540,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143948
+  m_Name: pb_Mesh-68660
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -25567,7 +25631,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143818
+  m_Name: pb_Mesh-68530
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -27435,7 +27499,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143790
+  m_Name: pb_Mesh-68502
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -27840,7 +27904,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143860
+  m_Name: pb_Mesh-68572
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -31303,7 +31367,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143888
+  m_Name: pb_Mesh-68600
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -32313,7 +32377,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143706
+  m_Name: pb_Mesh-68418
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -34540,7 +34604,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143832
+  m_Name: pb_Mesh-68544
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -36005,7 +36069,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143874
+  m_Name: pb_Mesh-68586
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -36444,7 +36508,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143846
+  m_Name: pb_Mesh-68558
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -46901,7 +46965,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-143776
+  m_Name: pb_Mesh-68488
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -49423,7 +49487,8 @@ PrefabInstance:
       propertyPath: m_text
       value: Q
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7802339642096553364, guid: fee82ee4d21ab8c4084d8dc7b347cc11, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fee82ee4d21ab8c4084d8dc7b347cc11, type: 3}
 --- !u!224 &2823648756113208481 stripped
 RectTransform:
@@ -53231,7 +53296,7 @@ PrefabInstance:
     - target: {fileID: 3535629684602905256, guid: 4a3c7b36d9bc0f44c84ef21257881829,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 59.377
+      value: 59.689
       objectReference: {fileID: 0}
     - target: {fileID: 3535629684602905256, guid: 4a3c7b36d9bc0f44c84ef21257881829,
         type: 3}
@@ -53479,6 +53544,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1837303283}
+    - target: {fileID: 7156472287927213598, guid: 4a3c7b36d9bc0f44c84ef21257881829,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.293
+      objectReference: {fileID: 0}
     - target: {fileID: 7490420202260326659, guid: 4a3c7b36d9bc0f44c84ef21257881829,
         type: 3}
       propertyPath: m_Mesh
