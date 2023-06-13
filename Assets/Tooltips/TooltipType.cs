@@ -7,6 +7,7 @@ namespace Tooltips
         BATTLEGROUND_STATUS_EFFECT,
         KEYWORD,
         STAT,
-        ENTITY_TYPE
+        ENTITY_TYPE,
+        ENTITY
     }
 }

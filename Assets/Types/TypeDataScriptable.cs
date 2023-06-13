@@ -1,15 +1,20 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 [CreateAssetMenu(fileName = "TypeData", menuName = "ScriptableObjects/TypeData", order = 2)]
-public class TypeDataScriptable : ScriptableObject
+public class TypeDataScriptable : ScriptableObject, INameableGUIDableDescribable
 {
-    public string TypeName;
-    public string Description;
-    public List<TypeDamagePair> AttackerMultiplierCollection;
-    public Sprite TypeSprite;
+    [field: FormerlySerializedAs("TypeName")]
     [field: SerializeField]
-    public string SkillGUID { get; set; } = Guid.NewGuid().ToString();
+    public string Name { get; set; }
+    [field: SerializeField]
+    public string Description { get; set; }
+    [field: SerializeField]
+    public List<TypeDamagePair> AttackerMultiplierCollection { get; set; }
+    public Sprite TypeSprite { get; set; }
+    [field: SerializeField]
+    public string GUID { get; set; } = Guid.NewGuid().ToString();
 }

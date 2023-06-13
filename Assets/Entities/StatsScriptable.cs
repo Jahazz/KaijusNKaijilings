@@ -1,14 +1,15 @@
 ﻿using BattleCore.ScreenEntity;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "EntityData", menuName = "ScriptableObjects/EntityData", order = 1)]
-public class StatsScriptable : ScriptableObject
+public class StatsScriptable : ScriptableObject, INameableGUIDableDescribable
 {
     [field: SerializeField]
-    public string Name { get; private set; }
+    public string Name { get; set; }
     [field: SerializeField]
-    public string Description { get; private set; }
+    public string Description { get;  set; }
     [field: SerializeField]
     public Sprite Image { get; private set; }
     [field: SerializeField]
@@ -25,4 +26,6 @@ public class StatsScriptable : ScriptableObject
     public List<LevelSkillPair> SkillsWithRequirements { get; private set; }
     [field: SerializeField]
     public int GroupCountRequiredToBreed { get; private set; }
+    [field: SerializeField]
+    public string GUID { get; set; } = Guid.NewGuid().ToString();
 }

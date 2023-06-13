@@ -75,7 +75,7 @@ public class TypeDamageGridDrawer : PropertyDrawer
 
         for (int i = 0; i < collectionProperty.arraySize; i++)
         { 
-            output.Add(GetPropertyFromScriptablePosition<TypeDataScriptable>(collectionProperty.GetArrayElementAtIndex(i), nameof(TypeDataScriptable.TypeName)).stringValue);
+            output.Add(GetPropertyFromScriptablePosition<TypeDataScriptable>(collectionProperty.GetArrayElementAtIndex(i), nameof(TypeDataScriptable.Name)).stringValue);
         }
 
         return output;

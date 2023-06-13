@@ -10,6 +10,6 @@ namespace Tooltips
         [field: SerializeField]
         public TooltipType Type { get; private set; }
         [field: SerializeField]
-        public BaseTooltip BaseTooltipPrefab { get; private set; }
+        public BaseTooltip<INameableGUIDableDescribable> BaseTooltipPrefab { get; private set; }
     }
 }

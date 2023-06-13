@@ -3,9 +3,9 @@ using TMPro;
 
 namespace Tooltips.UI
 {
-    public abstract class BaseTooltip : MonoBehaviour
+    public abstract class BaseTooltip<Type>: MonoBehaviour where Type : INameableGUIDableDescribable
     {
-        public delegate void OnTooltipDestroyedParams (BaseTooltip destroyedTooltip);
+        public delegate void OnTooltipDestroyedParams (BaseTooltip<Type> destroyedTooltip);
         public event OnTooltipDestroyedParams OnTooltipDestroyed;
         [field: SerializeField]
         public RectTransform RectTransform { get; private set; }
@@ -14,12 +14,15 @@ namespace Tooltips.UI
         [field: SerializeField]
         protected TMP_Text TooltipDesciptionLabel { get; private set; }
         public TooltipType TooltipType { get; private set; }
-        public string TooltipID { get; private set; }
+        public Type ContainingObject { get; private set; }
 
-        public virtual void Initialize (TooltipType type, string ID)
+        public virtual void Initialize (TooltipType tooltipType, Type containingObject)
         {
-            TooltipType = type;
-            TooltipID = ID;
+            TooltipType = tooltipType;
+            ContainingObject = containingObject;
+
+            TooltipTopLabel.text = containingObject.Name;
+            TooltipDesciptionLabel.text = ContainingObject.Description;
         }
 
         public void Close ()

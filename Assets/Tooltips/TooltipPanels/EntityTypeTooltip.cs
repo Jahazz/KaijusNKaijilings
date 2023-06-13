@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Tooltips.UI
 {
-    public class EntityTypeTooltip : BaseTooltip
+    public class EntityTypeTooltip : BaseTooltip<StatsScriptable>
     {
-        public override void Initialize (TooltipType type, string ID)
+        public override void Initialize (TooltipType type, StatsScriptable containingObject)
         {
-            base.Initialize(type, ID);
+            base.Initialize(type, containingObject);
         }
     }
 }

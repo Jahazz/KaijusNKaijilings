@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "TraitBaseScriptableObject", menuName = "ScriptableObjects/TraitBaseScriptableObject")]
-public class TraitBaseScriptableObject : ScriptableObject
+public class TraitBaseScriptableObject : ScriptableObject, INameableGUIDableDescribable
 {
     [field: SerializeField]
-    public string Name { get; private set; }
+    public string Name { get; set; }
     [field: SerializeField]
-    public string Description { get; private set; }
+    public string Description { get; set; }
     [field: SerializeField]
     public Sprite Image { get; private set; }
     [field: SerializeField]
@@ -18,5 +18,5 @@ public class TraitBaseScriptableObject : ScriptableObject
     [field: SerializeField]
     public List<TraitBaseScriptableObject> ExcludesTraits { get; set; }
     [field: SerializeField]
-    public string SkillGUID { get; set; } = Guid.NewGuid().ToString();
+    public string GUID { get; set; } = Guid.NewGuid().ToString();
 }

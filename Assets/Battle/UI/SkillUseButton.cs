@@ -50,14 +50,14 @@ namespace BattleCore.UI
             BoundSkill = skill;
             SkillOwner = skillOwner;
 
-            SkillLabel.text = skill.BaseSkillData.Name;
+            SkillLabel.text = skill.Name;
             SkillCostLabel.text = skill.BaseSkillData.Cost.ToString();
             SkillImage.sprite = skill.BaseSkillData.Image;
 
             TypeDataScriptable skillType = skill.BaseSkillData.SkilType[0];
 
             SkillTypeImage.sprite = skillType.TypeSprite;
-            SkillDescriptionLabel.text = skill.BaseSkillData.Description;
+            SkillDescriptionLabel.text = skill.Description;
 
             skillOwner.ModifiedStats.Mana.CurrentValue.OnVariableChange += HandleOnCurrentManaChanged;
             HandleOnCurrentManaChanged(skillOwner.ModifiedStats.Mana.CurrentValue.PresentValue);
@@ -100,8 +100,8 @@ namespace BattleCore.UI
 
             if (isDamageSkill == true)
             {
-                DefenceStatImage.sprite = SingletonContainer.Instance.EntityManager.StatTypeDescriptions[BoundSkill.DamageData.DefenceType].Sprite;
-                OffenceStatImage.sprite = SingletonContainer.Instance.EntityManager.StatTypeDescriptions[BoundSkill.DamageData.AttackType].Sprite;
+                DefenceStatImage.sprite = SingletonContainer.Instance.EntityManager.GetStatOfType(BoundSkill.DamageData.DefenceType).Sprite;
+                OffenceStatImage.sprite = SingletonContainer.Instance.EntityManager.GetStatOfType(BoundSkill.DamageData.AttackType).Sprite;
 
                 float minDamage = BoundSkill.DamageData.DamageRangeValue.x;
                 float maxDamage = BoundSkill.DamageData.DamageRangeValue.x;

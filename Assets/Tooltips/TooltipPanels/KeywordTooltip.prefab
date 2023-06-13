@@ -117,6 +117,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5585149654144167373, guid: ceded063e6989a244bc9509b6ecb09f5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6216021325854726010}
+    - target: {fileID: 5585149654144167373, guid: ceded063e6989a244bc9509b6ecb09f5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Close
+      objectReference: {fileID: 0}
+    - target: {fileID: 5585149654144167373, guid: ceded063e6989a244bc9509b6ecb09f5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Tooltips.UI.BaseTooltip`1[[AdditionalTooltipScriptable, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5585149654144167373, guid: ceded063e6989a244bc9509b6ecb09f5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ceded063e6989a244bc9509b6ecb09f5, type: 3}
 --- !u!1 &5059708631846835632 stripped
@@ -138,6 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <RectTransform>k__BackingField: {fileID: 5059708631846835633}
+  <TooltipTopLabel>k__BackingField: {fileID: 0}
+  <TooltipDesciptionLabel>k__BackingField: {fileID: 0}
 --- !u!224 &5059708631846835633 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5585149652823723369, guid: ceded063e6989a244bc9509b6ecb09f5,
