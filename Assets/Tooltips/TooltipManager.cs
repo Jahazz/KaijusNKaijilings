@@ -16,7 +16,11 @@ namespace Tooltips
         private Canvas TooltipCanvas { get; set; }
         [field: SerializeField]
         private Color TooltipColor { get; set; }
+        [field: Space]
+        [field: SerializeField]
+        private List<AdditionalTooltipScriptable> AdditionalTooltips { get; set; } = new List<AdditionalTooltipScriptable>();
         private Dictionary<TooltipType, BaseTooltip> PrefabsDictionary { get; set; } = new Dictionary<TooltipType, BaseTooltip>();
+        private Dictionary<string, AdditionalTooltipScriptable> AdditionalTooltipsDictionary { get; set; } = new Dictionary<string, AdditionalTooltipScriptable>();
         private List<TMP_Text> TooltipCollection { get; set; } = new List<TMP_Text>();
         private Vector2 PointerPosition { get; set; }
         private static string FORMAT_WITH_URL = "<b><u><color=#{0}><link=\"{1}-{2}\">{3}</link></color></u></b>";
@@ -95,7 +99,8 @@ namespace Tooltips
 
         protected virtual void Start ()
         {
-            PrefabsDictionary = PrefabsCollection.ToDictionary(item => item.Type, item=>item.BaseTooltipPrefab);
+            PrefabsDictionary = PrefabsCollection.ToDictionary(item => item.Type, item => item.BaseTooltipPrefab);
+            AdditionalTooltipsDictionary = AdditionalTooltips.ToDictionary(item => item.name, item => item);
         }
 
         private void CheckForLinkAtMousePosition (TMP_Text target)

@@ -1,5 +1,6 @@
+using StatusEffects.BattlegroundStatusEffects;
+using StatusEffects.EntityStatusEffects;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -10,13 +11,18 @@ public class EntityManager : MonoBehaviour
     [field: SerializeField]
     public List<StatsScriptable> AllEntitiesTypes { get; set; } = new List<StatsScriptable>();
     [field: SerializeField]
-    public List<TraitBaseScriptableObject> AvailableTraits { get; private set; } = new List<TraitBaseScriptableObject>();
-    [field: SerializeField]
     public LevelRequirementsScriptable LevelRequirements { get; private set; }
     [field: SerializeField]
-    private List<StatTypeSpritePair> StatTypeSpriteCollection { get; set; }
+    public List<TraitBaseScriptableObject> AvailableTraits { get; private set; } = new List<TraitBaseScriptableObject>();
     [field: SerializeField]
-    public Dictionary<StatType, Sprite> StatTypeSpriteDictionary { get; set; } = new Dictionary<StatType, Sprite>();
+    public List<TypeDataScriptable> AvailableTypes { get; private set; } = new List<TypeDataScriptable>();
+    [field: SerializeField]
+    public List<BaseScriptableEntityStatusEffect> AvailableEntityStatusEffects { get; private set; } = new List<BaseScriptableEntityStatusEffect>();
+    [field: SerializeField]
+    public List<BaseScriptableBattlegroundStatusEffect> AvailableBattlegroundStatusEffects { get; private set; } = new List<BaseScriptableBattlegroundStatusEffect>();
+    [field: SerializeField]
+    private List<ScriptableStatData> StatTypeSpriteCollection { get; set; }
+    public Dictionary<StatType, ScriptableStatData> StatTypeDescriptions { get; set; } = new Dictionary<StatType, ScriptableStatData>();
 
 
 
@@ -60,7 +66,7 @@ public class EntityManager : MonoBehaviour
 
     private void DictionarizeStatTypeSpriteCollection ()
     {
-        StatTypeSpriteDictionary = StatTypeSpriteCollection.ToDictionary(k => k.Stat, v => v.Sprite);
+        StatTypeDescriptions = StatTypeSpriteCollection.ToDictionary(k => k.Stat, v => v);
     }
 
     private void AddRandomTraitsToEntity (Entity entityToAddTraits, List<TraitBaseScriptableObject> availableTraits)

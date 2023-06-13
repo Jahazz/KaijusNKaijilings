@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,4 +17,6 @@ public class TraitBaseScriptableObject : ScriptableObject
     public List<StatModifier> ModifiedStatCollection { get; set; } = new List<StatModifier>();
     [field: SerializeField]
     public List<TraitBaseScriptableObject> ExcludesTraits { get; set; }
+    [field: SerializeField]
+    public string SkillGUID { get; set; } = Guid.NewGuid().ToString();
 }

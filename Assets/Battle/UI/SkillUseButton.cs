@@ -100,8 +100,8 @@ namespace BattleCore.UI
 
             if (isDamageSkill == true)
             {
-                DefenceStatImage.sprite = SingletonContainer.Instance.EntityManager.StatTypeSpriteDictionary[BoundSkill.DamageData.DefenceType];
-                OffenceStatImage.sprite = SingletonContainer.Instance.EntityManager.StatTypeSpriteDictionary[BoundSkill.DamageData.AttackType];
+                DefenceStatImage.sprite = SingletonContainer.Instance.EntityManager.StatTypeDescriptions[BoundSkill.DamageData.DefenceType].Sprite;
+                OffenceStatImage.sprite = SingletonContainer.Instance.EntityManager.StatTypeDescriptions[BoundSkill.DamageData.AttackType].Sprite;
 
                 float minDamage = BoundSkill.DamageData.DamageRangeValue.x;
                 float maxDamage = BoundSkill.DamageData.DamageRangeValue.x;

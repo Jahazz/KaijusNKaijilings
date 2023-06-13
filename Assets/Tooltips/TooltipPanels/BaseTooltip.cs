@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 namespace Tooltips.UI
 {
@@ -10,6 +9,10 @@ namespace Tooltips.UI
         public event OnTooltipDestroyedParams OnTooltipDestroyed;
         [field: SerializeField]
         public RectTransform RectTransform { get; private set; }
+        [field: SerializeField]
+        protected TMP_Text TooltipTopLabel { get; private set; }
+        [field: SerializeField]
+        protected TMP_Text TooltipDesciptionLabel { get; private set; }
         public TooltipType TooltipType { get; private set; }
         public string TooltipID { get; private set; }
 

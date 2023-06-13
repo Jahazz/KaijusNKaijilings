@@ -8883,6 +8883,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AllEntitiesTypes>k__BackingField:
   - {fileID: 11400000, guid: 128ec9f16e89b924e88370d1747e96c8, type: 2}
+  <LevelRequirements>k__BackingField: {fileID: 11400000, guid: d89c53827b83f2840a08acdf7be67099,
+    type: 2}
   <AvailableTraits>k__BackingField:
   - {fileID: 11400000, guid: b7f5bd855b2d78a4a9566a6c3086b9d9, type: 2}
   - {fileID: 11400000, guid: 279316b6b91291442b1663b03bc6138a, type: 2}
@@ -8894,36 +8896,74 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d93f85ba9be37954a9d34357b1fb76f7, type: 2}
   - {fileID: 11400000, guid: 204af622e6e96b74abe7fc8856a3b304, type: 2}
   - {fileID: 11400000, guid: 77f569c013b63a145b365845cd87cb21, type: 2}
-  <LevelRequirements>k__BackingField: {fileID: 11400000, guid: d89c53827b83f2840a08acdf7be67099,
-    type: 2}
+  <AvailableTypes>k__BackingField:
+  - {fileID: 11400000, guid: ef42084dcb328664f9c4e4a207c8ba53, type: 2}
+  - {fileID: 11400000, guid: c9113c55941e79b418d86ed61814add9, type: 2}
+  - {fileID: 11400000, guid: 6e1104a6f36d78a4c9ff580066d89997, type: 2}
+  - {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}
+  - {fileID: 11400000, guid: 618cf5565bc626f4a84e1802977c48e7, type: 2}
+  - {fileID: 11400000, guid: c25159e9fea49214393c12f323598142, type: 2}
+  - {fileID: 11400000, guid: 3640ae4eb5b6ef14b8e13b88bcd846d9, type: 2}
+  - {fileID: 11400000, guid: aebd1c762e7cf7544b2772496b04c344, type: 2}
+  - {fileID: 11400000, guid: 0a7afdcb0cd24d54695c0c4884ac7df6, type: 2}
+  - {fileID: 11400000, guid: 3cabfc25ecd4b30489d7a5a9190b52ec, type: 2}
+  - {fileID: 11400000, guid: c2bd31ce945a21d4b91321cc3bd26f76, type: 2}
+  - {fileID: 11400000, guid: f05a79a5ad7bef748941bd40976b53e7, type: 2}
+  - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
+  - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
+  - {fileID: 11400000, guid: 38955d2c0d7ede24fb26b79f2448fdb9, type: 2}
+  - {fileID: 11400000, guid: c234248a3f3e91f4fb1dd30b735bb570, type: 2}
+  <AvailableEntityStatusEffects>k__BackingField:
+  - {fileID: 11400000, guid: f0fdcf1cb671a7846b803445ad985252, type: 2}
+  - {fileID: 11400000, guid: 430a7444d7653814181f11b12fc5242d, type: 2}
+  - {fileID: 11400000, guid: ffdf74e7f5deaa34fb68af893335b9eb, type: 2}
+  - {fileID: 11400000, guid: 9711edfcc72b6b5499c31f9d7a73506e, type: 2}
+  - {fileID: 11400000, guid: 0c83201bbdae0044583b632137bd2368, type: 2}
+  - {fileID: 11400000, guid: 69445d781857aea4197d4a6103799669, type: 2}
+  - {fileID: 11400000, guid: 1e230e661187f9e448c2b36b03e9b0d5, type: 2}
+  - {fileID: 11400000, guid: 5c330165766a1654b86d83a3931289bd, type: 2}
+  - {fileID: 11400000, guid: 1929f9d0569c98d40b27b7af51bb2a63, type: 2}
+  - {fileID: 11400000, guid: 892d8c0170639834a888d87aa8f18b3f, type: 2}
+  - {fileID: 11400000, guid: 47b3980e2ee23644a9329a3a8f3c1d1b, type: 2}
+  - {fileID: 11400000, guid: 638da52961e86c4479a589b708b62087, type: 2}
+  - {fileID: 11400000, guid: 8ab34b0e1bf163f4d8b9786b423456b1, type: 2}
+  - {fileID: 11400000, guid: ca203c6a232596d44a16965d12fb460e, type: 2}
+  - {fileID: 11400000, guid: 0b5c2f39f82464f4daa7ad76a83e5fce, type: 2}
+  - {fileID: 11400000, guid: 0bd63af51d33c1a4b9abf4ea60efc076, type: 2}
+  - {fileID: 11400000, guid: 3941ea23cf3ff9b47a76eff5c4461a23, type: 2}
+  - {fileID: 11400000, guid: 65152a9144b80d743ad849c077100d9a, type: 2}
+  - {fileID: 11400000, guid: 369daae2afb202f418aedab5d1fa42c0, type: 2}
+  - {fileID: 11400000, guid: 113fd7c48f749ba4fad3d2aa2a6c74b2, type: 2}
+  - {fileID: 11400000, guid: c8025005ddd729940b51526264191919, type: 2}
+  - {fileID: 11400000, guid: ae814cfdbfa8ee041ad48cb10615a9fc, type: 2}
+  - {fileID: 11400000, guid: 32fbc456598595440a24b0a4e8ed6f17, type: 2}
+  - {fileID: 11400000, guid: 6508855d95d3c10499b1021df9d988d7, type: 2}
+  - {fileID: 11400000, guid: b5300fe6fddd7f247b52a93e3920b920, type: 2}
+  - {fileID: 11400000, guid: 429700d32ca88fb419ebef88299a5ef6, type: 2}
+  - {fileID: 11400000, guid: 83eb8da3da643f5429aedb45a75749ff, type: 2}
+  <AvailableBattlegroundStatusEffects>k__BackingField:
+  - {fileID: 11400000, guid: fdf58219a65caa447ac50364add6f6fe, type: 2}
+  - {fileID: 11400000, guid: fdf124eb0f06f5545b578f9814c1477b, type: 2}
+  - {fileID: 11400000, guid: 4b1178f48aacb164f92398ed1f81ca7a, type: 2}
+  - {fileID: 11400000, guid: b330f67664dd40c4186bcc7e92c38326, type: 2}
+  - {fileID: 11400000, guid: 95a211208ebbad94b86680e89e78c762, type: 2}
+  - {fileID: 11400000, guid: ed9b95c3bb3e73548bdd829e60c1bfa3, type: 2}
+  - {fileID: 11400000, guid: 1742378e52855df40b00bc788b56da57, type: 2}
+  - {fileID: 11400000, guid: 023eae99d5d3f6d488ba8ce35e5bc1fb, type: 2}
+  - {fileID: 11400000, guid: 9f729069c4d33f948adf4997c146bd4f, type: 2}
+  - {fileID: 11400000, guid: 6de9399027751dc499c16223ceb0fc5f, type: 2}
+  - {fileID: 11400000, guid: 45c5bb309d7185c43a8e17e6b117a918, type: 2}
+  - {fileID: 11400000, guid: 5d1ec891fc719374297a0e9b36ec1c2b, type: 2}
   <StatTypeSpriteCollection>k__BackingField:
-  - <Stat>k__BackingField: 1
-    <Sprite>k__BackingField: {fileID: 21300000, guid: 11832e3b6a977ef43b0fb162079007f3,
-      type: 3}
-  - <Stat>k__BackingField: 2
-    <Sprite>k__BackingField: {fileID: 21300000, guid: 4f9e4a64fe5fc74418f93c8cd3732315,
-      type: 3}
-  - <Stat>k__BackingField: 3
-    <Sprite>k__BackingField: {fileID: 21300000, guid: 6ec286aa71d5f2646b6909f5e9a90e57,
-      type: 3}
-  - <Stat>k__BackingField: 4
-    <Sprite>k__BackingField: {fileID: 21300000, guid: 1677d03888fa5d244b14019d81489264,
-      type: 3}
-  - <Stat>k__BackingField: 5
-    <Sprite>k__BackingField: {fileID: 21300000, guid: 7dc201abb6d61354ea422f8aa7a73c4b,
-      type: 3}
-  - <Stat>k__BackingField: 6
-    <Sprite>k__BackingField: {fileID: 21300000, guid: 1ff74263c71accf4a88a265d6f8f5129,
-      type: 3}
-  - <Stat>k__BackingField: 7
-    <Sprite>k__BackingField: {fileID: 21300000, guid: 0e87d1acd9bb80b4f87a3e26d9b0e741,
-      type: 3}
-  - <Stat>k__BackingField: 8
-    <Sprite>k__BackingField: {fileID: 21300000, guid: 49fa50e0a72a08449a91cc5a5964cd0f,
-      type: 3}
-  - <Stat>k__BackingField: 9
-    <Sprite>k__BackingField: {fileID: 21300000, guid: 555ac2c531547f14dbe83f5fb5d8f4bd,
-      type: 3}
+  - {fileID: 11400000, guid: 91c20bcbfdea8df4d9444c9eed081b5b, type: 2}
+  - {fileID: 11400000, guid: facf2d250e2d39a4cbf24e8023a04a19, type: 2}
+  - {fileID: 11400000, guid: cdc20d9e45534cd4a939cc542616908b, type: 2}
+  - {fileID: 11400000, guid: 652f24932dc983e4997e066c3905dce0, type: 2}
+  - {fileID: 11400000, guid: 5d9eeff6c22cd4844adaadd27d7022bd, type: 2}
+  - {fileID: 11400000, guid: 6479aa4dfdd614a49852292771f102ba, type: 2}
+  - {fileID: 11400000, guid: 02153e10b42813b4c89c6a53374f0985, type: 2}
+  - {fileID: 11400000, guid: 2dfc067fbbbc54a4b962f5b659551ea2, type: 2}
+  - {fileID: 11400000, guid: 2e49edc6ee8ca0b47adb56c6d7f72f49, type: 2}
 --- !u!4 &550966371
 Transform:
   m_ObjectHideFlags: 0

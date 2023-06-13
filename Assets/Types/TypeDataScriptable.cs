@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +7,9 @@ using UnityEngine;
 public class TypeDataScriptable : ScriptableObject
 {
     public string TypeName;
+    public string Description;
     public List<TypeDamagePair> AttackerMultiplierCollection;
     public Sprite TypeSprite;
+    [field: SerializeField]
+    public string SkillGUID { get; set; } = Guid.NewGuid().ToString();
 }

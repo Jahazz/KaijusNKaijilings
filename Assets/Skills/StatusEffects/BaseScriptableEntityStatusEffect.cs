@@ -1,4 +1,5 @@
 using BattleCore;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,6 +22,8 @@ namespace StatusEffects.EntityStatusEffects
         public bool RemovedOnDeath { get; private set; }
         [field: SerializeField]
         public int MaxStacks { get; private set; }
+        [field: SerializeField]
+        public string SkillGUID { get; set; } = Guid.NewGuid().ToString();
 
         public abstract void ApplyStatus (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle, int numberOfStacksToAdd);
     }
