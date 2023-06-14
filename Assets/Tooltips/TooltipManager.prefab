@@ -165,6 +165,8 @@ MonoBehaviour:
     <BaseTooltipPrefab>k__BackingField: {fileID: 0}
   - <Type>k__BackingField: 5
     <BaseTooltipPrefab>k__BackingField: {fileID: 0}
+  - <Type>k__BackingField: 6
+    <BaseTooltipPrefab>k__BackingField: {fileID: 0}
   <TooltipCanvas>k__BackingField: {fileID: 5751568605791869305}
   <TooltipColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   <AdditionalTooltips>k__BackingField: []
@@ -648,7 +650,7 @@ PrefabInstance:
     - target: {fileID: 6948753823267200746, guid: 7a8443e05c6581d44bb20b99e971ee39,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1033
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6948753823267200746, guid: 7a8443e05c6581d44bb20b99e971ee39,
         type: 3}
@@ -778,7 +780,7 @@ PrefabInstance:
     - target: {fileID: 366986676285967270, guid: d71444470898e354183e8e7cd7f10935,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 515
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 366986676285967270, guid: d71444470898e354183e8e7cd7f10935,
         type: 3}

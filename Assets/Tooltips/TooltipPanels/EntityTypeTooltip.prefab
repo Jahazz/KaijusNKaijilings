@@ -152,8 +152,43 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8329502633485949176, guid: ceded063e6989a244bc9509b6ecb09f5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ceded063e6989a244bc9509b6ecb09f5, type: 3}
+--- !u!114 &367817223282392350 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5886520884883308711, guid: ceded063e6989a244bc9509b6ecb09f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6101146447307554233}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1813209412683908818 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5585149654536584043, guid: ceded063e6989a244bc9509b6ecb09f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6101146447307554233}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &1813209413374406864 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5585149652823723369, guid: ceded063e6989a244bc9509b6ecb09f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6101146447307554233}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1813209413374406865 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5585149652823723368, guid: ceded063e6989a244bc9509b6ecb09f5,
@@ -172,6 +207,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8284f906af394c04daf3f1d724bb0c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <RectTransform>k__BackingField: {fileID: 0}
-  <TooltipTopLabel>k__BackingField: {fileID: 0}
-  <TooltipDesciptionLabel>k__BackingField: {fileID: 0}
+  <RectTransform>k__BackingField: {fileID: 1813209413374406864}
+  <TooltipTopLabel>k__BackingField: {fileID: 1813209412683908818}
+  <TooltipDesciptionLabel>k__BackingField: {fileID: 367817223282392350}
+  <Image>k__BackingField: {fileID: 1871644737738507539}
+--- !u!114 &1871644737738507539 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5571738506021386410, guid: ceded063e6989a244bc9509b6ecb09f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6101146447307554233}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

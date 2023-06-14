@@ -1,14 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Tooltips.UI
 {
-    public class StatTooltip : BaseTooltip<ScriptableStatData>
+    public class StatTooltip : BaseTooltip
     {
-        public override void Initialize (TooltipType type, ScriptableStatData containingObject)
+        [field: SerializeField]
+        private Image Image { get; set; }
+
+        public override void Initialize (TooltipType type, string GUID)
         {
-            base.Initialize(type, containingObject);
+            base.Initialize(type, GUID);
+
+            ScriptableStatData containingObject = SourceObject as ScriptableStatData;
+
+            Image.sprite = containingObject.Sprite;
         }
     }
 }

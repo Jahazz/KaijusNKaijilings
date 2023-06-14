@@ -19,13 +19,12 @@ namespace Tooltips
         private Color TooltipColor { get; set; }
         [field: Space]
         [field: SerializeField]
-        private List<AdditionalTooltipScriptable> AdditionalTooltips { get; set; } = new List<AdditionalTooltipScriptable>();
-        private Dictionary<TooltipType, BaseTooltip<INameableGUIDableDescribable>> PrefabsDictionary { get; set; } = new Dictionary<TooltipType, BaseTooltip<INameableGUIDableDescribable>>();
-        private Dictionary<string, AdditionalTooltipScriptable> AdditionalTooltipsDictionary { get; set; } = new Dictionary<string, AdditionalTooltipScriptable>();
+        public List<AdditionalTooltipScriptable> AdditionalTooltips { get; private set; } = new List<AdditionalTooltipScriptable>();
+        private Dictionary<TooltipType, BaseTooltip> PrefabsDictionary { get; set; } = new Dictionary<TooltipType, BaseTooltip>();
         private List<TMP_Text> TooltipCollection { get; set; } = new List<TMP_Text>();
         private Vector2 PointerPosition { get; set; }
         private static string FORMAT_WITH_URL = "<b><u><color=#{0}><link=\"{1}-{2}\">{3}</link></color></u></b>";
-        private List<BaseTooltip<INameableGUIDableDescribable>> CurrentlyActiveTooltips { get; set; } = new List<BaseTooltip<INameableGUIDableDescribable>>();
+        private List<BaseTooltip> CurrentlyActiveTooltips { get; set; } = new List<BaseTooltip>();
 
         public string GenerateSkillURLWithGuid (SkillScriptableObject skillScriptableObject)
         {
@@ -58,66 +57,30 @@ namespace Tooltips
             PointerPosition = context.ReadValue<Vector2>();
         }
 
-        public void OpenTooltip (TooltipType type, string id)
+        public void OpenTooltip (TooltipType type, string GUID)
         {
-            if (GetTooltipIfItExists(type, id, out BaseTooltip<INameableGUIDableDescribable> existingTooltip))
+            if (GetTooltipIfItExists(type, GUID, out BaseTooltip existingTooltip))
             {
                 existingTooltip.transform.position = Utils.Utils.ClampRectInsideScreen(existingTooltip.RectTransform, PointerPosition);
             }
             else
             {
-
-                INameableGUIDableDescribable newTooltipData = GetDataForTooltipOfTypeAndGUID(type, id);
-                BaseTooltip<INameableGUIDableDescribable> createdTooltip = Instantiate(PrefabsDictionary[type], PointerPosition, Quaternion.identity, TooltipCanvas.transform);
+                BaseTooltip createdTooltip = Instantiate(PrefabsDictionary[type], PointerPosition, Quaternion.identity, TooltipCanvas.transform);
                 createdTooltip.transform.position = Utils.Utils.ClampRectInsideScreen(createdTooltip.RectTransform, PointerPosition);
                 createdTooltip.OnTooltipDestroyed += HandleOnTooltipDestroyed;
                 CurrentlyActiveTooltips.Add(createdTooltip);
-                createdTooltip.Initialize(type, newTooltipData);
+                createdTooltip.Initialize(type, GUID);
             }
         }
 
-        private INameableGUIDableDescribable GetDataForTooltipOfTypeAndGUID (TooltipType type, string id)
-        {
-            IEnumerable<INameableGUIDableDescribable> listToLookFor = default;
-
-            switch (type)
-            {
-                case TooltipType.ABILITY:
-                    listToLookFor = SingletonContainer.Instance.SkillManagerInstance.SkillsPreloadedCollection;
-                    break;
-                case TooltipType.ENTITY_STATUS_EFFECT:
-                    listToLookFor = SingletonContainer.Instance.EntityManager.AvailableEntityStatusEffects;
-                    break;
-                case TooltipType.BATTLEGROUND_STATUS_EFFECT:
-                    listToLookFor = SingletonContainer.Instance.EntityManager.AvailableBattlegroundStatusEffects;
-                    break;
-                case TooltipType.KEYWORD:
-                    listToLookFor = AdditionalTooltips;
-                    break;
-                case TooltipType.STAT:
-                    listToLookFor = SingletonContainer.Instance.EntityManager.StatTypeSpriteCollection;
-                    break;
-                case TooltipType.ENTITY_TYPE:
-                    listToLookFor = SingletonContainer.Instance.EntityManager.AvailableTypes;
-                    break;
-                case TooltipType.ENTITY:
-                    listToLookFor = SingletonContainer.Instance.EntityManager.AllEntitiesTypes;
-                    break;
-                default:
-                    break;
-            }
-
-            return listToLookFor.GetElementByGUIDFromCollection(id);
-        }
-
-        private bool GetTooltipIfItExists (TooltipType type, string id, out BaseTooltip<INameableGUIDableDescribable> output)
+        private bool GetTooltipIfItExists (TooltipType type, string GUID, out BaseTooltip output)
         {
             bool tooltipExists = false;
             output = null;
 
-            foreach (BaseTooltip<INameableGUIDableDescribable> item in CurrentlyActiveTooltips)
+            foreach (BaseTooltip item in CurrentlyActiveTooltips)
             {
-                if (item.TooltipType == type && item.ContainingObject.GUID == id)
+                if (item.TooltipType == type && item.TooltipSourceGUID == GUID)
                 {
                     tooltipExists = true;
                     output = item;
@@ -128,7 +91,7 @@ namespace Tooltips
             return tooltipExists;
         }
 
-        private void HandleOnTooltipDestroyed (BaseTooltip<INameableGUIDableDescribable> destroyedTooltip)
+        private void HandleOnTooltipDestroyed (BaseTooltip destroyedTooltip)
         {
             destroyedTooltip.OnTooltipDestroyed -= HandleOnTooltipDestroyed;
             CurrentlyActiveTooltips.Remove(destroyedTooltip);
@@ -137,7 +100,6 @@ namespace Tooltips
         protected virtual void Start ()
         {
             PrefabsDictionary = PrefabsCollection.ToDictionary(item => item.Type, item => item.BaseTooltipPrefab);
-            AdditionalTooltipsDictionary = AdditionalTooltips.ToDictionary(item => item.name, item => item);
         }
 
         private void CheckForLinkAtMousePosition (TMP_Text target)

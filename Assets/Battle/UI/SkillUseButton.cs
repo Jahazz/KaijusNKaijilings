@@ -119,7 +119,6 @@ namespace BattleCore.UI
             DefenceStatContainer.SetActive(isDamageSkill);
             OffenceStatContainer.SetActive(isDamageSkill);
             OffencePowerContainer.SetActive(isDamageSkill);
-
         }
     }
 }

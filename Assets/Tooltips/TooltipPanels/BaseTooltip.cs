@@ -1,11 +1,13 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
+using Utils;
 
 namespace Tooltips.UI
 {
-    public abstract class BaseTooltip<Type>: MonoBehaviour where Type : INameableGUIDableDescribable
+    public abstract class BaseTooltip : MonoBehaviour
     {
-        public delegate void OnTooltipDestroyedParams (BaseTooltip<Type> destroyedTooltip);
+        public delegate void OnTooltipDestroyedParams (BaseTooltip destroyedTooltip);
         public event OnTooltipDestroyedParams OnTooltipDestroyed;
         [field: SerializeField]
         public RectTransform RectTransform { get; private set; }
@@ -14,21 +16,61 @@ namespace Tooltips.UI
         [field: SerializeField]
         protected TMP_Text TooltipDesciptionLabel { get; private set; }
         public TooltipType TooltipType { get; private set; }
-        public Type ContainingObject { get; private set; }
+        public string TooltipSourceGUID { get; private set; }
+        protected INameableGUIDableDescribable SourceObject { get; private set; }
 
-        public virtual void Initialize (TooltipType tooltipType, Type containingObject)
+        public virtual void Initialize (TooltipType tooltipType, string GUID)
         {
             TooltipType = tooltipType;
-            ContainingObject = containingObject;
+            TooltipSourceGUID = GUID;
+            SourceObject = GetDataForTooltipOfTypeAndGUID(TooltipType, GUID);
+            FillBaseData(SourceObject);
+        }
 
-            TooltipTopLabel.text = containingObject.Name;
-            TooltipDesciptionLabel.text = ContainingObject.Description;
+        protected void FillBaseData (INameableGUIDableDescribable data)
+        {
+            TooltipTopLabel.text = data.Name;
+            TooltipDesciptionLabel.text = data.Description;
         }
 
         public void Close ()
         {
             OnTooltipDestroyed?.Invoke(this);
             Destroy(gameObject);
+        }
+
+        private INameableGUIDableDescribable GetDataForTooltipOfTypeAndGUID (TooltipType type, string GUID)
+        {
+            IEnumerable<INameableGUIDableDescribable> listToLookFor = default;
+
+            switch (type)
+            {
+                case TooltipType.ABILITY:
+                    listToLookFor = SingletonContainer.Instance.SkillManagerInstance.SkillsPreloadedCollection;
+                    break;
+                case TooltipType.ENTITY_STATUS_EFFECT:
+                    listToLookFor = SingletonContainer.Instance.EntityManager.AvailableEntityStatusEffects;
+                    break;
+                case TooltipType.BATTLEGROUND_STATUS_EFFECT:
+                    listToLookFor = SingletonContainer.Instance.EntityManager.AvailableBattlegroundStatusEffects;
+                    break;
+                case TooltipType.KEYWORD:
+                    listToLookFor = SingletonContainer.Instance.TooltipManager.AdditionalTooltips;
+                    break;
+                case TooltipType.STAT:
+                    listToLookFor = SingletonContainer.Instance.EntityManager.StatTypeSpriteCollection;
+                    break;
+                case TooltipType.ENTITY_TYPE:
+                    listToLookFor = SingletonContainer.Instance.EntityManager.AvailableTypes;
+                    break;
+                case TooltipType.ENTITY:
+                    listToLookFor = SingletonContainer.Instance.EntityManager.AllEntitiesTypes;
+                    break;
+                default:
+                    break;
+            }
+
+            return listToLookFor.GetElementByGUIDFromCollection(GUID);
         }
     }
 }

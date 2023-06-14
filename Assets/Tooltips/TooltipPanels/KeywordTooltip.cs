@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Tooltips.UI
 {
-    public class KeywordTooltip : BaseTooltip<AdditionalTooltipScriptable>
+    public class KeywordTooltip : BaseTooltip
     {
-        public override void Initialize (TooltipType type, AdditionalTooltipScriptable containingObject)
+        public override void Initialize (TooltipType type, string GUID)
         {
-            base.Initialize(type, containingObject);
+            base.Initialize(type, GUID);
         }
     }
 }

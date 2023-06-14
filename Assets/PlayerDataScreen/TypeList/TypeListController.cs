@@ -11,4 +11,9 @@ public class TypeListController : ListController<TypeListElement, TypeDataScript
         CurrentModel.Initialize(CurrentView);
         CurrentModel.Initialize(typeScriptableCollection);
     }
+
+    public void Initialize (IEnumerable<TypeDataScriptable> typeScriptableCollection)
+    {
+        Initialize(new ObservableCollection<TypeDataScriptable>(typeScriptableCollection));
+    }
 }
