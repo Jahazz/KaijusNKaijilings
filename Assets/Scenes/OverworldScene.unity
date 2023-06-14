@@ -8885,6 +8885,7 @@ MonoBehaviour:
     type: 2}
   <AllEntitiesTypes>k__BackingField:
   - {fileID: 11400000, guid: 128ec9f16e89b924e88370d1747e96c8, type: 2}
+  - {fileID: 11400000, guid: 51841ac681cae6547b44e1b44b61545b, type: 2}
   <AvailableTraits>k__BackingField:
   - {fileID: 11400000, guid: b7f5bd855b2d78a4a9566a6c3086b9d9, type: 2}
   - {fileID: 11400000, guid: 279316b6b91291442b1663b03bc6138a, type: 2}
@@ -48531,48 +48532,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 419522532}
     m_Modifications:
-    - target: {fileID: 5751568606496599874, guid: b15c5ff223a9dc847a1bebd055de5d86,
-        type: 3}
-      propertyPath: <PrefabsCollection>k__BackingField.Array.data[0].<BaseTooltipPrefab>k__BackingField
-      value: 
-      objectReference: {fileID: 4833965699718430533, guid: d71444470898e354183e8e7cd7f10935,
-        type: 3}
-    - target: {fileID: 5751568606496599874, guid: b15c5ff223a9dc847a1bebd055de5d86,
-        type: 3}
-      propertyPath: <PrefabsCollection>k__BackingField.Array.data[1].<BaseTooltipPrefab>k__BackingField
-      value: 
-      objectReference: {fileID: 2404710858717117193, guid: be43611d66742f048b07292c5801b8c5,
-        type: 3}
-    - target: {fileID: 5751568606496599874, guid: b15c5ff223a9dc847a1bebd055de5d86,
-        type: 3}
-      propertyPath: <PrefabsCollection>k__BackingField.Array.data[2].<BaseTooltipPrefab>k__BackingField
-      value: 
-      objectReference: {fileID: 7509989508056412363, guid: 7a8443e05c6581d44bb20b99e971ee39,
-        type: 3}
-    - target: {fileID: 5751568606496599874, guid: b15c5ff223a9dc847a1bebd055de5d86,
-        type: 3}
-      propertyPath: <PrefabsCollection>k__BackingField.Array.data[3].<BaseTooltipPrefab>k__BackingField
-      value: 
-      objectReference: {fileID: 6216021325854726010, guid: fd21e1f706e1ea640b4c86045ed7a70c,
-        type: 3}
-    - target: {fileID: 5751568606496599874, guid: b15c5ff223a9dc847a1bebd055de5d86,
-        type: 3}
-      propertyPath: <PrefabsCollection>k__BackingField.Array.data[4].<BaseTooltipPrefab>k__BackingField
-      value: 
-      objectReference: {fileID: 4531781186377275041, guid: 8c9b31a77c06c3d498d0011cf71ffb16,
-        type: 3}
-    - target: {fileID: 5751568606496599874, guid: b15c5ff223a9dc847a1bebd055de5d86,
-        type: 3}
-      propertyPath: <PrefabsCollection>k__BackingField.Array.data[5].<BaseTooltipPrefab>k__BackingField
-      value: 
-      objectReference: {fileID: 4921739589265710650, guid: 683601845f5732d4db79b933c427b54d,
-        type: 3}
-    - target: {fileID: 5751568606496599874, guid: b15c5ff223a9dc847a1bebd055de5d86,
-        type: 3}
-      propertyPath: <PrefabsCollection>k__BackingField.Array.data[6].<BaseTooltipPrefab>k__BackingField
-      value: 
-      objectReference: {fileID: 7249012152338814139, guid: c36c0d954410ce045bc884e85bffac38,
-        type: 3}
     - target: {fileID: 5751568606496599875, guid: b15c5ff223a9dc847a1bebd055de5d86,
         type: 3}
       propertyPath: m_Name

@@ -24,7 +24,7 @@ namespace CombatLogging.Entries
 
         public override string EntryToString ()
         {
-            return string.Format(ENTRY_FORMAT, EntityOwner.Player.Name, EntityThatResourceChanged.Name.PresentValue, EntityThatResourceChanged.BaseEntityType.name, OldValue, NewValue);
+            return string.Format(ENTRY_FORMAT, EntityOwner.Player.Name, EntityThatResourceChanged.Name.PresentValue, SingletonContainer.Instance.TooltipManager.GenerateTooltipableURL(EntityThatResourceChanged.BaseEntityType), SingletonContainer.Instance.TooltipManager.GenerateTooltipableURL(SingletonContainer.Instance.EntityManager.GetStatOfType(StatThatChanged)), OldValue, NewValue);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace CombatLogging.Entries
 
         public override string EntryToString ()
         {
-            return string.Format(ENTRY_FORMAT, TargetStatusEffect.BaseStatusEffect.Name, ActionType.ToString().ToLower());
+            return string.Format(ENTRY_FORMAT, SingletonContainer.Instance.TooltipManager.GenerateTooltipableURL(TargetStatusEffect.BaseStatusEffect), ActionType.ToString().ToLower());
         }
     }
 }

@@ -19,7 +19,7 @@ namespace CombatLogging.Entries
 
         public override string EntryToString ()
         {
-            return string.Format(ENTRY_FORMAT, DamagedEntityOwner.Player.Name, DamagedEntity.Name.PresentValue, DamagedEntity.BaseEntityType.Name, DamageData.TotalDamage);
+            return string.Format(ENTRY_FORMAT, DamagedEntityOwner.Player.Name, DamagedEntity.Name.PresentValue, SingletonContainer.Instance.TooltipManager.GenerateTooltipableURL(DamagedEntity.BaseEntityType), DamageData.TotalDamage);
         }
     }
 }
