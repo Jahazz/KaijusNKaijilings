@@ -23,12 +23,12 @@ namespace Tooltips
         private Dictionary<TooltipType, BaseTooltip> PrefabsDictionary { get; set; } = new Dictionary<TooltipType, BaseTooltip>();
         private List<TMP_Text> TooltipCollection { get; set; } = new List<TMP_Text>();
         private Vector2 PointerPosition { get; set; }
-        private static string FORMAT_WITH_URL = "<b><u><color=#{0}><link=\"{1}-{2}\">{3}</link></color></u></b>";
+        private static string FORMAT_WITH_URL = "<color=#{0}><b><u><link=\"{1}-{2}\">{3}</link></u></b></color>";
         private List<BaseTooltip> CurrentlyActiveTooltips { get; set; } = new List<BaseTooltip>();
 
-        public string GenerateSkillURLWithGuid (SkillScriptableObject skillScriptableObject)
+        public string GenerateTooltipableURL (INameableGUIDableDescribableTooltipable skillScriptableObject)
         {
-            return string.Format(FORMAT_WITH_URL, ColorUtility.ToHtmlStringRGB(TooltipColor),TooltipType.ABILITY, skillScriptableObject.GUID, skillScriptableObject.Name);
+            return string.Format(FORMAT_WITH_URL, ColorUtility.ToHtmlStringRGB(TooltipColor), skillScriptableObject.TooltipType, skillScriptableObject.GUID, skillScriptableObject.Name);
         }
 
         public void SubscribeToMouseovers (TMP_Text target)
