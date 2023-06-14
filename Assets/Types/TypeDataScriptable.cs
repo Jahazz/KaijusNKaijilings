@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Tooltips;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 [System.Serializable]
 [CreateAssetMenu(fileName = "TypeData", menuName = "ScriptableObjects/TypeData", order = 2)]
-public class TypeDataScriptable : ScriptableObject, INameableGUIDableDescribable
+public class TypeDataScriptable : ScriptableObject, INameableGUIDableDescribableTooltipable
 {
     [field: SerializeField]
     public string Name { get; set; }
@@ -16,5 +17,6 @@ public class TypeDataScriptable : ScriptableObject, INameableGUIDableDescribable
     [field: SerializeField]
     public Sprite TypeSprite { get; set; }
     [field: SerializeField]
-    public string GUID { get; set; } = Guid.NewGuid().ToString();
+    public string GUID { get; } = Guid.NewGuid().ToString();
+    public TooltipType TooltipType { get; } = TooltipType.ENTITY_TYPE;
 }

@@ -8,6 +8,7 @@ namespace Tooltips
         KEYWORD,
         STAT,
         ENTITY_TYPE,
-        ENTITY
+        ENTITY,
+        TRAIT
     }
 }

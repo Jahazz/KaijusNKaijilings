@@ -1,10 +1,11 @@
 ﻿using BattleCore.ScreenEntity;
 using System;
 using System.Collections.Generic;
+using Tooltips;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "EntityData", menuName = "ScriptableObjects/EntityData", order = 1)]
-public class StatsScriptable : ScriptableObject, INameableGUIDableDescribable
+public class StatsScriptable : ScriptableObject, INameableGUIDableDescribableTooltipable
 {
     [field: SerializeField]
     public string Name { get; set; }
@@ -27,5 +28,8 @@ public class StatsScriptable : ScriptableObject, INameableGUIDableDescribable
     [field: SerializeField]
     public int GroupCountRequiredToBreed { get; private set; }
     [field: SerializeField]
-    public string GUID { get; set; } = Guid.NewGuid().ToString();
+    public string GUID { get; } = Guid.NewGuid().ToString();
+    public TooltipType TooltipType { get; } = TooltipType.ENTITY;
+
+
 }

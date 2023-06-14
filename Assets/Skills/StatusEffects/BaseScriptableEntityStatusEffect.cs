@@ -1,6 +1,7 @@
 using BattleCore;
 using System;
 using System.Collections.Generic;
+using Tooltips;
 using UnityEngine;
 
 namespace StatusEffects.EntityStatusEffects
@@ -22,6 +23,7 @@ namespace StatusEffects.EntityStatusEffects
         public bool RemovedOnDeath { get; private set; }
         [field: SerializeField]
         public int MaxStacks { get; private set; }
+        public new TooltipType TooltipType { get; protected set; } = TooltipType.ENTITY_STATUS_EFFECT;
 
         public abstract void ApplyStatus (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle, int numberOfStacksToAdd);
     }

@@ -1,7 +1,8 @@
 using System;
+using Tooltips;
 using UnityEngine;
 
-public class SkillScriptableObject : SkillBase, INameableGUIDableDescribable
+public class SkillScriptableObject : SkillBase, INameableGUIDableDescribableTooltipable
 {
     [field: SerializeField]
     public string Name { get; set; }
@@ -15,4 +16,5 @@ public class SkillScriptableObject : SkillBase, INameableGUIDableDescribable
     public DamageSkillData DamageData { get; private set; }
     [field: SerializeField]
     public string GUID { get; set; } = Guid.NewGuid().ToString();
+    public TooltipType TooltipType { get; protected set; } = TooltipType.ABILITY;
 }

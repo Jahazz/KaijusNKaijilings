@@ -17,7 +17,7 @@ namespace Tooltips.UI
         protected TMP_Text TooltipDesciptionLabel { get; private set; }
         public TooltipType TooltipType { get; private set; }
         public string TooltipSourceGUID { get; private set; }
-        protected INameableGUIDableDescribable SourceObject { get; private set; }
+        protected INameableGUIDableDescribableTooltipable SourceObject { get; private set; }
 
         public virtual void Initialize (TooltipType tooltipType, string GUID)
         {
@@ -27,7 +27,7 @@ namespace Tooltips.UI
             FillBaseData(SourceObject);
         }
 
-        protected void FillBaseData (INameableGUIDableDescribable data)
+        protected void FillBaseData (INameableGUIDableDescribableTooltipable data)
         {
             TooltipTopLabel.text = data.Name;
             TooltipDesciptionLabel.text = data.Description;
@@ -39,9 +39,9 @@ namespace Tooltips.UI
             Destroy(gameObject);
         }
 
-        private INameableGUIDableDescribable GetDataForTooltipOfTypeAndGUID (TooltipType type, string GUID)
+        private INameableGUIDableDescribableTooltipable GetDataForTooltipOfTypeAndGUID (TooltipType type, string GUID)
         {
-            IEnumerable<INameableGUIDableDescribable> listToLookFor = default;
+            IEnumerable<INameableGUIDableDescribableTooltipable> listToLookFor = default;
 
             switch (type)
             {
@@ -65,6 +65,9 @@ namespace Tooltips.UI
                     break;
                 case TooltipType.ENTITY:
                     listToLookFor = SingletonContainer.Instance.EntityManager.AllEntitiesTypes;
+                    break;
+                case TooltipType.TRAIT:
+                    listToLookFor = SingletonContainer.Instance.EntityManager.AvailableTraits;
                     break;
                 default:
                     break;
