@@ -14,6 +14,7 @@ namespace StatusEffects
         public Sprite Image { get; set; }
         [field: SerializeField]
         public string GUID { get; set; } = Guid.NewGuid().ToString();
+        [field: NonSerialized]
         public TooltipType TooltipType { get; protected set; } 
     }
 }

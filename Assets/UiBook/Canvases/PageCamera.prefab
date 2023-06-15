@@ -47,9 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <UiMainRectTransform>k__BackingField: {fileID: 1473061230399986960}
-  <FakeCursor>k__BackingField: {fileID: 0}
-  <TargetRenderTexture>k__BackingField: {fileID: 0}
   <GraphicsRaycasterInstance>k__BackingField: {fileID: 1473061230399986961}
+  <CanvasCamera>k__BackingField: {fileID: 1473061230137264163}
 --- !u!1 &1473061230137264164
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,7 +66,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1473061230137264160
 Transform:
   m_ObjectHideFlags: 0

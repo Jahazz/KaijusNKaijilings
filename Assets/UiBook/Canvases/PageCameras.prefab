@@ -1181,9 +1181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34446e17d2889e04cbe60a726ceab252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PlayerInputInstance>k__BackingField: {fileID: 0}
   <IsDebug>k__BackingField: 0
-  <TargetRenderTextureWidth>k__BackingField: 0
   <PageCanvasInspectorCollection>k__BackingField:
   - <PageControllerInstance>k__BackingField: {fileID: 0}
     <CanvasControllerTopInstance>k__BackingField: {fileID: 0}
@@ -3625,9 +3623,9 @@ RectTransform:
   m_Father: {fileID: 3377997431239843057}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 631.5, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 631.5, y: -1117.68}
   m_SizeDelta: {x: 1263, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3377997431201070977
@@ -9672,6 +9670,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Might
       objectReference: {fileID: 0}
+    - target: {fileID: 5536688291822355475, guid: 30cea3028a11e174290cd63e37c2bf0b,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
     - target: {fileID: 6490866625482127782, guid: 30cea3028a11e174290cd63e37c2bf0b,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -10070,6 +10073,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Willpower
+      objectReference: {fileID: 0}
+    - target: {fileID: 5536688291822355475, guid: 30cea3028a11e174290cd63e37c2bf0b,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 60.4
       objectReference: {fileID: 0}
     - target: {fileID: 6490866625482127782, guid: 30cea3028a11e174290cd63e37c2bf0b,
         type: 3}
@@ -10610,6 +10618,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Magic
       objectReference: {fileID: 0}
+    - target: {fileID: 5536688291822355475, guid: 30cea3028a11e174290cd63e37c2bf0b,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
     - target: {fileID: 6490866625482127782, guid: 30cea3028a11e174290cd63e37c2bf0b,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -10871,6 +10884,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: MaxHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 5536688291822355475, guid: 30cea3028a11e174290cd63e37c2bf0b,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 46.8
       objectReference: {fileID: 0}
     - target: {fileID: 6490866625482127782, guid: 30cea3028a11e174290cd63e37c2bf0b,
         type: 3}
@@ -11665,6 +11683,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Agility
       objectReference: {fileID: 0}
+    - target: {fileID: 5536688291822355475, guid: 30cea3028a11e174290cd63e37c2bf0b,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
     - target: {fileID: 6490866625482127782, guid: 30cea3028a11e174290cd63e37c2bf0b,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -12182,6 +12205,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Initiative
       objectReference: {fileID: 0}
+    - target: {fileID: 5536688291822355475, guid: 30cea3028a11e174290cd63e37c2bf0b,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 57.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6490866625482127782, guid: 30cea3028a11e174290cd63e37c2bf0b,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -12443,6 +12471,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Max Mana
+      objectReference: {fileID: 0}
+    - target: {fileID: 5536688291822355475, guid: 30cea3028a11e174290cd63e37c2bf0b,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6490866625482127782, guid: 30cea3028a11e174290cd63e37c2bf0b,
         type: 3}

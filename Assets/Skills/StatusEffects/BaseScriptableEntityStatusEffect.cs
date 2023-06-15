@@ -23,9 +23,12 @@ namespace StatusEffects.EntityStatusEffects
         public bool RemovedOnDeath { get; private set; }
         [field: SerializeField]
         public int MaxStacks { get; private set; }
-        public new TooltipType TooltipType { get; protected set; } = TooltipType.ENTITY_STATUS_EFFECT;
 
         public abstract void ApplyStatus (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle, int numberOfStacksToAdd);
+        protected virtual void OnValidate ()
+        {
+            TooltipType = TooltipType.ENTITY_STATUS_EFFECT;
+        }
     }
 }
 

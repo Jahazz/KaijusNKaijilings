@@ -15,13 +15,9 @@ public class ObjectToCanvasRaycaster : MonoBehaviour
     public event OnBookPreparedParams OnBookPrepared;
 
     [field: SerializeField]
-    private PlayerInput PlayerInputInstance { get; set; }
-    [field: SerializeField]
     private bool IsDebug { get; set; }
 
     [field: Space]
-    [field: SerializeField]
-    private int TargetRenderTextureWidth { get; set; }
     [field: SerializeField]
     private List<PageCanvasRelation> PageCanvasInspectorCollection { get; set; } = new List<PageCanvasRelation>();
     [field: SerializeField]
@@ -270,5 +266,25 @@ public class ObjectToCanvasRaycaster : MonoBehaviour
 
         LeftPage?.PageControllerInstance.SetTopPageMark(leftIndex);
         RightPage?.PageControllerInstance.SetTopPageMark(rightIndex);
+
+        DisableUnusedPagesCameras();
+    }
+
+    private void DisableUnusedPagesCameras ()
+    {
+        foreach (PageCanvasRelation pageRelation in PageCanvasInspectorCollection)
+        {
+            pageRelation?.CanvasControllerBottomInstance?.SetCameraActive(false);
+            pageRelation?.CanvasControllerTopInstance?.SetCameraActive(false);
+
+            if (pageRelation.CanvasControllerBottomInstance != null && pageRelation == LeftPage)
+            {
+                pageRelation.CanvasControllerBottomInstance.SetCameraActive(true);
+            }
+            else if (pageRelation.CanvasControllerTopInstance != null && pageRelation == RightPage)
+            {
+                pageRelation.CanvasControllerTopInstance.SetCameraActive(true);
+            }
+        }
     }
 }

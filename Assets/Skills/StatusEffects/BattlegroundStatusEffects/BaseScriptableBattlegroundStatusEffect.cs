@@ -13,9 +13,13 @@ namespace StatusEffects.BattlegroundStatusEffects
         public bool Cleansable { get; private set; }
         [field: SerializeField]
         public bool RemovedAtEndOfCombat { get; private set; }
-        public new TooltipType TooltipType { get; protected set; } = TooltipType.BATTLEGROUND_STATUS_EFFECT;
 
         public abstract void ApplyStatus (Battle currentBattle);
+
+        protected virtual void OnValidate ()
+        {
+            TooltipType = TooltipType.BATTLEGROUND_STATUS_EFFECT;
+        }
     }
 }
 
