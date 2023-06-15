@@ -6,6 +6,7 @@ using Tooltips.UI;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Tooltips
 {
@@ -71,6 +72,19 @@ namespace Tooltips
                 CurrentlyActiveTooltips.Add(createdTooltip);
                 createdTooltip.Initialize(type, GUID);
             }
+        }
+
+        public string AddKeywordTooltipsToText (string source)
+        {
+            foreach (AdditionalTooltipScriptable additionalTooltip in AdditionalTooltips)
+            {
+                foreach (string alias in additionalTooltip.Aliases)
+                {
+                    source = Regex.Replace(source, alias, string.Format(FORMAT_WITH_URL, ColorUtility.ToHtmlStringRGB(TooltipColor), TooltipType.KEYWORD, additionalTooltip.GUID, alias), RegexOptions.IgnoreCase);
+                }
+            }
+
+            return source;
         }
 
         private bool GetTooltipIfItExists (TooltipType type, string GUID, out BaseTooltip output)

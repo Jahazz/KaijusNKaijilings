@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Tooltips;
 using UnityEngine;
 
@@ -9,10 +10,12 @@ public class AdditionalTooltipScriptable : ScriptableObject, INameableGUIDableDe
     [field: SerializeField]
     public Sprite Sprite { get; private set; }
     [field: SerializeField]
-    public string Name { get; set; }
+    public string Name { get; private set; }
     [field: SerializeField]
-    public string Description { get; set; }
+    public string Description { get; private set; }
     [field: SerializeField]
-    public string GUID { get; set; } = Guid.NewGuid().ToString();
+    public string GUID { get; private set; } = Guid.NewGuid().ToString();
+    [field: SerializeField]
+    public List<string> Aliases { get; private set; }
     public TooltipType TooltipType { get; protected set; } = TooltipType.KEYWORD;
 }

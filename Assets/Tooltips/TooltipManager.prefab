@@ -180,7 +180,9 @@ MonoBehaviour:
       type: 3}
   <TooltipCanvas>k__BackingField: {fileID: 5751568605791869305}
   <TooltipColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-  <AdditionalTooltips>k__BackingField: []
+  <AdditionalTooltips>k__BackingField:
+  - {fileID: 11400000, guid: d8ffa4ee7bf162541b2049aa730b8886, type: 2}
+  - {fileID: 11400000, guid: 874da8c17dce8a447aaaf828d42f0955, type: 2}
 --- !u!1001 &142899493260525767
 PrefabInstance:
   m_ObjectHideFlags: 0

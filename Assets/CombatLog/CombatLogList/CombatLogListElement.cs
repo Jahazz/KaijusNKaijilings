@@ -11,7 +11,7 @@ namespace CombatLogging.UI
         private TMP_Text ContentLabel { get; set; }
         public override void Initialize (BaseCombatLogEntry elementData)
         {
-            ContentLabel.text = elementData.EntryToString();
+            ContentLabel.text = SingletonContainer.Instance.TooltipManager.AddKeywordTooltipsToText(elementData.EntryToString());
         }
     }
 }

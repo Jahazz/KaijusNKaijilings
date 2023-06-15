@@ -8,7 +8,7 @@ namespace CombatLogging.Entries
         public Entity DamagedEntity { get; private set; }
         public EntityDamageData DamageData { get; private set; }
         public override CombatLogEntryType CurrentActionType { get; protected set; } = CombatLogEntryType.ENTITY_DAMAGED;
-        protected override string ENTRY_FORMAT { get; set; } = "Player {0} entity {1}({2}) has been damaged for {3}";
+        protected override string ENTRY_FORMAT { get; set; } = "Player {0} entity {1}({2}) has been damaged for {3}.";
 
         public EntityDamagedCombatLogEntry (BattleParticipant damagedEntityOwner, Entity damagedEntity, EntityDamageData damageData)
         {
