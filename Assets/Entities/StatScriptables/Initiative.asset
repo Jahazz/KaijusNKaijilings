@@ -15,5 +15,6 @@ MonoBehaviour:
   <Stat>k__BackingField: 9
   <Sprite>k__BackingField: {fileID: 21300000, guid: 555ac2c531547f14dbe83f5fb5d8f4bd,
     type: 3}
-  <DisplayName>k__BackingField: Initiative
-  <StatDescription>k__BackingField: 
+  <Name>k__BackingField: Initiative
+  <Description>k__BackingField: 
+  <GUID>k__BackingField: 0ce81321-1f9d-48a8-b7e0-f3ce466c39c3

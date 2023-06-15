@@ -15,5 +15,6 @@ MonoBehaviour:
   <Stat>k__BackingField: 6
   <Sprite>k__BackingField: {fileID: 21300000, guid: 1ff74263c71accf4a88a265d6f8f5129,
     type: 3}
-  <DisplayName>k__BackingField: Magic
-  <StatDescription>k__BackingField: 
+  <Name>k__BackingField: Magic
+  <Description>k__BackingField: 
+  <GUID>k__BackingField: 221a4738-37c0-495c-b3ab-13e17039a1da

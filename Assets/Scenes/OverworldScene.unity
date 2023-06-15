@@ -9697,7 +9697,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1118156693}
         m_TargetAssemblyTypeName: CharacterMenuController, Assembly-CSharp
         m_MethodName: HandleOnMenuButtonClick
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -50462,7 +50462,7 @@ PrefabInstance:
     - target: {fileID: 597517305781218558, guid: aeb3d531870b91a48940ac6e32a10e71,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 341
       objectReference: {fileID: 0}
     - target: {fileID: 597517305781218558, guid: aeb3d531870b91a48940ac6e32a10e71,
         type: 3}
@@ -50472,7 +50472,7 @@ PrefabInstance:
     - target: {fileID: 597517305781218558, guid: aeb3d531870b91a48940ac6e32a10e71,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 852.5
       objectReference: {fileID: 0}
     - target: {fileID: 597517305781218558, guid: aeb3d531870b91a48940ac6e32a10e71,
         type: 3}
@@ -50572,7 +50572,7 @@ PrefabInstance:
     - target: {fileID: 753637765556476545, guid: aeb3d531870b91a48940ac6e32a10e71,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 341
       objectReference: {fileID: 0}
     - target: {fileID: 753637765556476545, guid: aeb3d531870b91a48940ac6e32a10e71,
         type: 3}
@@ -50582,7 +50582,7 @@ PrefabInstance:
     - target: {fileID: 753637765556476545, guid: aeb3d531870b91a48940ac6e32a10e71,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 511.5
       objectReference: {fileID: 0}
     - target: {fileID: 753637765556476545, guid: aeb3d531870b91a48940ac6e32a10e71,
         type: 3}
@@ -50722,7 +50722,7 @@ PrefabInstance:
     - target: {fileID: 1202015586560909043, guid: aeb3d531870b91a48940ac6e32a10e71,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 341
       objectReference: {fileID: 0}
     - target: {fileID: 1202015586560909043, guid: aeb3d531870b91a48940ac6e32a10e71,
         type: 3}
@@ -50732,7 +50732,7 @@ PrefabInstance:
     - target: {fileID: 1202015586560909043, guid: aeb3d531870b91a48940ac6e32a10e71,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 170.5
       objectReference: {fileID: 0}
     - target: {fileID: 1202015586560909043, guid: aeb3d531870b91a48940ac6e32a10e71,
         type: 3}
@@ -52652,7 +52652,7 @@ PrefabInstance:
     - target: {fileID: 6724215754251997012, guid: aeb3d531870b91a48940ac6e32a10e71,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 1103
       objectReference: {fileID: 0}
     - target: {fileID: 6724215754251997012, guid: aeb3d531870b91a48940ac6e32a10e71,
         type: 3}
@@ -52852,7 +52852,7 @@ PrefabInstance:
     - target: {fileID: 7418558716974695171, guid: aeb3d531870b91a48940ac6e32a10e71,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7650633796568737239, guid: aeb3d531870b91a48940ac6e32a10e71,
         type: 3}

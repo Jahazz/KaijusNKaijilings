@@ -15,5 +15,6 @@ MonoBehaviour:
   <Stat>k__BackingField: 4
   <Sprite>k__BackingField: {fileID: 21300000, guid: 1677d03888fa5d244b14019d81489264,
     type: 3}
-  <DisplayName>k__BackingField: Maximum mana
-  <StatDescription>k__BackingField: 
+  <Name>k__BackingField: Maximum Mana
+  <Description>k__BackingField: 
+  <GUID>k__BackingField: 36424711-619a-4303-88ee-d8074da939b3

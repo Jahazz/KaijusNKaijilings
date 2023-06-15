@@ -15,5 +15,6 @@ MonoBehaviour:
   <Stat>k__BackingField: 7
   <Sprite>k__BackingField: {fileID: 21300000, guid: 0e87d1acd9bb80b4f87a3e26d9b0e741,
     type: 3}
-  <DisplayName>k__BackingField: Willpower
-  <StatDescription>k__BackingField: 
+  <Name>k__BackingField: Willpower
+  <Description>k__BackingField: 
+  <GUID>k__BackingField: 02bda4ac-3446-411b-bef6-b841d2f873f7

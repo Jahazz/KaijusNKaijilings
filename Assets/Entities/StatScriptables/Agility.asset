@@ -15,5 +15,6 @@ MonoBehaviour:
   <Stat>k__BackingField: 8
   <Sprite>k__BackingField: {fileID: 21300000, guid: 49fa50e0a72a08449a91cc5a5964cd0f,
     type: 3}
-  <DisplayName>k__BackingField: Agility
-  <StatDescription>k__BackingField: 
+  <Name>k__BackingField: Agility
+  <Description>k__BackingField: 
+  <GUID>k__BackingField: 99487783-7e53-415a-bb4f-6ab9c187314c

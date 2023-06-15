@@ -15,5 +15,6 @@ MonoBehaviour:
   <Stat>k__BackingField: 1
   <Sprite>k__BackingField: {fileID: 21300000, guid: 11832e3b6a977ef43b0fb162079007f3,
     type: 3}
-  <DisplayName>k__BackingField: Health
-  <StatDescription>k__BackingField: 
+  <Name>k__BackingField: Health
+  <Description>k__BackingField: 
+  <GUID>k__BackingField: 55f6770a-021c-4efc-b540-d43ba5277a8a
