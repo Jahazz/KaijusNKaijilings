@@ -14,6 +14,8 @@ public class EntityStats : MonoBehaviour
     [field: SerializeField]
     private TMP_Text EntityBaseNameLabel { get; set; }
     [field: SerializeField]
+    private TMP_Text EntityCurrentLevelLabel { get; set; }
+    [field: SerializeField]
     private CustomProgressBar HealthProgressBar { get; set; }
     [field: SerializeField]
     private CustomProgressBar ManaProgressBar { get; set; }
@@ -32,7 +34,6 @@ public class EntityStats : MonoBehaviour
         gameObject.SetActive(true);
         EntityToAttach = entityToAttach;
 
-        EntityCustomNameLabel.text = EntityToAttach.Name.PresentValue;
         EntityBaseNameLabel.text = EntityToAttach.BaseEntityType.Name;
         StatusEffectList.Initialize(EntityToAttach.PresentStatusEffects);
 
@@ -46,6 +47,8 @@ public class EntityStats : MonoBehaviour
         BindingsCollection.Add(BindingFactory.GenerateCustomProgressBarBinding(HealthProgressBar, new ObservableVariable<float>(0), EntityToAttach.ModifiedStats.Health.MaxValue, EntityToAttach.ModifiedStats.Health.CurrentValue));
         BindingsCollection.Add(BindingFactory.GenerateCustomProgressBarBinding(ManaProgressBar, new ObservableVariable<float>(0), EntityToAttach.ModifiedStats.Mana.MaxValue, EntityToAttach.ModifiedStats.Mana.CurrentValue));
         BindingsCollection.Add(BindingFactory.GenerateCustomProgressBarBinding(ExperienceProgressBar, EntityToAttach.LevelData.ExperienceNeededForCurrentLevel, EntityToAttach.LevelData.ExperienceNeededForNextLevel, EntityToAttach.LevelData.CurrentExperience));
+        BindingsCollection.Add(BindingFactory.GenerateTextBinding(EntityCurrentLevelLabel, "{0}", true, EntityToAttach.LevelData.CurrentLevel));
+        BindingsCollection.Add(BindingFactory.GenerateTextBinding(EntityCustomNameLabel, "{0}", true, EntityToAttach.Name));
     }
 
     public void DisposeOfBindings ()

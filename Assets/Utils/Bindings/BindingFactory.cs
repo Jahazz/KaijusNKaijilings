@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,8 @@ namespace Bindings
                 progressBar.SetValue(minValue.PresentValue, maxValue.PresentValue, currentValue.PresentValue);
             }
 
-            return new Binding(() => {
+            return new Binding(() =>
+            {
                 minValue.OnVariableChange -= HandleValueChange;
                 maxValue.OnVariableChange -= HandleValueChange;
                 currentValue.OnVariableChange -= HandleValueChange;
@@ -48,25 +50,51 @@ namespace Bindings
             });
         }
 
-        public static Binding GenerateInputFieldBinding(TMP_InputField textField,string format, params ObservableVariable<string>[] textCollection)
+        public static Binding GenerateInputFieldBinding<T> (TMP_InputField textField, string format, bool generateTooltip = false, params ObservableVariable<T>[] textCollection)
         {
-            HandleValueChange();
-
-            foreach (ObservableVariable<string> observableString in textCollection)
+            void HandleValueChange (T newValue = default, T _ = default)
             {
-                observableString.OnVariableChange += HandleValueChange;
+                textField.text = FormatGenerateTooltipIfNeeded(format, generateTooltip, textCollection);
             }
 
-            void HandleValueChange (string newValue = "", string _ = default)
+            return GenerateBindingForObservableVariable(HandleValueChange, textCollection);
+        }
+
+        public static Binding GenerateTextBinding<T> (TMP_Text textField, string format, bool generateTooltip = false, params ObservableVariable<T>[] textCollection)
+        {
+            void HandleValueChange (T newValue = default, T _ = default)
             {
-                textField.text = string.Format(format, textCollection.Select(observableElement => observableElement.PresentValue).ToArray());
+                textField.text = FormatGenerateTooltipIfNeeded(format, generateTooltip, textCollection);
+            }
+
+            return GenerateBindingForObservableVariable(HandleValueChange, textCollection);
+        }
+
+        private static string FormatGenerateTooltipIfNeeded<T> (string format, bool isTooltipNeeded, params ObservableVariable<T>[] textCollection)
+        {
+            string formatedText = string.Format(format, textCollection.Select(observableElement => observableElement.PresentValue.ToString()).ToArray());
+
+            if (isTooltipNeeded == true)
+            {
+                formatedText = SingletonContainer.Instance.TooltipManager.AddKeywordTooltipsToText(formatedText);
+            }
+
+            return formatedText;
+        }
+
+        private static Binding GenerateBindingForObservableVariable<T> (ObservableVariable<T>.VariableChangedArguments valueChangedFunction, params ObservableVariable<T>[] textCollection)
+        {
+            foreach (ObservableVariable<T> observableString in textCollection)
+            {
+                valueChangedFunction?.Invoke(observableString.PresentValue, observableString.PresentValue);
+                observableString.OnVariableChange += valueChangedFunction;
             }
 
             return new Binding(() =>
             {
-                foreach (ObservableVariable<string> observableString in textCollection)
+                foreach (ObservableVariable<T> observableString in textCollection)
                 {
-                    observableString.OnVariableChange += HandleValueChange;
+                    observableString.OnVariableChange -= valueChangedFunction;
                 }
             });
         }
