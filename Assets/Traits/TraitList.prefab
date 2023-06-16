@@ -60,7 +60,7 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 0
   m_Spacing: 10
-  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 1
@@ -108,6 +108,10 @@ MonoBehaviour:
   <ElementToSpawn>k__BackingField: {fileID: 405147632486767453, guid: 41182d2bacdd90e44806815fdadec8b8,
     type: 3}
   <ElementsContainer>k__BackingField: {fileID: 9061189017274684498}
+  <IsDraggable>k__BackingField: 0
+  <OnElementDropped>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2802770373753270465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,7 +162,7 @@ PrefabInstance:
     - target: {fileID: 2803773418221394601, guid: 41182d2bacdd90e44806815fdadec8b8,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 44
+      value: 82.76
       objectReference: {fileID: 0}
     - target: {fileID: 2803773418221394601, guid: 41182d2bacdd90e44806815fdadec8b8,
         type: 3}
@@ -203,7 +207,7 @@ PrefabInstance:
     - target: {fileID: 2803773418221394601, guid: 41182d2bacdd90e44806815fdadec8b8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -22
+      value: -41.38
       objectReference: {fileID: 0}
     - target: {fileID: 2803773418221394601, guid: 41182d2bacdd90e44806815fdadec8b8,
         type: 3}
