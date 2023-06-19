@@ -1,13 +1,15 @@
+using System;
 using System.Collections.Generic;
+using Tooltips;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "TraitBaseScriptableObject", menuName = "ScriptableObjects/TraitBaseScriptableObject")]
-public class TraitBaseScriptableObject : ScriptableObject
+public class TraitBaseScriptableObject : ScriptableObject, INameableGUIDableDescribableTooltipable
 {
     [field: SerializeField]
-    public string Name { get; private set; }
+    public string Name { get; set; }
     [field: SerializeField]
-    public string Description { get; private set; }
+    public string Description { get; set; }
     [field: SerializeField]
     public Sprite Image { get; private set; }
     [field: SerializeField]
@@ -16,4 +18,7 @@ public class TraitBaseScriptableObject : ScriptableObject
     public List<StatModifier> ModifiedStatCollection { get; set; } = new List<StatModifier>();
     [field: SerializeField]
     public List<TraitBaseScriptableObject> ExcludesTraits { get; set; }
+    [field: SerializeField]
+    public string GUID { get; } = Guid.NewGuid().ToString();
+    public TooltipType TooltipType { get; } = TooltipType.TRAIT;
 }

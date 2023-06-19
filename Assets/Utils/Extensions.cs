@@ -16,5 +16,21 @@ namespace Utils
 
             return output;
         }
+
+        public static T GetElementByGUIDFromCollection<T>(this IEnumerable<T> collection, string guid) where T : IGUIdable
+        {
+            T output = default;
+
+            foreach (T item in collection)
+            {
+                if (item.GUID == guid)
+                {
+                    output = item;
+                    break;
+                }
+            }
+
+            return output;
+        }
     }
 }

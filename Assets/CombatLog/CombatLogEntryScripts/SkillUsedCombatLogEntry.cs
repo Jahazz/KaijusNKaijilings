@@ -26,7 +26,7 @@ namespace CombatLogging.Entries
 
         public override string EntryToString ()
         {
-            return string.Format(ENTRY_FORMAT, SkillCasterOwner.Player.Name, SkillCaster.Name.PresentValue, SkillCaster.BaseEntityType.Name, SingletonContainer.Instance.TooltipManager.GenerateSkillURLWithGuid(UsedSkill));
+            return string.Format(ENTRY_FORMAT, SkillCasterOwner.Player.Name, SkillCaster.Name.PresentValue, SingletonContainer.Instance.TooltipManager.GenerateTooltipableURL(SkillCaster.BaseEntityType), SingletonContainer.Instance.TooltipManager.GenerateTooltipableURL(UsedSkill));
         }
     }
 }

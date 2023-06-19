@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using MVC.SingleSelectableList;
 using System;
+using static UnityEngine.InputSystem.InputAction;
 
 public class CharacterMenuController : SingleSelectableListController<CharacterMenuElement, CharacterMenuElementData, CharacterMenuView, CharacterMenuModel>
 {
     private bool IsMenuVisible { get; set; }
 
-    public void HandleOnMenuButtonClick ()
+    public void HandleOnMenuButtonClick (CallbackContext context)
     {
-        PlayerState currentPlayerState = SingletonContainer.Instance.OverworldPlayerCharacterManager.CurrentPlayerState;
-        if (currentPlayerState == PlayerState.IN_OVERWORLD || currentPlayerState == PlayerState.IN_MENU)
+        if (context.performed == true)
         {
-            OpenCharacterMenu();
+            PlayerState currentPlayerState = SingletonContainer.Instance.OverworldPlayerCharacterManager.CurrentPlayerState;
+
+            if (currentPlayerState == PlayerState.IN_OVERWORLD || currentPlayerState == PlayerState.IN_MENU)
+            {
+                OpenCharacterMenu();
+            }
         }
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.InputSystem.InputAction;
 
 namespace BattleCore.UI
 {
@@ -41,38 +42,56 @@ namespace BattleCore.UI
         private SkillScriptableObject BoundSkill { get; set; }
         private Entity SkillOwner { get; set; }
 
+        private bool HasManaForSkill { get; set; } = false;
+        private bool IsSkillNotEmpty { get; set; } = false;
+
         public void BindWithSkill (SkillScriptableObject skill, Entity skillOwner)
         {
             BoundSkill = skill;
             SkillOwner = skillOwner;
 
-            SkillLabel.text = skill.BaseSkillData.Name;
+            SkillLabel.text = skill.Name;
             SkillCostLabel.text = skill.BaseSkillData.Cost.ToString();
             SkillImage.sprite = skill.BaseSkillData.Image;
 
             TypeDataScriptable skillType = skill.BaseSkillData.SkilType[0];
 
             SkillTypeImage.sprite = skillType.TypeSprite;
-            SkillDescriptionLabel.text = skill.BaseSkillData.Description;
+            SkillDescriptionLabel.text = skill.Description;
 
             skillOwner.ModifiedStats.Mana.CurrentValue.OnVariableChange += HandleOnCurrentManaChanged;
             HandleOnCurrentManaChanged(skillOwner.ModifiedStats.Mana.CurrentValue.PresentValue);
             TryToFillDamageSKillData();
         }
 
+        public void ClickFromKeyboard (CallbackContext _)
+        {
+            SkillButton.onClick.Invoke();
+        }
+
         public void Click ()
         {
-            BattleScreenController.UseSkill(SkillOwner, BoundSkill);
+            if (CanSkillBeUsed())
+            {
+                BattleScreenController.UseSkill(SkillOwner, BoundSkill);
+            }
         }
 
         public void SetEnabled (bool isEnabled)
         {
-            SkillInactivityMarker.SetActive(isEnabled == false);
+            IsSkillNotEmpty = isEnabled;
+            SkillInactivityMarker.SetActive(IsSkillNotEmpty == false);
+        }
+
+        public bool CanSkillBeUsed ()
+        {
+            return IsSkillNotEmpty && HasManaForSkill;
         }
 
         private void HandleOnCurrentManaChanged (float newValue, float _ = default)
         {
-            SkillButton.interactable = SkillOwner.HasResourceForSkill(BoundSkill.BaseSkillData.Cost) == true;
+            HasManaForSkill = SkillOwner.HasResourceForSkill(BoundSkill.BaseSkillData.Cost) == true;
+            SkillButton.interactable = HasManaForSkill;
         }
 
         private void TryToFillDamageSKillData ()
@@ -81,8 +100,8 @@ namespace BattleCore.UI
 
             if (isDamageSkill == true)
             {
-                DefenceStatImage.sprite = SingletonContainer.Instance.EntityManager.StatTypeSpriteDictionary[BoundSkill.DamageData.DefenceType];
-                OffenceStatImage.sprite = SingletonContainer.Instance.EntityManager.StatTypeSpriteDictionary[BoundSkill.DamageData.AttackType];
+                DefenceStatImage.sprite = SingletonContainer.Instance.EntityManager.GetStatOfType(BoundSkill.DamageData.DefenceType).Sprite;
+                OffenceStatImage.sprite = SingletonContainer.Instance.EntityManager.GetStatOfType(BoundSkill.DamageData.AttackType).Sprite;
 
                 float minDamage = BoundSkill.DamageData.DamageRangeValue.x;
                 float maxDamage = BoundSkill.DamageData.DamageRangeValue.x;
@@ -100,7 +119,6 @@ namespace BattleCore.UI
             DefenceStatContainer.SetActive(isDamageSkill);
             OffenceStatContainer.SetActive(isDamageSkill);
             OffencePowerContainer.SetActive(isDamageSkill);
-
         }
     }
 }

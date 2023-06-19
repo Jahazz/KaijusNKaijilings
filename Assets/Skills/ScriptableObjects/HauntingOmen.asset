@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1196a15af78bb35429bc79abaef0b7e4, type: 3}
   m_Name: HauntingOmen
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Haunting Omen
+  <Description>k__BackingField: Bla bla bla
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: HauntingOmen
     <Cost>k__BackingField: 0
-    <Description>k__BackingField: 
     <Image>k__BackingField: {fileID: 21300000, guid: 109bacc3a598fc949b5f41dd31e7eba2,
       type: 3}
     <SkilType>k__BackingField:
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 3}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 2
+  <GUID>k__BackingField: 724e5c7c-8a40-4d3e-b67c-2278b3c895c6
   <StatusEffectToApply>k__BackingField: {fileID: 11400000, guid: 29eca37a64f5508498da48b60e0e53ba,
     type: 2}

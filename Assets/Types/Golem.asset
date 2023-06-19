@@ -12,38 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e6cb42187fa214a9153db378d8f8ba, type: 3}
   m_Name: Golem
   m_EditorClassIdentifier: 
-  TypeName: Golem
-  AttackerMultiplierCollection:
-  - TypeData: {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}
-    Multiplier: 0.5
-  - TypeData: {fileID: 11400000, guid: 618cf5565bc626f4a84e1802977c48e7, type: 2}
-    Multiplier: 1
-  - TypeData: {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
-    Multiplier: 1
-  - TypeData: {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
-    Multiplier: 0.5
-  - TypeData: {fileID: 11400000}
-    Multiplier: 1.5
+  <Name>k__BackingField: Golem
+  <Description>k__BackingField: 
+  <AttackerMultiplierCollection>k__BackingField:
   - TypeData: {fileID: 11400000, guid: f05a79a5ad7bef748941bd40976b53e7, type: 2}
-    Multiplier: 1
+    Multiplier: 0
+  - TypeData: {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
+    Multiplier: 0
+  - TypeData: {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
+    Multiplier: 0
   - TypeData: {fileID: 11400000, guid: 38955d2c0d7ede24fb26b79f2448fdb9, type: 2}
-    Multiplier: 1.5
+    Multiplier: 0
   - TypeData: {fileID: 11400000, guid: c234248a3f3e91f4fb1dd30b735bb570, type: 2}
-    Multiplier: 1
+    Multiplier: 0
   - TypeData: {fileID: 11400000, guid: c2bd31ce945a21d4b91321cc3bd26f76, type: 2}
-    Multiplier: 0.5
+    Multiplier: 0
   - TypeData: {fileID: 11400000, guid: 3cabfc25ecd4b30489d7a5a9190b52ec, type: 2}
-    Multiplier: 1
+    Multiplier: 0
   - TypeData: {fileID: 11400000, guid: 0a7afdcb0cd24d54695c0c4884ac7df6, type: 2}
-    Multiplier: 1
+    Multiplier: 0
+  - TypeData: {fileID: 11400000}
+    Multiplier: 0
   - TypeData: {fileID: 11400000, guid: 3640ae4eb5b6ef14b8e13b88bcd846d9, type: 2}
-    Multiplier: 1.5
+    Multiplier: 0
   - TypeData: {fileID: 11400000, guid: c25159e9fea49214393c12f323598142, type: 2}
-    Multiplier: 1.5
+    Multiplier: 0
+  - TypeData: {fileID: 11400000, guid: 618cf5565bc626f4a84e1802977c48e7, type: 2}
+    Multiplier: 0
+  - TypeData: {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}
+    Multiplier: 0
   - TypeData: {fileID: 11400000, guid: 6e1104a6f36d78a4c9ff580066d89997, type: 2}
-    Multiplier: 1
+    Multiplier: 0
   - TypeData: {fileID: 11400000, guid: c9113c55941e79b418d86ed61814add9, type: 2}
-    Multiplier: 1
+    Multiplier: 0
   - TypeData: {fileID: 11400000, guid: ef42084dcb328664f9c4e4a207c8ba53, type: 2}
-    Multiplier: 0.5
-  TypeSprite: {fileID: 21300000, guid: 68b3712c16005d649a6768287c2b5c7d, type: 3}
+    Multiplier: 0
+  <GUID>k__BackingField: f10f1b8c-1a67-46e4-9ad8-b12e4d697c1c

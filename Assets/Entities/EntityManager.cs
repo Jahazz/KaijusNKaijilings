@@ -1,5 +1,6 @@
+using StatusEffects.BattlegroundStatusEffects;
+using StatusEffects.EntityStatusEffects;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,15 +9,20 @@ using Utils;
 public class EntityManager : MonoBehaviour
 {
     [field: SerializeField]
+    public LevelRequirementsScriptable LevelRequirements { get; private set; }
+    [field: Space]
+    [field: SerializeField]
     public List<StatsScriptable> AllEntitiesTypes { get; set; } = new List<StatsScriptable>();
     [field: SerializeField]
     public List<TraitBaseScriptableObject> AvailableTraits { get; private set; } = new List<TraitBaseScriptableObject>();
     [field: SerializeField]
-    public LevelRequirementsScriptable LevelRequirements { get; private set; }
+    public List<TypeDataScriptable> AvailableTypes { get; private set; } = new List<TypeDataScriptable>();
     [field: SerializeField]
-    private List<StatTypeSpritePair> StatTypeSpriteCollection { get; set; }
+    public List<BaseScriptableEntityStatusEffect> AvailableEntityStatusEffects { get; private set; } = new List<BaseScriptableEntityStatusEffect>();
     [field: SerializeField]
-    public Dictionary<StatType, Sprite> StatTypeSpriteDictionary { get; set; } = new Dictionary<StatType, Sprite>();
+    public List<BaseScriptableBattlegroundStatusEffect> AvailableBattlegroundStatusEffects { get; private set; } = new List<BaseScriptableBattlegroundStatusEffect>();
+    [field: SerializeField]
+    public List<ScriptableStatData> StatTypeSpriteCollection { get; private set; } = new List<ScriptableStatData>();
 
 
 
@@ -40,6 +46,22 @@ public class EntityManager : MonoBehaviour
         return RequestEntity(AllEntitiesTypes.GetRandomElement(), level);
     }
 
+    public ScriptableStatData GetStatOfType (StatType statType)
+    {
+        ScriptableStatData output = null;
+
+        foreach (ScriptableStatData item in StatTypeSpriteCollection)
+        {
+            if (item.Stat == statType)
+            {
+                output = item;
+                break;
+            }
+        }
+
+        return output;
+    }
+
     public List<TraitBaseScriptableObject> GetTraitsFromList (List<TraitBaseScriptableObject> sourceList)
     {
         List<TraitBaseScriptableObject> excludedTraits = new List<TraitBaseScriptableObject>();
@@ -51,16 +73,6 @@ public class EntityManager : MonoBehaviour
         }
 
         return output;
-    }
-
-    protected virtual void Start ()
-    {
-        DictionarizeStatTypeSpriteCollection();
-    }
-
-    private void DictionarizeStatTypeSpriteCollection ()
-    {
-        StatTypeSpriteDictionary = StatTypeSpriteCollection.ToDictionary(k => k.Stat, v => v.Sprite);
     }
 
     private void AddRandomTraitsToEntity (Entity entityToAddTraits, List<TraitBaseScriptableObject> availableTraits)

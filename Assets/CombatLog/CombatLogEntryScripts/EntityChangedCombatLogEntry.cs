@@ -24,11 +24,11 @@ namespace CombatLogging.Entries
 
             if (EntityChangedFrom == null)
             {
-                output = string.Format(ENTRY_FORMAT_WITHOUT_OLD_VALUE, Owner.Player.Name, EntityChangedTo.Name.PresentValue, EntityChangedTo.BaseEntityType.Name);
+                output = string.Format(ENTRY_FORMAT_WITHOUT_OLD_VALUE, Owner.Player.Name, EntityChangedTo.Name.PresentValue, SingletonContainer.Instance.TooltipManager.GenerateTooltipableURL(EntityChangedTo.BaseEntityType));
             }
             else
             {
-                output = string.Format(ENTRY_FORMAT, Owner.Player.Name, EntityChangedFrom.Name.PresentValue, EntityChangedFrom.BaseEntityType.Name, EntityChangedTo.Name.PresentValue, EntityChangedTo.BaseEntityType.Name);
+                output = string.Format(ENTRY_FORMAT, Owner.Player.Name, EntityChangedFrom.Name.PresentValue, SingletonContainer.Instance.TooltipManager.GenerateTooltipableURL(EntityChangedFrom.BaseEntityType), EntityChangedTo.Name.PresentValue, SingletonContainer.Instance.TooltipManager.GenerateTooltipableURL(EntityChangedTo.BaseEntityType));
             }
 
             return output;

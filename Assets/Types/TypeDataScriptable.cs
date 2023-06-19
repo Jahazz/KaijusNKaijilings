@@ -1,12 +1,22 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using Tooltips;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 [CreateAssetMenu(fileName = "TypeData", menuName = "ScriptableObjects/TypeData", order = 2)]
-public class TypeDataScriptable : ScriptableObject
+public class TypeDataScriptable : ScriptableObject, INameableGUIDableDescribableTooltipable
 {
-    public string TypeName;
-    public List<TypeDamagePair> AttackerMultiplierCollection;
-    public Sprite TypeSprite;
+    [field: SerializeField]
+    public string Name { get; set; }
+    [field: SerializeField]
+    public string Description { get; set; }
+    [field: SerializeField]
+    public List<TypeDamagePair> AttackerMultiplierCollection { get; set; }
+    [field: SerializeField]
+    public Sprite TypeSprite { get; set; }
+    [field: SerializeField]
+    public string GUID { get; } = Guid.NewGuid().ToString();
+    public TooltipType TooltipType { get; } = TooltipType.ENTITY_TYPE;
 }

@@ -59,7 +59,7 @@ public class EntityDetailedScreenView : BaseEntityDetailedScreenView
         BindingsCollection.Add(BindingFactory.GenerateCustomProgressBarBinding(HealthBar, new ObservableVariable<float>(0), CurrentEntityData.ModifiedStats.Health.MaxValue, CurrentEntityData.ModifiedStats.Health.CurrentValue));
         BindingsCollection.Add(BindingFactory.GenerateCustomProgressBarBinding(ManaBar, new ObservableVariable<float>(0), CurrentEntityData.ModifiedStats.Mana.MaxValue, CurrentEntityData.ModifiedStats.Mana.CurrentValue));
         BindingsCollection.Add(BindingFactory.GenerateCustomProgressBarBinding(ExperienceBar, CurrentEntityData.LevelData.ExperienceNeededForCurrentLevel, CurrentEntityData.LevelData.ExperienceNeededForNextLevel, CurrentEntityData.LevelData.CurrentExperience));
-        BindingsCollection.Add(BindingFactory.GenerateInputFieldBinding(CustomNameInputField, "{0}", CurrentEntityData.Name));
+        BindingsCollection.Add(BindingFactory.GenerateInputFieldBinding(CustomNameInputField, "{0}",true, CurrentEntityData.Name));
     }
 
     public void UnbindBindings ()

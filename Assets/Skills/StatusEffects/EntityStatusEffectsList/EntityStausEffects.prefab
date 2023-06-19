@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8695695875680993406}
   - component: {fileID: 7075612599341614678}
   - component: {fileID: 8365165122364959545}
-  - component: {fileID: 663944806803260522}
+  - component: {fileID: 8114482014042908809}
   m_Layer: 8
   m_Name: EntityStausEffects
   m_TagString: Untagged
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CurrentModel>k__BackingField: {fileID: 8695695875680993406}
   <CurrentView>k__BackingField: {fileID: 7075612599341614678}
---- !u!114 &663944806803260522
+--- !u!114 &8114482014042908809
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3684990337872244677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
@@ -104,11 +104,11 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 0
+  m_Spacing: 20
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
@@ -119,6 +119,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4144098983321074495}
     m_Modifications:
+    - target: {fileID: 46206801572641482, guid: f0169b8b5500cd34a8b3b53fb146872b,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 259606518963913941, guid: f0169b8b5500cd34a8b3b53fb146872b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102592161695923379, guid: f0169b8b5500cd34a8b3b53fb146872b,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 22.05
+      objectReference: {fileID: 0}
     - target: {fileID: 2258592314108332546, guid: f0169b8b5500cd34a8b3b53fb146872b,
         type: 3}
       propertyPath: m_Name
@@ -167,12 +182,12 @@ PrefabInstance:
     - target: {fileID: 4167061706901439157, guid: f0169b8b5500cd34a8b3b53fb146872b,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4167061706901439157, guid: f0169b8b5500cd34a8b3b53fb146872b,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4167061706901439157, guid: f0169b8b5500cd34a8b3b53fb146872b,
         type: 3}
@@ -212,12 +227,12 @@ PrefabInstance:
     - target: {fileID: 4167061706901439157, guid: f0169b8b5500cd34a8b3b53fb146872b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 22.5
       objectReference: {fileID: 0}
     - target: {fileID: 4167061706901439157, guid: f0169b8b5500cd34a8b3b53fb146872b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: -22.5
       objectReference: {fileID: 0}
     - target: {fileID: 4167061706901439157, guid: f0169b8b5500cd34a8b3b53fb146872b,
         type: 3}
@@ -232,6 +247,11 @@ PrefabInstance:
     - target: {fileID: 4167061706901439157, guid: f0169b8b5500cd34a8b3b53fb146872b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990179509984572935, guid: f0169b8b5500cd34a8b3b53fb146872b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

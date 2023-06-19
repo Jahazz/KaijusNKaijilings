@@ -29,7 +29,7 @@ public class StatElement : MonoBehaviour
     {
         StatValueLabel.text = string.Format(StatFormat, baseStatValue);
         FinalStatValue.text = string.Format(StatFormat, finalStatValue);
-        StatImage.sprite = SingletonContainer.Instance.EntityManager.StatTypeSpriteDictionary[statType];
+        StatImage.sprite = SingletonContainer.Instance.EntityManager.GetStatOfType(statType).Sprite;
 
         float statModifierValue = finalStatValue - baseStatValue;
 

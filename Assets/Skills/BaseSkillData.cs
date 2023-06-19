@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,11 +6,7 @@ using UnityEngine;
 public class BaseSkillData
 {
     [field: SerializeField]
-    public string Name { get; private set; }
-    [field: SerializeField]
     public int Cost { get; private set; }
-    [field: SerializeField]
-    public string Description { get; private set; }
     [field: SerializeField]
     public Sprite Image { get; private set; }
     [field: SerializeField]
@@ -20,6 +15,4 @@ public class BaseSkillData
     public GameObject GameobjectToSpawnOnHitTarget { get; private set; }
     [field: SerializeField]
     private string DevelopmentData { get; set; }
-    [field: SerializeField]
-    public string SkillGUID { get; set; } = Guid.NewGuid().ToString();
 }

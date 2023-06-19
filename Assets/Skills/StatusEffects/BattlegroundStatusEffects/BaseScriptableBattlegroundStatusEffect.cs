@@ -1,5 +1,6 @@
 using BattleCore;
 using System.Collections.Generic;
+using Tooltips;
 using UnityEngine;
 
 namespace StatusEffects.BattlegroundStatusEffects
@@ -14,6 +15,11 @@ namespace StatusEffects.BattlegroundStatusEffects
         public bool RemovedAtEndOfCombat { get; private set; }
 
         public abstract void ApplyStatus (Battle currentBattle);
+
+        protected virtual void OnValidate ()
+        {
+            TooltipType = TooltipType.BATTLEGROUND_STATUS_EFFECT;
+        }
     }
 }
 

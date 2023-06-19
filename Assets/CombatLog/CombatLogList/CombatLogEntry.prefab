@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <AssignedTextWIthTooltip>k__BackingField: {fileID: 5090998656761751693}
+  <LookForKeywordsOnAwake>k__BackingField: 0
 --- !u!1 &8525257065679711971
 GameObject:
   m_ObjectHideFlags: 0

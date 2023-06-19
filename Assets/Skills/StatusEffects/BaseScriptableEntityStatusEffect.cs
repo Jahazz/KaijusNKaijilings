@@ -1,5 +1,7 @@
 using BattleCore;
+using System;
 using System.Collections.Generic;
+using Tooltips;
 using UnityEngine;
 
 namespace StatusEffects.EntityStatusEffects
@@ -23,6 +25,10 @@ namespace StatusEffects.EntityStatusEffects
         public int MaxStacks { get; private set; }
 
         public abstract void ApplyStatus (BattleParticipant casterOwner, Entity caster, Entity target, Battle currentBattle, int numberOfStacksToAdd);
+        protected virtual void OnValidate ()
+        {
+            TooltipType = TooltipType.ENTITY_STATUS_EFFECT;
+        }
     }
 }
 
