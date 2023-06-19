@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: StonesForTheRampart
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Stones for the Rampart
+  <Description>k__BackingField: 'Deal dmg to enemy. Weather: Rampart'
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Stones for the Rampart
     <Cost>k__BackingField: 30
-    <Description>k__BackingField: 'Deal dmg to enemy. Weather: Rampart'
     <Image>k__BackingField: {fileID: 21300000, guid: 109bacc3a598fc949b5f41dd31e7eba2,
       type: 3}
     <SkilType>k__BackingField:
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 15, y: 25}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 59111afd-7a69-4c64-b5ae-e6b97b49f0b1
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: cf3cc132ae950a140a5829c5b0d3b2e1,
     type: 2}

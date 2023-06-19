@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
-  m_Name: FiveSlapAttack
+  m_Name: GloriousCharge
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Glorious charge
+  <Description>k__BackingField: Deal dmg to enemy, buff Willpower and Agility to
+    allies.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Five Slap Attack
     <Cost>k__BackingField: 30
-    <Description>k__BackingField: Deal dmg to enemy five times.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: f05a79a5ad7bef748941bd40976b53e7, type: 2}
@@ -23,7 +24,8 @@ MonoBehaviour:
     <DevelopmentData>k__BackingField: 
   <IsDamageSkill>k__BackingField: 1
   <DamageData>k__BackingField:
-    <DamageRangeValue>k__BackingField: {x: 8, y: 12}
+    <DamageRangeValue>k__BackingField: {x: 15, y: 20}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 12cff5b8-49b3-464c-9a6f-7c67b841bb23
   <SkillGraph>k__BackingField: {fileID: 0}

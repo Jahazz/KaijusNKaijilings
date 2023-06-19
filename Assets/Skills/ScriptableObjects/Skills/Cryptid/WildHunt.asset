@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: WildHunt
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Wild Hunt
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with Hunted.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Wild Hunt
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with Hunted.
     <Image>k__BackingField: {fileID: 21300000, guid: 109bacc3a598fc949b5f41dd31e7eba2,
       type: 3}
     <SkilType>k__BackingField:
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 35, y: 45}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: b94e637e-dbcc-4d57-ab99-29c7e9ef87d2
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 4487219e42f235a40bb643f5ecd4e354,
     type: 2}

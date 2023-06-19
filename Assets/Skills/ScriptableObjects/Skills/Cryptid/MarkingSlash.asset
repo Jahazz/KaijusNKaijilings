@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: MarkingSlash
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Marking Slash
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with Hunted.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Marking Slash
     <Cost>k__BackingField: 3
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with Hunted.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: f05a79a5ad7bef748941bd40976b53e7, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 2, y: 6}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 8aa2cebb-0a7e-4b74-844c-ced5d4750713
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 4487219e42f235a40bb643f5ecd4e354,
     type: 2}

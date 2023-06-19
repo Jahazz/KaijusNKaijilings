@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: BarkAndBite
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Bark and Bite
+  <Description>k__BackingField: Debuff enemy Agliity. Deal dmg to enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Bark and Bite
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Debuff enemy Agliity. Deal dmg to enemy.
     <Image>k__BackingField: {fileID: 21300000, guid: 109bacc3a598fc949b5f41dd31e7eba2,
       type: 3}
     <SkilType>k__BackingField:
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 5, y: 10}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 7336be78-afdf-41c1-8625-7b65653ecb0d
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 832810386fb38ea4fa153100389f2009,
     type: 2}

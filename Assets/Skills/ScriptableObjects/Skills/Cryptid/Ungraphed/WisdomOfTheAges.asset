@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: WisdomOfTheAges
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Wisdom of the Ages
+  <Description>k__BackingField: Buff user Magic three times. Enemy looses 10% current
+    HP.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Wisdom of the Ages
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Buff user Magic three times. Enemy looses 10% current
-      HP.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: f05a79a5ad7bef748941bd40976b53e7, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 0
     <DefenceType>k__BackingField: 0
+  <GUID>k__BackingField: f98b6dc3-def8-4a47-aed3-adfbab83f59c
   <SkillGraph>k__BackingField: {fileID: 0}

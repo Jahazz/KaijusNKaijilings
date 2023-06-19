@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: DirtyClaws
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Dirty Claws
+  <Description>k__BackingField: Deal dmg to enemy. 40% chance to debuff enemy with
+    1 Poison.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Dirty Claws
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Deal dmg to enemy. 40% chance to debuff enemy with
-      1 Poison.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: f05a79a5ad7bef748941bd40976b53e7, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 10, y: 15}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 9108d126-0774-412b-9678-b1d521756f6b
   <SkillGraph>k__BackingField: {fileID: 0}

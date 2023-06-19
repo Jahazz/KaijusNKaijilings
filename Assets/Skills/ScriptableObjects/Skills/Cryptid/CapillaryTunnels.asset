@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: CapillaryTunnels
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Capillary Tunnels
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with Hemorrage.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Capillary Tunnels
     <Cost>k__BackingField: 50
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with Hemorrage.
     <Image>k__BackingField: {fileID: 21300000, guid: 109bacc3a598fc949b5f41dd31e7eba2,
       type: 3}
     <SkilType>k__BackingField:
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 65, y: 75}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 538e47f8-b189-4688-8ebb-96d0eceb7284
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: c890af9c5ba11e44485efcc83811ab7c,
     type: 2}

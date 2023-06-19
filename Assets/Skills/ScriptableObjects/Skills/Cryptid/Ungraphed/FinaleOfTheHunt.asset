@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: FinaleOfTheHunt
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Finale of the Hunt
+  <Description>k__BackingField: Base power of this attack is 100 if enemy has debuff
+    Hunted. Deal dmg to enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Finale of the Hunt
     <Cost>k__BackingField: 40
-    <Description>k__BackingField: Base power of this attack is 100 if enemy has debuff
-      Hunted. Deal dmg to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: f05a79a5ad7bef748941bd40976b53e7, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 70, y: 90}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: ac7006dd-025b-4f68-89c4-ca43b2a0e911
   <SkillGraph>k__BackingField: {fileID: 0}

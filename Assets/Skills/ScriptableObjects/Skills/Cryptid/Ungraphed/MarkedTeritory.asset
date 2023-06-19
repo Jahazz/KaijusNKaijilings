@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: MarkedTeritory
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Marked Teritory
+  <Description>k__BackingField: User is immune to Weather effects for the rest of
+    battle.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Marked Teritory
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: User is immune to Weather effects for the rest
-      of battle.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: f05a79a5ad7bef748941bd40976b53e7, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 0
     <DefenceType>k__BackingField: 0
+  <GUID>k__BackingField: c9d98741-8c95-4587-b56e-57668e63a536
   <SkillGraph>k__BackingField: {fileID: 0}

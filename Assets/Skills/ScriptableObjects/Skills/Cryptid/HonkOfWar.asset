@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: HonkOfWar
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Honk of War
+  <Description>k__BackingField: Buff user Might and Magic, then restore user 30%
+    missing HP.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Honk of War
     <Cost>k__BackingField: 30
-    <Description>k__BackingField: Buff user Might and Magic, then restore user 30%
-      missing HP.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: f05a79a5ad7bef748941bd40976b53e7, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 0
     <DefenceType>k__BackingField: 0
+  <GUID>k__BackingField: 8775294d-8500-459a-b645-b000bbc10066
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: f1e660b34c5808740b795f13d0824084,
     type: 2}

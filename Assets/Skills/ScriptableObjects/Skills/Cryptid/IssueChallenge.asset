@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: IssueChallenge
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Issue Challenge
+  <Description>k__BackingField: Retreat enemy. Put random enemy. Debuff enemy with
+    Caged. Debuff user with Caged.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Issue Challenge
     <Cost>k__BackingField: 5
-    <Description>k__BackingField: Retreat enemy. Put random enemy. Debuff enemy with
-      Caged. Debuff user with Caged.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: f05a79a5ad7bef748941bd40976b53e7, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 0
     <DefenceType>k__BackingField: 0
+  <GUID>k__BackingField: 54d05cf5-6203-401f-80d0-28fbb2aae687
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: d622aab683466944b949ca279261137b,
     type: 2}

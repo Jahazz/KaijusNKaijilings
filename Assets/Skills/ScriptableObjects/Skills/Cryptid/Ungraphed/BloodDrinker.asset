@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: BloodDrinker
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Blood Drinker
+  <Description>k__BackingField: Deal dmg to enemy. Restore 25% dealt dmg as HP to
+    user.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Blood Drinker
     <Cost>k__BackingField: 15
-    <Description>k__BackingField: Deal dmg to enemy. Restore 25% dealt dmg as HP
-      to user.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: f05a79a5ad7bef748941bd40976b53e7, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 15, y: 25}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 557f6980-300c-49e4-b477-81f5389ec582
   <SkillGraph>k__BackingField: {fileID: 0}

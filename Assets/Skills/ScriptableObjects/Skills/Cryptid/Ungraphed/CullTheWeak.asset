@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: CullTheWeak
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Cull the Weak
+  <Description>k__BackingField: Return enemy. Put enemy with lowest Agilty. deal
+    dmg to enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Cull the Weak
     <Cost>k__BackingField: 30
-    <Description>k__BackingField: Return enemy. Put enemy with lowest Agilty. deal
-      dmg to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: f05a79a5ad7bef748941bd40976b53e7, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 15, y: 25}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: e341d354-4d3b-4470-af68-67538a5f323d
   <SkillGraph>k__BackingField: {fileID: 0}
