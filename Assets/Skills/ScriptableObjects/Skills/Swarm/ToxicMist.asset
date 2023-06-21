@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: ToxicMist
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Toxic Mist
+  <Description>k__BackingField: 'Deal dmg to enemy. Weather: Toxic Nest'
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Toxic Mist
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: 'Deal dmg to enemy. Weather: Toxic Nest'
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c9113c55941e79b418d86ed61814add9, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 9, y: 10}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 5d1ddef9-4f1b-41b1-a7d3-897b648464b8
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 168162eaf0cdba54baf45d69929a913f,
     type: 2}

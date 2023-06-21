@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: Scatter
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Scatter
+  <Description>k__BackingField: '2 round ability. 1st round: deal dmg to enemy, user
+    takes 90% less dmg this round. 2nd round: retreat user and put random ally.'
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Scatter
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: '2 round ability. 1st round: deal dmg to enemy,
-      user takes 90% less dmg this round. 2nd round: retreat user and put random
-      ally.'
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c9113c55941e79b418d86ed61814add9, type: 2}
@@ -28,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 37, y: 30}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 3eea1620-02cf-4bc8-bacc-c191164daf10
   <SkillGraph>k__BackingField: {fileID: 0}

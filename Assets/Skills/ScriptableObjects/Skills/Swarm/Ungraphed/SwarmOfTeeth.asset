@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: SwarmOfTeeth
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Swarm of Teeth
+  <Description>k__BackingField: Base power +20 for every Debuff on enemy, up to 100.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Swarm of Teeth
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Base power +20 for every Debuff on enemy, up to
-      100.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c9113c55941e79b418d86ed61814add9, type: 2}
@@ -27,4 +26,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: c63f44b0-81bc-486f-86ce-60b7c0987a2f
   <SkillGraph>k__BackingField: {fileID: 0}

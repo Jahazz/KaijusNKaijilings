@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: ClusterOfWasps
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Cluster of Wasps
+  <Description>k__BackingField: Roll 5-10. Deal dmg to enemy that many times and
+    debuff enemy with that many Poison.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Cluster of Wasps
     <Cost>k__BackingField: 25
-    <Description>k__BackingField: Roll 5-10. Deal dmg to enemy that many times and
-      debuff enemy with that many Poison.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c9113c55941e79b418d86ed61814add9, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 1, y: 2}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 7ddf3ad7-6a46-4ffc-912e-7da9eeb1501a
   <SkillGraph>k__BackingField: {fileID: 0}

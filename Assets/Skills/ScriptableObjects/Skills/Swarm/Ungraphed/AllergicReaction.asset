@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: AllergicReaction
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Allergic Reaction
+  <Description>k__BackingField: Deal dmg to enemy [Poison stack on them] times.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Allergic Reaction
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Deal dmg to enemy [Poison stack on them] times.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c9113c55941e79b418d86ed61814add9, type: 2}
@@ -23,7 +23,8 @@ MonoBehaviour:
     <DevelopmentData>k__BackingField: 
   <IsDamageSkill>k__BackingField: 1
   <DamageData>k__BackingField:
-    <DamageRangeValue>k__BackingField: {x: 10, y: 15}
+    <DamageRangeValue>k__BackingField: {x: 3, y: 5}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 23aa342b-6249-4a4e-ac9e-0b1cc3ec36c1
   <SkillGraph>k__BackingField: {fileID: 0}

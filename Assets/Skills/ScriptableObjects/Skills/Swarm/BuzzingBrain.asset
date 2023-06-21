@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: BuzzingBrain
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Buzzing Brain
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Willpower three tmes.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Buzzing Brain
     <Cost>k__BackingField: 40
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Willpower three
-      tmes.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c9113c55941e79b418d86ed61814add9, type: 2}
@@ -27,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 35, y: 40}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: b9fd5bba-28aa-4755-8c77-7142b1c1db67
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 0ed867b3fb56c984f974d8150ae502f9,
     type: 2}

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: CleansingPoison
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Cleansing Poison
+  <Description>k__BackingField: Deal dmg to enemy. Cleanse enemy. Debuff enemy with
+    1 Poison.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Cleansing Poison
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Deal dmg to enemy. Cleanse enemy. Debuff enemy
-      with 1 Poison.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c9113c55941e79b418d86ed61814add9, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 4, y: 5}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 8d1a8845-b568-4455-b2bb-fe7cea6f1276
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 3cc59dcb81ff3c640a59a03fe67c32d7,
     type: 2}

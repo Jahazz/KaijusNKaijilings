@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: Outbreak
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Outbreak
+  <Description>k__BackingField: Deal dmg for every poison on enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Outbreak
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Deal dmg for every poison on enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c9113c55941e79b418d86ed61814add9, type: 2}
@@ -26,4 +26,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 9, y: 10}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 293deca4-999b-457e-ae54-d4bee4ab918c
   <SkillGraph>k__BackingField: {fileID: 0}
