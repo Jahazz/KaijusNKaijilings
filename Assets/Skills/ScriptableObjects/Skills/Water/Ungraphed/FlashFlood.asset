@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: FlashFlood
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Flash Flood
+  <Description>k__BackingField: Enemy looses 20% max HP
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Flash Flood
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Enemy looses 20% max HP
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: ef42084dcb328664f9c4e4a207c8ba53, type: 2}
@@ -26,4 +26,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 0
     <DefenceType>k__BackingField: 0
+  <GUID>k__BackingField: 0cb52b95-ded7-4ecf-8c5f-ef5e62616a10
   <SkillGraph>k__BackingField: {fileID: 0}

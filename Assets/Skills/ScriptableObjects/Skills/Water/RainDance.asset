@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: RainDance
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Rain Dance
+  <Description>k__BackingField: Cleanse enemy. Restore 20% Hp to user. Buff user
+    Magic.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Bloodied Waters
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Cleanse enemy. Restore 20% Hp to user. Buff user
-      Magic.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: ef42084dcb328664f9c4e4a207c8ba53, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 0
     <DefenceType>k__BackingField: 0
+  <GUID>k__BackingField: cbe09db3-c2a5-4baf-a30d-a6c769f3e9d5
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 68e5c86dc95ba9b438134a56f6e0f70c,
     type: 2}

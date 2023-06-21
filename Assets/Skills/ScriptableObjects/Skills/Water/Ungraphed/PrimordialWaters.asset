@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: PrimordialWaters
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Primordial Waters
+  <Description>k__BackingField: Restore 25% HP to EVERY creature in both teams. Deal
+    dmg to enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Primordial Waters
     <Cost>k__BackingField: 40
-    <Description>k__BackingField: Restore 25% HP to EVERY creature in both teams.
-      Deal dmg to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: ef42084dcb328664f9c4e4a207c8ba53, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 88, y: 92}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: c8493967-1a3a-4b18-a1d4-ffe1435129c7
   <SkillGraph>k__BackingField: {fileID: 0}

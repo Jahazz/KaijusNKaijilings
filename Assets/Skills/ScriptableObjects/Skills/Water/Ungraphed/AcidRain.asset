@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: AcidRain
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Acid Rain
+  <Description>k__BackingField: Deal dmg to enemy. 40% chance to put 2 poison on
+    enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Acid Rain
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Deal dmg to enemy. 40% chance to put 2 poison on
-      enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: ef42084dcb328664f9c4e4a207c8ba53, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 14, y: 20}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 87f74b35-b2e1-4ed1-bd86-cded7ca728d7
   <SkillGraph>k__BackingField: {fileID: 0}

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: PoisonedSpring
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Poisoned Spring
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with 2 Poison.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Poisoned Spring
     <Cost>k__BackingField: 15
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with 2 Poison.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: ef42084dcb328664f9c4e4a207c8ba53, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 29, y: 35}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 6
+  <GUID>k__BackingField: 12734656-0d43-4f12-ae3c-d1d9d1d40934
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: fde718c5255f81848b96e3b82fd8b00e,
     type: 2}

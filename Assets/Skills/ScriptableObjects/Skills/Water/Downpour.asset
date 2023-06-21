@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: Downpour
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Downpour
+  <Description>k__BackingField: 'Deal dmg to enemy. Cleanse user. Weather: Heavy
+    Rain'
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Downpour
     <Cost>k__BackingField: 30
-    <Description>k__BackingField: 'Deal dmg to enemy. Cleanse user. Weather: Heavy
-      Rain'
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: ef42084dcb328664f9c4e4a207c8ba53, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 16, y: 20}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 13e278ba-19d6-476d-9d5c-b2a43c3c5800
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 8b77494c929f4f742a2b6c90d1eee216,
     type: 2}

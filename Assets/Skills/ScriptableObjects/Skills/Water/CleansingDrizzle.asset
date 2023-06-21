@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: CleansingDrizzle
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Cleansing Drizzle
+  <Description>k__BackingField: Deal dmg to enemy. Cleanse enemy. Cleanse user.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Cleansing Drizzle
     <Cost>k__BackingField: 2
-    <Description>k__BackingField: Deal dmg to enemy. Cleanse enemy. Cleanse user.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: ef42084dcb328664f9c4e4a207c8ba53, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 1, y: 3}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 5fc44c4f-90fc-4beb-b7d2-615d10e35db8
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 4f35281edf2d7374cb9a46bec0107dfe,
     type: 2}

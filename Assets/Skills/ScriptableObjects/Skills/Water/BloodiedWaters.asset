@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: BloodiedWaters
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Blood in the Water
+  <Description>k__BackingField: Debuff enemy with Hunted.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Bloodied Waters
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with Hemmorage.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: ef42084dcb328664f9c4e4a207c8ba53, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 16, y: 20}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 5406f221-9498-4a8c-a8d1-e57bb1af2482
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: c890af9c5ba11e44485efcc83811ab7c,
     type: 2}

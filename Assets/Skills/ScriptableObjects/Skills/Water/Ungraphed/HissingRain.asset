@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: HissingRain
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Hissing Rain
+  <Description>k__BackingField: Deal dmg to enemy. Debuff EVERY enemy Willpower.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Hissing Rain
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Deal dmg to enemy. Debuff EVERY enemy Willpower.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: ef42084dcb328664f9c4e4a207c8ba53, type: 2}
@@ -26,4 +26,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 14, y: 15}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 70213522-4e5a-489a-a795-89be29d8ca5d
   <SkillGraph>k__BackingField: {fileID: 0}
