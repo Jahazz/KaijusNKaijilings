@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: RimeChains
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Rime Chains
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Initiative three
+    times.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Rime Chains
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Initiative three
-      times.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 3640ae4eb5b6ef14b8e13b88bcd846d9, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 35, y: 40}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 2a4ce9c2-d1d9-4610-9454-50a8f58a5652
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 0dd613e06eea7404e9ac8211a8eb0150,
     type: 2}

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: IcicleCharge
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Icicle Charge
+  <Description>k__BackingField: Deal dmg to enemy
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Icicle Charge
     <Cost>k__BackingField: 29
-    <Description>k__BackingField: Deal dmg to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 3640ae4eb5b6ef14b8e13b88bcd846d9, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 35, y: 40}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 74a9da90-11ae-4fb0-9caa-85e31b53b57e
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: eb3a9c1e0c7689e4ead8db4baa05f550,
     type: 2}

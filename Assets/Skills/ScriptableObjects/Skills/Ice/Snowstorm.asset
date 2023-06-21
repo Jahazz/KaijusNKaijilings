@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: Snowstorm
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Snowstorm
+  <Description>k__BackingField: 'Deal dmg to enemy. Cleanse weather. Weather: Blizzard'
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Snowstorm
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: 'Deal dmg to enemy. Cleanse weather. Weather: Blizzard'
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 3640ae4eb5b6ef14b8e13b88bcd846d9, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 25, y: 30}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: bbfd97f8-efb1-4ef8-bbb9-2e228617a2c5
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 7876eb3f37f63e74c872a4381fb84753,
     type: 2}

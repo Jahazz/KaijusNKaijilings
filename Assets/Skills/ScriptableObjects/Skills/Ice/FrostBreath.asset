@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: FrostBreath
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Frost Breath
+  <Description>k__BackingField: Deal dmg to enemy, debuff Initiative of enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Frost Breath
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Deal dmg to enemy, debuff Initiative of enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 3640ae4eb5b6ef14b8e13b88bcd846d9, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 15, y: 20}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: bfc6b64e-b4af-4db7-9e06-8d87d2210bba
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 24a3bc9986956b241afd89533a04d7e6,
     type: 2}

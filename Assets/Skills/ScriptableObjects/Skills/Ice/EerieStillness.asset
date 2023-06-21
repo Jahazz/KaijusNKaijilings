@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: EerieStillness
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Eerie Stillness
+  <Description>k__BackingField: Deal dmg to enemy. Debuff user Initiative. Debuff
+    enemy Willpower.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Eerie Stillness
     <Cost>k__BackingField: 40
-    <Description>k__BackingField: Deal dmg to enemy. Debuff user Initiative. Debuff
-      enemy Willpower.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 3640ae4eb5b6ef14b8e13b88bcd846d9, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 65, y: 70}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 076ac3b4-608a-4fc0-8f01-196628d8faa2
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: b983ff6ea10321b42b53955f617f8d44,
     type: 2}
