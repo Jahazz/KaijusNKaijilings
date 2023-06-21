@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: ClashOfTitans
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Clash of Titans
+  <Description>k__BackingField: Debuff user with Hunted. Deal dmg to enemy. Debuff
+    enemy with Hunted.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Clash of Titans
     <Cost>k__BackingField: 30
-    <Description>k__BackingField: Debuff user with Hunted. Deal dmg to enemy. Debuff
-      enemy with Hunted.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 38955d2c0d7ede24fb26b79f2448fdb9, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 80, y: 90}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: add5feac-e9c8-4f17-95fb-8cd345c882c6
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: e65be7800fe381847a2362c68ce555a3,
     type: 2}

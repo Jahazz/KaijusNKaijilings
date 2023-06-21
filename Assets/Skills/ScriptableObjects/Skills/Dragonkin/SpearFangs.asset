@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: SpearFangs
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Spear Fangs
+  <Description>k__BackingField: Deal dmg to enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Spear Fangs
     <Cost>k__BackingField: 40
-    <Description>k__BackingField: Deal dmg to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 38955d2c0d7ede24fb26b79f2448fdb9, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 75, y: 80}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 58e91d58-6437-4d37-9162-bf106d9f907e
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: eb3a9c1e0c7689e4ead8db4baa05f550,
     type: 2}

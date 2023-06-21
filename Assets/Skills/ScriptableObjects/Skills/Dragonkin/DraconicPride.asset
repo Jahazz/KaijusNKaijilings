@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: DraconicPride
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Draconic Pride
+  <Description>k__BackingField: Buff users Might and Magic five times.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Draconic Pride
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Buff users Might and Magic five times.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 38955d2c0d7ede24fb26b79f2448fdb9, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 0
     <DefenceType>k__BackingField: 0
+  <GUID>k__BackingField: 74b218e9-baf7-4336-8901-ff5a22c9fceb
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 2f8363e0ee9d4ef48b68c2dec8688442,
     type: 2}
