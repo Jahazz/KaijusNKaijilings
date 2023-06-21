@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: LonelyLamp
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Lonely Lamp
+  <Description>k__BackingField: Base power +45 while 4 other allies are defeated.
+    Deal dmg to enemy
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Lonely Lamp
     <Cost>k__BackingField: 5
-    <Description>k__BackingField: Base power +45 while 4 other allies are defeated.
-      Deal dmg to enemy
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: aebd1c762e7cf7544b2772496b04c344, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 5, y: 5}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 3b4f0c11-b62b-459d-9863-a5717bfede5c
   <SkillGraph>k__BackingField: {fileID: 0}

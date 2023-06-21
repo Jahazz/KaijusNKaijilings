@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: MagnetizedPunch
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Magnetized Punch
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with Caged.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Magnetized Punch
     <Cost>k__BackingField: 15
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with Caged.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: aebd1c762e7cf7544b2772496b04c344, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 29, y: 31}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 2068f1ef-8492-4672-b5a0-9835da7627a2
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 20e0b0b2c467b2045ab7186672316dfa,
     type: 2}
