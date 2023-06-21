@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: AlienIntellect
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Alien Intellect
+  <Description>k__BackingField: Deal dmg to enemy. Debuff non-Outsider active enemy
+    with Hemorrage.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Alien Intellect
     <Cost>k__BackingField: 5
-    <Description>k__BackingField: Deal dmg to enemy. Debuff non-Outsider active enemy
-      with Hemorrage.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c25159e9fea49214393c12f323598142, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 4, y: 5}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: da246ab9-2d99-4958-8315-5fb5ec3a5856
   <SkillGraph>k__BackingField: {fileID: 0}

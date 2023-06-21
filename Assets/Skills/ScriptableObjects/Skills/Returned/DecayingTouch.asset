@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: DecayingTouch
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Decaying Touch
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy wih 1 Poison.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Decaying Touch
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy wih 1 Poison.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 618cf5565bc626f4a84e1802977c48e7, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 17, y: 20}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 5b3d9855-fab9-4434-b21d-3179ab66083c
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 5008f03ea764b104a87f479adc4b570e,
     type: 2}

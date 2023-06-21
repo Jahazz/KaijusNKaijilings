@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: HauntingHowl
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Haunting Howl
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Might and Magic.
+    Buff user Agility and Willpower.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Haunting Howl
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Might and Magic.
-      Buff user Agility and Willpower.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 618cf5565bc626f4a84e1802977c48e7, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 3, y: 5}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 1dd8bcf4-76a2-47f1-9411-8065a71c864e
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 20fe28ff88cc3864e88a24d0bf5e8bb7,
     type: 2}

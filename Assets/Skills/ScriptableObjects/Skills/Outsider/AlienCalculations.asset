@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: AlienCalculations
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Alien Calculations
+  <Description>k__BackingField: Deal dmg to enemy. Buff user Willpower.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Alien Calculations
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Deal dmg to enemy. Buff user Willpower.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c25159e9fea49214393c12f323598142, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 7, y: 10}
     <AttackType>k__BackingField: 7
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: e4ad31b4-ba64-4a44-a627-e7b401dded43
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: d8010d33831daf749b3fa0177828a822,
     type: 2}

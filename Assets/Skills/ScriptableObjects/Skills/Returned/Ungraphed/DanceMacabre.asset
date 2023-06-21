@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: DanceMacabre
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Dance Macabre
+  <Description>k__BackingField: Every enemy creature looses 20HP.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Dance Macabre
     <Cost>k__BackingField: 40
-    <Description>k__BackingField: Every enemy creature looses 20HP.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 618cf5565bc626f4a84e1802977c48e7, type: 2}
@@ -26,4 +26,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 0
     <DefenceType>k__BackingField: 0
+  <GUID>k__BackingField: ac9e07be-0846-4ae5-9350-913458ade69c
   <SkillGraph>k__BackingField: {fileID: 0}

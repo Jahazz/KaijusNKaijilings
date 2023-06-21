@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: GravekeepersFault
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Gravekeeper's Fault
+  <Description>k__BackingField: 'Deal dmg to enemy. Cleanse weather. Weather: Fresh
+    Graves'
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Gravekeeper's Fault
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: 'Deal dmg to enemy. Cleanse weather. Weather: Fresh
-      Graves'
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 618cf5565bc626f4a84e1802977c48e7, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 27, y: 30}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 762621e3-b365-46e0-ac42-42fea46ab17e
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: b9bec87ac11657242a82d4f9d9208954,
     type: 2}

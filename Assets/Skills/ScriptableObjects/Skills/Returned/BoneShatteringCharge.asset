@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: BoneShatteringCharge
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Bone Shattering Charge
+  <Description>k__BackingField: Deal dmg to enemy. Debuff user and enemy Agility.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Bone Shattering Charge
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Deal dmg to enemy. Debuff user and enemy Agility.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 618cf5565bc626f4a84e1802977c48e7, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 35, y: 40}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 589a833c-2276-4718-be18-ab2c3df6787f
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 3f81d7a69a533a944b5c879db737d09d,
     type: 2}

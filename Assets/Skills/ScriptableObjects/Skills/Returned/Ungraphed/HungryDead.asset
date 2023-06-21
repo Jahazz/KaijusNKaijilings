@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: HungryDead
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Hungry Dead
+  <Description>k__BackingField: Base power increased by 20 against Cryptid creatures.
+    Deal dmg to enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Hungry Dead
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Base power increased by 20 against Cryptid creatures.
-      Deal dmg to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 618cf5565bc626f4a84e1802977c48e7, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 7, y: 10}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 56d73943-20ca-4a7c-ac8e-039c37b5ee52
   <SkillGraph>k__BackingField: {fileID: 0}
