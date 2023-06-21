@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: ChillOfTheGrave
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Chill of the Grave
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Initiative twice.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Chill Of The Grave
     <Cost>k__BackingField: 50
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Initiative twice.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 70, y: 90}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 9a29dc90-a48a-4ce8-bc60-12fa29d4118e
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 1bee7bd02a57a004681af3c261ae68dd,
     type: 2}

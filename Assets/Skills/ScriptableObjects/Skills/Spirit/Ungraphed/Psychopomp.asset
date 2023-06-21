@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: Psychopomp
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Psychopomp
+  <Description>k__BackingField: Base power increased by 15 for EVERY defeated kaijiling
+    in both teams. Deal dmg to enemy. User looses 20 HP
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Psychopomp
     <Cost>k__BackingField: 30
-    <Description>k__BackingField: Base power increased by 15 for EVERY defeated kaijiling
-      in both teams. Deal dmg to enemy. User looses 20 HP
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 5865403c-e0cb-4517-9b45-56f2dab465c0
   <SkillGraph>k__BackingField: {fileID: 0}

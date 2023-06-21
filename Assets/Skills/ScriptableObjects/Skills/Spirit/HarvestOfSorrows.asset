@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: HarvestOfSorrows
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Harvest of Sorrows
+  <Description>k__BackingField: Deal dmg to enemy. Debuff user Willpower.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Harvest of Sorrows
     <Cost>k__BackingField: 25
-    <Description>k__BackingField: Deal dmg to enemy. Debuff user Willpower.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 66, y: 71}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 95fa7718-8950-404f-a39e-30c6a25e7e21
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 7a7abaa8a3a0e4248b9bbff280105217,
     type: 2}

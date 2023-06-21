@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: LastMatch
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Last Match
+  <Description>k__BackingField: Deal dmg to enemy. Debuff user and enemy with Burning.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Last Match
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Deal dmg to enemy. Debuff user and enemy with Burning.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 10, y: 12}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 4ceca2e1-8a6b-4e13-b3b7-8199f054a5cb
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: d4d994e5f895710438391c896f33933b,
     type: 2}

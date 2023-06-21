@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: TouchOfMisery
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Touch of Misery
+  <Description>k__BackingField: Deal dmg increased by 25% for everry debuff on enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Touch of Misery
     <Cost>k__BackingField: 25
-    <Description>k__BackingField: Deal dmg increased by 25% for everry debuff on
-      enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}
@@ -27,4 +26,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 16, y: 16}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 48480ad3-70c2-4116-88bc-387504839c0e
   <SkillGraph>k__BackingField: {fileID: 0}

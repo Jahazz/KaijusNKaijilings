@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: EternalLoneliness
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Eternal Loneliness
+  <Description>k__BackingField: 'Deal dmg to enemy. Cleanse weather. Weather: Isolation'
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Eternal Loneliness
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: 'Deal dmg to enemy. Cleanse weather. Weather: Isolation'
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 8, y: 11}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 9388467e-39b0-4684-bfa7-7e7d89712a65
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 7ae854676ce9f2d4482a9043f4deddae,
     type: 2}

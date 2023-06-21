@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: LongingHowl
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Longing Howl
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Willpower
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Longing Howl
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Willpower
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 10, y: 11}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: e751c3f1-f7db-4d85-8f25-5284fde76b47
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 43bec35c039834b4c9e6c17c7e282fb0,
     type: 2}

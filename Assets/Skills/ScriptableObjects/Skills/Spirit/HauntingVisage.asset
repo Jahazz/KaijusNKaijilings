@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: HauntingVisage
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Haunting Visage
+  <Description>k__BackingField: Deal dmg to enemy and put Mana Leak debuff on it.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Haunting Visage
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Deal dmg to enemy and put Mana Leak debuff on it.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 22, y: 25}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 660d7128-033c-4d3f-8a49-c8a462a868d7
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: b05ace09d5f7b604fb116da2d385ece3,
     type: 2}

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: CriesofTheUnwanted
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Cries of the Unwanted
+  <Description>k__BackingField: Debuff enemy Willpower. Base power increased by 5
+    for every debuff on enemy. Deal dmg to enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Jumpscare
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Debuff enemy Willpower. Base power increased by
-      5 for every debuff on enemy. Deal dmg to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 6c58f0cb-bef0-42bc-8371-632e27e8c5e7
   <SkillGraph>k__BackingField: {fileID: 0}

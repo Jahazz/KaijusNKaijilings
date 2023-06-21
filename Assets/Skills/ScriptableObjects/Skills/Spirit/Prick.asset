@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: Prick
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Prick
+  <Description>k__BackingField: Debuff enemy with Hemorrage.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Prick
     <Cost>k__BackingField: 5
-    <Description>k__BackingField: Debuff enemy with Hemorrage.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 89b2a7ac576abd045a9632b35bafc0ca, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 4e1bc70b-d5eb-4704-bf0d-627f057de41d
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 5db171f5e11457446981ae5e14720bf7,
     type: 2}
