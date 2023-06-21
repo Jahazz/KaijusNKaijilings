@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: ErodingTouch
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Eroding Touch
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Agility.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Eroding Touch
     <Cost>k__BackingField: 5
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Agility.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c234248a3f3e91f4fb1dd30b735bb570, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 10, y: 15}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 3f4e1a0e-4dce-4e9b-93a7-cacd8e93b7a0
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 832810386fb38ea4fa153100389f2009,
     type: 2}

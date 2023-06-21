@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: GeodeMaiden
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Geode Maiden
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Agility.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Geode Maiden
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Agility.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c234248a3f3e91f4fb1dd30b735bb570, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 25, y: 30}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: ab153af5-4ffb-4757-9b8f-6b0213b7ac15
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: a66a787c634abd44b8dd20fd9658315a,
     type: 2}

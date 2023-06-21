@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: BountifulHarvest
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Bountiful Harvest
+  <Description>k__BackingField: Deal dmg to enemy. Buff user Might, Magc, Agility
+    and Willpower. Debuff user Intative.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Bountiful Harvest
     <Cost>k__BackingField: 15
-    <Description>k__BackingField: Deal dmg to enemy. Buff user Might, Magc, Agility
-      and Willpower. Debuff user Intative.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c234248a3f3e91f4fb1dd30b735bb570, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 15, y: 20}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 2286bbab-f2b5-4804-8549-28ae10178b38
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 9ec07b2c900e78749aaa8c40d9fe1ea7,
     type: 2}

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: HealingBerry
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Healing Berry
+  <Description>k__BackingField: User regains 10%max HP. Cleanse user.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Healing Berry
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: User regains 10%max HP. Cleanse user.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c234248a3f3e91f4fb1dd30b735bb570, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 0
     <DefenceType>k__BackingField: 0
+  <GUID>k__BackingField: 3780ab4d-c9fd-4be6-a88e-7c6ef05ca10c
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 39a03e638b1f4e84d9aabd18cd76daef,
     type: 2}

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: Rockbreaker
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Rockbreaker
+  <Description>k__BackingField: Deal dmg to enemy,Debuff enemy Agility three times
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Rockbreaker
     <Cost>k__BackingField: 30
-    <Description>k__BackingField: Deal dmg to enemy,Debuff enemy Agility three times
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c234248a3f3e91f4fb1dd30b735bb570, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 70, y: 75}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 9fe75511-7372-4dd3-b067-ede541f43f25
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: a33bc86f40425394a91b33bdf7c3fce3,
     type: 2}

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: DecreeOfTheMountain
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Decree of the Mountain
+  <Description>k__BackingField: Deal dmg to enemy. 20% to debuff enemy Initiative.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Decree of the Mountain
     <Cost>k__BackingField: 30
-    <Description>k__BackingField: Deal dmg to enemy. 20% to debuff enemy Initiative.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c234248a3f3e91f4fb1dd30b735bb570, type: 2}
@@ -26,4 +26,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 55, y: 60}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: dd56be4a-0be4-4256-b8c0-dabe9f44c975
   <SkillGraph>k__BackingField: {fileID: 0}

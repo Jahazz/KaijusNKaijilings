@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: EscapeRoute
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Escape Route
+  <Description>k__BackingField: Halve users initiative for this attack. Deal dmg
+    to enemy. Return user and put ally.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Escape Route
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Halve users initiative for this attack. Deal dmg
-      to enemy. Return user and put ally.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c234248a3f3e91f4fb1dd30b735bb570, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 25, y: 30}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 81fa1949-8533-4ee8-84c7-3ea3e25308dc
   <SkillGraph>k__BackingField: {fileID: 0}

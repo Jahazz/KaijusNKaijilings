@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: WitheredLand
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Withered Land
+  <Description>k__BackingField: 'Deal dmg to enemy. Cleanse weather. Weather: Barren
+    Land'
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Withered Land
     <Cost>k__BackingField: 40
-    <Description>k__BackingField: 'Deal dmg to enemy. Cleanse weather. Weather: Barren
-      Land'
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c234248a3f3e91f4fb1dd30b735bb570, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 25, y: 30}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: a00917fd-7fcc-46f4-b8c7-91bdbea8c1f1
   <SkillGraph>k__BackingField: {fileID: 0}
