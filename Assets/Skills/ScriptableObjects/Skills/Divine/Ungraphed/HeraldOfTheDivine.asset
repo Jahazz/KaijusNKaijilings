@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: HeraldOfTheDivine
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Herald of the Divine
+  <Description>k__BackingField: Deal dmg to enemy. Retreat user and put random Divine
+    ally.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Herald of the Divine
     <Cost>k__BackingField: 30
-    <Description>k__BackingField: Deal dmg to enemy. Retreat user and put random
-      Divine ally.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 35, y: 35}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 02047d88-dd83-4d29-8873-0bc5ea24cc94
   <SkillGraph>k__BackingField: {fileID: 0}

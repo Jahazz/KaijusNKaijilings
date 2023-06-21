@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: HussarsOath
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Hussar's Oath
+  <Description>k__BackingField: Buff two random user stats. Debuff enemy Willpower.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Hussar's Oath
     <Cost>k__BackingField: 5
-    <Description>k__BackingField: Buff two random user stats. Debuff enemy Willpower.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
@@ -26,4 +26,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: ce450675-d442-4605-8b7e-595a89b2a41b
   <SkillGraph>k__BackingField: {fileID: 0}

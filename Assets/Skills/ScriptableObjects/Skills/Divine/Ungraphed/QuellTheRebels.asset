@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: QuellTheRebels
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Quell the Rebels!
+  <Description>k__BackingField: Double initiative against Cursed enemies. Deal dmg
+    to enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Quell the Rebels!
     <Cost>k__BackingField: 30
-    <Description>k__BackingField: Double initiative against Cursed enemies. Deal
-      dmg to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 50, y: 50}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 8e4e2d98-60ab-4cd0-a5e6-02847ae2f31e
   <SkillGraph>k__BackingField: {fileID: 0}

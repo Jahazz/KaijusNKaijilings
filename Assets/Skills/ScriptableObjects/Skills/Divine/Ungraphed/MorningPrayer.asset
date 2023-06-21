@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: MorningPrayer
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Morning Prayer
+  <Description>k__BackingField: Base power increased by 10 against Cursed-type enemies.
+    Deal dmg to enemy. Buff user Agility and Willpower.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Morning Prayer
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Base power increased by 10 against Cursed-type
-      enemies. Deal dmg to enemy. Buff user Agility and Willpower.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 10, y: 10}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: a7c8b181-2802-4e66-8056-d24a399dfebe
   <SkillGraph>k__BackingField: {fileID: 0}

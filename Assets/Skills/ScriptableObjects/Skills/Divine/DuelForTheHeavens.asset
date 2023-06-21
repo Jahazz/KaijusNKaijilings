@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: DuelForTheHeavens
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Duel for the Heavens
+  <Description>k__BackingField: Buff user with Powerup. Debuff user and enemy with
+    Caged. Restore 20% max HP to user.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Duel for the Heavens
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Buff user with Powerup. Debuff user and enemy with
-      Caged. Restore 20% max HP to user.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 0
     <DefenceType>k__BackingField: 0
+  <GUID>k__BackingField: 5c484db8-c1e1-44fb-a978-9eba0727a2b5
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 2e0e69f96a4936046b1d892e58d254d8,
     type: 2}

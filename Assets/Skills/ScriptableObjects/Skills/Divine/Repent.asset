@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d15f0df10b7969488e695e772b214dd, type: 3}
   m_Name: Repent
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Repent!
+  <Description>k__BackingField: Deal dmg to enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Repent!
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Deal dmg to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
@@ -24,5 +24,6 @@ MonoBehaviour:
   <IsDamageSkill>k__BackingField: 1
   <DamageData>k__BackingField:
     <DamageRangeValue>k__BackingField: {x: 15, y: 15}
-    <AttackType>k__BackingField: 6
+    <AttackType>k__BackingField: 7
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 4eba0260-d11b-430f-aefc-09f3ab4cd0ce

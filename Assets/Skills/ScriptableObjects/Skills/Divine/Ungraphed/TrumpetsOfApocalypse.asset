@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: TrumpetsOfApocalypse
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Trumpets of Apocalypse
+  <Description>k__BackingField: Deal dmg to enemy, increased by percentage of used
+    mana. [+1% dmg for 1% mana]
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Trumpets of Apocalypse
     <Cost>k__BackingField: 0
-    <Description>k__BackingField: Deal dmg to enemy, increased by percentage of used
-      mana. [+1% dmg for 1% mana]
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 60, y: 60}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 4b34adc3-e0db-4885-a2b8-98ed7b56108f
   <SkillGraph>k__BackingField: {fileID: 0}

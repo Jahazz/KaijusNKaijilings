@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: Retribution
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Retribution
+  <Description>k__BackingField: Deal dmg to enemy. If enemy have higher Initiative
+    than user, deal dmg again.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Retribution
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Deal dmg to enemy. If enemy have higher Initiative
-      than user, deal dmg again.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 30, y: 30}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 983bad73-3609-4f8b-9af4-2cbed8233cf4
   <SkillGraph>k__BackingField: {fileID: 0}

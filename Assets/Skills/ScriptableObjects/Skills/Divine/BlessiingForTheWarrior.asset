@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: BlessiingForTheWarrior
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Blessing for the Warrior
+  <Description>k__BackingField: Buff user Might and Magic. Restore 20hp to user.
+    Deal dmg to enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Blessing For The Warrior
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Buff user Might and Magic. Restore 20hp to user.
-      Deal dmg to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 3, y: 7}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: af7a4b24-0d28-439e-aac0-98a180d2d704
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 41e5cd4f72fa3464a891e45e1fa332b4,
     type: 2}

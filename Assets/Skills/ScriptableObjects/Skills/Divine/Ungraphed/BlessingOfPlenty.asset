@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: BlessingOfPlenty
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Blessing of Plenty
+  <Description>k__BackingField: Restore 25%max HP and 10%max mana to EVERY creature
+    in both teams
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Blessing of Plenty
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Restore 25%max HP and 10%max mana to EVERY creature
-      in both teams
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 0
     <DefenceType>k__BackingField: 0
+  <GUID>k__BackingField: 1cac30da-758a-4244-80de-10d93cf92556
   <SkillGraph>k__BackingField: {fileID: 0}

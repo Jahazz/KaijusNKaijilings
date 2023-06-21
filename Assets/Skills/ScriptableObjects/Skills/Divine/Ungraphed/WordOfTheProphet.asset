@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: WordOfTheProphet
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Word of the Prophet
+  <Description>k__BackingField: 'Deal dmg to enemy. In the next turn: an ally that
+    enters combat restores 20% max HP and max mana, and gains three random stat buffs.'
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Word of the Prophet
     <Cost>k__BackingField: 30
-    <Description>k__BackingField: 'Deal dmg to enemy. In the next turn: an ally that
-      enters combat restores 20% max HP and max mana, and gains three random stat
-      buffs.'
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
@@ -28,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 30, y: 30}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 2b22e6bd-cc4d-45d0-a3a5-12ecc15e0de0
   <SkillGraph>k__BackingField: {fileID: 0}

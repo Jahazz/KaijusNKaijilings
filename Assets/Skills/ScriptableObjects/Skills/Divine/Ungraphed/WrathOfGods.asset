@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: WrathOfGods
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Wrath of Gods
+  <Description>k__BackingField: Deal dmg to enemy [2-5] times. Every non-Divine creature
+    in both teams loose 20 HP.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Wrath of Gods
     <Cost>k__BackingField: 50
-    <Description>k__BackingField: Deal dmg to enemy [2-5] times. Every non-Divine
-      creature in both teams loose 20 HP.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: cd6a19da08df1974784ef33064b82ca5, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 20, y: 20}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 1a206642-e032-48d2-8a38-6c1c41bb94d4
   <SkillGraph>k__BackingField: {fileID: 0}
