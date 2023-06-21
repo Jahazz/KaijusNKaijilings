@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: Blastwave
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Blastwave
+  <Description>k__BackingField: Deal dmg to enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Blastwave
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Deal dmg to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c2bd31ce945a21d4b91321cc3bd26f76, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 25, y: 30}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: 142c574c-4940-4dbf-9b04-afa57ba8a367
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: eb3a9c1e0c7689e4ead8db4baa05f550,
     type: 2}

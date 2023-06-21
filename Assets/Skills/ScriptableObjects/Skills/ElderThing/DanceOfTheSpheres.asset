@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: DanceOfTheSpheres
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Dance of the Spheres
+  <Description>k__BackingField: Retreat enemy and put out random enemy. Deal dmg.
+    Retreat and put out random ally
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Dance of the Spheres
     <Cost>k__BackingField: 15
-    <Description>k__BackingField: Retreat enemy and put out random enemy. Deal dmg.
-      Retreat and put out random ally
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c2bd31ce945a21d4b91321cc3bd26f76, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 30, y: 30}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: be181db3-0919-4e99-bb21-24924a580a46
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 804335c13747a3a4196b6911268f5cd8,
     type: 2}

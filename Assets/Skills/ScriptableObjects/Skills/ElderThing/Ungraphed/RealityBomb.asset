@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: RealityBomb
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Reality Bomb
+  <Description>k__BackingField: Base power is increased by [+3  per +2% of users
+    mana]. User mana is set to 0. Deal dmg to enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Reality Bomb
     <Cost>k__BackingField: 0
-    <Description>k__BackingField: Base power is increased by [+3  per +2% of users
-      mana]. User mana is set to 0. Deal dmg to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c2bd31ce945a21d4b91321cc3bd26f76, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: de267fd0-1fa4-4421-8c24-6c35e19c12b1
   <SkillGraph>k__BackingField: {fileID: 0}

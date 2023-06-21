@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: TimeDilation
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Time Dilation
+  <Description>k__BackingField: Triple users initiatve for this attack. Add 10 sec
+    to timer. Deal dmg to enemy. Deal dmg to enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Time Dilation
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Triple users initiatve for this attack. Add 10
-      sec to timer. Deal dmg to enemy. Deal dmg to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c2bd31ce945a21d4b91321cc3bd26f76, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 15, y: 20}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: f2be713e-1792-449a-a539-665662d526d3
   <SkillGraph>k__BackingField: {fileID: 0}

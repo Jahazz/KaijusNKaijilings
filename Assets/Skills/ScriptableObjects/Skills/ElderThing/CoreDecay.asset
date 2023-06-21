@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: CoreDecay
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Core Decay
+  <Description>k__BackingField: Deal dmg to user. Deal dmg to enemy. Debuff enemy
+    with 5 Poison.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Core Decay
     <Cost>k__BackingField: 25
-    <Description>k__BackingField: Deal dmg to user. Deal dmg to enemy. Debuff enemy
-      with 5 Poison.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c2bd31ce945a21d4b91321cc3bd26f76, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 45, y: 45}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: a5a42e04-e9a3-4bc1-b2da-418b8070f48b
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: e0ef4e812f372c147b619478509b93be,
     type: 2}

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: GravityWell
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Gravity Well
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with Caged.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Gravity Well
     <Cost>k__BackingField: 30
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with Caged.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c2bd31ce945a21d4b91321cc3bd26f76, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 30, y: 30}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 35420915-5bff-468f-9c2a-b7335a4698a1
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 20e0b0b2c467b2045ab7186672316dfa,
     type: 2}

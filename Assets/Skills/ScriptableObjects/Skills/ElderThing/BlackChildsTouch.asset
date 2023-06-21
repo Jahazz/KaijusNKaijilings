@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: BlackChildsTouch
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Black Child's Touch
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with Caged. Debuff
+    enemy with 1 Poison.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Black Child's Touch
     <Cost>k__BackingField: 25
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with Caged. Debuff
-      enemy with 1 Poison.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c2bd31ce945a21d4b91321cc3bd26f76, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 45, y: 50}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 4921782f-20b2-497d-90aa-0108fea3dc91
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: b54b6554ac7b6f447bcb3194eb58d3f9,
     type: 2}

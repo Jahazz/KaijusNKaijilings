@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: CosmicRay
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Cosmic Ray
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with Mana Leak.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Cosmic Ray
     <Cost>k__BackingField: 5
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy with Mana Leak.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c2bd31ce945a21d4b91321cc3bd26f76, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 5, y: 5}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 58da23a1-ca2e-44f1-86c8-f938f7799e7b
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: b05ace09d5f7b604fb116da2d385ece3,
     type: 2}

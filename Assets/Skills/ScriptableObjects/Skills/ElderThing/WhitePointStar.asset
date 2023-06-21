@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: WhitePointStar
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: White-Point Star
+  <Description>k__BackingField: Deal dmg to enemy, buff Might and Magic to enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: White-Point Star
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Deal dmg to enemy, buff Might and Magic to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: c2bd31ce945a21d4b91321cc3bd26f76, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 45, y: 50}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: cb383e9d-81a0-4d2a-bae5-7c5d7332c95c
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: eefce28227b8aba44a8a50ac22dc1c9a,
     type: 2}
