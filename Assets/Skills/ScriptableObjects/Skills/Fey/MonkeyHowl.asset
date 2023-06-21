@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: MonkeyHowl
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Monkey Howl
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Willpower.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Monkey Howl
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Willpower.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 3cabfc25ecd4b30489d7a5a9190b52ec, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 7, y: 13}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: e2540057-f6db-4067-9074-f2f1fe4242af
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 43bec35c039834b4c9e6c17c7e282fb0,
     type: 2}

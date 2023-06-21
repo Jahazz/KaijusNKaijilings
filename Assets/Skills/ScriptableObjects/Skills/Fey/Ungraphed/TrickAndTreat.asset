@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: TrickAndTreat
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Trick and Treat
+  <Description>k__BackingField: Deal dmg to enemy. Restore 10% mana to other allies
+    [does not restore itself].
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Trick and Treat
     <Cost>k__BackingField: 30
-    <Description>k__BackingField: Deal dmg to enemy. Restore 10% mana to other allies
-      [does not restore itself].
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 3cabfc25ecd4b30489d7a5a9190b52ec, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 15, y: 20}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: c456c135-9e8e-4bd4-a38f-5072a7c4655b
   <SkillGraph>k__BackingField: {fileID: 0}

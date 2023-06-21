@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: GlitterAndGold
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Glitter and Gold
+  <Description>k__BackingField: Cleanse enemy. Deal dmg to enemy. Buff user with
+    Powerup.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Glitter and Gold
     <Cost>k__BackingField: 30
-    <Description>k__BackingField: Cleanse enemy. Deal dmg to enemy. Buff user with
-      Powerup.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 3cabfc25ecd4b30489d7a5a9190b52ec, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 15, y: 25}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 01e0ea9a-147f-475f-8e11-861bea650d0f
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 8d05c579366654245a2011f5d6c67c12,
     type: 2}

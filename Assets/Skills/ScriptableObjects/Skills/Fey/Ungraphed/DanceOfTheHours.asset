@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: DanceOfTheHours
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Dance of the Hours
+  <Description>k__BackingField: 'User cannot retreat untill this attack is resolved
+    in 4 rounds. During each round: retreat enemy and put random enemy. Deal dmg
+    to enemy.'
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Dance of the Hours
     <Cost>k__BackingField: 60
-    <Description>k__BackingField: 'User cannot retreat untill this attack is resolved
-      in 4 rounds. During each round: retreat enemy and put random enemy. Deal dmg
-      to enemy.'
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 3cabfc25ecd4b30489d7a5a9190b52ec, type: 2}
@@ -28,4 +28,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 30, y: 45}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 068c9441-4132-4fad-92fd-67a03d987a23
   <SkillGraph>k__BackingField: {fileID: 0}

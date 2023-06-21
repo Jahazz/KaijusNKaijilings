@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: FairyFire
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Fairy Fire
+  <Description>k__BackingField: Deal dmg to enemy. Cleanse enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Fairy Fire
     <Cost>k__BackingField: 5
-    <Description>k__BackingField: Deal dmg to enemy. Cleanse enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 3cabfc25ecd4b30489d7a5a9190b52ec, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 7, y: 11}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 8634f1a0-f417-4358-95f8-99cbfe37dbdf
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 19ae6f74bb29f89449c48408d032e69b,
     type: 2}

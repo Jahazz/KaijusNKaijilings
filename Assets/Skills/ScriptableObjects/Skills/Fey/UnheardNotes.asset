@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: UnheardNotes
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Unheard Notes
+  <Description>k__BackingField: Deal dmg to enemy. Buff enemy Magic. Buff user Willpower.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Unheard Notes
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Deal dmg to enemy. Buff enemy Magic. Buff user
-      Willpower.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 3cabfc25ecd4b30489d7a5a9190b52ec, type: 2}
@@ -27,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 10, y: 10}
     <AttackType>k__BackingField: 7
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 1cbc67de-2497-4c4e-ac8b-1b0d72ac9265
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: e7f4f5eb5702ee54d8ef9ca82864979a,
     type: 2}

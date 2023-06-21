@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: RiskyPuzzle
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Risky Puzzle
+  <Description>k__BackingField: 'Random: 1-2: deal dmg to enemy. 3: deal dmg to user'
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Risky Puzzle
     <Cost>k__BackingField: 5
-    <Description>k__BackingField: 'Random: 1-2: deal dmg to enemy. 3: deal dmg to
-      user'
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 3cabfc25ecd4b30489d7a5a9190b52ec, type: 2}
@@ -27,4 +26,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 45, y: 50}
     <AttackType>k__BackingField: 7
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: c8c3ec66-7af6-49d0-947c-c02f20718283
   <SkillGraph>k__BackingField: {fileID: 0}

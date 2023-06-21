@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: DeadlyMonologue
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Deadly Monologue
+  <Description>k__BackingField: 'Random: 1: attack does nothing. 2-4: deal dmg to
+    enemy.'
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Deadly Monologue
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: 'Random: 1: attack does nothing. 2-4: deal dmg
-      to enemy.'
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 3cabfc25ecd4b30489d7a5a9190b52ec, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 40, y: 50}
     <AttackType>k__BackingField: 7
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 88c9b5a2-23d6-4573-8f8a-7f3ace968625
   <SkillGraph>k__BackingField: {fileID: 0}
