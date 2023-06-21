@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: SpiteLightning
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Spite Lightning
+  <Description>k__BackingField: Deal dmg to enemy. Debuff user and enemy Willpower.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Spite Lightning
     <Cost>k__BackingField: 15
-    <Description>k__BackingField: Deal dmg to enemy. Debuff user and enemy Willpower.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 6e1104a6f36d78a4c9ff580066d89997, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 55, y: 60}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 553e12c5-66e8-4bdd-ad7d-ae5a0660d1dd
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 6e3118c00ab6faf4d98e3c89090b70e6,
     type: 2}

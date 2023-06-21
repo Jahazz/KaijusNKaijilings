@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: BoomingDive
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Booming Dive
+  <Description>k__BackingField: Deal dmg to enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Booming Dive
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Deal dmg to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 6e1104a6f36d78a4c9ff580066d89997, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 35, y: 40}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: ebc99aae-9fc6-4344-93bf-2300e1ad3777
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: eb3a9c1e0c7689e4ead8db4baa05f550,
     type: 2}

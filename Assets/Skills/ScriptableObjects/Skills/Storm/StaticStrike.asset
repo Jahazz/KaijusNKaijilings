@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: StaticStrike
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Static Strike
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Initiative
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Static Strike
     <Cost>k__BackingField: 2
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Initiative
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 6e1104a6f36d78a4c9ff580066d89997, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 3, y: 3}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 85e5e462-e2c8-4b99-8b16-9fce98cd4052
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 24a3bc9986956b241afd89533a04d7e6,
     type: 2}

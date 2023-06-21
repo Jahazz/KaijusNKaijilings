@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: StolenPower
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Stolen Power
+  <Description>k__BackingField: 'Deal dmg to enemy. Buff user Initiative if enemy
+    have any buff. Cleanse enemy. '
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Stolen Power
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: 'Deal dmg to enemy. Buff user Initiative if enemy
-      have any buff. Cleanse enemy. '
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 6e1104a6f36d78a4c9ff580066d89997, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 12, y: 15}
     <AttackType>k__BackingField: 9
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: af03dfc1-4b66-4b09-ab01-48ae7c09eb7b
   <SkillGraph>k__BackingField: {fileID: 0}

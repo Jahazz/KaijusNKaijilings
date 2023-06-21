@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: SoaringScout
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Soaring Scout
+  <Description>k__BackingField: Buff user with Immune. Buff user Aglity, Might and
+    Magic.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Soaring Scout
     <Cost>k__BackingField: 30
-    <Description>k__BackingField: Buff user with Immune. Buff user Aglity, Might
-      and Magic.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 6e1104a6f36d78a4c9ff580066d89997, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 0
     <DefenceType>k__BackingField: 0
+  <GUID>k__BackingField: 049d38b3-c458-4c9d-9786-713ef9cff931
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: eac1f51abb2899c48875ee4e670b9e4f,
     type: 2}

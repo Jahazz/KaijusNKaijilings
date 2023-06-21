@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: StolenBreath
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Stolen Breath
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Agility and Willpower
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Stolen Breath
     <Cost>k__BackingField: 15
-    <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Agility and Willpower
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 6e1104a6f36d78a4c9ff580066d89997, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 9, y: 10}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 29fc7f78-95c0-4b0e-8868-7ab10a0e9d9a
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 9a1b62d61624e604bbc29909a3b31755,
     type: 2}

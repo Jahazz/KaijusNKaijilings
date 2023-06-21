@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: WingsOfStorm
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Wings of Storm
+  <Description>k__BackingField: Deal dmg to enemy. 50% chance to retreat enemy and
+    put a random enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Wings of Storm
     <Cost>k__BackingField: 5
-    <Description>k__BackingField: Deal dmg to enemy. 50% chance to retreat enemy
-      and put a random enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 6e1104a6f36d78a4c9ff580066d89997, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 12, y: 15}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 7bf6c191-2030-407b-a180-f567160a58fa
   <SkillGraph>k__BackingField: {fileID: 0}
