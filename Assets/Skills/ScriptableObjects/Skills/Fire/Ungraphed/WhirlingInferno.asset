@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: WhirlingInferno
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Whirling Inferno
+  <Description>k__BackingField: Deal dmg to enemy. 30% to debuff enemy with Burning.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Whirling Inferno
     <Cost>k__BackingField: 40
-    <Description>k__BackingField: Deal dmg to enemy. 30% to debuff enemy with Burning.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a7afdcb0cd24d54695c0c4884ac7df6, type: 2}
@@ -26,4 +26,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 67, y: 70}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 297a0d65-060c-4b45-af35-eb87e42fcb33
   <SkillGraph>k__BackingField: {fileID: 0}

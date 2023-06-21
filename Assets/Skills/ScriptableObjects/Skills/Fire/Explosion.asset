@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: Explosion
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Explosion
+  <Description>k__BackingField: Deal dmg to enemy. Deal dmg to user. Debuff enemy
+    with Burning.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Explosion
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Deal dmg to enemy. Deal dmg to user. Debuff enemy
-      with Burning.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a7afdcb0cd24d54695c0c4884ac7df6, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 40, y: 45}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 5b1250a5-94c1-413e-9426-021bd01df420
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: dc5f0e5e16c84a743bdcbe4c4fb86680,
     type: 2}

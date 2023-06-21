@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: FireDevil
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Fire Devil
+  <Description>k__BackingField: Deal dmg to enemy. Debuff user Magic
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Fire Devil
     <Cost>k__BackingField: 30
-    <Description>k__BackingField: Deal dmg to enemy. Debuff user Magic
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a7afdcb0cd24d54695c0c4884ac7df6, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 67, y: 70}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: addb4e70-df9d-4ad3-a208-19ab02bd22f0
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 04d6a68faa3ded4488cc374b3cd53d19,
     type: 2}

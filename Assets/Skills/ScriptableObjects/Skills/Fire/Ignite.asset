@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: Ignite
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Ignite
+  <Description>k__BackingField: Enemy gains debuff Burning
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Ignite
     <Cost>k__BackingField: 5
-    <Description>k__BackingField: Enemy gains debuff Burning
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a7afdcb0cd24d54695c0c4884ac7df6, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 0
     <DefenceType>k__BackingField: 0
+  <GUID>k__BackingField: 862d90ab-99d1-4295-9c52-ffc0335bf025
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 52c2a750ada8d9947ab3acb14600bcff,
     type: 2}

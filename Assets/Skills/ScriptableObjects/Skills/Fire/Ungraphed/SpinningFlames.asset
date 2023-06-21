@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: SpinningFlames
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Spinning Flames
+  <Description>k__BackingField: Deal dmg to enemy. 20% to debuff enemy with Burning.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Spinning Flames
     <Cost>k__BackingField: 5
-    <Description>k__BackingField: Deal dmg to enemy. 20% to debuff enemy with Burning.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a7afdcb0cd24d54695c0c4884ac7df6, type: 2}
@@ -26,4 +26,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 7, y: 10}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: b7586be0-d961-4a73-bff4-366a5870b719
   <SkillGraph>k__BackingField: {fileID: 0}

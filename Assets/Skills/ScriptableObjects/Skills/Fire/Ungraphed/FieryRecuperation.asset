@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: FieryRecuperation
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Fiery Recuperation
+  <Description>k__BackingField: Restore to user 10% max HP for every equipped item.
+    Deal dmg to enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Fiery Recuperation
     <Cost>k__BackingField: 5
-    <Description>k__BackingField: Restore to user 10% max HP for every equipped item.
-      Deal dmg to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a7afdcb0cd24d54695c0c4884ac7df6, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 17, y: 20}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: e9d9eedf-b2f0-447c-9c04-d46c6ffb752d
   <SkillGraph>k__BackingField: {fileID: 0}

@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: SmokeOut
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Smoke Out
+  <Description>k__BackingField: Deal dmg to enemy. Retreat user and put random ally.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Smoke Out
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Deal dmg to enemy. Retreat user and put random
-      ally.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a7afdcb0cd24d54695c0c4884ac7df6, type: 2}
@@ -27,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 37, y: 40}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 105c3091-6049-4d86-93bb-ac06c77af8dd
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 0793f22be7e85e440a377ac9a8ff15b5,
     type: 2}

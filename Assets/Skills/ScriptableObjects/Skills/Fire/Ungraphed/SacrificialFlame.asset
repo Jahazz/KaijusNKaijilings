@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: SacrificialFlame
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Sacrificial Glame
+  <Description>k__BackingField: Deal dmg to enemy. User looses 5 HP.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Sacrificial Flame
     <Cost>k__BackingField: 0
-    <Description>k__BackingField: Deal dmg to enemy. User looses 5 HP.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a7afdcb0cd24d54695c0c4884ac7df6, type: 2}
@@ -26,4 +26,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 7, y: 10}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 51fbe57d-8e33-4856-840c-9e21352369a7
   <SkillGraph>k__BackingField: {fileID: 0}

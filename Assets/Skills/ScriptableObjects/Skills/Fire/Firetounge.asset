@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: Firetounge
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Firetounge
+  <Description>k__BackingField: Deal dmg to enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Firetounge
     <Cost>k__BackingField: 2
-    <Description>k__BackingField: Deal dmg to enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a7afdcb0cd24d54695c0c4884ac7df6, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 4, y: 5}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: a10144c1-1364-43e8-9b32-2fc762d4251b
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: eb3a9c1e0c7689e4ead8db4baa05f550,
     type: 2}
