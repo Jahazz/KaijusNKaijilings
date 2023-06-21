@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: IrresistibleCommand
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Irresitible Command
+  <Description>k__BackingField: Use random enemy attack aganst enemy, replacing attack
+    atrbute with user Wllpower [user is the creature usng IC].
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Irresistible Command
     <Cost>k__BackingField: 50
-    <Description>k__BackingField: Use random enemy attack aganst enemy, replacing
-      attack atrbute with user Wllpower [user is the creature usng IC].
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 7
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 37bfe301-dd61-43be-a21a-7c12f64d4d09
   <SkillGraph>k__BackingField: {fileID: 0}

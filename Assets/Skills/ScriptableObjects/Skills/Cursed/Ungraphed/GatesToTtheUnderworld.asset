@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: GatesToTtheUnderworld
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Gates to the Underworld
+  <Description>k__BackingField: Deal dmg to enemy.  User have 40% to gain debuff
+    Lost. Enemy has 60% to gain debuff Lost.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Gates to the Underworld
     <Cost>k__BackingField: 60
-    <Description>k__BackingField: Deal dmg to enemy.  User have 40% to gain debuff
-      Lost. Enemy has 60% to gain debuff Lost.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 30, y: 45}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 28505362-3230-4058-8c9d-a16f4715b5f4
   <SkillGraph>k__BackingField: {fileID: 0}

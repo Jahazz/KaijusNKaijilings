@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: DevourSuffering
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Devour Suffering
+  <Description>k__BackingField: Restore 5% user HP and user mana for every debuff
+    on enemy. Cleanse enemy.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Devour Suffering
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Restore 5% user HP and user mana for every debuff
-      on enemy. Cleanse enemy.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 0
     <DefenceType>k__BackingField: 0
+  <GUID>k__BackingField: d135b1e1-bb7c-401c-b363-81fe58f2d080
   <SkillGraph>k__BackingField: {fileID: 0}

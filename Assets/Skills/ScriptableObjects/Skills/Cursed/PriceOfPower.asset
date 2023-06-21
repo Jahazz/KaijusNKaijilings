@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: PriceOfPower
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Price of Power
+  <Description>k__BackingField: Debuff user Agility and Willpower three times. Buff
+    user Might and Magic five tmes.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Price of Power
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Debuff user Agility and Willpower three times.
-      Buff user Might and Magic five tmes.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 0
     <DefenceType>k__BackingField: 0
+  <GUID>k__BackingField: 73482c50-b011-4047-9f35-d8cccbf46cf3
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: edcc227853da8a94394a4bf7de0339e2,
     type: 2}

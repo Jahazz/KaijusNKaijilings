@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: OvertimeCurse
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Overtime Curse
+  <Description>k__BackingField: Debuff enemy with Mana Leak and Caged
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Overtime Curse
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Debuff enemy with Mana Leak and Caged
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
@@ -26,5 +26,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 15, y: 20}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: fbf5fb40-2d9d-4f14-8e5e-0dee5f4749d0
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 43230e9e037bd7944af32ee6d8115870,
     type: 2}

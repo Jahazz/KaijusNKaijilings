@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: CurseOfLethargy
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Curse of Lethargy
+  <Description>k__BackingField: Deal dmg to enemy. Debuff enemy Might, Magic, Agility
+    and Willpower.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Curse of Lethargy
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: 
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
@@ -26,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 15, y: 20}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 3905f24a-a51b-4d41-b383-180afe0153c5
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: 27e1bccac026d404dbc30147d2d96a1a,
     type: 2}

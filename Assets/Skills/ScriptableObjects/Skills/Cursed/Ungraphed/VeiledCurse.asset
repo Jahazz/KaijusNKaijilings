@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: VeiledCurse
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Veiled Curse
+  <Description>k__BackingField: '3 round attack. 1st round: restore 20% max HP to
+    enemy. 2nd round: buff user Magic and debuff enemy Willpower. 3rd round: deal
+    dmg to enemy'
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Veiled Curse
     <Cost>k__BackingField: 30
-    <Description>k__BackingField: '3 round attack. 1st round: restore 20% max HP
-      to enemy. 2nd round: buff user Magic and debuff enemy Willpower. 3rd round:
-      deal dmg to enemy'
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
@@ -28,4 +28,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 85, y: 90}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: ff4fdacd-236f-49c9-b909-b98241abd15c
   <SkillGraph>k__BackingField: {fileID: 0}

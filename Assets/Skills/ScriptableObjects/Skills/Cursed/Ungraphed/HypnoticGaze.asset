@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: HypnoticGaze
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Hypnotic Gaze
+  <Description>k__BackingField: 50% to debuff enemy wth Caged.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Hypnotic Gaze
     <Cost>k__BackingField: 5
-    <Description>k__BackingField: 50% to debuff enemy wth Caged.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
@@ -26,4 +26,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 0
     <DefenceType>k__BackingField: 0
+  <GUID>k__BackingField: c6212dda-c0c2-4e75-830a-2202454a86a3
   <SkillGraph>k__BackingField: {fileID: 0}

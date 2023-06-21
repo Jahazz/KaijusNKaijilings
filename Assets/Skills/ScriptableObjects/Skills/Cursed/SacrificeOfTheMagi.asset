@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: SacrificeOfTheMagi
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Sacrifice of the Magi
+  <Description>k__BackingField: Deal dmg to enemy. Deal dmg to user. Buff user Magic,
+    Willpower and Initiative.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Sacrifice of the Magi
     <Cost>k__BackingField: 10
-    <Description>k__BackingField: Deal dmg to enemy. Deal dmg to user. Buff user
-      Magic, Willpower and Initiative.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
@@ -27,5 +27,6 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 20, y: 40}
     <AttackType>k__BackingField: 6
     <DefenceType>k__BackingField: 7
+  <GUID>k__BackingField: 5bfdde1e-042f-471c-a71e-9e3e4cb067c8
   <SkillGraph>k__BackingField: {fileID: 11400000, guid: fcdda34b333c08e408517c09f423e279,
     type: 2}

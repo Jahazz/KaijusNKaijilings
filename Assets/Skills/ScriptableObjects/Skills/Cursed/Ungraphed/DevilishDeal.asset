@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: DevilishDeal
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Devilish Deal
+  <Description>k__BackingField: Buff enemy Might and Magic. Enemy looses 30 HP. Buff
+    user Willpower.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Devilish Deal
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: Buff enemy Might and Magic. Enemy looses 30 HP.
-      Buff user Willpower.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 0, y: 0}
     <AttackType>k__BackingField: 0
     <DefenceType>k__BackingField: 0
+  <GUID>k__BackingField: 386b2e3d-a5ca-437f-9331-3d87b952e6d8
   <SkillGraph>k__BackingField: {fileID: 0}

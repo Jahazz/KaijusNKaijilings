@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05a07a97fe69e54a8b4a382e115f6da, type: 3}
   m_Name: RebeliousBerseker
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Rebelious Berseker
+  <Description>k__BackingField: User looses 10HP. Deal dmg to enemy. 50% to deal
+    dmg to enemy once again.
   <BaseSkillData>k__BackingField:
-    <Name>k__BackingField: Rebelious Berseker
     <Cost>k__BackingField: 20
-    <Description>k__BackingField: User looses 10HP. Deal dmg to enemy. 50% to deal
-      dmg to enemy once again.
     <Image>k__BackingField: {fileID: 0}
     <SkilType>k__BackingField:
     - {fileID: 11400000, guid: 0a5479892f1c18047a331880167af0cf, type: 2}
@@ -27,4 +27,5 @@ MonoBehaviour:
     <DamageRangeValue>k__BackingField: {x: 40, y: 50}
     <AttackType>k__BackingField: 5
     <DefenceType>k__BackingField: 8
+  <GUID>k__BackingField: f3978b5e-663e-4069-91de-a5afee99ec37
   <SkillGraph>k__BackingField: {fileID: 0}
